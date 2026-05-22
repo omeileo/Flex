@@ -1,6 +1,11 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import { colors, radii, spacing, typography } from '@shared/styles/StyleConstants'
+import {
+  colors,
+  radii,
+  spacing,
+  typography,
+} from '@shared/styles/StyleConstants';
 
 export default StyleSheet.create({
   container: {
@@ -41,9 +46,19 @@ export default StyleSheet.create({
     paddingVertical: spacing.md,
     alignItems: 'center',
   },
-  buttonText: {
-    color: colors.textInverse,
-    fontSize: typography.bodyLarge,
-    fontWeight: '600',
+  linkText: {
+    color: colors.accent,
+    fontSize: typography.body,
   },
-})
+  scrollContent: {
+    paddingBottom: 48,
+  },
+  experienceRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  experienceOptionSelected: {
+    flex: 1,
+    backgroundColor: '#D8E3FB',
+  },
+});

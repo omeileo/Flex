@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import { logEventNameVerificationRegex } from './logger.regex'
-import { LogSystem } from './logger.types'
+import { logEventNameVerificationRegex } from './logger.regex';
+import { LogSystem } from './logger.types';
 
 /**
  * Logs an event in your analytics provider.
@@ -14,32 +14,34 @@ import { LogSystem } from './logger.types'
 export const logEvent = (
   eventName: string,
   parameters?: Record<string, string | number | boolean>,
-  systems: LogSystem[] = [LogSystem.console]
+  systems: LogSystem[] = [LogSystem.console],
 ) => {
   try {
-    const sanitizedEventName = sanitizeEventName(eventName)
+    const sanitizedEventName = sanitizeEventName(eventName);
 
-    systems?.forEach((system) => {
+    systems?.forEach(system => {
       switch (system) {
         case LogSystem.firebase:
           // analytics().logEvent(sanitizedEventName, parameters)
-          if (__DEV__) console.log(`[firebase] ${sanitizedEventName}`, parameters ?? {})
-          break
+          if (__DEV__)
+            console.log(`[firebase] ${sanitizedEventName}`, parameters ?? {});
+          break;
 
         case LogSystem.sentry:
           // Sentry.addBreadcrumb({ message: eventName, data: parameters })
-          if (__DEV__) console.log(`[sentry] ${eventName}`, parameters ?? {})
-          break
+          if (__DEV__) console.log(`[sentry] ${eventName}`, parameters ?? {});
+          break;
 
         default:
-          if (__DEV__) console.log(`[event] ${eventName}`, parameters ?? {})
-          break
+          if (__DEV__) console.log(`[event] ${eventName}`, parameters ?? {});
+          break;
       }
-    })
+    });
   } catch (error) {
-    if (__DEV__) console.error('[logEvent error]', error, eventName, parameters)
+    if (__DEV__)
+      console.error('[logEvent error]', error, eventName, parameters);
   }
-}
+};
 
 /**
  * Logs an error in Sentry / console.
@@ -48,27 +50,28 @@ export const logError = (
   error: Error | unknown,
   errorMessage: string,
   functionName: string,
-  parameters?: Record<string, string | number | boolean>
+  parameters?: Record<string, string | number | boolean>,
 ) => {
   // Sentry.captureException(error || new Error(errorMessage), { extra: { errorMessage, functionName, parameters } })
-  if (__DEV__) console.error('[error]', error, errorMessage, functionName, parameters)
-}
+  if (__DEV__)
+    console.error('[error]', error, errorMessage, functionName, parameters);
+};
 
 const sanitizeEventName = (eventName: string): string => {
-  let sanitized = eventName
-  const invalid = logEventNameVerificationRegex.regex.test(sanitized)
+  let sanitized = eventName;
+  const invalid = logEventNameVerificationRegex.regex.test(sanitized);
 
   if (invalid) {
-    sanitized = eventName.replace(logEventNameVerificationRegex.regex, '_')
+    sanitized = eventName.replace(logEventNameVerificationRegex.regex, '_');
   }
 
   if (sanitized.length > 40) {
-    sanitized = sanitized.slice(0, 40)
+    sanitized = sanitized.slice(0, 40);
   }
 
-  return sanitized
-}
+  return sanitized;
+};
 
-const logger = { logEvent, logError }
+const logger = { logEvent, logError };
 
-export default logger
+export default logger;

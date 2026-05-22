@@ -1,0 +1,1481 @@
+{
+  "version": "2.1",
+  "children": [
+    {
+      "type": "frame",
+      "id": "primary-only-default",
+      "x": 0,
+      "y": 0,
+      "name": "Bottom Sheet Component (Primary Only): Default state\nToken: palette.primary.main (#6D28D9), spacing(2) (16px), borderRadius.button (8px)",
+      "width": 375,
+      "height": 520,
+      "fill": "#FFFFFFff",
+      "cornerRadius": [
+        16,
+        16,
+        0,
+        0
+      ],
+      "layout": {
+        "mode": "vertical",
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "frame",
+          "id": "header-1",
+          "name": "Header",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "padding": 16,
+            "justify": "space_between",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "title-1",
+              "name": "Title",
+              "fill": "#1F2937ff",
+              "content": "Confirm Action",
+              "fontFamily": "DM Sans",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon_font",
+              "id": "close-1",
+              "name": "Close Button",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "close",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "#1F2937ff"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "content-1",
+          "name": "Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 16,
+            "padding": 24,
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "content-text-1",
+              "name": "Content Text",
+              "fill": "#1F2937ff",
+              "textGrowth": "fixed-width",
+              "size": {
+                "width": "fill_container"
+              },
+              "content": "This is the content area of the bottom sheet. It can contain any child components and scrollable content.",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "actions-1",
+          "name": "Actions",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 8,
+            "padding": [
+              16,
+              16,
+              24,
+              16
+            ],
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "primary-button-1",
+              "name": "Primary Button",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#6D28D9ff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "primary-text-1",
+                  "name": "Button Text",
+                  "fill": "#FFFFFFff",
+                  "content": "Primary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "primary-only-loading",
+      "x": 575,
+      "y": 0,
+      "name": "Bottom Sheet Component (Primary Only): Loading state",
+      "width": 375,
+      "height": 520,
+      "fill": "#FFFFFFff",
+      "cornerRadius": [
+        16,
+        16,
+        0,
+        0
+      ],
+      "layout": {
+        "mode": "vertical",
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "frame",
+          "id": "header-2",
+          "name": "Header",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "padding": 16,
+            "justify": "space_between",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "title-2",
+              "name": "Title",
+              "fill": "#1F2937ff",
+              "content": "Confirm Action",
+              "fontFamily": "DM Sans",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon_font",
+              "id": "close-2",
+              "name": "Close Button",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "close",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "#1F2937ff"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "content-2",
+          "name": "Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 16,
+            "padding": 24,
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "content-text-2",
+              "name": "Content Text",
+              "fill": "#1F2937ff",
+              "textGrowth": "fixed-width",
+              "size": {
+                "width": "fill_container"
+              },
+              "content": "This is the content area of the bottom sheet. It can contain any child components and scrollable content.",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "actions-2",
+          "name": "Actions",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 8,
+            "padding": [
+              16,
+              16,
+              24,
+              16
+            ],
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "primary-button-2",
+              "name": "Primary Button Loading",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#6D28D9ff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "spacing": 8,
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "spinner-2",
+                  "name": "Loading Spinner",
+                  "width": 16,
+                  "height": 16,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "#FFFFFFff"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "primary-text-2",
+                  "name": "Button Text",
+                  "fill": "#FFFFFFff",
+                  "content": "Loading...",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "primary-only-disabled",
+      "x": 1150,
+      "y": 0,
+      "name": "Bottom Sheet Component (Primary Only): Disabled state",
+      "width": 375,
+      "height": 520,
+      "fill": "#FFFFFFff",
+      "cornerRadius": [
+        16,
+        16,
+        0,
+        0
+      ],
+      "layout": {
+        "mode": "vertical",
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "frame",
+          "id": "header-3",
+          "name": "Header",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "padding": 16,
+            "justify": "space_between",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "title-3",
+              "name": "Title",
+              "fill": "#1F2937ff",
+              "content": "Confirm Action",
+              "fontFamily": "DM Sans",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon_font",
+              "id": "close-3",
+              "name": "Close Button",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "close",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "#1F2937ff"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "content-3",
+          "name": "Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 16,
+            "padding": 24,
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "content-text-3",
+              "name": "Content Text",
+              "fill": "#1F2937ff",
+              "textGrowth": "fixed-width",
+              "size": {
+                "width": "fill_container"
+              },
+              "content": "This is the content area of the bottom sheet. It can contain any child components and scrollable content.",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "actions-3",
+          "name": "Actions",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 8,
+            "padding": [
+              16,
+              16,
+              24,
+              16
+            ],
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "primary-button-3",
+              "name": "Primary Button Disabled",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#D1D5DBff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "primary-text-3",
+                  "name": "Button Text",
+                  "fill": "#6B7280ff",
+                  "content": "Primary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "primary-secondary-default",
+      "x": 0,
+      "y": 720,
+      "name": "Bottom Sheet Component (Primary + Secondary): Default state",
+      "width": 375,
+      "height": 576,
+      "fill": "#FFFFFFff",
+      "cornerRadius": [
+        16,
+        16,
+        0,
+        0
+      ],
+      "layout": {
+        "mode": "vertical",
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "frame",
+          "id": "header-4",
+          "name": "Header",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "padding": 16,
+            "justify": "space_between",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "title-4",
+              "name": "Title",
+              "fill": "#1F2937ff",
+              "content": "Confirm Action",
+              "fontFamily": "DM Sans",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon_font",
+              "id": "close-4",
+              "name": "Close Button",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "close",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "#1F2937ff"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "content-4",
+          "name": "Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 16,
+            "padding": 24,
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "content-text-4",
+              "name": "Content Text",
+              "fill": "#1F2937ff",
+              "textGrowth": "fixed-width",
+              "size": {
+                "width": "fill_container"
+              },
+              "content": "This is the content area with two action buttons. The primary action is emphasized while the secondary provides an alternative.",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "actions-4",
+          "name": "Actions",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "spacing": 8,
+            "padding": [
+              16,
+              16,
+              24,
+              16
+            ],
+            "justify": "start",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "secondary-button-4",
+              "name": "Secondary Button",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#F5F3FFff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "secondary-text-4",
+                  "name": "Button Text",
+                  "fill": "#6D28D9ff",
+                  "content": "Secondary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "primary-button-4",
+              "name": "Primary Button",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#6D28D9ff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "primary-text-4",
+                  "name": "Button Text",
+                  "fill": "#FFFFFFff",
+                  "content": "Primary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "primary-secondary-loading",
+      "x": 575,
+      "y": 720,
+      "name": "Bottom Sheet Component (Primary + Secondary): Loading state",
+      "width": 375,
+      "height": 576,
+      "fill": "#FFFFFFff",
+      "cornerRadius": [
+        16,
+        16,
+        0,
+        0
+      ],
+      "layout": {
+        "mode": "vertical",
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "frame",
+          "id": "header-5",
+          "name": "Header",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "padding": 16,
+            "justify": "space_between",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "title-5",
+              "name": "Title",
+              "fill": "#1F2937ff",
+              "content": "Confirm Action",
+              "fontFamily": "DM Sans",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon_font",
+              "id": "close-5",
+              "name": "Close Button",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "close",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "#1F2937ff"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "content-5",
+          "name": "Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 16,
+            "padding": 24,
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "content-text-5",
+              "name": "Content Text",
+              "fill": "#1F2937ff",
+              "textGrowth": "fixed-width",
+              "size": {
+                "width": "fill_container"
+              },
+              "content": "Primary button is loading while secondary button remains enabled for alternative actions.",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "actions-5",
+          "name": "Actions",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "spacing": 8,
+            "padding": [
+              16,
+              16,
+              24,
+              16
+            ],
+            "justify": "start",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "secondary-button-5",
+              "name": "Secondary Button",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#F5F3FFff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "secondary-text-5",
+                  "name": "Button Text",
+                  "fill": "#6D28D9ff",
+                  "content": "Secondary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "primary-button-5",
+              "name": "Primary Button Loading",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#6D28D9ff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "spacing": 8,
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "spinner-5",
+                  "name": "Loading Spinner",
+                  "width": 16,
+                  "height": 16,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "#FFFFFFff"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "primary-text-5",
+                  "name": "Button Text",
+                  "fill": "#FFFFFFff",
+                  "content": "Loading...",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "primary-secondary-disabled",
+      "x": 1150,
+      "y": 720,
+      "name": "Bottom Sheet Component (Primary + Secondary): Disabled state",
+      "width": 375,
+      "height": 576,
+      "fill": "#FFFFFFff",
+      "cornerRadius": [
+        16,
+        16,
+        0,
+        0
+      ],
+      "layout": {
+        "mode": "vertical",
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "frame",
+          "id": "header-6",
+          "name": "Header",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "padding": 16,
+            "justify": "space_between",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "title-6",
+              "name": "Title",
+              "fill": "#1F2937ff",
+              "content": "Confirm Action",
+              "fontFamily": "DM Sans",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon_font",
+              "id": "close-6",
+              "name": "Close Button",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "close",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "#1F2937ff"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "content-6",
+          "name": "Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 16,
+            "padding": 24,
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "content-text-6",
+              "name": "Content Text",
+              "fill": "#1F2937ff",
+              "textGrowth": "fixed-width",
+              "size": {
+                "width": "fill_container"
+              },
+              "content": "Both buttons are disabled when actions cannot be performed.",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "actions-6",
+          "name": "Actions",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "spacing": 8,
+            "padding": [
+              16,
+              16,
+              24,
+              16
+            ],
+            "justify": "start",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "secondary-button-6",
+              "name": "Secondary Button Disabled",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#F3F4F6ff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "secondary-text-6",
+                  "name": "Button Text",
+                  "fill": "#9CA3AFff",
+                  "content": "Secondary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "primary-button-6",
+              "name": "Primary Button Disabled",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#D1D5DBff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "primary-text-6",
+                  "name": "Button Text",
+                  "fill": "#6B7280ff",
+                  "content": "Primary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "all-buttons-default",
+      "x": 0,
+      "y": 1496,
+      "name": "Bottom Sheet Component (All Buttons): Default state",
+      "width": 375,
+      "height": 632,
+      "fill": "#FFFFFFff",
+      "cornerRadius": [
+        16,
+        16,
+        0,
+        0
+      ],
+      "layout": {
+        "mode": "vertical",
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "frame",
+          "id": "header-7",
+          "name": "Header",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "padding": 16,
+            "justify": "space_between",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "title-7",
+              "name": "Title",
+              "fill": "#1F2937ff",
+              "content": "Confirm Action",
+              "fontFamily": "DM Sans",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon_font",
+              "id": "close-7",
+              "name": "Close Button",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "close",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "#1F2937ff"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "content-7",
+          "name": "Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 16,
+            "padding": 24,
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "content-text-7",
+              "name": "Content Text",
+              "fill": "#1F2937ff",
+              "textGrowth": "fixed-width",
+              "size": {
+                "width": "fill_container"
+              },
+              "content": "This bottom sheet shows all three button types: tertiary (text-only), secondary (outlined), and primary (filled).",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "actions-7",
+          "name": "Actions",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "spacing": 8,
+            "padding": [
+              16,
+              16,
+              24,
+              16
+            ],
+            "justify": "start",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "tertiary-button-7",
+              "name": "Tertiary Button",
+              "width": "fill_container",
+              "height": 44,
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tertiary-text-7",
+                  "name": "Button Text",
+                  "fill": "#6D28D9ff",
+                  "content": "Tertiary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "secondary-button-7",
+              "name": "Secondary Button",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#F5F3FFff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "secondary-text-7",
+                  "name": "Button Text",
+                  "fill": "#6D28D9ff",
+                  "content": "Secondary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "primary-button-7",
+              "name": "Primary Button",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#6D28D9ff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "primary-text-7",
+                  "name": "Button Text",
+                  "fill": "#FFFFFFff",
+                  "content": "Primary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "all-buttons-loading",
+      "x": 575,
+      "y": 1496,
+      "name": "Bottom Sheet Component (All Buttons): Loading state",
+      "width": 375,
+      "height": 632,
+      "fill": "#FFFFFFff",
+      "cornerRadius": [
+        16,
+        16,
+        0,
+        0
+      ],
+      "layout": {
+        "mode": "vertical",
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "frame",
+          "id": "header-8",
+          "name": "Header",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "padding": 16,
+            "justify": "space_between",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "title-8",
+              "name": "Title",
+              "fill": "#1F2937ff",
+              "content": "Confirm Action",
+              "fontFamily": "DM Sans",
+              "fontSize": 16,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon_font",
+              "id": "close-8",
+              "name": "Close Button",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "close",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "#1F2937ff"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "content-8",
+          "name": "Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "vertical",
+            "spacing": 16,
+            "padding": 24,
+            "justify": "start",
+            "align": "start"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "content-text-8",
+              "name": "Content Text",
+              "fill": "#1F2937ff",
+              "textGrowth": "fixed-width",
+              "size": {
+                "width": "fill_container"
+              },
+              "content": "Primary button is loading while other buttons remain enabled.",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "actions-8",
+          "name": "Actions",
+          "width": "fill_container",
+          "height": "fit_content",
+          "fill": "#FFFFFFff",
+          "layout": {
+            "mode": "horizontal",
+            "spacing": 8,
+            "padding": [
+              16,
+              16,
+              24,
+              16
+            ],
+            "justify": "start",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "tertiary-button-8",
+              "name": "Tertiary Button",
+              "width": "fill_container",
+              "height": 44,
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tertiary-text-8",
+                  "name": "Button Text",
+                  "fill": "#6D28D9ff",
+                  "content": "Tertiary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "secondary-button-8",
+              "name": "Secondary Button",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#F5F3FFff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "secondary-text-8",
+                  "name": "Button Text",
+                  "fill": "#6D28D9ff",
+                  "content": "Secondary Action",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "primary-button-8",
+              "name": "Primary Button Loading",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#6D28D9ff",
+              "cornerRadius": 8,
+              "layout": {
+                "mode": "horizontal",
+                "spacing": 8,
+                "justify": "center",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "spinner-8",
+                  "name": "Loading Spinner",
+                  "width": 16,
+                  "height": 16,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "#FFFFFFff"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "primary-text-8",
+                  "name": "Button Text",
+                  "fill": "#FFFFFFff",
+                  "content": "Loading...",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "component-part-header",
+      "x": 0,
+      "y": 2328,
+      "name": "Bottom Sheet Header: With title and close button\nToken: typography.subtitle1 (16px), spacing(2) (16px)",
+      "width": 375,
+      "height": 56,
+      "fill": "#FFFFFFff",
+      "layout": {
+        "mode": "horizontal",
+        "padding": 16,
+        "justify": "space_between",
+        "align": "center"
+      },
+      "children": [
+        {
+          "type": "text",
+          "id": "title-9",
+          "name": "Title",
+          "fill": "#1F2937ff",
+          "content": "Bottom Sheet Title",
+          "fontFamily": "DM Sans",
+          "fontSize": 16,
+          "fontWeight": "600"
+        },
+        {
+          "type": "icon_font",
+          "id": "close-9",
+          "name": "Close Button",
+          "width": 24,
+          "height": 24,
+          "iconFontName": "close",
+          "iconFontFamily": "Material Symbols Rounded",
+          "fill": "#1F2937ff"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "component-part-subtitle",
+      "x": 575,
+      "y": 2328,
+      "name": "Bottom Sheet Subtitle: Subtitle text below title\nToken: typography.body1 (14px), spacing(1) (8px)",
+      "width": 375,
+      "height": 46,
+      "fill": "#FFFFFFff",
+      "layout": {
+        "mode": "vertical",
+        "padding": [
+          8,
+          16
+        ],
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "text",
+          "id": "subtitle-text",
+          "name": "Subtitle Text",
+          "fill": "#6B7280ff",
+          "textGrowth": "fixed-width",
+          "size": {
+            "width": "fill_container"
+          },
+          "content": "This is an optional subtitle that provides additional context below the title.",
+          "fontFamily": "DM Sans",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "component-part-content",
+      "x": 1150,
+      "y": 2328,
+      "name": "Bottom Sheet Content: Scrollable content area\nToken: spacing(3) (24px), backgroundColor.card (#FFFFFF)",
+      "width": 375,
+      "height": 200,
+      "fill": "#FFFFFFff",
+      "layout": {
+        "mode": "vertical",
+        "spacing": 16,
+        "padding": 24,
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "text",
+          "id": "content-demo",
+          "name": "Content Demo Text",
+          "fill": "#1F2937ff",
+          "textGrowth": "fixed-width",
+          "size": {
+            "width": "fill_container"
+          },
+          "content": "This is the scrollable content area. It can contain any child components, forms, text, images, or other interactive elements. The content area automatically expands to fill available space between the header and action buttons.",
+          "fontFamily": "DM Sans",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "component-part-actions",
+      "x": 0,
+      "y": 2584,
+      "name": "Bottom Sheet Actions: Button container\nToken: spacing(2) (16px), borderRadius.button (8px)",
+      "width": 375,
+      "height": 120,
+      "fill": "#FFFFFFff",
+      "layout": {
+        "mode": "vertical",
+        "spacing": 8,
+        "padding": [
+          16,
+          16,
+          24,
+          16
+        ],
+        "justify": "start",
+        "align": "start"
+      },
+      "children": [
+        {
+          "type": "frame",
+          "id": "demo-button",
+          "name": "Demo Button",
+          "width": "fill_container",
+          "height": 44,
+          "fill": "#6D28D9ff",
+          "cornerRadius": 8,
+          "layout": {
+            "mode": "horizontal",
+            "justify": "center",
+            "align": "center"
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "demo-button-text",
+              "name": "Button Text",
+              "fill": "#FFFFFFff",
+              "content": "Action Button",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

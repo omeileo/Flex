@@ -1,6 +1,11 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import { colors, radii, spacing, typography } from '@shared/styles/StyleConstants'
+import {
+  colors,
+  radii,
+  spacing,
+  typography,
+} from '@shared/styles/StyleConstants';
 
 export default StyleSheet.create({
   container: {
@@ -31,4 +36,4 @@ export default StyleSheet.create({
     fontSize: typography.bodyLarge,
     color: colors.textPrimary,
   },
-})
+});

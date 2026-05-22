@@ -1,0 +1,22 @@
+---
+description: Where to place Flex design files and naming conventions
+globs: design/**/*.pen
+alwaysApply: true
+---
+
+# Flex Design File Organization
+
+Pattern: `{name}.{type}.design.pen`
+
+Types: `tokens`, `patterns`, `component`, `template`, `flow`, `exploration`, `archive`
+
+## Locations
+
+- Tokens: `/design/system/tokens/`
+- Components: `/design/system/components/`
+- Flows: `/design/flows/{flowName}/{flowName}.flow.design.pen`
+- Explorations: `/design/explorations/`
+
+Code maps to `apps/mobile/src/shared/styles/StyleConstants.ts` and `apps/mobile/src/shared/components/`.
+
+Never edit `.pen` files as text — use Pencil MCP tools.

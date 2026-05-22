@@ -6,7 +6,7 @@ export default {
     '<THIRD_PARTY_MODULES>',
     '.*.container$',
     '.*.component$',
-    '^[./]'
+    '^[./]',
   ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
@@ -18,5 +18,5 @@ export default {
   printWidth: 120,
   bracketSpacing: true,
   proseWrap: 'preserve',
-  htmlWhitespaceSensitivity: 'css'
-}
+  htmlWhitespaceSensitivity: 'css',
+};

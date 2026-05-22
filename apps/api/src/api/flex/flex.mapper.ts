@@ -1,6 +1,5 @@
-import type { fitness_profiles } from '@prisma/client'
-
 import type { FitnessProfile } from '@flex/shared/types/fitnessProfile/fitnessProfile.schemas'
+import type { fitness_profiles } from '@prisma/client'
 
 export const mapFitnessProfileToResponse = (profile: fitness_profiles): FitnessProfile => ({
   id: profile.id,

@@ -1,14 +1,12 @@
-import type { plan_change_log } from '@prisma/client'
-
+import { getCurrentLoggedInUserOrThrow } from '@/shared/appContext.context'
+import { globalErrors } from '@/shared/dictionary/errors.dictionary'
 import { applyWeeklyProgression } from '@flex/shared/functions/progression/progression.rules'
 import type { FitnessProfile } from '@flex/shared/types/fitnessProfile/fitnessProfile.schemas'
 import type { GeneratePlanRequest, TrainingPlan } from '@flex/shared/types/trainingPlan/trainingPlan.schemas'
+import type { plan_change_log } from '@prisma/client'
 
-import { getCurrentLoggedInUserOrThrow } from '@/shared/appContext.context'
-import { globalErrors } from '@/shared/dictionary/errors.dictionary'
-
-import { fitnessProfileRepository } from '../fitnessProfile/fitnessProfile.repository'
 import { exercisesRepository } from '../exercises/exercises.repository'
+import { fitnessProfileRepository } from '../fitnessProfile/fitnessProfile.repository'
 import { generateTrainingPlanPayload } from './trainingPlans.functions'
 import { trainingPlansRepository } from './trainingPlans.repository'
 import type { PlanChangeLogEntry } from './trainingPlans.types'
@@ -92,15 +90,11 @@ export const trainingPlansService = {
       performances
     )
 
-    const exercisesById = new Map(
-      progressionResult.exercises.map((exercise) => [exercise.exerciseId, exercise])
-    )
+    const exercisesById = new Map(progressionResult.exercises.map((exercise) => [exercise.exerciseId, exercise]))
 
     const updatedWorkouts = planJson.workouts.map((workout) => ({
       ...workout,
-      exercises: workout.exercises.map(
-        (exercise) => exercisesById.get(exercise.exerciseId) ?? exercise
-      )
+      exercises: workout.exercises.map((exercise) => exercisesById.get(exercise.exerciseId) ?? exercise)
     }))
 
     const nextWeekNumber = planRecord.week_number + 1

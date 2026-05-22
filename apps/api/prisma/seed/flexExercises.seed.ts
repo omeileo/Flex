@@ -1,6 +1,5 @@
-import { PrismaClient } from '@prisma/client'
-
 import { ExerciseCategory } from '@flex/shared/enums/exerciseCategory.enum'
+import { PrismaClient } from '@prisma/client'
 
 import { logger } from '../../src/app'
 

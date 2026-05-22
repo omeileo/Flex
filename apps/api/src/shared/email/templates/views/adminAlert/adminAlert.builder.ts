@@ -1,4 +1,5 @@
 import { env } from '@/shared/functions/envConfig'
+
 import { createStandardEmailTemplate } from '../../../emailTemplate.builder'
 
 /**

@@ -1,5 +1,6 @@
 {
   "root": true,
+  "ignorePatterns": ["build/**", "coverage/**", "node_modules/**", "dist/**"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2020,
@@ -38,8 +39,6 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "no-console": "warn",
-    "semi": ["error", "never"],
-    "quotes": ["error", "single"]
+    "no-console": "warn"
   }
 }

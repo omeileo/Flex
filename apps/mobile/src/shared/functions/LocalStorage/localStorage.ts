@@ -1,5 +1,5 @@
-import wrapperLocalStorage from './localStorage.functions'
+import wrapperLocalStorage from './localStorage.functions';
 
-const localStorage = wrapperLocalStorage()
+const localStorage = wrapperLocalStorage();
 
-export default localStorage
+export default localStorage;

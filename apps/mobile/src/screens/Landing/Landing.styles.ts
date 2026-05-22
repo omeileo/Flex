@@ -1,6 +1,11 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import { colors, radii, spacing, typography } from '@shared/styles/StyleConstants'
+import {
+  colors,
+  radii,
+  spacing,
+  typography,
+} from '@shared/styles/StyleConstants';
 
 export default StyleSheet.create({
   container: {
@@ -45,4 +50,14 @@ export default StyleSheet.create({
     fontSize: typography.bodyLarge,
     fontWeight: '600',
   },
-})
+  devButton: {
+    marginTop: spacing.xl,
+    alignItems: 'center',
+    paddingVertical: spacing.sm,
+  },
+  devButtonText: {
+    color: colors.textSecondary,
+    fontSize: typography.caption,
+    textDecorationLine: 'underline',
+  },
+});

@@ -2,10 +2,7 @@ import { PrismaClient, user_preferences } from '@prisma/client'
 
 import { logger } from '../../../src/app'
 
-const userPreferencesList: Omit<
-  user_preferences,
-  'created_at' | 'updated_at'
->[] = [
+const userPreferencesList: Omit<user_preferences, 'created_at' | 'updated_at'>[] = [
   {
     id: 1,
     user_id: 1,

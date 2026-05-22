@@ -20,9 +20,8 @@ import {
 const isVerifyWithToken = (request: VerifyEmailRequest): request is VerifyEmailWithTokenRequest =>
   'verificationToken' in request
 
-const isVerifyWithCodeAndEmail = (
-  request: VerifyEmailRequest
-): request is VerifyEmailWithCodeAndEmailRequest => 'email' in request && 'code' in request
+const isVerifyWithCodeAndEmail = (request: VerifyEmailRequest): request is VerifyEmailWithCodeAndEmailRequest =>
+  'email' in request && 'code' in request
 
 const activateUserFromTokenEntry = async (tokenEntry: email_verification_tokens) => {
   if (token.emailVerificationToken.isTokenExpired(tokenEntry.expires_at)) {
@@ -63,9 +62,7 @@ export const verifyEmailService = {
   /**
    * Verifies the user's email with a six-character code (and optional email).
    */
-  verifyEmailWithCode: async (
-    verifyEmailRequest: VerifyEmailWithCodeRequest | VerifyEmailWithCodeAndEmailRequest
-  ) => {
+  verifyEmailWithCode: async (verifyEmailRequest: VerifyEmailWithCodeRequest | VerifyEmailWithCodeAndEmailRequest) => {
     const emailForLookup = 'email' in verifyEmailRequest ? verifyEmailRequest.email : undefined
 
     logger.info(
@@ -73,10 +70,7 @@ export const verifyEmailService = {
     )
 
     try {
-      const tokenEntry = await emailVerificationTokenRepository.getByShortCode(
-        verifyEmailRequest.code,
-        emailForLookup
-      )
+      const tokenEntry = await emailVerificationTokenRepository.getByShortCode(verifyEmailRequest.code, emailForLookup)
       const updatedUser = await activateUserFromTokenEntry(tokenEntry)
 
       logger.info(`Email verified with code: ${obfuscateSensitiveData(updatedUser.email)}`)

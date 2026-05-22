@@ -1,28 +1,36 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
 
-import { getPlanChanges } from '../getPlanChanges.slice'
-import getPlanChangesReducer from '../getPlanChanges.slice'
+import { getPlanChanges } from '../getPlanChanges.slice';
+import getPlanChangesReducer from '../getPlanChanges.slice';
 
 jest.mock('../getPlanChanges.api', () => ({
-  getPlanChangesApi: jest.fn()
-}))
+  getPlanChangesApi: jest.fn(),
+}));
 
-jest.mock('../../../../../shared/functions/ErrorHandler/errorHandler.functions', () => ({
-  __esModule: true,
-  default: { handleApiError: jest.fn(), handleDefaultError: jest.fn(), isErrorCode: jest.fn() }
-}))
+jest.mock(
+  '../../../../../shared/functions/ErrorHandler/errorHandler.functions',
+  () => ({
+    __esModule: true,
+    default: {
+      handleApiError: jest.fn(),
+      handleDefaultError: jest.fn(),
+      isErrorCode: jest.fn(),
+    },
+  }),
+);
 
-const { getPlanChangesApi } = jest.requireMock('../getPlanChanges.api')
+const { getPlanChangesApi } = jest.requireMock('../getPlanChanges.api');
 
-const buildStore = () => configureStore({ reducer: { getPlanChanges: getPlanChangesReducer } })
+const buildStore = () =>
+  configureStore({ reducer: { getPlanChanges: getPlanChangesReducer } });
 
 describe('getPlanChanges slice', () => {
   beforeEach(() => {
-    jest.resetAllMocks()
-  })
+    jest.resetAllMocks();
+  });
 
   it('returns initial state by default', () => {
-    const store = buildStore()
-    expect(store.getState().getPlanChanges.loading).toBe(false)
-  })
-})
+    const store = buildStore();
+    expect(store.getState().getPlanChanges.loading).toBe(false);
+  });
+});

@@ -49,11 +49,7 @@ export const VerifyEmailWithCodeRequestBody = zodd
  * Union body for verify-email: long token OR short code (+ optional email).
  */
 export const VerifyEmailRequestBody = zodd
-  .union([
-    VerifyEmailWithTokenRequestBody,
-    VerifyEmailWithCodeAndEmailRequestBody,
-    VerifyEmailWithCodeRequestBody
-  ])
+  .union([VerifyEmailWithTokenRequestBody, VerifyEmailWithCodeAndEmailRequestBody, VerifyEmailWithCodeRequestBody])
   .openapi({
     description: 'Verify with long token, or six-character code with optional email'
   })

@@ -12,6 +12,7 @@
     "dev:mobile": "npm run start -w @flex/mobile",
     "check:product-flow-docs": "npm run check:product-flow-api-docs -w @flex/api && npm run check:product-flow-docs -w @flex/mobile",
     "test": "npm run test -w @flex/shared && npm run test -w @flex/api",
-    "lint": "npm run build:shared && npm run lint -w @flex/api"
+    "lint": "npm run build:shared && npm run lint -w @flex/shared && npm run lint-validate -w @flex/mobile && npm run lint:validate -w @flex/api",
+    "lint:fix": "npm run lint -w @flex/mobile && npm run lint:fix -w @flex/api"
   }
 }

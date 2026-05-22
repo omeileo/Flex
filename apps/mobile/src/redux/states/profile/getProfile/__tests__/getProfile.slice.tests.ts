@@ -1,28 +1,36 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
 
-import { getProfile } from '../getProfile.slice'
-import getProfileReducer from '../getProfile.slice'
+import { getProfile } from '../getProfile.slice';
+import getProfileReducer from '../getProfile.slice';
 
 jest.mock('../getProfile.api', () => ({
-  getProfileApi: jest.fn()
-}))
+  getProfileApi: jest.fn(),
+}));
 
-jest.mock('../../../../../shared/functions/ErrorHandler/errorHandler.functions', () => ({
-  __esModule: true,
-  default: { handleApiError: jest.fn(), handleDefaultError: jest.fn(), isErrorCode: jest.fn() }
-}))
+jest.mock(
+  '../../../../../shared/functions/ErrorHandler/errorHandler.functions',
+  () => ({
+    __esModule: true,
+    default: {
+      handleApiError: jest.fn(),
+      handleDefaultError: jest.fn(),
+      isErrorCode: jest.fn(),
+    },
+  }),
+);
 
-const { getProfileApi } = jest.requireMock('../getProfile.api')
+const { getProfileApi } = jest.requireMock('../getProfile.api');
 
-const buildStore = () => configureStore({ reducer: { getProfile: getProfileReducer } })
+const buildStore = () =>
+  configureStore({ reducer: { getProfile: getProfileReducer } });
 
 describe('getProfile slice', () => {
   beforeEach(() => {
-    jest.resetAllMocks()
-  })
+    jest.resetAllMocks();
+  });
 
   it('returns initial state by default', () => {
-    const store = buildStore()
-    expect(store.getState().getProfile.loading).toBe(false)
-  })
-})
+    const store = buildStore();
+    expect(store.getState().getProfile.loading).toBe(false);
+  });
+});

@@ -1,6 +1,10 @@
 import { Request, Response } from 'express'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { getJwtTokenFromRequest } from '../../../functions/http/request.functions'
+import { blacklistedTokensRepository } from '../../../repository/blacklistedTokens.repository'
+import jwtMiddleware from '../jwt.middleware'
+
 vi.mock('@/app', () => ({
   logger: {
     error: vi.fn(),
@@ -23,10 +27,6 @@ vi.mock('../jwt.functions', () => ({
     verifyToken: vi.fn()
   }
 }))
-
-import { getJwtTokenFromRequest } from '../../../functions/http/request.functions'
-import { blacklistedTokensRepository } from '../../../repository/blacklistedTokens.repository'
-import jwtMiddleware from '../jwt.middleware'
 
 describe('jwt middleware', () => {
   beforeEach(() => {

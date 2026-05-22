@@ -1,6 +1,6 @@
 import type { WorkoutSessionCreate } from '@flex/shared/types/workoutSession/workoutSession.schemas'
-import type { z } from 'zod'
 import { workoutSessionCompleteSchema } from '@flex/shared/types/workoutSession/workoutSession.schemas'
+import type { z } from 'zod'
 
 export type CreateWorkoutSessionRequest = WorkoutSessionCreate
 

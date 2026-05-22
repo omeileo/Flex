@@ -1,13 +1,13 @@
-const path = require('path')
-const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config')
+const path = require('path');
+const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 
-const projectRoot = __dirname
-const monorepoRoot = path.resolve(projectRoot, '../..')
-const sharedRoot = path.resolve(monorepoRoot, 'shared')
-const sharedDist = path.resolve(sharedRoot, 'dist')
+const projectRoot = __dirname;
+const monorepoRoot = path.resolve(projectRoot, '../..');
+const sharedRoot = path.resolve(monorepoRoot, 'shared');
+const sharedDist = path.resolve(sharedRoot, 'dist');
 
-const defaultConfig = getDefaultConfig(projectRoot)
-const { assetExts, sourceExts } = defaultConfig.resolver
+const defaultConfig = getDefaultConfig(projectRoot);
+const { assetExts, sourceExts } = defaultConfig.resolver;
 
 const config = {
   watchFolders: [monorepoRoot],
@@ -19,7 +19,7 @@ const config = {
     sourceExts: [...sourceExts, 'svg'],
     nodeModulesPaths: [
       path.resolve(projectRoot, 'node_modules'),
-      path.resolve(monorepoRoot, 'node_modules')
+      path.resolve(monorepoRoot, 'node_modules'),
     ],
     extraNodeModules: {
       '@': `${projectRoot}/src`,
@@ -31,6 +31,6 @@ const config = {
       '@flex/shared': sharedDist,
     },
   },
-}
+};
 
-module.exports = mergeConfig(defaultConfig, config)
+module.exports = mergeConfig(defaultConfig, config);

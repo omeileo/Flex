@@ -20,4 +20,4 @@ module.exports = {
     '!src/**/*.dictionary.ts',
     '!src/scripts/**',
   ],
-}
+};

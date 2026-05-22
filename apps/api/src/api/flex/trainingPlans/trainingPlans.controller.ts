@@ -1,14 +1,10 @@
-import express, { Request, Response, Router } from 'express'
-import { StatusCodes } from 'http-status-codes'
-
 import { getParams, getRequestBody } from '@/shared/functions/http/request.functions'
 import { successResponse } from '@/shared/functions/http/response/response.function'
 import { requestHandler } from '@/shared/middleware/requesthandler.middleware'
+import express, { Request, Response, Router } from 'express'
+import { StatusCodes } from 'http-status-codes'
 
-import {
-  generateTrainingPlanRequestValidator,
-  trainingPlanIdParamsValidator
-} from './trainingPlans.middleware'
+import { generateTrainingPlanRequestValidator, trainingPlanIdParamsValidator } from './trainingPlans.middleware'
 import { TrainingPlansRoutes } from './trainingPlans.routes'
 import { trainingPlansService } from './trainingPlans.service'
 import type { GenerateTrainingPlanRequest, TrainingPlanParams } from './trainingPlans.types'

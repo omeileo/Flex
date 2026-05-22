@@ -1,6 +1,5 @@
-/* eslint-disable no-console */
-import fs from 'fs'
-import path from 'path'
+import fs from 'fs';
+import path from 'path';
 
 /**
  * Scaffolds a redux slice in the createAsyncThunk + createSlice format.
@@ -13,90 +12,111 @@ import path from 'path'
  *   node ./src/shared/scripts/redux/generateApiReduxState.scripts.ts login auth.login POST
  */
 
-const args = process.argv.slice(2)
-const [stateName, apiPath, methodArg] = args
+const args = process.argv.slice(2);
+const [stateName, apiPath, methodArg] = args;
 
 if (!stateName || !apiPath || !methodArg) {
-  console.error('Usage: generateApiReduxState <stateName> <apiPath e.g. auth.login> <method GET|POST|PUT|PATCH|DELETE>')
-  process.exit(1)
+  console.error(
+    'Usage: generateApiReduxState <stateName> <apiPath e.g. auth.login> <method GET|POST|PUT|PATCH|DELETE>',
+  );
+  process.exit(1);
 }
 
-const method = methodArg.toUpperCase()
+const method = methodArg.toUpperCase();
 if (!['GET', 'POST', 'PUT', 'PATCH', 'DELETE'].includes(method)) {
-  console.error(`Invalid method ${method}. Use one of GET, POST, PUT, PATCH, DELETE.`)
-  process.exit(1)
+  console.error(
+    `Invalid method ${method}. Use one of GET, POST, PUT, PATCH, DELETE.`,
+  );
+  process.exit(1);
 }
 
-const [label, endpointKey] = apiPath.split('.')
+const [label, endpointKey] = apiPath.split('.');
 if (!label || !endpointKey) {
-  console.error(`apiPath must be in the form '<label>.<endpoint>' (e.g. 'auth.login'). Got: ${apiPath}`)
-  process.exit(1)
+  console.error(
+    `apiPath must be in the form '<label>.<endpoint>' (e.g. 'auth.login'). Got: ${apiPath}`,
+  );
+  process.exit(1);
 }
 
-const capitalizedStateName = stateName.charAt(0).toUpperCase() + stateName.slice(1)
+const capitalizedStateName =
+  stateName.charAt(0).toUpperCase() + stateName.slice(1);
 
-const projectRoot = process.cwd()
-const sliceDir = path.join(projectRoot, 'src/redux/states', label, stateName)
-const testsDir = path.join(sliceDir, '__tests__')
-const importPrefix = '../../../../'
+const projectRoot = process.cwd();
+const sliceDir = path.join(projectRoot, 'src/redux/states', label, stateName);
+const testsDir = path.join(sliceDir, '__tests__');
+const importPrefix = '../../../../';
 
 const createFile = (filePath: string, content: string) => {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true })
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
   if (fs.existsSync(filePath)) {
-    console.log(`skip (exists) ${path.relative(projectRoot, filePath)}`)
+    console.log(`skip (exists) ${path.relative(projectRoot, filePath)}`);
 
-    return
+    return;
   }
-  fs.writeFileSync(filePath, content, 'utf8')
-  console.log(`create ${path.relative(projectRoot, filePath)}`)
-}
+  fs.writeFileSync(filePath, content, 'utf8');
+  console.log(`create ${path.relative(projectRoot, filePath)}`);
+};
 
 const updateEndpoints = () => {
-  const endpointsPath = path.join(projectRoot, 'src/networkRequests/apiClient/endpoints.ts')
-  const sanitizedEndpoint = endpointKey.replace(/-([a-z])/g, (_match, letter) => letter.toUpperCase())
-  const content = fs.readFileSync(endpointsPath, 'utf8')
-  const labelBlockRegex = new RegExp(`(${label}:\\s*\\{)([^}]*)(\\})`, 'm')
+  const endpointsPath = path.join(
+    projectRoot,
+    'src/networkRequests/apiClient/endpoints.ts',
+  );
+  const sanitizedEndpoint = endpointKey.replace(/-([a-z])/g, (_match, letter) =>
+    letter.toUpperCase(),
+  );
+  const content = fs.readFileSync(endpointsPath, 'utf8');
+  const labelBlockRegex = new RegExp(`(${label}:\\s*\\{)([^}]*)(\\})`, 'm');
 
   if (labelBlockRegex.test(content)) {
     if (content.includes(`${sanitizedEndpoint}:`)) {
-      console.log(`endpoints.ts already has ${label}.${sanitizedEndpoint}`)
+      console.log(`endpoints.ts already has ${label}.${sanitizedEndpoint}`);
 
-      return
+      return;
     }
-    const updated = content.replace(labelBlockRegex, (_full, open, body, close) => {
-      const trimmed = body.replace(/\s+$/, '')
-      const insert = `${trimmed.endsWith(',') || trimmed === '' ? '' : ','}\n    ${sanitizedEndpoint}: '${label}/${endpointKey}'\n  `
+    const updated = content.replace(
+      labelBlockRegex,
+      (_full, open, body, close) => {
+        const trimmed = body.replace(/\s+$/, '');
+        const insert = `${trimmed.endsWith(',') || trimmed === '' ? '' : ','}\n    ${sanitizedEndpoint}: '${label}/${endpointKey}'\n  `;
 
-      return `${open}${trimmed}${insert}${close}`
-    })
-    fs.writeFileSync(endpointsPath, updated, 'utf8')
-    console.log(`endpoints.ts updated with ${label}.${sanitizedEndpoint}`)
+        return `${open}${trimmed}${insert}${close}`;
+      },
+    );
+    fs.writeFileSync(endpointsPath, updated, 'utf8');
+    console.log(`endpoints.ts updated with ${label}.${sanitizedEndpoint}`);
   } else {
-    const updated = content.replace(/const urls = \{/, `const urls = {\n  ${label}: {\n    ${sanitizedEndpoint}: '${label}/${endpointKey}'\n  },`)
-    fs.writeFileSync(endpointsPath, updated, 'utf8')
-    console.log(`endpoints.ts received new label ${label}`)
+    const updated = content.replace(
+      /const urls = \{/,
+      `const urls = {\n  ${label}: {\n    ${sanitizedEndpoint}: '${label}/${endpointKey}'\n  },`,
+    );
+    fs.writeFileSync(endpointsPath, updated, 'utf8');
+    console.log(`endpoints.ts received new label ${label}`);
   }
-}
+};
 
 const updateStore = () => {
-  const storePath = path.join(projectRoot, 'src/redux/store/store.ts')
-  const content = fs.readFileSync(storePath, 'utf8')
-  const importStatement = `import ${stateName}Reducer from '../states/${label}/${stateName}/${stateName}.slice'`
-  const reducerLine = `  ${stateName}: ${stateName}Reducer,`
+  const storePath = path.join(projectRoot, 'src/redux/store/store.ts');
+  const content = fs.readFileSync(storePath, 'utf8');
+  const importStatement = `import ${stateName}Reducer from '../states/${label}/${stateName}/${stateName}.slice'`;
+  const reducerLine = `  ${stateName}: ${stateName}Reducer,`;
 
-  let updated = content
+  let updated = content;
   if (!content.includes(importStatement)) {
-    updated = updated.replace(/((?:import .* from '.*'\n)+)/, `$1${importStatement}\n`)
+    updated = updated.replace(
+      /((?:import .* from '.*'\n)+)/,
+      `$1${importStatement}\n`,
+    );
   }
   if (!content.includes(`${stateName}: ${stateName}Reducer`)) {
-    updated = updated.replace(/(combineReducers\(\{\n)/, `$1${reducerLine}\n`)
+    updated = updated.replace(/(combineReducers\(\{\n)/, `$1${reducerLine}\n`);
   }
-  fs.writeFileSync(storePath, updated, 'utf8')
-  console.log(`store.ts wired with ${stateName}`)
-}
+  fs.writeFileSync(storePath, updated, 'utf8');
+  console.log(`store.ts wired with ${stateName}`);
+};
 
-updateEndpoints()
-updateStore()
+updateEndpoints();
+updateStore();
 
 createFile(
   path.join(sliceDir, `${stateName}.types.ts`),
@@ -123,8 +143,8 @@ export interface ${capitalizedStateName}State {
 }
 
 export type ${capitalizedStateName}ActionTypes = SliceActions<typeof ${stateName}Actions>
-`
-)
+`,
+);
 
 createFile(
   path.join(sliceDir, `${stateName}.initialState.ts`),
@@ -137,8 +157,8 @@ const initialState: ${capitalizedStateName}State = {
 }
 
 export default initialState
-`
-)
+`,
+);
 
 createFile(
   path.join(sliceDir, `${stateName}.api.ts`),
@@ -149,8 +169,12 @@ import { ${capitalizedStateName}ErrorResponse, ${capitalizedStateName}Request, $
 export const ${stateName}Api = async (request: ${capitalizedStateName}Request): Promise<${capitalizedStateName}SuccessResponse> => {
   const response = await configureRequest({
     url: urls.${label}.${endpointKey.replace(/-([a-z])/g, (_match, letter) => letter.toUpperCase())},
-    method: '${method}'${method === 'GET' ? '' : `,
-    data: request as unknown as object`}
+    method: '${method}'${
+      method === 'GET'
+        ? ''
+        : `,
+    data: request as unknown as object`
+    }
   })
 
   if (response.status >= 200 && response.status < 300) {
@@ -161,8 +185,8 @@ export const ${stateName}Api = async (request: ${capitalizedStateName}Request): 
 }
 
 export default ${stateName}Api
-`
-)
+`,
+);
 
 createFile(
   path.join(sliceDir, `${stateName}.slice.ts`),
@@ -217,8 +241,8 @@ const ${stateName}Slice = createSlice({
 
 export const { actions: ${stateName}Actions, reducer: ${stateName}Reducer } = ${stateName}Slice
 export default ${stateName}Slice.reducer
-`
-)
+`,
+);
 
 createFile(
   path.join(testsDir, `${stateName}.slice.tests.ts`),
@@ -230,7 +254,9 @@ describe('${stateName} slice', () => {
     expect(${stateName}Reducer(undefined, { type: '@@INIT' } as never)).toEqual(${stateName}InitialState)
   })
 })
-`
-)
+`,
+);
 
-console.log(`\n${capitalizedStateName} slice scaffolded under src/redux/states/${label}/${stateName}/`)
+console.log(
+  `\n${capitalizedStateName} slice scaffolded under src/redux/states/${label}/${stateName}/`,
+);

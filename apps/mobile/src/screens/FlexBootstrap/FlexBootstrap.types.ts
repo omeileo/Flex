@@ -1,3 +1,3 @@
 export interface FlexBootstrapComponentProps {
-  message: string
+  message: string;
 }

@@ -1,5 +1,5 @@
-import type { GeneratePlanRequest, TrainingPlan } from '@flex/shared/types/trainingPlan/trainingPlan.schemas'
 import type { ProgressionChange } from '@flex/shared/functions/progression/progression.types'
+import type { GeneratePlanRequest, TrainingPlan } from '@flex/shared/types/trainingPlan/trainingPlan.schemas'
 
 export type GenerateTrainingPlanRequest = GeneratePlanRequest
 

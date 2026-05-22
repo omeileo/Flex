@@ -1,8 +1,8 @@
+import { PrismaPg } from '@prisma/adapter-pg'
+import { PrismaClient } from '@prisma/client'
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import tls from 'node:tls'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '@prisma/client'
 import { Pool } from 'pg'
 
 import { env } from '../src/shared/functions/envConfig'
@@ -16,10 +16,7 @@ const connectionString = url.toString()
 const ssl = isLocalDb
   ? undefined
   : {
-      ca: [
-        readFileSync(path.join(process.cwd(), 'certs/supabase-ca-dev.crt'), 'utf8'),
-        ...tls.rootCertificates
-      ],
+      ca: [readFileSync(path.join(process.cwd(), 'certs/supabase-ca-dev.crt'), 'utf8'), ...tls.rootCertificates],
       rejectUnauthorized: true
     }
 

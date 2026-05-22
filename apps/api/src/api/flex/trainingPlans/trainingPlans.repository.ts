@@ -5,15 +5,13 @@ import { Prisma, type plan_change_log, type session_sets } from '@prisma/client'
 
 import prisma from '../../../../prisma/prisma.client'
 
-const mapPlanRecordToTrainingPlan = (
-  plan: {
-    id: number
-    user_id: number
-    status: string
-    week_number: number
-    plan_json: Prisma.JsonValue
-  }
-): TrainingPlan => {
+const mapPlanRecordToTrainingPlan = (plan: {
+  id: number
+  user_id: number
+  status: string
+  week_number: number
+  plan_json: Prisma.JsonValue
+}): TrainingPlan => {
   const planJson = plan.plan_json as TrainingPlan
 
   return {
@@ -171,9 +169,7 @@ export const trainingPlansRepository = {
         const workout = input.planJson.workouts.find(
           (item) => item.dayIndex === plannedExercise.planned_workout.day_index
         )
-        const updatedExercise = workout?.exercises.find(
-          (item) => item.exerciseId === plannedExercise.exercise_id
-        )
+        const updatedExercise = workout?.exercises.find((item) => item.exerciseId === plannedExercise.exercise_id)
 
         if (!updatedExercise) {
           continue

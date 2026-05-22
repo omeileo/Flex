@@ -27,7 +27,7 @@ export async function calculateTax(itemDetails: ItemDetails[]): Promise<Calculat
     }
   }
 
-  let itemPurchaseTaxAdministrativeDivision: string | null = null
+  const itemPurchaseTaxAdministrativeDivision: string | null = null
   let totalTax = 0
   let taxCountry: { id: number; name: string } | null = null
   let taxAdministrativeDivision: { id: number; name: string } | null = null

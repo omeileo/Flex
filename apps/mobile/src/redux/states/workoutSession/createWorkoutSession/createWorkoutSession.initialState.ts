@@ -1,9 +1,9 @@
-import { CreateWorkoutSessionState } from './createWorkoutSession.types'
+import { CreateWorkoutSessionState } from './createWorkoutSession.types';
 
 const initialState: CreateWorkoutSessionState = {
   loading: false,
   error: null,
-  success: null
-}
+  success: null,
+};
 
-export default initialState
+export default initialState;

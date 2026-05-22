@@ -5,4 +5,4 @@ export const strings = {
     networkError: 'Network unavailable. Check your connection.',
     unknownError: 'Something went wrong. Please try again.',
   },
-} as const
+} as const;

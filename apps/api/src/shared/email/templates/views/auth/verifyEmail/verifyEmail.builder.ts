@@ -1,7 +1,6 @@
-import { email_verification_tokens } from '@prisma/client'
-
 import { User } from '@/shared/email/email.types'
 import { env } from '@/shared/functions/envConfig'
+import { email_verification_tokens } from '@prisma/client'
 
 import { createStandardEmailTemplate } from '../../../../emailTemplate.builder'
 

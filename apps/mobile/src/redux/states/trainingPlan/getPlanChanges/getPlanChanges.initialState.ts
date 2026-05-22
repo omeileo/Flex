@@ -1,9 +1,9 @@
-import { GetPlanChangesState } from './getPlanChanges.types'
+import { GetPlanChangesState } from './getPlanChanges.types';
 
 const initialState: GetPlanChangesState = {
   loading: false,
   error: null,
-  success: null
-}
+  success: null,
+};
 
-export default initialState
+export default initialState;

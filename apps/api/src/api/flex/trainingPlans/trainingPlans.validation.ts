@@ -1,17 +1,11 @@
+import { globalErrors } from '@/shared/dictionary/errors.dictionary'
 import { PlanStatus } from '@flex/shared/enums/planStatus.enum'
-import {
-  trainingPlanSchema,
-  type TrainingPlan
-} from '@flex/shared/types/trainingPlan/trainingPlan.schemas'
+import { type TrainingPlan, trainingPlanSchema } from '@flex/shared/types/trainingPlan/trainingPlan.schemas'
 import { z } from 'zod'
 
-import { globalErrors } from '@/shared/dictionary/errors.dictionary'
-
-const generatedTrainingPlanSchema = trainingPlanSchema
-  .omit({ id: true, userId: true })
-  .extend({
-    status: z.nativeEnum(PlanStatus).default(PlanStatus.ACTIVE)
-  })
+const generatedTrainingPlanSchema = trainingPlanSchema.omit({ id: true, userId: true }).extend({
+  status: z.nativeEnum(PlanStatus).default(PlanStatus.ACTIVE)
+})
 
 export const validateGeneratedTrainingPlan = (
   plan: Omit<TrainingPlan, 'id' | 'userId'>,

@@ -1,5 +1,6 @@
 import { Express } from 'express'
 
+import { env } from '../../shared/functions/envConfig'
 import { checkoutSessionRouter } from '../user/payments/checkoutSessions/checkoutSession.controller'
 import { checkoutSessionBasePath } from '../user/payments/checkoutSessions/checkoutSession.routes'
 import { customerSessionRouter } from '../user/payments/customerSessions/customerSession.controller'
@@ -10,7 +11,6 @@ import { paymentMethodsRouter } from '../user/payments/paymentMethods/paymentMet
 import { paymentMethodsBasePath } from '../user/payments/paymentMethods/paymentMethods.routes'
 import { refundRouter } from '../user/payments/refunds/refund.controller'
 import { refundBasePath } from '../user/payments/refunds/refund.routes'
-import { env } from '../../shared/functions/envConfig'
 
 const withBasePath = (basePath: string) => `${env.APP_BASE_PATH}${basePath}`
 

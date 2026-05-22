@@ -1,9 +1,8 @@
-import express, { Request, Response, Router } from 'express'
-import { StatusCodes } from 'http-status-codes'
-
 import { getRequestBody } from '@/shared/functions/http/request.functions'
 import { successResponse } from '@/shared/functions/http/response/response.function'
 import { requestHandler } from '@/shared/middleware/requesthandler.middleware'
+import express, { Request, Response, Router } from 'express'
+import { StatusCodes } from 'http-status-codes'
 
 import { upsertFitnessProfileRequestValidator } from './fitnessProfile.middleware'
 import { FitnessProfileRoutes } from './fitnessProfile.routes'

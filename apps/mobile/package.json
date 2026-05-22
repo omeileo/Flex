@@ -32,7 +32,7 @@
     "generate:screen": "tsx ./src/shared/scripts/react/generateScreen.scripts.ts",
     "generate:slice": "tsx ./src/shared/scripts/redux/generateApiReduxState.scripts.ts",
     "check:product-flow-docs": "tsx ./src/shared/scripts/productFlows/checkProductFlowDocsDrift.scripts.ts",
-    "lint": "eslint ./ --fix --format=node_modules/eslint-formatter-pretty",
+    "lint": "eslint ./ --fix",
     "lint-validate": "eslint ./ --quiet",
     "tsc": "tsc --noEmit",
     "test": "jest --forceExit --detectOpenHandles",

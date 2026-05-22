@@ -8,10 +8,7 @@ import type { CompleteWorkoutSessionRequest, CreateWorkoutSessionRequest } from 
 export const workoutSessionsService = {
   createWorkoutSession: async (payload: CreateWorkoutSessionRequest) => {
     const currentUser = getCurrentLoggedInUserOrThrow()
-    const plan = await trainingPlansRepository.findByIdForUser(
-      payload.trainingPlanId,
-      currentUser.userId
-    )
+    const plan = await trainingPlansRepository.findByIdForUser(payload.trainingPlanId, currentUser.userId)
 
     if (!plan) {
       throw globalErrors.entityNotFound.build('Training Plan', payload.trainingPlanId)

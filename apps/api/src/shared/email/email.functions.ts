@@ -121,23 +121,23 @@ export const email = {
     sendAdminAlert: async (title: string, message: string): Promise<void> => {
       try {
         const adminUser = await userRepository.getAdminUser()
-        const emailAddress = adminUser?.email!
-        const template = adminAlertTemplate.build(title, message, emailAddress)
 
         if (!adminUser) {
           logger.error('Neither admin nor dev support user found.')
           return
-        } else {
-          const user = await userRepository.getAllDataForUser(adminUser.id)
-
-          await sendEmail({
-            template,
-            recipient: user,
-            logMessageTitle: 'admin alert',
-            notificationPriority: NotificationPriority.high,
-            notificationType: NotificationCategory.alert
-          })
         }
+
+        const emailAddress = adminUser.email
+        const template = adminAlertTemplate.build(title, message, emailAddress)
+        const user = await userRepository.getAllDataForUser(adminUser.id)
+
+        await sendEmail({
+          template,
+          recipient: user,
+          logMessageTitle: 'admin alert',
+          notificationPriority: NotificationPriority.high,
+          notificationType: NotificationCategory.alert
+        })
       } catch (error) {
         logger.error('Error sending admin alert', error)
       }

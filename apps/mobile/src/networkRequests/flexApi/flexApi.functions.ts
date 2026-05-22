@@ -1,12 +1,12 @@
-import { createFlexApiClient } from '@flex/shared/functions/http/flexApiClient/flexApiClient'
+import { createFlexApiClient } from '@flex/shared/functions/http/flexApiClient/flexApiClient';
 
-import { setAuthenticationStatus } from '@shared/functions/Auth/auth.functions'
-import env from '@network/apiClient/env.config'
+import { setAuthenticationStatus } from '@shared/functions/Auth/auth.functions';
+import env from '@network/apiClient/env.config';
 
-import { getFlexApiToken } from './flexApiToken.functions'
-import { FlexApiInstance } from './flexApi.types'
+import { getFlexApiToken } from './flexApiToken.functions';
+import { FlexApiInstance } from './flexApi.types';
 
-let flexApiClient: FlexApiInstance | null = null
+let flexApiClient: FlexApiInstance | null = null;
 
 export const getFlexApi = (): FlexApiInstance => {
   if (!flexApiClient) {
@@ -14,14 +14,14 @@ export const getFlexApi = (): FlexApiInstance => {
       baseUrl: env.API_BASE_URL,
       getToken: getFlexApiToken,
       onUnauthorized: () => {
-        setAuthenticationStatus(false)
-      }
-    })
+        setAuthenticationStatus(false);
+      },
+    });
   }
 
-  return flexApiClient
-}
+  return flexApiClient;
+};
 
 export const resetFlexApiClient = () => {
-  flexApiClient = null
-}
+  flexApiClient = null;
+};

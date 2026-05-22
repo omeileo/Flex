@@ -1,10 +1,10 @@
-import { GetProfileState } from './getProfile.types'
+import { GetProfileState } from './getProfile.types';
 
 const initialState: GetProfileState = {
   loading: false,
   error: null,
   notFound: false,
-  success: null
-}
+  success: null,
+};
 
-export default initialState
+export default initialState;

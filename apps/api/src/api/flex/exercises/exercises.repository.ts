@@ -1,7 +1,7 @@
-import prisma from '../../../../prisma/prisma.client'
 import { ExerciseCategory } from '@flex/shared/enums/exerciseCategory.enum'
 import type { exercises } from '@prisma/client'
 
+import prisma from '../../../../prisma/prisma.client'
 import type { ExerciseListItem } from './exercises.types'
 
 const mapExercise = (exercise: exercises): ExerciseListItem => ({

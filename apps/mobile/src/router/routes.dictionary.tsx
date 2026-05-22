@@ -1,13 +1,20 @@
-import FlexBootstrap from '../screens/FlexBootstrap/FlexBootstrap.container'
-import Landing from '../screens/Landing/Landing.container'
-import Login from '../screens/Login/Login.container'
-import SignUp from '../screens/SignUp/SignUp.container'
-import VerifyEmail from '../screens/VerifyEmail/VerifyEmail.container'
-import ProfileOnboarding from '../screens/ProfileOnboarding/ProfileOnboarding.container'
-import PlanDetail from '../screens/PlanDetail/PlanDetail.container'
-import WorkoutSession from '../screens/WorkoutSession/WorkoutSession.container'
-import ExerciseDetail from '../screens/ExerciseDetail/ExerciseDetail.container'
-import MainTabsNavigator from './navigators/MainTabs.navigator'
+import DesignPreviewHub from '../screens/DesignPreview/DesignPreviewHub/DesignPreviewHub.container';
+import OnboardingFlowPreview from '../screens/DesignPreview/OnboardingFlowPreview/OnboardingFlowPreview.container';
+import TrainingPlanFlowPreview from '../screens/DesignPreview/TrainingPlanFlowPreview/TrainingPlanFlowPreview.container';
+import GymLocationsSettingsPreview from '../screens/DesignPreview/GymLocationsSettingsPreview/GymLocationsSettingsPreview.container';
+import ActiveWorkoutFlowPreview from '../screens/DesignPreview/ActiveWorkoutFlowPreview/ActiveWorkoutFlowPreview.container';
+import AuthFlowPreview from '../screens/DesignPreview/AuthFlowPreview/AuthFlowPreview.container';
+import ProfileSettingsFlowPreview from '../screens/DesignPreview/ProfileSettingsFlowPreview/ProfileSettingsFlowPreview.container';
+import FlexBootstrap from '../screens/FlexBootstrap/FlexBootstrap.container';
+import Landing from '../screens/Landing/Landing.container';
+import Login from '../screens/Login/Login.container';
+import SignUp from '../screens/SignUp/SignUp.container';
+import VerifyEmail from '../screens/VerifyEmail/VerifyEmail.container';
+import ProfileOnboarding from '../screens/ProfileOnboarding/ProfileOnboarding.container';
+import PlanDetail from '../screens/PlanDetail/PlanDetail.container';
+import WorkoutSession from '../screens/WorkoutSession/WorkoutSession.container';
+import ExerciseDetail from '../screens/ExerciseDetail/ExerciseDetail.container';
+import MainTabsNavigator from './navigators/MainTabs.navigator';
 
 const routes = {
   landing: {
@@ -114,6 +121,76 @@ const routes = {
       title: 'Exercise',
     },
   },
-}
+  designPreviewHub: {
+    name: 'DesignPreviewHub',
+    path: 'DesignPreviewHub',
+    isAuthenticationRequired: false,
+    component: DesignPreviewHub,
+    options: {
+      headerShown: true,
+      title: 'Design Preview',
+    },
+  },
+  onboardingFlowPreview: {
+    name: 'OnboardingFlowPreview',
+    path: 'OnboardingFlowPreview',
+    isAuthenticationRequired: false,
+    component: OnboardingFlowPreview,
+    options: {
+      headerShown: true,
+      title: 'Onboarding Preview',
+    },
+  },
+  trainingPlanFlowPreview: {
+    name: 'TrainingPlanFlowPreview',
+    path: 'TrainingPlanFlowPreview',
+    isAuthenticationRequired: false,
+    component: TrainingPlanFlowPreview,
+    options: {
+      headerShown: true,
+      title: 'Training Plan Preview',
+    },
+  },
+  activeWorkoutFlowPreview: {
+    name: 'ActiveWorkoutFlowPreview',
+    path: 'ActiveWorkoutFlowPreview',
+    isAuthenticationRequired: false,
+    component: ActiveWorkoutFlowPreview,
+    options: {
+      headerShown: true,
+      title: 'Active Workout Preview',
+    },
+  },
+  gymLocationsSettingsPreview: {
+    name: 'GymLocationsSettingsPreview',
+    path: 'GymLocationsSettingsPreview',
+    isAuthenticationRequired: false,
+    component: GymLocationsSettingsPreview,
+    options: {
+      headerShown: true,
+      title: 'Gym Locations Preview',
+    },
+  },
+  authFlowPreview: {
+    name: 'AuthFlowPreview',
+    path: 'AuthFlowPreview',
+    isAuthenticationRequired: false,
+    component: AuthFlowPreview,
+    options: {
+      headerShown: true,
+      title: 'Auth Preview',
+    },
+  },
+  profileSettingsFlowPreview: {
+    name: 'ProfileSettingsFlowPreview',
+    path: 'ProfileSettingsFlowPreview',
+    isAuthenticationRequired: false,
+    component: ProfileSettingsFlowPreview,
+    options: {
+      headerShown: true,
+      title: 'Profile Settings Preview',
+    },
+  },
+};
 
-export default routes
+export default routes;

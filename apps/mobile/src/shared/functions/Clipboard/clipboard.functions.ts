@@ -1,6 +1,6 @@
-import Clipboard from '@react-native-clipboard/clipboard'
+import Clipboard from '@react-native-clipboard/clipboard';
 
-import logger from '../Logger/logger.functions'
+import logger from '../Logger/logger.functions';
 
 /**
  * Copies text to the system clipboard.
@@ -8,12 +8,12 @@ import logger from '../Logger/logger.functions'
  */
 export const copyToClipboard = async (text: string): Promise<boolean> => {
   try {
-    Clipboard.setString(text)
+    Clipboard.setString(text);
 
-    return true
+    return true;
   } catch (error) {
-    logger.logError(error, 'Failed to copy text', 'copyToClipboard')
+    logger.logError(error, 'Failed to copy text', 'copyToClipboard');
 
-    return false
+    return false;
   }
-}
+};

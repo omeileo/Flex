@@ -149,11 +149,11 @@ function main(): void {
   const modeLabel = mode === 'staged' ? 'staged' : 'working tree'
   // eslint-disable-next-line no-console
   console.error(
-    `\ncheckProductFlowApiDrift: user-facing API change detected without product-flow sync record.\n` +
+    '\ncheckProductFlowApiDrift: user-facing API change detected without product-flow sync record.\n' +
       `Mode: ${modeLabel}\n` +
       `Affected flow keys (approximate): ${[...requiredKeys].sort().join(', ')}\n\n` +
       `Append a row to ${SYNC_FILE} (stage it in the same commit) noting the ticket and mobile flow doc status.\n` +
-      `To bypass (sparingly): FLEX_SKIP_FLOW_DOC_CHECK=1\n`
+      'To bypass (sparingly): FLEX_SKIP_FLOW_DOC_CHECK=1\n'
   )
   process.exit(1)
 }

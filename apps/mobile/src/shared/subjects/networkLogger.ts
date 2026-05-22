@@ -1,22 +1,22 @@
-import { Subject } from 'rxjs'
+import { Subject } from 'rxjs';
 
 export interface NetworkLoggerRequest {
-  requestId?: number
-  url?: string
-  method?: string
+  requestId?: number;
+  url?: string;
+  method?: string;
   request?: {
-    headers?: Record<string, string>
-    body?: unknown
-  }
+    headers?: Record<string, string>;
+    body?: unknown;
+  };
   response?: {
-    headers?: Record<string, string>
-    body?: unknown
-    statusCode?: number
-  }
-  timeoutPeriod?: number
-  responseTime?: number
+    headers?: Record<string, string>;
+    body?: unknown;
+    statusCode?: number;
+  };
+  timeoutPeriod?: number;
+  responseTime?: number;
 }
 
-const NetworkLoggerSubject = new Subject<NetworkLoggerRequest>()
+const NetworkLoggerSubject = new Subject<NetworkLoggerRequest>();
 
-export default NetworkLoggerSubject
+export default NetworkLoggerSubject;

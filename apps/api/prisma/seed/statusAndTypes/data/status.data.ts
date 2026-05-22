@@ -469,8 +469,7 @@ const statusList: status[] = [
     id: 58,
     type_id: 6,
     name: Status.notification_delivery_successful,
-    description:
-      'Notification has been delivered successfully to the recipient',
+    description: 'Notification has been delivered successfully to the recipient',
     display_name: 'Notification Delivered'
   },
   {

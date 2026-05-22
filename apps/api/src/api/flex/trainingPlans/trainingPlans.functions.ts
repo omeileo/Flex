@@ -1,20 +1,27 @@
+import { logger } from '@/app'
+import { aiClient } from '@/shared/functions/ai/ai.client'
+import { env } from '@/shared/functions/envConfig'
 import { PlanStatus } from '@flex/shared/enums/planStatus.enum'
 import { RepsScheme } from '@flex/shared/enums/repsScheme.enum'
+import type { FitnessProfile } from '@flex/shared/types/fitnessProfile/fitnessProfile.schemas'
 import type {
   GeneratePlanRequest,
   PlannedExercise,
   PlannedWorkout,
   TrainingPlan
 } from '@flex/shared/types/trainingPlan/trainingPlan.schemas'
-import type { FitnessProfile } from '@flex/shared/types/fitnessProfile/fitnessProfile.schemas'
-
-import { aiClient } from '@/shared/functions/ai/ai.client'
-import { env } from '@/shared/functions/envConfig'
-import { logger } from '@/app'
 
 import type { ExerciseListItem } from '../exercises/exercises.types'
 
-const WORKOUT_NAMES = ['Push Focus', 'Pull Focus', 'Legs Focus', 'Full Body', 'Upper Body', 'Lower Body', 'Conditioning']
+const WORKOUT_NAMES = [
+  'Push Focus',
+  'Pull Focus',
+  'Legs Focus',
+  'Full Body',
+  'Upper Body',
+  'Lower Body',
+  'Conditioning'
+]
 
 export const hasConfiguredOpenAiKey = (): boolean => {
   const key = env.OPENAI_API_KEY?.trim()

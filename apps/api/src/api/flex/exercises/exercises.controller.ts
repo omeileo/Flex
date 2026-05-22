@@ -1,8 +1,7 @@
-import express, { Request, Response, Router } from 'express'
-import { StatusCodes } from 'http-status-codes'
-
 import { successResponse } from '@/shared/functions/http/response/response.function'
 import { requestHandler } from '@/shared/middleware/requesthandler.middleware'
+import express, { Request, Response, Router } from 'express'
+import { StatusCodes } from 'http-status-codes'
 
 import { ExercisesRoutes } from './exercises.routes'
 import { exercisesService } from './exercises.service'

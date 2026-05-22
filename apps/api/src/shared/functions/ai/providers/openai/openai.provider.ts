@@ -20,14 +20,7 @@ export class OpenAIProvider implements IAIProvider {
 
   private supportsStructuredOutputs(model: string): boolean {
     const modelLower = model.toLowerCase()
-    const supportedPatterns = [
-      'gpt-5',
-      'gpt-4o',
-      'gpt-4-0613',
-      'gpt-3.5-turbo-0613',
-      'o1',
-      'o3'
-    ]
+    const supportedPatterns = ['gpt-5', 'gpt-4o', 'gpt-4-0613', 'gpt-3.5-turbo-0613', 'o1', 'o3']
 
     return supportedPatterns.some((pattern) => modelLower.includes(pattern))
   }
