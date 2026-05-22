@@ -1,16 +1,62 @@
 import { zodd } from '../../../../shared/functions/zod.functions'
 
+const verificationCodeField = zodd
+  .string()
+  .trim()
+  .toUpperCase()
+  .length(6)
+  .regex(/^[A-Z0-9]{6}$/)
+  .openapi({
+    example: 'XC2DAS',
+    description: 'Six-character verification code from the signup email'
+  })
+
 /**
- * Represents the request body for verifying user email address.
+ * Long token from web verification links.
  */
-export const VerifyEmailRequestBody = zodd
+export const VerifyEmailWithTokenRequestBody = zodd
   .object({
     verificationToken: zodd.string().min(32).openapi({
       example: '48a1d25a36497e9cc232b277917686fd2c0429af970a7edf1c90cdf0af360597',
       description: "The verification token sent to the user's email address"
     })
   })
-  .required()
+  .strict()
+
+/**
+ * Short code with email (mobile manual entry).
+ */
+export const VerifyEmailWithCodeAndEmailRequestBody = zodd
+  .object({
+    email: zodd.string().email().openapi({
+      example: 'user@example.com',
+      description: 'Email address used at sign-up'
+    }),
+    code: verificationCodeField
+  })
+  .strict()
+
+/**
+ * Short code only (globally unique per active token).
+ */
+export const VerifyEmailWithCodeRequestBody = zodd
+  .object({
+    code: verificationCodeField
+  })
+  .strict()
+
+/**
+ * Union body for verify-email: long token OR short code (+ optional email).
+ */
+export const VerifyEmailRequestBody = zodd
+  .union([
+    VerifyEmailWithTokenRequestBody,
+    VerifyEmailWithCodeAndEmailRequestBody,
+    VerifyEmailWithCodeRequestBody
+  ])
+  .openapi({
+    description: 'Verify with long token, or six-character code with optional email'
+  })
 
 export const VerifyEmailResendRequestBody = zodd
   .object({

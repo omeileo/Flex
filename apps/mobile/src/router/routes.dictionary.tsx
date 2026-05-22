@@ -1,4 +1,8 @@
 import FlexBootstrap from '../screens/FlexBootstrap/FlexBootstrap.container'
+import Landing from '../screens/Landing/Landing.container'
+import Login from '../screens/Login/Login.container'
+import SignUp from '../screens/SignUp/SignUp.container'
+import VerifyEmail from '../screens/VerifyEmail/VerifyEmail.container'
 import ProfileOnboarding from '../screens/ProfileOnboarding/ProfileOnboarding.container'
 import PlanDetail from '../screens/PlanDetail/PlanDetail.container'
 import WorkoutSession from '../screens/WorkoutSession/WorkoutSession.container'
@@ -6,6 +10,46 @@ import ExerciseDetail from '../screens/ExerciseDetail/ExerciseDetail.container'
 import MainTabsNavigator from './navigators/MainTabs.navigator'
 
 const routes = {
+  landing: {
+    name: 'Landing',
+    path: 'Landing',
+    isAuthenticationRequired: false,
+    component: Landing,
+    options: {
+      headerShown: false,
+      title: 'Flex',
+    },
+  },
+  login: {
+    name: 'Login',
+    path: 'Login',
+    isAuthenticationRequired: false,
+    component: Login,
+    options: {
+      headerShown: true,
+      title: 'Log in',
+    },
+  },
+  signUp: {
+    name: 'SignUp',
+    path: 'SignUp',
+    isAuthenticationRequired: false,
+    component: SignUp,
+    options: {
+      headerShown: true,
+      title: 'Sign up',
+    },
+  },
+  verifyEmail: {
+    name: 'VerifyEmail',
+    path: 'VerifyEmail',
+    isAuthenticationRequired: false,
+    component: VerifyEmail,
+    options: {
+      headerShown: true,
+      title: 'Verify email',
+    },
+  },
   flexBootstrap: {
     name: 'FlexBootstrap',
     path: 'FlexBootstrap',

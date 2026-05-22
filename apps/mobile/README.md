@@ -91,6 +91,46 @@ npm run splash-landscape-generate -- 200     # derive landscape from portrait
 npm run splash-change portrait               # one-shot orchestrator
 ```
 
+## Email verification and deep links
+
+After sign-up, the app navigates to **Verify email** where the user enters the 6-character code from their inbox.
+
+| Deep link format | Example |
+|------------------|---------|
+| `flex://verify?code={CODE}&email={EMAIL}` | `flex://verify?code=XC2DAS&email=user@example.com` |
+
+iOS registers the `flex` URL scheme in `ios/FlexMobile/Info.plist`. Android handles `flex://verify` via an intent filter in `android/app/src/main/AndroidManifest.xml`. React Navigation linking is configured in `src/router/linking.config.ts`.
+
+Opening the deep link pre-fills the code and email, submits verification, then navigates to **Log in** with a success message.
+
+### Local API testing
+
+With the API on port **3005** and base path `/api`:
+
+```bash
+# Verify with code + email
+curl -s -X POST http://localhost:3005/api/auth/verify-email \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"user@example.com","code":"XC2DAS"}'
+
+# Resend verification email
+curl -s -X POST http://localhost:3005/api/auth/verify-email/resend \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"user@example.com"}'
+```
+
+If SMTP is not configured, verification emails are still built and may be logged to the console (see API email helpers). Apply the Prisma migration `20260522120000_email_verification_short_code` before testing sign-up.
+
+### Simulator deep link
+
+```bash
+# iOS Simulator
+xcrun simctl openurl booted "flex://verify?code=XC2DAS&email=user@example.com"
+
+# Android emulator
+adb shell am start -a android.intent.action.VIEW -d "flex://verify?code=XC2DAS&email=user@example.com"
+```
+
 ## Demo data
 
 The first build ships a working JSONPlaceholder Posts demo so you can see the full stack work end-to-end without writing code:

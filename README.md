@@ -15,6 +15,7 @@ Strength training MVP — React Native mobile + Express API monorepo.
 - Node 20+
 - Docker (local Postgres)
 - Xcode / Android Studio (mobile)
+- Ruby + Bundler for iOS CocoaPods (`bundle install` in `apps/mobile`; gems install to `apps/mobile/vendor/bundle`, which is gitignored)
 
 ## Setup
 
@@ -29,7 +30,7 @@ cd apps/api && npx prisma migrate dev && npm run seed-database
 ## Development
 
 ```bash
-npm run dev:api      # Express on :3000
+npm run dev:api      # Express on :3005 (see apps/api/.env PORT)
 npm run dev:mobile   # Metro
 ```
 
@@ -39,7 +40,15 @@ Mobile env:
 cd apps/mobile && npm run setup-env -- local
 ```
 
-Set `API_BASE_URL` in `apps/mobile/src/networkRequests/environmentVariables/local.json` (e.g. `http://localhost:3000/api`).
+Android builds use monorepo-hoisted `node_modules` at the repo root (see `apps/mobile/android/settings.gradle` and `app/build.gradle`). Set `JAVA_HOME` to Android Studio’s JBR if `java` is not on your PATH:
+
+```bash
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+cd apps/mobile/android && ./gradlew assembleDebug
+```
+
+Set `API_BASE_URL` in `apps/mobile/src/networkRequests/environmentVariables/local.json` to match `PORT` in `apps/api/.env` (default `http://localhost:3005/api`).
 
 ## AI provider
 

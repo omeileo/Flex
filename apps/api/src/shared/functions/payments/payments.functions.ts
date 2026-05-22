@@ -52,3 +52,19 @@ export const getPaymentDataFromPaymentIntent = (
 ): CheckoutSessionPaymentDataWithServices => {
   return JSON.parse(paymentIntent.metadata.paymentData) as CheckoutSessionPaymentDataWithServices
 }
+
+const paymentsNotConfigured = (): never => {
+  throw new Error(
+    'Template payment calculators are not configured. Set ENABLE_TEMPLATE_PAYMENTS and implement payment calculators for your product.'
+  )
+}
+
+/** Budgy template stubs — implement when enabling template payments */
+export const calculatePaymentForNewOfferRequest = async (): Promise<CheckoutSessionPaymentDataWithServices> =>
+  paymentsNotConfigured()
+
+export const calculatePaymentForFlightBooking = async (): Promise<CheckoutSessionPaymentDataWithServices> =>
+  paymentsNotConfigured()
+
+export const calculatePaymentForExternalFlightBooking = async (): Promise<CheckoutSessionPaymentDataWithServices> =>
+  paymentsNotConfigured()

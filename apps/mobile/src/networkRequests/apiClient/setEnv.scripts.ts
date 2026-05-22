@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { execSync } from 'child_process'
-import { readFileSync, writeFileSync } from 'fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'fs'
 import path from 'path'
 
 const args = process.argv.slice(2)
@@ -27,6 +27,8 @@ try {
   writeFileSync(targetFile, content, 'utf-8')
   console.log(`Successfully copied ${sourceFile} to ${targetFile}`)
 
+  const androidAssetsDir = path.resolve(process.cwd(), 'android/app/src/main/assets')
+  mkdirSync(androidAssetsDir, { recursive: true })
   execSync('npm run copy-env-file-to-android', { stdio: 'inherit' })
 } catch (error) {
   console.error(`Error copying env file: ${error instanceof Error ? error.message : error}`)

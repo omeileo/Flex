@@ -18,19 +18,44 @@ export const emailVerificationTokenRepository = {
    * @throws Throws an error if the email verification token could not be created.
    */
   create: async (userId: users['id'], transaction: PrismaTransaction = prisma): Promise<email_verification_tokens> => {
-    const emailVerificationToken = await transaction.email_verification_tokens.create({
-      data: {
-        user_id: userId,
-        token: token.emailVerificationToken.generate(),
-        expires_at: token.emailVerificationToken.createExpiryDateFromNow()
+    await transaction.email_verification_tokens.deleteMany({
+      where: {
+        user_id: userId
       }
     })
 
-    if (!emailVerificationToken) {
-      throw globalErrors.entityNotCreated.build('Email Verification Token', userId)
+    const maxAttempts = 5
+
+    for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+      try {
+        const emailVerificationToken = await transaction.email_verification_tokens.create({
+          data: {
+            user_id: userId,
+            token: token.emailVerificationToken.generate(),
+            short_code: token.emailVerificationToken.generateShortCode(),
+            expires_at: token.emailVerificationToken.createExpiryDateFromNow()
+          }
+        })
+
+        if (!emailVerificationToken) {
+          throw globalErrors.entityNotCreated.build('Email Verification Token', userId)
+        }
+
+        return emailVerificationToken
+      } catch (error) {
+        const isUniqueViolation =
+          typeof error === 'object' &&
+          error !== null &&
+          'code' in error &&
+          (error as { code?: string }).code === 'P2002'
+
+        if (!isUniqueViolation || attempt === maxAttempts - 1) {
+          throw error
+        }
+      }
     }
 
-    return emailVerificationToken
+    throw globalErrors.entityNotCreated.build('Email Verification Token', userId)
   },
 
   /**
@@ -58,10 +83,44 @@ export const emailVerificationTokenRepository = {
    * @param token - The token value.
    * @returns A promise that resolves when the token is deleted.
    */
+  getByShortCode: async (
+    shortCode: email_verification_tokens['short_code'],
+    email?: users['email']
+  ): Promise<email_verification_tokens> => {
+    const normalizedCode = shortCode.trim().toUpperCase()
+
+    const tokenEntry = await prisma.email_verification_tokens.findFirst({
+      where: {
+        short_code: normalizedCode,
+        ...(email
+          ? {
+              users: {
+                email: email.trim().toLowerCase()
+              }
+            }
+          : {})
+      }
+    })
+
+    if (!tokenEntry) {
+      throw verifyEmailErrors.tokenExpiredOrInvalid.build()
+    }
+
+    return tokenEntry
+  },
+
   deleteToken: async (token: email_verification_tokens['token']): Promise<void> => {
     await prisma.email_verification_tokens.delete({
       where: {
         token
+      }
+    })
+  },
+
+  deleteTokenEntry: async (tokenEntryId: email_verification_tokens['id']): Promise<void> => {
+    await prisma.email_verification_tokens.delete({
+      where: {
+        id: tokenEntryId
       }
     })
   }

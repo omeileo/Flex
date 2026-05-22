@@ -9,7 +9,6 @@ import { blacklistedTokensRepository } from '../../repository/blacklistedTokens.
 import { jwtService } from './jwt.functions'
 
 const excludedPaths = [
-  '*',
   '/',
   '/auth/verify-email*',
   '/auth/verify-email/resend*',
@@ -35,6 +34,26 @@ const excludedPaths = [
   '/offers/offer-requests/view-all*'
 ].map((path) => `${env.APP_BASE_PATH}${path}`)
 
+const applyOptionalAuthenticatedContext = async (req: Request): Promise<void> => {
+  const token = getJwtTokenFromRequest(req)
+
+  if (!token) {
+    req.userPayload = undefined
+
+    return
+  }
+
+  const blacklistedToken = await blacklistedTokensRepository.getBlacklistedToken(token)
+
+  if (blacklistedToken) {
+    req.userPayload = undefined
+
+    return
+  }
+
+  req.userPayload = jwtService.verifyToken(token)
+}
+
 /**
  * Middleware function that applies the provided middleware only to specific paths.
  * If the request path is one of the excluded paths, the next middleware is called without applying the JWT middleware.
@@ -46,16 +65,8 @@ const excludedPaths = [
 export function authPathsOnly(middleware: express.RequestHandler) {
   return async function (req: Request, res: Response, next: NextFunction) {
     if (micromatch.some(req.originalUrl, excludedPaths)) {
-      // Attempt to decode the token and set the app context
       try {
-        const token = getJwtTokenFromRequest(req)
-
-        if (token) {
-          const userPayload = jwtService.verifyToken(token)
-          req.userPayload = userPayload
-        } else {
-          req.userPayload = undefined
-        }
+        await applyOptionalAuthenticatedContext(req)
       } catch (error) {
         logger.error('Error verifying token', { error })
         req.userPayload = undefined

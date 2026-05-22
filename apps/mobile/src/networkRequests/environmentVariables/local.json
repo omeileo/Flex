@@ -1,7 +1,7 @@
 {
   "ENVIRONMENT": "local",
   "PRODUCT_NAME": "FlexMobile",
-  "API_BASE_URL": "http://localhost:3000/api",
+  "API_BASE_URL": "http://localhost:3005/api",
   "API_TIMEOUT": "20000",
   "DEFAULT_PAGE_SIZE": "10",
   "USE_MOCK": "false",

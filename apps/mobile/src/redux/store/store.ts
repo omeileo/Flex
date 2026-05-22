@@ -1,5 +1,8 @@
 import { AnyAction, combineReducers, configureStore } from '@reduxjs/toolkit'
 
+import loginReducer from '../states/auth/login/login.slice'
+import signUpReducer from '../states/auth/signUp/signUp.slice'
+import verifyEmailReducer from '../states/auth/verifyEmail/verifyEmail.slice'
 import getProfileReducer from '../states/profile/getProfile/getProfile.slice'
 import saveProfileReducer from '../states/profile/saveProfile/saveProfile.slice'
 import generatePlanReducer from '../states/trainingPlan/generatePlan/generatePlan.slice'
@@ -9,6 +12,9 @@ import createWorkoutSessionReducer from '../states/workoutSession/createWorkoutS
 import completeWorkoutSessionReducer from '../states/workoutSession/completeWorkoutSession/completeWorkoutSession.slice'
 
 const appReducer = combineReducers({
+  login: loginReducer,
+  signUp: signUpReducer,
+  verifyEmail: verifyEmailReducer,
   getProfile: getProfileReducer,
   saveProfile: saveProfileReducer,
   generatePlan: generatePlanReducer,

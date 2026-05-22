@@ -5,19 +5,22 @@ import { serializeError } from '../../../../shared/functions/Redux/serializeErro
 import { getPlanChangesApi } from './getPlanChanges.api'
 import getPlanChangesInitialState from './getPlanChanges.initialState'
 
-export const getPlanChanges = createAsyncThunk('trainingPlan/getPlanChanges', async (_request: void, { rejectWithValue }) => {
-  try {
-    const response = await getPlanChangesApi()
+export const getPlanChanges = createAsyncThunk(
+  'trainingPlan/getPlanChanges',
+  async (planId: number, { rejectWithValue }) => {
+    try {
+      const response = await getPlanChangesApi(planId)
 
-    return response
-  } catch (error) {
-    errorHandler.handleApiError(error as never)
+      return response
+    } catch (error) {
+      errorHandler.handleApiError(error as never)
 
-    const serialized = serializeError(error) as { message?: string }
+      const serialized = serializeError(error) as { message?: string }
 
-    return rejectWithValue({ message: serialized.message ?? 'Request failed' })
+      return rejectWithValue({ message: serialized.message ?? 'Request failed' })
+    }
   }
-})
+)
 
 const getPlanChangesSlice = createSlice({
   name: 'trainingPlan/getPlanChanges',

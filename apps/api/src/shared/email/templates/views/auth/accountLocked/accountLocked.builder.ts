@@ -14,7 +14,7 @@ export const accountLockedTemplate = {
   build: function (user: User) {
     return createStandardEmailTemplate({
       to: user.email,
-      subject: 'Your Hurrier Account Has Been Locked',
+      subject: 'Your Flex Account Has Been Locked',
       title: 'Account Locked',
       firstName: user.user_profile.first_name,
       content: `

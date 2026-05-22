@@ -48,19 +48,6 @@ export const trainingPlansRepository = {
     })
   },
 
-  archiveActivePlans: async (userId: number) => {
-    await prisma.training_plans.updateMany({
-      where: {
-        user_id: userId,
-        status: PlanStatus.ACTIVE
-      },
-      data: {
-        status: PlanStatus.ARCHIVED,
-        updated_at: new Date()
-      }
-    })
-  },
-
   createPlan: async (input: {
     userId: number
     fitnessProfileId: number
@@ -133,6 +120,18 @@ export const trainingPlansRepository = {
           })
         }
       }
+
+      await tx.training_plans.updateMany({
+        where: {
+          user_id: input.userId,
+          status: PlanStatus.ACTIVE,
+          id: { not: createdPlan.id }
+        },
+        data: {
+          status: PlanStatus.ARCHIVED,
+          updated_at: new Date()
+        }
+      })
 
       return mapPlanRecordToTrainingPlan({
         ...createdPlan,

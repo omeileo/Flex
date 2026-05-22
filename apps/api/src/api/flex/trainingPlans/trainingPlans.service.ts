@@ -12,6 +12,7 @@ import { exercisesRepository } from '../exercises/exercises.repository'
 import { generateTrainingPlanPayload } from './trainingPlans.functions'
 import { trainingPlansRepository } from './trainingPlans.repository'
 import type { PlanChangeLogEntry } from './trainingPlans.types'
+import { validateGeneratedTrainingPlan } from './trainingPlans.validation'
 
 export const trainingPlansService = {
   generateTrainingPlan: async (request?: GeneratePlanRequest): Promise<TrainingPlan> => {
@@ -41,13 +42,13 @@ export const trainingPlansService = {
     }
 
     const generatedPlan = await generateTrainingPlanPayload(profile, exercises, request)
-
-    await trainingPlansRepository.archiveActivePlans(currentUser.userId)
+    const validExerciseIds = new Set(exercises.map((exercise) => exercise.id))
+    const validatedPlan = validateGeneratedTrainingPlan(generatedPlan, validExerciseIds)
 
     return trainingPlansRepository.createPlan({
       userId: currentUser.userId,
       fitnessProfileId: profileRecord.id,
-      plan: generatedPlan
+      plan: validatedPlan
     })
   },
 

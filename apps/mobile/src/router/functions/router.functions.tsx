@@ -7,11 +7,12 @@ import { getProfile } from '@redux/states/profile/getProfile/getProfile.slice'
 import { generatePlan } from '@redux/states/trainingPlan/generatePlan/generatePlan.slice'
 import { getActivePlan } from '@redux/states/trainingPlan/getActivePlan/getActivePlan.slice'
 import { AppDispatch } from '@redux/store/store.types'
-import { isAuthenticated, setAuthenticationStatus } from '@shared/functions/Auth/auth.functions'
+import { isAuthenticated } from '@shared/functions/Auth/auth.functions'
 import { getUserRole } from '@shared/functions/UserRole/userRoleManagment.functions'
 
 import { AuthGateProps } from '../components/AuthGate.types'
 import { Route as CustomRoute } from '../router.types'
+import { linkingConfig } from '../linking.config'
 import routes from '../routes.dictionary'
 
 const Stack = createNativeStackNavigator()
@@ -26,17 +27,9 @@ const AuthGate = ({ route, children }: AuthGateProps) => {
     let cancelled = false
 
     const validate = async () => {
-      if (route.isAuthenticationRequired) {
-        const authenticated = await isAuthenticated()
-
-        if (!authenticated) {
-          setAuthenticationStatus(true)
-        }
-      }
-
       if (route.isAuthenticationRequired && !(await isAuthenticated())) {
         if (!cancelled) {
-          navigation.reset({ index: 0, routes: [{ name: 'FlexBootstrap' }] })
+          navigation.reset({ index: 0, routes: [{ name: 'Landing' }] })
         }
 
         return
@@ -95,7 +88,7 @@ type GenerateRoutesOptions = {
 
 const generateRoutes = (customRoutes: CustomRoute[], options?: GenerateRoutesOptions): JSX.Element => {
   return (
-    <NavigationContainer ref={ navigationReference }>
+    <NavigationContainer ref={ navigationReference } linking={ linkingConfig }>
       <Stack.Navigator initialRouteName={ options?.initialRouteName }>
         { customRoutes.map((route) => {
           const Component = route.component

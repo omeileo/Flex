@@ -5,6 +5,8 @@ import { env } from './envConfig'
 /**
  * A collection of functions related to token generation and manipulation.
  */
+const SHORT_CODE_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
+
 export const token = {
   emailVerificationToken: {
     /**
@@ -13,6 +15,21 @@ export const token = {
      */
     generate: function () {
       return crypto.randomBytes(32).toString('hex')
+    },
+
+    /**
+     * Generates a 6-character alphanumeric verification code (no ambiguous chars).
+     * @returns {string} Uppercase short code.
+     */
+    generateShortCode: function () {
+      let code = ''
+
+      for (let index = 0; index < 6; index += 1) {
+        const randomIndex = crypto.randomInt(0, SHORT_CODE_ALPHABET.length)
+        code += SHORT_CODE_ALPHABET[randomIndex]
+      }
+
+      return code
     },
 
     /**

@@ -1,8 +1,18 @@
+import { Platform } from 'react-native'
+
 import envJson from '../environmentVariables/env.json'
 
 type EnvJson = Record<string, string | number | boolean | undefined>
 
 const source = envJson as EnvJson
+
+const resolveApiBaseUrl = (baseUrl: string, environment: string): string => {
+  if (environment === 'local' && Platform.OS === 'android' && baseUrl.includes('localhost')) {
+    return baseUrl.replace('localhost', '10.0.2.2')
+  }
+
+  return baseUrl
+}
 
 /**
  * Utility function to safely access environment variables.
@@ -35,7 +45,10 @@ const env = {
   /**
    * API Base URL — base endpoint for all API requests.
    */
-  API_BASE_URL: getEnvVar('API_BASE_URL', 'https://jsonplaceholder.typicode.com'),
+  API_BASE_URL: resolveApiBaseUrl(
+    getEnvVar('API_BASE_URL', 'https://jsonplaceholder.typicode.com'),
+    getEnvVar('ENVIRONMENT', 'development')
+  ),
 
   /**
    * API Timeout (milliseconds).

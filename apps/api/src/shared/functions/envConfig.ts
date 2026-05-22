@@ -4,6 +4,30 @@ import { bool, cleanEnv, host, num, port, str, testOnly } from 'envalid'
 // Load base .env file
 dotenv.config({ path: '.env' })
 
+const applyLocalEnvDefaults = (): void => {
+  if (process.env.NODE_ENV !== 'local') {
+    return
+  }
+
+  const localDefaults: Record<string, string> = {
+    PAGINATED_PAGE_SIZE: '20',
+    ENABLE_TEMPLATE_PAYMENTS: 'false',
+    AI_PROVIDER: 'openai',
+    OPENAI_API_KEY: '',
+    OPENAI_MODEL: 'gpt-4o-mini',
+    OPENAI_BASE_URL: 'https://api.openai.com/v1',
+    REFUND_TIMEFRAME: '5-7 business days'
+  }
+
+  for (const [key, value] of Object.entries(localDefaults)) {
+    if (!process.env[key]) {
+      process.env[key] = value
+    }
+  }
+}
+
+applyLocalEnvDefaults()
+
 /**
  * Represents the environment configuration object.
  */
@@ -150,7 +174,7 @@ export const env = cleanEnv(process.env, {
    * This is the email address that will appear in the 'from' field of the email. it defaults to 'Hourrier <no-reply@appshop.biz>'
    */
   SMTP_FROM_ADDRESS: str({
-    devDefault: testOnly('Hurrier <no-reply@appshop.biz>')
+    devDefault: testOnly('Flex <no-reply@appshop.biz>')
   }),
 
   /**
@@ -226,6 +250,13 @@ export const env = cleanEnv(process.env, {
    */
   VERIFY_EMAIL_REDIRECT_PATH: str({
     devDefault: testOnly('/verify?emailToken=')
+  }),
+
+  /**
+   * Custom URL scheme for mobile deep links (e.g. flex://verify?code=...).
+   */
+  MOBILE_APP_DEEP_LINK_SCHEME: str({
+    devDefault: testOnly('flex')
   }),
 
   /**

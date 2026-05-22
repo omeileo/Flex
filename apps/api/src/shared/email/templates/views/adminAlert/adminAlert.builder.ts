@@ -15,7 +15,7 @@ export const adminAlertTemplate = {
       subject: 'Admin Alert: Important System Notification',
       title: title,
       firstName: 'Admin',
-      content: `${message}<br /><br />This is an automated alert from the Hurrier system. Please take appropriate action if needed.`,
+      content: `${message}<br /><br />This is an automated alert from the Flex system. Please take appropriate action if needed.`,
       additionalContent: `If you have any questions about this alert, please contact the <a href="mailto:${env.DEV_SUPPORT_EMAIL_ADDRESS}">App Shop</a> team.`
     })
   }

@@ -7,7 +7,7 @@ import { getProfile } from '@redux/states/profile/getProfile/getProfile.slice'
 import { generatePlan } from '@redux/states/trainingPlan/generatePlan/generatePlan.slice'
 import { getActivePlan } from '@redux/states/trainingPlan/getActivePlan/getActivePlan.slice'
 import { AppDispatch } from '@redux/store/store.types'
-import { isAuthenticated, setAuthenticationStatus } from '@shared/functions/Auth/auth.functions'
+import { isAuthenticated } from '@shared/functions/Auth/auth.functions'
 
 import FlexBootstrapComponent from './FlexBootstrap.component'
 
@@ -23,7 +23,11 @@ const FlexBootstrapContainer = () => {
       const authenticated = await isAuthenticated()
 
       if (!authenticated) {
-        setAuthenticationStatus(true)
+        if (!cancelled) {
+          navigation.reset({ index: 0, routes: [{ name: 'Landing' }] })
+        }
+
+        return
       }
 
       try {

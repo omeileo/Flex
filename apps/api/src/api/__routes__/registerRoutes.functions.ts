@@ -15,16 +15,6 @@ import { signUpRouter } from '../user/auth/signUp/signUp.controller'
 import { SignUpBasePath } from '../user/auth/signUp/signUp.routes'
 import { verifyEmailRouter } from '../user/auth/verifyEmail/verifyEmail.controller'
 import { VerifyEmailBasePath } from '../user/auth/verifyEmail/verifyEmail.routes'
-import { checkoutSessionRouter } from '../user/payments/checkoutSessions/checkoutSession.controller'
-import { checkoutSessionBasePath } from '../user/payments/checkoutSessions/checkoutSession.routes'
-import { customerSessionRouter } from '../user/payments/customerSessions/customerSession.controller'
-import { customerSessionBasePath } from '../user/payments/customerSessions/customerSession.routes'
-import { paymentIntentsRouter } from '../user/payments/paymentIntents/paymentIntents.controller'
-import { paymentIntentsBasePath } from '../user/payments/paymentIntents/paymentIntents.routes'
-import { paymentMethodsRouter } from '../user/payments/paymentMethods/paymentMethods.controller'
-import { paymentMethodsBasePath } from '../user/payments/paymentMethods/paymentMethods.routes'
-import { refundRouter } from '../user/payments/refunds/refund.controller'
-import { refundBasePath } from '../user/payments/refunds/refund.routes'
 import { contactInfoRouter } from '../user/profile/contactInfo/contactInfo.controller'
 import { ContactInfoBasePath } from '../user/profile/contactInfo/contactInfo.routes'
 import { personalInfoRouter } from '../user/profile/personalInfo/personalInfo.controller'
@@ -39,11 +29,11 @@ export const withBasePath = (basePath: string) => {
 
 export const registerRoutes = (app: Express): void => {
   if (env.ENABLE_TEMPLATE_PAYMENTS) {
-    app.use(withBasePath(paymentMethodsBasePath), paymentMethodsRouter)
-    app.use(withBasePath(refundBasePath), refundRouter)
-    app.use(withBasePath(checkoutSessionBasePath), checkoutSessionRouter)
-    app.use(withBasePath(customerSessionBasePath), customerSessionRouter)
-    app.use(withBasePath(paymentIntentsBasePath), paymentIntentsRouter)
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { registerPaymentRoutes } = require('./registerPaymentRoutes.functions') as {
+      registerPaymentRoutes: (expressApp: Express) => void
+    }
+    registerPaymentRoutes(app)
   }
 
   app.use(withBasePath(VerifyEmailBasePath), verifyEmailRouter)

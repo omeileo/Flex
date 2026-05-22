@@ -17,11 +17,11 @@ export const forgotPasswordTemplate = {
 
     return createStandardEmailTemplate({
       to: user.email,
-      subject: 'Reset Your Hurrier Password',
+      subject: 'Reset Your Flex Password',
       title: 'Reset Your Password',
       firstName: user.user_profile.first_name,
       content: `
-        We received a request to reset your Hurrier password.<br /><br />
+        We received a request to reset your Flex password.<br /><br />
         If you made this request, please click the link below to reset your password.
       `,
       buttonConfig: {

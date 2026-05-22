@@ -11,11 +11,11 @@ export const profileUpdatedTemplate = {
   build: function (user: User) {
     return createStandardEmailTemplate({
       to: user.email,
-      subject: 'Your Hurrier Profile Has Been Updated.',
+      subject: 'Your Flex Profile Has Been Updated.',
       title: 'Profile Updated',
       firstName: user.user_profile.first_name,
       content: `
-        We just wanted to confirm that your Hurrier profile has been updated.<br /><br />
+        We just wanted to confirm that your Flex profile has been updated.<br /><br />
         You're all set!<br /><br />
         Thanks for keeping your profile up to date!<br /><br />
       `,

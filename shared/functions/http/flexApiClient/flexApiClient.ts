@@ -2,12 +2,12 @@ import { ApiRoutes } from '../../../dictionary/apiRoutes.dictionary'
 import type { FitnessProfileUpsert } from '../../../types/fitnessProfile/fitnessProfile.schemas'
 import type { GeneratePlanRequest } from '../../../types/trainingPlan/trainingPlan.schemas'
 import type { WorkoutSessionCreate } from '../../../types/workoutSession/workoutSession.schemas'
-import type { z } from 'zod'
 import { workoutSessionCompleteSchema } from '../../../types/workoutSession/workoutSession.schemas'
-
-type WorkoutSessionComplete = z.infer<typeof workoutSessionCompleteSchema>
+import type { z } from 'zod'
 
 import type { FlexApiClientConfig, FlexApiRequestOptions } from './flexApiClient.types'
+
+type WorkoutSessionComplete = z.infer<typeof workoutSessionCompleteSchema>
 
 export const createFlexApiClient = (config: FlexApiClientConfig) => {
   const request = async <T>(path: string, options: FlexApiRequestOptions = {}): Promise<T> => {
@@ -50,9 +50,9 @@ export const createFlexApiClient = (config: FlexApiClientConfig) => {
     generateTrainingPlan: (body?: GeneratePlanRequest) =>
       request(ApiRoutes.trainingPlansGenerate, { method: 'POST', body: body ?? {} }),
     getActiveTrainingPlan: () => request(ApiRoutes.trainingPlansActive),
-    applyWeeklyProgression: () =>
-      request(ApiRoutes.applyWeeklyProgression, { method: 'POST' }),
-    getPlanChanges: () => request(ApiRoutes.planChanges),
+    applyWeeklyProgression: (planId: number) =>
+      request(ApiRoutes.applyWeeklyProgression(planId), { method: 'POST' }),
+    getPlanChanges: (planId: number) => request(ApiRoutes.planChanges(planId)),
     listExercises: () => request(ApiRoutes.exercises),
     createWorkoutSession: (body: WorkoutSessionCreate) =>
       request(ApiRoutes.workoutSessions, { method: 'POST', body }),

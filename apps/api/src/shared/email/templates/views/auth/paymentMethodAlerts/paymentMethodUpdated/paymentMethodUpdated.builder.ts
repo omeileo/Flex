@@ -11,11 +11,11 @@ export const paymentMethodUpdatedTemplate = {
   build: function (user: User) {
     return createStandardEmailTemplate({
       to: user.email,
-      subject: 'Payment Method Updated on Your Hurrier Account',
+      subject: 'Payment Method Updated on Your Flex Account',
       title: 'Payment Method Updated',
       firstName: user.user_profile.first_name,
       content: `
-        We just wanted to confirm that there was a payment method update on your Hurrier account.<br /><br />
+        We just wanted to confirm that there was a payment method update on your Flex account.<br /><br />
         You're all set!<br /><br />
         Thanks for keeping your payment methods up to date!<br /><br />
       `,

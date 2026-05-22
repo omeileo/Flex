@@ -1,3 +1,6 @@
+# Ruby / CocoaPods (Bundler)
+vendor/bundle/
+
 # OSX
 .DS_Store
 

@@ -13,6 +13,10 @@ apps/mobile/android/app/build/
 apps/mobile/android/.gradle/
 apps/mobile/ios/build/
 apps/mobile/ios/Pods/
+# Bundler gems (CocoaPods) — see apps/mobile/.bundle/config
+apps/mobile/vendor/
+**/vendor/bundle/
+apps/mobile/ios/Podfile.lock
 
 apps/api/build/
 

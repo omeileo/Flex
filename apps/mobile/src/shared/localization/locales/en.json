@@ -2,6 +2,55 @@
   "app": {
     "name": "Flex"
   },
+  "landing": {
+    "brand": "Flex",
+    "tagline": "Personal strength training plans that adapt as you progress.",
+    "login": "Log in",
+    "signUp": "Create account"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "password": "Password",
+      "passwordPlaceholder": "Your password",
+      "submit": "Log in",
+      "submitting": "Logging in…",
+      "goToSignUp": "Need an account? Sign up"
+    },
+    "signUp": {
+      "title": "Create your account",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign up",
+      "submitting": "Creating account…",
+      "goToLogin": "Already have an account? Log in"
+    },
+    "verifyEmail": {
+      "title": "Verify your email",
+      "subtitle": "Enter the 6-character code we sent to your inbox.",
+      "email": "Email",
+      "code": "Verification code",
+      "submit": "Verify email",
+      "submitting": "Verifying…",
+      "resend": "Resend code",
+      "resending": "Sending…",
+      "goToLogin": "Back to log in",
+      "codeRequired": "Verification code is required",
+      "codeLength": "Enter the 6-character code from your email"
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Enter a valid email",
+      "passwordRequired": "Password is required",
+      "passwordMin": "Password must be at least 8 characters",
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required"
+    }
+  },
   "bootstrap": {
     "loading": "Getting your Flex experience ready…"
   },

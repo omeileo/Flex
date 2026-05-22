@@ -12,13 +12,13 @@ export const passwordUpdatedTemplate = {
   build: function (user: User) {
     return createStandardEmailTemplate({
       to: user.email,
-      subject: 'Your Hurrier Password Has Been Changed',
+      subject: 'Your Flex Password Has Been Changed',
       title: 'Password Changed',
       firstName: user.user_profile.first_name,
       content: `
-        We wanted to let you know that your password for Hurrier has been successfully changed.<br /><br />
+        We wanted to let you know that your password for Flex has been successfully changed.<br /><br />
         <span>If you didn't make this change, please reach out to us right away at ${env.SUPPORT_EMAIL_ADDRESS} to ensure your account remains secure.</span><br /><br />
-        Thank you for being part of Hurrier!
+        Thank you for being part of Flex!
       `
     })
   }

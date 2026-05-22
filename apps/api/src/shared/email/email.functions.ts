@@ -156,7 +156,7 @@ export const email = {
      * @param {email_verification_tokens} token - The token to send to the user.
      */
     sendEmailVerification: async (user: User, token: email_verification_tokens): Promise<void> => {
-      const template = verifyEmailTemplate.build(user, token.token)
+      const template = verifyEmailTemplate.build(user, token)
       await sendEmail({
         template,
         recipient: user,

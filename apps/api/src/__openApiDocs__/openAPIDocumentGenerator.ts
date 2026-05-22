@@ -1,32 +1,44 @@
 import { OpenAPIRegistry, OpenApiGeneratorV3 } from '@asteasolutions/zod-to-openapi'
 
 import { changePasswordRegistry } from '../api/user/auth/changePassword/changePassword.docs'
-// import { healthCheckRegistry } from '../api/__healthCheck__/healthCheck.docs'
 import { forgetPasswordRegistry } from '../api/user/auth/forgetPassword/forgetPassword.docs'
 import { loginRegistry } from '../api/user/auth/login/login.docs'
 import { logoutRegistry } from '../api/user/auth/logout/logout.docs'
 import { signUpRegistry } from '../api/user/auth/signUp/signUp.docs'
 import { verifyEmailRegistry } from '../api/user/auth/verifyEmail/verifyEmail.docs'
-import { checkoutSessionRegistry } from '../api/user/payments/checkoutSessions/checkoutSession.docs'
-import { customerSessionRegistry } from '../api/user/payments/customerSessions/customerSession.docs'
-import { paymentIntentsRegistry } from '../api/user/payments/paymentIntents/paymentIntents.docs'
-import { paymentMethodsRegistry } from '../api/user/payments/paymentMethods/paymentMethods.docs'
-import { refundRegistry } from '../api/user/payments/refunds/refund.docs'
 import { contactInfoRegistry } from '../api/user/profile/contactInfo/contactInfo.docs'
 import { personalInfoRegistry } from '../api/user/profile/personalInfo/personalInfo.docs'
 import { profileRegistry } from '../api/user/profile/profileDetails/profile.docs'
 import { env } from '../shared/functions/envConfig'
+
+const cookieComponent = new OpenAPIRegistry()
+
+cookieComponent.registerComponent('securitySchemes', 'CookieAuth', {
+  type: 'apiKey',
+  in: 'cookie',
+  name: 'jwt',
+  description: 'Cookie-based authentication'
+})
+
+const getPaymentRegistries = (): OpenAPIRegistry[] => {
+  if (!env.ENABLE_TEMPLATE_PAYMENTS) {
+    return []
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const paymentDocs = require('../api/user/payments/paymentOpenApiRegistries') as {
+    paymentOpenApiRegistries: OpenAPIRegistry[]
+  }
+
+  return paymentDocs.paymentOpenApiRegistries
+}
 
 /*
  * Generate the OpenAPI document for the Project API
  */
 export function generateOpenAPIDocument() {
   const registries = [
-    paymentMethodsRegistry,
-    refundRegistry,
-    customerSessionRegistry,
-    checkoutSessionRegistry,
-    paymentIntentsRegistry,
+    ...getPaymentRegistries(),
     contactInfoRegistry,
     personalInfoRegistry,
     profileRegistry,
@@ -54,12 +66,3 @@ export function generateOpenAPIDocument() {
     }
   })
 }
-
-const cookieComponent = new OpenAPIRegistry()
-
-cookieComponent.registerComponent('securitySchemes', 'CookieAuth', {
-  type: 'apiKey',
-  in: 'cookie',
-  name: 'jwt',
-  description: 'Cookie-based authentication'
-})

@@ -31,6 +31,7 @@ const prismaMock = {
           id: 1,
           user_id: 1,
           token: '6693a259d85d3a61aa48e8eb5260984974226a5137bdc9021b7f58e0bf781d14',
+          short_code: 'XC2DAS',
           created_at: new Date(),
           expires_at: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 7)
         })

@@ -61,6 +61,7 @@ const controller = function () {
         StatusCodes.OK,
         'Login successful.',
         {
+          token: result.token,
           roles: returnedRoles
         },
         'You have successfully logged in.'

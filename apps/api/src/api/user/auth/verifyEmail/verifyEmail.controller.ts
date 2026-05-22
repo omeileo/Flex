@@ -20,7 +20,7 @@ const controller = function () {
     requestHandler(verifyEmailRequestValidator, async (req: Request, res: Response) => {
       const verifyEmailRequest = getRequestBody<VerifyEmailRequest>(req)
 
-      const activatedUser = await verifyEmailService.verfyEmailWithToken(verifyEmailRequest)
+      const activatedUser = await verifyEmailService.verifyEmail(verifyEmailRequest)
 
       successResponse(
         res,
