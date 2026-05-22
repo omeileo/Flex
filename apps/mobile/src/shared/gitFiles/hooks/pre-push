@@ -1,0 +1,5 @@
+#!/bin/sh
+
+npm run lint-validate || exit 1
+npm run tsc || exit 1
+npm run test -- --watchAll=false || exit 1

@@ -1,0 +1,47 @@
+``` puml
+``` TODO: Figure out why including puml in the project causes it to fail during the build on Digital Ocean
+``` Removing it from the src folder has no effect
+``` Adding it to the ignore list in tsup.config.ts has no effect
+
+@startuml Hourrier Local Deployment Flow
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam defaultFontName Arial
+skinparam activityBorderColor #666666
+skinparam activityBackgroundColor #EEEEEE
+
+title Hourrier Local Deployment Flow
+
+partition "Local Development" {
+  fork
+    :Open Docker Desktop;
+    partition "Full Docker Setup" {
+      :"npm run docker:run";
+      :Access API at\nlocalhost:3005;
+      :Access database at\nlocalhost:3006;
+      if (Need to reset database?) then (yes)
+        :npm run db:reset;
+      endif
+    }
+    
+  fork again
+    :Open Docker Desktop;
+    partition "Docker DB Only \n(faster refreshes)" {
+      :"npm run dev";
+      :Access API at\nlocalhost:3005;
+      :Access database at\nlocalhost:3006;
+      if (Need to reset database?) then (yes)
+        :npm run dev:reset-database;
+      endif
+      if (Need to reseed database?) then (yes) 
+        :npm run dev:reseed-database;
+      endif
+      if (Need to reset, reseed and run API?) then (yes)
+        :npm run dev:clean-and-run;
+      endif
+    }
+  end fork
+}
+
+@enduml

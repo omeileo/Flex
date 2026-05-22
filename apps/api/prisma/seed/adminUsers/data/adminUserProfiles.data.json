@@ -1,0 +1,52 @@
+[
+  {
+    "id": 0,
+    "mobile_number": null,
+    "first_name": "Support",
+    "middle_name": null,
+    "last_name": "Admin",
+    "date_of_birth": null,
+    "stripe_customer_id": null,
+    "stripe_connect_account_id": null
+  },
+  {
+    "id": 1000000,
+    "mobile_number": null,
+    "first_name": "Hurrier",
+    "middle_name": null,
+    "last_name": "Admin",
+    "date_of_birth": null,
+    "stripe_customer_id": null,
+    "stripe_connect_account_id": null
+  },
+  {
+    "id": 1000001,
+    "mobile_number": null,
+    "first_name": "Joel",
+    "middle_name": null,
+    "last_name": "Admin",
+    "date_of_birth": null,
+    "stripe_customer_id": null,
+    "stripe_connect_account_id": null
+  },
+  {
+    "id": 1000002,
+    "mobile_number": null,
+    "first_name": "Joel",
+    "middle_name": null,
+    "last_name": "Admin",
+    "date_of_birth": null,
+    "stripe_customer_id": null,
+    "stripe_connect_account_id": null
+  },
+  {
+    "id": 1000003,
+    "mobile_number": null,
+    "first_name": "Dev",
+    "middle_name": null,
+    "last_name": "Support",
+    "date_of_birth": null,
+    "stripe_customer_id": null,
+    "stripe_connect_account_id": null
+  }
+]

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# set this to your active development branch
+develop_branch=dev
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# only check commit messages on main development branch
+# [ "$current_branch" != "$develop_branch" ] && exit 0
+
+# regex to validate in commit msg
+commit_regex='^(TP-\d+)(\s&\sTP-\d+)*:\s\(((feat|refactor|bug-fix|security-fix|hot-fix|config|misc|test|docs|style|chore|perf|ci|build|revert)(,\s)?)+\)\s.+$'
+error_msg=(
+    "Aborting commit. Your commit message must match the format: TP-<number>: (<tag>, <tag>) <message>"
+    "Tags: feat, refactor, bug-fix, security-fix, hot-fix, config, misc, test, docs, style, chore, perf, ci, build, revert"
+    "Example: TP-32: (feat, config) Added commit message enforcer script and updated package.json with clean command."
+)
+
+if ! grep -iqE "$commit_regex" "$1"; then
+    echo "\n${error_msg[0]}\n${error_msg[1]}\n${error_msg[2]}\n" >&2
+    exit 1
+fi

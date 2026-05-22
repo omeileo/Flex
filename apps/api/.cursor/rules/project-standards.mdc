@@ -1,0 +1,93 @@
+---
+description: Express TypeScript API Project Standards
+globs: 
+alwaysApply: false
+---
+# Express TypeScript API Project Standards
+
+## Code Style Standards
+
+### TypeScript & JavaScript
+- **ALWAYS use TypeScript** in JavaScript codebases
+- **NO SEMICOLONS** anywhere in the code
+- Use `const` and `let` appropriately, avoid `var`
+- Prefer arrow functions for callbacks and short functions
+- Use template literals instead of string concatenation
+
+### File Organization
+- **ALWAYS separate types code** from logic code into different files
+- **NEVER create index files**
+- If more than one file needs to be created for a feature, create a folder that stores them
+- **ALWAYS separate type code** into its own `.types.ts` file
+- **ALWAYS separate style code** into its own `.styles.ts` file for frontend code
+
+### Code Formatting
+- **ALWAYS generate clean, readable code**
+- Use line spaces to separate logical units
+- Proper indentation (2 spaces)
+- Consistent naming conventions
+- Clear variable and function names
+
+### Import/Export Standards
+```typescript
+// Group imports logically
+import React from 'react'
+import { useEffect, useState } from 'react'
+
+import { ExternalLibrary } from 'external-library'
+
+import { MyComponent } from './MyComponent'
+import { MyStyles } from './MyComponent.styles'
+import { MyTypes } from './MyComponent.types'
+
+// Prefer named exports
+export const myFunction = () => {}
+export type MyType = {}
+```
+
+### Function Standards
+- Wrap logic in appropriate try-catch blocks when possible
+- Add appropriate log messages (use logger function for backend projects)
+- Return early when possible to reduce nesting
+- Use meaningful parameter and variable names
+
+### Error Handling
+```typescript
+// Backend API functions
+export const myApiFunction = async () => {
+  try {
+    const result = await someOperation()
+    logger.info('Operation completed successfully')
+    return result
+  } catch (error) {
+    logger.error('Operation failed:', error)
+    throw error
+  }
+}
+```
+
+### Variable Naming Conventions
+- **camelCase** for variables and functions: `userProfile`, `getUserById`
+- **PascalCase** for types, interfaces, and components: `UserProfile`, `UserComponent`
+- **SCREAMING_SNAKE_CASE** for constants: `MAX_RETRY_ATTEMPTS`
+- **snake_case** for database fields: `user_id`, `created_at`
+
+### Default Branch
+- **dev is always the default branch**
+- Create feature branches from dev
+- Merge back to dev when complete
+
+### Commit Standards
+Follow this format:
+```
+HR-##: (tag, tag, etc) Short description of changes
+```
+
+Available tags: `feat`, `refactor`, `bug-fix`, `security-fix`, `hot-fix`, `config`, `misc`, `test`, `docs`, `style`, `chore`, `perf`, `ci`, `build`, `revert`
+
+Examples:
+```
+HR-123: (feat) Add user profile API endpoints
+HR-124: (bug-fix, test) Fix validation error in login form; add unit tests
+HR-125: (refactor) Restructure user service layer
+```

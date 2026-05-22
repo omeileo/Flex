@@ -1,0 +1,5 @@
+{
+  "ENABLE_DEBUGGER": false,
+  "ENABLE_HERMES": true,
+  "REMOVE_CONSOLE_STATEMENTS": false
+}

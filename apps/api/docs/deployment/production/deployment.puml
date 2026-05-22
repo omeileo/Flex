@@ -1,0 +1,72 @@
+````puml
+``` TODO: Figure out why including puml in the project causes it to fail during the build on Digital Ocean
+``` Removing it from the src folder has no effect
+``` Adding it to the ignore list in tsup.config.ts has no effect
+
+@startuml Hourrier Production Deployment Flow
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam defaultFontName Arial
+skinparam activityBorderColor #666666
+skinparam activityBackgroundColor #EEEEEE
+
+|Developer|
+start
+:Pull latest production branch;
+:Create production release branch
+(e.g. production-release-0.1.0);
+:Update package.json version;
+:Push production release branch;
+
+|GitHub|
+:Create Pull Request;
+
+|GitHub Actions|
+:Run automated checks;
+fork
+  :Lint check;
+fork again
+  :Test check;
+end fork
+if (Checks passed?) then (yes)
+  :Await review approval;
+else (no)
+  :Fix issues;
+  stop
+endif
+
+|Developer with owner status|
+if (PR approved?) then (yes)
+  :Merge to production;
+else (no)
+  :Address review comments;
+  stop
+endif
+
+|GitHub Actions|
+:Run automated checks;
+fork
+  :Lint check;
+fork again
+  :Test check;
+fork again
+  :Run migrate-and-seed job;
+fork
+  :Get GitHub Actions runner IP;
+  :Use DigitalOcean API (with DigitalOcean API token)\n to add IP and tag for production App Platform to\n DigitalOcean database firewall (trusted sources);
+  :Run migrations;
+  :Use DigitalOcean API (with DigitalOcean API token)\n to overwrite existing trusted sources with tag for\n production App Platform in DigitalOcean database firewall;
+  :Seed database;
+end fork
+end fork
+
+|Digital Ocean|
+:Detect production branch changes;
+:Build docker image using Dockerfile. \nUse environment variables defined in Digital Ocean \n`Environment Variables` for the `hourrier-api` 'component';
+:Deploy docker image to hourrier.com/api;
+
+stop
+
+@enduml
+````

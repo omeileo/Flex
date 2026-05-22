@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, dev]
+
+jobs:
+  shared:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: shared
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+        working-directory: .
+      - run: npm run build -w @flex/shared
+        working-directory: .
+      - run: npm run test -w @flex/shared
+        working-directory: .
+
+  api:
+    runs-on: ubuntu-latest
+    needs: shared
+    defaults:
+      run:
+        working-directory: apps/api
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: flex
+          POSTGRES_PASSWORD: flex
+          POSTGRES_DB: flex
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+        working-directory: .
+      - run: npm run build -w @flex/shared
+        working-directory: .
+      - run: npm run lint -w @flex/api
+        working-directory: .
+      - run: npm run test -w @flex/api
+        working-directory: .
+        env:
+          DATABASE_URL: postgresql://flex:flex@localhost:5432/flex
+          NODE_ENV: test
+          JWT_SECRET_KEY: ci-test-secret-key-min-32-chars-long
+          PRODUCT_NAME: Flex
+
+  mobile:
+    runs-on: ubuntu-latest
+    needs: shared
+    defaults:
+      run:
+        working-directory: apps/mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+        working-directory: .
+      - run: npm run build -w @flex/shared
+        working-directory: .
+      - run: npm run lint-validate -w @flex/mobile
+        working-directory: .
+      - run: npm run tsc -w @flex/mobile
+        working-directory: .

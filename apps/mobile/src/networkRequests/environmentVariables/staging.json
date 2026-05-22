@@ -1,0 +1,13 @@
+{
+  "ENVIRONMENT": "staging",
+  "PRODUCT_NAME": "FlexMobile",
+  "API_BASE_URL": "",
+  "API_TIMEOUT": "20000",
+  "DEFAULT_PAGE_SIZE": "10",
+  "USE_MOCK": "false",
+  "SENTRY_DSN": "",
+  "FIREBASE_API_KEY": "",
+  "FIREBASE_PROJECT_ID": "",
+  "FIREBASE_APP_ID": "",
+  "SPLASH_SCREEN_TIMEOUT_MS": "5000"
+}

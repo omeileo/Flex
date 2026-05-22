@@ -1,0 +1,120 @@
+@startuml Item Request Cancellation Flow
+
+skinparam ActivityBackgroundColor LightBlue
+skinparam ActivityBorderColor DarkBlue
+skinparam ArrowColor DarkBlue
+skinparam NoteBackgroundColor LightYellow
+skinparam NoteBorderColor DarkGray
+
+|Cancellation Handler|
+start
+:Shopper attempts to cancel item request;
+
+|System|
+:Check flight booking status;
+
+if (Is flight booked?) then (no)
+    :Cancel item request;
+    if (Last item in offer?) then (yes)
+        :Release entire payment hold;
+        :Send full cancellation email to shopper;
+        :Send basic cancellation notice to traveler;
+    else (no)
+        :Send partial refund email to shopper;
+        :Send basic cancellation notice to traveler;
+    endif
+else (yes)
+  if (traveler has locked in a price) then (yes)
+    :Item request cancellation is not allowed;
+  else (no)
+    if (There is an item price increase that has not been accepted by the shopper since the flight was booked) then (yes)
+      fork
+        |Shopper Processing|
+        :Calculate partial refund amount for accepted price + tax + delivery fee (with item quantity in mind);
+        :Process partial refund;
+        :Send partial refund email to shopper;
+      end fork
+
+      fork
+        |Traveler Processing|
+        :Get the transfer request associated with the offer request;
+        :Calculate the amount to reduce the transfer request by (current amount - traveler benefit for item);
+        :Update transfer request amount associated with the offer request;
+        :Reduce the amount allocated to the virtual card associated with the itinerary by the amount of the item + tax;
+        :Send virtual card reduction notification email with
+        updated earnings breakdown to traveler;
+        :Send virtual card reduction notification email to admin;
+      end fork
+    endif
+    
+endif
+
+endif
+
+stop
+
+legend right
+  Pre-Flight: Before traveler books flight
+  Post-Flight: After traveler books flight
+endlegend
+
+@enduml
+
+' @startuml Item Request Cancellation Flow
+
+' skinparam ActivityBackgroundColor LightBlue
+' skinparam ActivityBorderColor DarkBlue
+' skinparam ArrowColor DarkBlue
+' skinparam NoteBackgroundColor LightYellow
+' skinparam NoteBorderColor DarkGray
+
+' |Cancellation Handler|
+' start
+' :Shopper cancels item request;
+
+' |System|
+' :Check flight booking status;
+
+' if (Is flight booked?) then (no)
+'   :Pre-Flight Booking Flow;
+'   if (Last item in offer?) then (yes)
+'     :Release entire payment hold;
+'     :Send full cancellation email to shopper;
+'     :Send basic cancellation notice to traveler;
+'   else (no)
+'     :Send partial refund email to shopper;
+'     :Send basic cancellation notice to traveler;
+'   endif
+' else (yes)
+'   :Post-Flight Booking Flow;
+'   fork
+'     |Shopper Processing|
+'     if (Last item in offer?) then (yes)
+'       :Process full refund;
+'       :Send full refund email to shopper;
+'     else (no)
+'       :Calculate partial refund amount;
+'       :Process partial refund;
+'       :Send partial refund email to shopper;
+'     endif
+    
+'   fork again
+'     |Traveler Processing|
+'     :Recalculate traveler earnings;
+'     :Calculate required charge amount;
+'     :Process charge to traveler;
+'     :Send charge notification email with
+'     updated earnings breakdown;
+'   end fork
+' endif
+
+' stop
+
+' legend right
+'   Pre-Flight: Before traveler books flight
+'   Post-Flight: After traveler books flight
+'   Full Cancel: No items left in offer
+'   Partial Cancel: Some items remain
+' endlegend
+
+' @enduml

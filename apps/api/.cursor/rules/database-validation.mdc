@@ -1,0 +1,360 @@
+---
+description: Database & Validation Standards
+globs: 
+alwaysApply: false
+---
+# Database & Validation Standards
+
+## Database Operations Standards
+
+### Prisma Client Usage
+- **ALWAYS use Prisma** for database operations
+- Import from: `import prisma from '../../../../../prisma/prisma.client'`
+- Use proper error handling with Prisma operations
+- Include proper type annotations for Prisma queries
+
+### Database Naming Conventions
+- **Table names**: `snake_case` and plural (e.g., `user_profiles`, `loyalty_programs`)
+- **Column names**: `snake_case` (e.g., `user_id`, `created_at`, `updated_at`)
+- **Foreign keys**: `{table_name}_id` (e.g., `user_id`, `city_id`, `country_id`)
+- **Junction tables**: `{table1}_{table2}` (e.g., `user_roles`, `product_categories`)
+
+## Standard Database Operations Pattern
+
+### Create Operations
+```typescript
+const createEntity = async (userId: number, entityData: EntityType) => {
+  // Check constraints/limits first
+  const existingCount = await prisma.entities.count({
+    where: { user_id: userId }
+  })
+  
+  if (existingCount >= MAX_ENTITIES) {
+    throw entityErrors.maximumEntitiesReached.build()
+  }
+  
+  const entity = await prisma.entities.create({
+    data: {
+      ...entityData,
+      user_id: userId
+    }
+  })
+  
+  if (!entity) {
+    throw globalErrors.entityNotCreated.build('entity', userId)
+  }
+  
+  return entity
+}
+```
+
+### Read Operations
+```typescript
+// Get multiple entities
+const getEntities = async (userId: number) => {
+  const entities = await prisma.entities.findMany({
+    where: { user_id: userId },
+    take: MAX_ENTITIES,
+    include: {
+      relatedTable: true
+    }
+  })
+  
+  return entities
+}
+
+// Get single entity by ID
+const getEntityById = async (entityId: number) => {
+  const entity = await prisma.entities.findFirst({
+    where: { id: entityId }
+  })
+  
+  if (!entity) {
+    throw globalErrors.entityNotFound.build('entity')
+  }
+  
+  return entity
+}
+```
+
+### Update Operations
+```typescript
+const updateEntity = async (userId: number, entityId: number, updateData: UpdateEntityType) => {
+  // Verify entity exists and belongs to user
+  const entity = await getEntityById(entityId)
+  
+  const updatedEntity = await prisma.entities.update({
+    where: { id: entity.id },
+    data: updateData
+  })
+  
+  if (!updatedEntity) {
+    throw globalErrors.entityNotUpdated.build('entity', `userId: ${userId} - entityId: ${entityId}`)
+  }
+  
+  return updatedEntity
+}
+```
+
+### Delete Operations
+```typescript
+const deleteEntity = async (userId: number, entityId: number) => {
+  // Verify entity exists and belongs to user
+  const entity = await getEntityById(entityId)
+  
+  const deletedEntity = await prisma.entities.delete({
+    where: { id: entity.id }
+  })
+  
+  if (!deletedEntity) {
+    throw globalErrors.entityNotDeleted.build('entity', `${userId} - ${entityId}`)
+  }
+  
+  return deletedEntity
+}
+```
+
+## Validation Standards
+
+### Zod Schema Patterns
+
+#### Basic Entity Schema
+```typescript
+export const entityBody = zodd.object({
+  name: zodd.string().min(1).max(100).openapi({
+    example: 'Entity Name',
+    description: 'The name of the entity'
+  }),
+  description: zodd.string().min(1).max(500).optional().openapi({
+    example: 'Entity description',
+    description: 'Optional description of the entity'
+  }),
+  categoryId: zodd.number().positive().openapi({
+    example: 123,
+    description: 'The category identifier'
+  }),
+  isActive: zodd.boolean().default(true).openapi({
+    example: true,
+    description: 'Whether the entity is active'
+  })
+})
+```
+
+#### Query Parameter Schema
+```typescript
+export const entityQueryParam = zodd.object({
+  entityId: commonValidations.id.openapi({
+    example: '1',
+    description: 'The identifier for the entity'
+  })
+})
+```
+
+#### Request Validation Schemas
+```typescript
+// For POST requests (body only)
+export const IncomingEntityBody = zodd.object({
+  body: entityBody
+})
+
+// For PUT requests (body + query params)
+export const IncomingUpdateEntityRequest = zodd.object({
+  body: entityBody,
+  query: entityQueryParam
+})
+
+// For DELETE requests (query params only)
+export const IncomingDeleteEntityRequest = zodd.object({
+  query: entityQueryParam
+})
+```
+
+### Common Validation Patterns
+
+#### String Validations
+```typescript
+// Required string with length limits
+name: zodd.string().min(1).max(100)
+
+// Optional string
+description: zodd.string().min(1).max(500).optional()
+
+// Email validation
+email: zodd.string().email()
+
+// URL validation
+website: zodd.string().url().optional()
+
+// Phone number (basic pattern)
+phone: zodd
+  .string()
+  .regex(/^\+?[\d\s\-\(\)]+$/)
+  .optional()
+
+// Postal code
+postalCode: zodd.string().min(1).max(10)
+```
+
+#### Number Validations
+```typescript
+// Positive integer (IDs)
+id: zodd.number().positive()
+
+// Non-negative number (quantities, prices)
+quantity: zodd.number().min(0)
+
+// Price with 2 decimal places
+price: zodd.number().min(0).multipleOf(0.01)
+
+// Percentage (0-100)
+percentage: zodd.number().min(0).max(100)
+```
+
+#### Date Validations
+```typescript
+// ISO date string
+dateOfBirth: zodd.string().datetime()
+
+// Future date only
+scheduledDate: zodd
+  .string()
+  .datetime()
+  .refine((date) => new Date(date) > new Date(), { message: 'Date must be in the future' })
+```
+
+#### Array Validations
+```typescript
+// Array of IDs
+categoryIds: zodd.array(zodd.number().positive()).min(1)
+
+// Array of strings
+tags: zodd.array(zodd.string().min(1)).max(10)
+
+// Array of objects
+items: zodd.array(
+  zodd.object({
+    id: zodd.number().positive(),
+    quantity: zodd.number().min(1)
+  })
+)
+```
+
+#### Enum Validations
+```typescript
+// Status enum
+status: zodd.enum(['active', 'inactive', 'pending'])
+
+// Priority enum
+priority: zodd.enum(['low', 'medium', 'high', 'critical'])
+```
+
+## Error Handling Patterns
+
+### Repository Error Handling
+```typescript
+// Always check for null/undefined results
+if (!entity) {
+  throw globalErrors.entityNotFound.build('entityName')
+}
+
+// Use descriptive error context
+if (!updatedEntity) {
+  throw globalErrors.entityNotUpdated.build('entityName', `userId: ${userId} - entityId: ${entityId}`)
+}
+```
+
+### Custom Error Definitions
+```typescript
+export const entityErrors = {
+  maximumEntitiesReached: {
+    build: () => {
+      return quickErrorResponse(
+        StatusCodes.UNPROCESSABLE_ENTITY,
+        'Unprocessable Entity',
+        'Maximum number of entities reached.',
+        [
+          {
+            field: 'entities',
+            issue: 'limitExceeded',
+            description: 'You have reached the maximum number of entities allowed.'
+          }
+        ],
+        'You have reached the maximum number of entities allowed, please remove an existing one before adding a new one.'
+      )
+    },
+    schema: zodd.object({
+      // OpenAPI schema definition
+    })
+  }
+}
+```
+
+### Environment Configuration
+```typescript
+// Access environment variables through env object
+import { env } from '../../../../shared/functions/envConfig'
+
+const entitySettings = {
+  maxEntitiesPerUser: env.MAXIMUM_ENTITIES_PER_USER,
+  defaultPageSize: env.DEFAULT_PAGE_SIZE
+}
+```
+
+## Query Optimization Patterns
+
+### Use Proper Includes
+```typescript
+// Include related data efficiently
+const entities = await prisma.entities.findMany({
+  where: { user_id: userId },
+  include: {
+    category: true,
+    tags: true
+  }
+})
+```
+
+### Use Select for Large Objects
+```typescript
+// Select only needed fields for performance
+const entities = await prisma.entities.findMany({
+  where: { user_id: userId },
+  select: {
+    id: true,
+    name: true,
+    createdAt: true,
+    category: { select: { name: true } }
+  }
+})
+```
+
+### Implement Pagination
+```typescript
+const getEntitiesPaginated = async (userId: number, page: number, limit: number) => {
+  const skip = (page - 1) * limit
+  
+  const [entities, total] = await Promise.all([
+    prisma.entities.findMany({
+      where: { user_id: userId },
+      skip,
+      take: limit,
+      orderBy: { createdAt: 'desc' }
+    }),
+    prisma.entities.count({
+      where: { user_id: userId }
+    })
+  ])
+  
+  return {
+    entities,
+    pagination: {
+      page,
+      limit,
+      total,
+      totalPages: Math.ceil(total / limit)
+    }
+  }
+}
+```
+
+**CRITICAL:** Always use these patterns for database operations and validation to maintain consistency and reliability across the application.

@@ -1,0 +1,60 @@
+name: Deploy Dev Database Changes
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  migrate-and-seed:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore NPM Cache
+        id: npm-cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Maybe Install Dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Run Migrations
+        env:
+          DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
+        run: |
+          # TODO: Remove the need for using the .env.docker file
+          # Note: getSupportLoyaltyPrograms.seed.ts calls the duffel.client.ts file which needs the .env.docker file
+
+          set -e
+
+          cp .env.docker .env
+          echo "\nDATABASE_URL=$DATABASE_URL" >> .env
+
+          # Temporaily reset the database
+          # npm run prisma:migrate-deploy-reset
+          
+          # Run migrations with retry logic
+          if ! npm run prisma:migrate-deploy; then
+            echo "::warning::Migration failed, attempting reset..."
+            npm run prisma:migrate-deploy-reset
+
+            echo "::notice::Database reset complete, retrying migrations..."
+            npm run prisma:migrate-deploy
+          fi
+
+          # Wait a moment for migrations to complete
+          sleep 5
+
+          npm run seed-database
+          # npm run migration-query:dev -- --file=backfillOfferRequestSourceCountry

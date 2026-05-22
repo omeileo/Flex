@@ -1,0 +1,54 @@
+version: '3.8'
+services:
+  db:
+    container_name: flex-db
+    image: postgres:16
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: template-project
+      POSTGRES_PASSWORD: template-project
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - '3006:5432'
+    networks:
+      - flex-network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U template-project']
+      interval: 1s
+      timeout: 5s
+      retries: 5
+
+  flex-api:
+    container_name: flex-api
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile-local
+    volumes:
+      - ./apps/api/src:/app/src
+      - ./apps/api/prisma:/app/prisma
+      - ./apps/api/package.json:/app/package.json
+      - /app/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - '3005:3005'
+    env_file: ./apps/api/.env.docker
+    networks:
+      - flex-network
+    command: >
+      sh -c "
+        npx prisma generate &&
+        npx prisma migrate deploy &&
+        npm run seed-database &&
+        npm run dev-only
+      "
+
+networks:
+  flex-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+    driver: local

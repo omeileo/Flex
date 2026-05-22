@@ -1,0 +1,288 @@
+---
+description: 
+globs: src/api/**/*.ts
+alwaysApply: false
+---
+# Express API Generation Rules
+
+## MANDATORY FILE STRUCTURE
+Every API must create exactly **9 files** with this naming pattern:
+
+```
+src/api/user/{camelCaseBasePath}/
+├── {camelName}.controller.ts
+├── {camelName}.middleware.ts
+├── {camelName}.repository.ts
+├── {camelName}.service.ts
+├── {camelName}.docs.ts
+├── {camelName}.model.ts
+├── {camelName}.routes.ts
+├── {camelName}.types.ts
+└── {camelName}.dictionary.ts
+```
+
+## NAMING CONVENTIONS (STRICTLY ENFORCED)
+- **Variables/Functions**: camelCase (e.g., loyaltyProgram, getUserById)
+- **Types/Interfaces**: SentenceCase (e.g., LoyaltyProgram, AddLoyaltyProgramRequest)
+- **Database Fields**: snake_case (e.g., loyalty_programs, user_id)
+- **File Names**: {baseName}.{type}.ts (e.g., loyaltyProgram.controller.ts)
+- **Directory Names**: Convert dash-case to camelCase (e.g., loyalty-program → loyaltyProgram)
+
+## OPERATIONS PATTERNS
+Each API must implement the operations that fulfill the specific task requirements. Use these standard patterns:
+
+### Standard CRUD Operations
+1. **ADD (POST)** - Create new entity (when creation is needed)
+   - Route: /{basePath}/add
+   - Method: POST
+   - Middleware: {camelName}Validator
+
+2. **GET (GET)** - Retrieve entities for user (when reading is needed)
+   - Route: /{basePath}/get
+   - Method: GET
+   - Middleware: null
+
+3. **UPDATE (PUT)** - Update existing entity by ID (when updates are needed)
+   - Route: /{basePath}/update
+   - Method: PUT
+   - Middleware: update{SentenceName}Validator
+
+4. **DELETE (DELETE)** - Delete entity by ID (when deletion is needed)
+   - Route: /{basePath}/delete
+   - Method: DELETE
+   - Middleware: delete{SentenceName}Validator
+
+### Custom Actions
+When business requirements don't fit standard CRUD patterns, custom actions are acceptable. Assess each case individually:
+
+**Custom Action Pattern:**
+- Route: /{basePath}/{actionName}
+- Method: Appropriate HTTP method (POST for actions, GET for queries, PUT for updates)
+- Middleware: {actionName}{SentenceName}Validator
+- Examples: `/activate`, `/deactivate`, `/bulk-update`, `/search`, `/export`
+
+**Custom Action Guidelines:**
+- Use descriptive, action-oriented names
+- Follow RESTful principles where possible
+- Implement corresponding service and repository methods
+- Include proper validation and error handling
+- Document in OpenAPI with clear descriptions
+
+**Note**: Prioritize standard CRUD operations when they fit the use case. Use custom actions only when CRUD patterns are insufficient for the business requirements.
+
+## REQUIRED IMPORTS PER FILE TYPE
+
+### Controller File
+```typescript
+import express, { Request, Response, Router } from 'express'
+import { StatusCodes } from 'http-status-codes'
+
+import {
+  getQueryParams,
+  getQueryParamsAndBody,
+  getRequestBody
+} from '../../../../shared/functions/http/request.functions'
+import { successResponse } from '../../../../shared/functions/http/response/response.function'
+import { requestHandler } from '../../../../shared/middleware/requesthandler.middleware'
+```
+
+### Repository File
+```typescript
+import prisma from '../../../../../prisma/prisma.client'
+import { globalErrors } from '../../../../shared/dictionary/errors.dictionary'
+import { env } from '../../../../shared/functions/envConfig'
+```
+
+### Model File
+```typescript
+import { commonValidations } from '../../../../shared/functions/commonValidation.functions'
+import { zodd } from '../../../../shared/functions/zod.functions'
+```
+
+### Middleware File
+```typescript
+import { validateIncomingApiRequest } from '@/shared/functions/http/validateApiRequest.functions'
+```
+
+### Service File
+```typescript
+import { getCurrentLoggedInUserOrThrow } from '../../../../shared/appContext.context'
+```
+
+## VALIDATION SCHEMAS REQUIREMENTS
+
+In Model File:
+```typescript
+export const {camelName}Body = zodd.object({
+  // Define properties here
+})
+
+export const {camelName}QueryParam = zodd.object({
+  {camelName}Id: commonValidations.id.openapi({
+    example: '1',
+    description: 'The identifier for the {API Name} to update'
+  })
+})
+
+export const Incoming{SentenceName}Body = zodd.object({
+  body: {camelName}Body
+})
+
+export const IncomingUpdate{SentenceName}Request = zodd.object({
+  body: {camelName}Body,
+  query: {camelName}QueryParam
+})
+
+export const IncomingDelete{SentenceName}Request = zodd.object({
+  query: {camelName}QueryParam
+})
+```
+
+## REPOSITORY PATTERN REQUIREMENTS
+
+Database Operations (implement only the methods needed for your API's functionality):
+```typescript
+export const {camelName}Repository = {
+  // For CREATE operations
+  add{SentenceName}: async function (userId: number, new{SentenceName}: {SentenceName}) {
+    // Check limits, create entity
+  },
+  
+  // For READ operations
+  get{SentenceName}s: async function (userId: number) {
+    // Retrieve all entities for user
+  },
+  
+  // For UPDATE operations
+  update{SentenceName}: async function (userId: number, {camelName}Id: number, new{SentenceName}: Update{SentenceName}Request) {
+    // Update existing entity
+  },
+  
+  // For DELETE operations
+  delete{SentenceName}: async function (userId: number, {camelName}Id: number) {
+    // Delete entity
+  },
+  
+  // Helper method for operations that need to find by ID
+  get{SentenceName}ById: async function ({camelName}Id: number) {
+    // Get single entity by ID (used by update/delete operations)
+  },
+  
+  // For CUSTOM ACTIONS (examples)
+  activate{SentenceName}: async function (userId: number, {camelName}Id: number) {
+    // Custom business logic for activation
+  },
+  
+  search{SentenceName}s: async function (userId: number, searchParams: SearchParams) {
+    // Custom search logic
+  }
+}
+```
+
+## SERVICE LAYER REQUIREMENTS
+Implement only the service methods needed for your API's functionality:
+```typescript
+export const {camelName}Service = {
+  // For CREATE operations
+  add{SentenceName}: async ({camelName}: {SentenceName}) => {
+    const currentUser = getCurrentLoggedInUserOrThrow()
+    // Call repository
+  },
+  
+  // For READ operations
+  get{SentenceName}s: async () => {
+    const currentUser = getCurrentLoggedInUserOrThrow()
+    // Call repository
+  },
+  
+  // For UPDATE operations
+  update{SentenceName}: async ({camelName}Id: number, update{SentenceName}Request: Update{SentenceName}Request) => {
+    const currentUser = getCurrentLoggedInUserOrThrow()
+    // Call repository
+  },
+  
+  // For DELETE operations
+  delete{SentenceName}: async ({camelName}Id: number) => {
+    const currentUser = getCurrentLoggedInUserOrThrow()
+    // Call repository
+  },
+  
+  // For CUSTOM ACTIONS (examples)
+  activate{SentenceName}: async ({camelName}Id: number) => {
+    const currentUser = getCurrentLoggedInUserOrThrow()
+    // Custom business logic, call repository
+  },
+  
+  search{SentenceName}s: async (searchParams: SearchParams) => {
+    const currentUser = getCurrentLoggedInUserOrThrow()
+    // Custom search logic, call repository
+  }
+}
+```
+
+## REQUIRED TYPES
+```typescript
+// Standard CRUD types
+export type Add{SentenceName}Request = Zod.infer<typeof {camelName}Body>
+export type Update{SentenceName}Request = Zod.infer<typeof {camelName}Body>
+export type Update{SentenceName}Response = Zod.infer<typeof Update{SentenceName}ResponseBody>
+export type {SentenceName} = Zod.infer<typeof {camelName}Body>
+export type {SentenceName}QueryParam = Zod.infer<typeof {camelName}QueryParam>
+
+// Custom action types (examples - create as needed)
+export type Activate{SentenceName}Request = Zod.infer<typeof activate{SentenceName}Body>
+export type Search{SentenceName}sRequest = Zod.infer<typeof search{SentenceName}sBody>
+```
+
+## MANDATORY INTEGRATIONS
+
+### 1. Update OpenAPI Document Generator
+File: `src/__openApiDocs__/openAPIDocumentGenerator.ts`
+```typescript
+// Add import at top
+import { {camelName}Registry } from '../api/user/{camelPath}/{camelName}.docs'
+
+// Add to registries array
+const registries = [
+  {camelName}Registry,
+  // ... existing registries
+]
+```
+
+### 2. Update Route Registration
+File: `src/api/__routes__/registerRoutes.functions.ts`
+```typescript
+// Add imports at top
+import { {camelName}Router } from '../user/{camelPath}/{camelName}.controller'
+import { {camelName}BasePath } from '../user/{camelPath}/{camelName}.routes'
+
+// Add route registration
+export const registerRoutes = (app: Express): void => {
+  app.use(withBasePath({camelName}BasePath), {camelName}Router)
+  // ... existing routes
+}
+```
+
+## OPENAPI DOCUMENTATION REQUIREMENTS
+
+Required Endpoints (document only the endpoints you implement):
+- POST endpoint with JWT middleware (for create operations)
+- GET endpoints with JWT middleware (for read operations)
+- PUT endpoint with JWT middleware and query params (for update operations)
+- DELETE endpoint with JWT middleware and query params (for delete operations)
+- Custom action endpoints with appropriate HTTP methods and JWT middleware
+
+**Custom Action Documentation:**
+- Use descriptive endpoint tags and summaries
+- Include clear business context in descriptions
+- Document request/response schemas properly
+- Specify any special requirements or side effects
+- Examples: "Activate User Account", "Bulk Update Items", "Export Data"
+
+Required Response Codes:
+- 200 OK - Success
+- 400 BAD_REQUEST - Validation Error
+- 404 NOT_FOUND - Entity Not Found
+- 422 UNPROCESSABLE_ENTITY - Business Logic Error
+
+**This structure is non-negotiable and must be followed exactly for every API created in this project.**

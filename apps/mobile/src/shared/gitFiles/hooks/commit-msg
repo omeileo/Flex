@@ -1,0 +1,8 @@
+#!/bin/sh
+
+commit_regex='(FLEX-[0-9]+)(\s&\sFLEX-[0-9]+)*:\s\(((bug-fix|config|design|feat|ios|misc|refactor|security-fix|style|test)(,\s)*)+\)\s.+'
+
+if ! grep -iqE "$commit_regex" "$1"; then
+  printf "\nAborting commit. Commit message must match:\n  FLEX-<n>: (<tag>, <tag>) <message>\n\nAllowed tags: bug-fix, config, design, feat, ios, misc, refactor, security-fix, style, test\n\n" >&2
+  exit 1
+fi

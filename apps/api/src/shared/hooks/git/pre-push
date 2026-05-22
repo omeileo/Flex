@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Define the regex for branch name validation
+branch_regex='^(TP-\d+|dev)\/?[a-zA-Z0-9_-]*$'
+
+# Get the current branch name
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# Check if the current branch matches the regex
+if ! echo "$current_branch" | grep -qE "$branch_regex"; then
+  echo >&2 "\n\n*******************************************************\n"
+  echo >&2 "Invalid branch name: $current_branch."
+  echo >&2 "Your branch name must match the format: TP-<number>/branch-name-description"
+  echo >&2 "Example: TP-39/implement-login-flow\n\n"
+  echo >&2 "To resolve:"
+  echo >&2 "1. Rename branch: git branch -m <new-branch-name>"
+  echo >&2 "2. Push changes again."
+  echo >&2 "\n*******************************************************\n\n"
+  exit 1
+fi
+
+# runTests="npm run test"
+
+# # Check if tests are passing
+# $runTests
+# result=$?
+
+# if [ $result -ne 0 ]; then
+#   echo >&2 "\n\n*******************************************************\n"
+#   echo >&2 "There are failing tests. Address them in order to push."
+#   echo >&2 "\n*******************************************************\n\n"
+#   exit 1
+# fi
+
+exit 0

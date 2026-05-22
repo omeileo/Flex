@@ -1,0 +1,17 @@
+name: Deploy API
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy note
+        run: |
+          echo "Configure DigitalOcean App Platform deploy hook or doctl here."
+          echo "Pre-deploy: npx prisma migrate deploy in apps/api"
+          echo "Set DATABASE_URL (Supabase Postgres), JWT_SECRET_KEY, OPENAI_* on App Platform."

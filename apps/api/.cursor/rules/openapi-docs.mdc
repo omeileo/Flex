@@ -1,0 +1,212 @@
+---
+description: OpenAPI Documentation Standards
+globs: 
+alwaysApply: false
+---
+# OpenAPI Documentation Standards
+
+## Registry Pattern
+
+Every API docs file must follow this structure:
+
+```typescript
+import { OpenAPIRegistry } from '@asteasolutions/zod-to-openapi'
+import { StatusCodes } from 'http-status-codes'
+
+import {
+  ParamsFrom,
+  createApiResponses,
+  withJWTMiddleware
+} from '../../../../__openApiDocs__/functions/openAPI.functions'
+import { globalErrors } from '../../../../shared/dictionary/errors.dictionary'
+import { ValidationErrorResponseBody } from '../../../../shared/functions/http/response/errorResponse.model'
+import { zodd } from '../../../../shared/functions/zod.functions'
+
+/**
+ * Represents the Open API registry docs for the {API Name} functionality.
+ */
+export const {camelName}Registry = new OpenAPIRegistry()
+```
+
+## Required Endpoint Registrations
+
+Every API must register exactly these 4 endpoints:
+
+### 1. POST Endpoint (Add)
+```typescript
+{camelName}Registry.registerPath({
+  method: 'post',
+  path: {camelName}Routes.ADD.openApiFullPath,
+  tags: ['{API Name}'],
+  ...withJWTMiddleware(),
+  request: {
+    body: {
+      description: '{API Name} Request Body',
+      required: true,
+      content: {
+        'application/json': {
+          schema: {camelName}Body
+        }
+      }
+    }
+  },
+  responses: createApiResponses([
+    {
+      result: {camelName}Body,
+      description: 'Successfully Added {API Name}.',
+      statusCode: StatusCodes.OK
+    },
+    {
+      result: ValidationErrorResponseBody,
+      description: 'Invalid {API Name} request. Validation Error.',
+      statusCode: StatusCodes.BAD_REQUEST
+    },
+    {
+      result: {camelName}Errors.maximum{SentenceName}sReached.schema,
+      description: 'Maximum number of {API Name}s reached.',
+      statusCode: StatusCodes.UNPROCESSABLE_ENTITY
+    }
+  ])
+})
+```
+
+### 2. GET Endpoint (Retrieve)
+```typescript
+{camelName}Registry.registerPath({
+  method: 'get',
+  path: {camelName}Routes.GET.openApiFullPath,
+  tags: ['{API Name}'],
+  ...withJWTMiddleware(),
+  responses: createApiResponses([
+    {
+      result: zodd.array({camelName}Body),
+      description: 'Successfully Retrieved {API Name}s.',
+      statusCode: StatusCodes.OK
+    }
+  ])
+})
+```
+
+### 3. PUT Endpoint (Update)
+```typescript
+{camelName}Registry.registerPath({
+  method: 'put',
+  path: {camelName}Routes.UPDATE.openApiFullPath,
+  tags: ['{API Name}'],
+  ...withJWTMiddleware(),
+  request: {
+    query: ParamsFrom({camelName}QueryParam),
+    body: {
+      description: 'Update {API Name} Request Body',
+      required: true,
+      content: {
+        'application/json': {
+          schema: {camelName}Body
+        }
+      }
+    }
+  },
+  responses: createApiResponses([
+    {
+      result: {camelName}Body,
+      description: 'Successfully Updated {API Name}.',
+      statusCode: StatusCodes.OK
+    },
+    {
+      result: ValidationErrorResponseBody,
+      description: 'Invalid {API Name} request. Validation Error.',
+      statusCode: StatusCodes.BAD_REQUEST
+    },
+    {
+      result: globalErrors.entityNotFound.schema,
+      description: '{API Name} not found.',
+      statusCode: StatusCodes.NOT_FOUND
+    }
+  ])
+})
+```
+
+### 4. DELETE Endpoint (Remove)
+```typescript
+{camelName}Registry.registerPath({
+  method: 'delete',
+  path: {camelName}Routes.DELETE.openApiFullPath,
+  tags: ['{API Name}'],
+  ...withJWTMiddleware(),
+  request: {
+    query: ParamsFrom({camelName}QueryParam)
+  },
+  responses: createApiResponses([
+    {
+      result: {camelName}Body,
+      description: 'Successfully Deleted {API Name}.',
+      statusCode: StatusCodes.OK
+    },
+    {
+      result: ValidationErrorResponseBody,
+      description: 'Invalid {API Name} request. Validation Error.',
+      statusCode: StatusCodes.BAD_REQUEST
+    },
+    {
+      result: globalErrors.entityNotFound.schema,
+      description: '{API Name} not found.',
+      statusCode: StatusCodes.NOT_FOUND
+    }
+  ])
+})
+```
+
+## Required Response Codes
+
+Every endpoint must handle these standard response codes:
+
+### Success Responses
+- `200 OK` - Successful operation
+- `201 CREATED` - Resource created successfully (for POST endpoints)
+
+### Error Responses
+- `400 BAD_REQUEST` - Validation error (malformed request)
+- `401 UNAUTHORIZED` - Authentication required
+- `403 FORBIDDEN` - Insufficient permissions
+- `404 NOT_FOUND` - Resource not found
+- `422 UNPROCESSABLE_ENTITY` - Business logic error (e.g., limits exceeded)
+- `500 INTERNAL_SERVER_ERROR` - Server error
+
+## Documentation Requirements
+
+### Tags
+- Use descriptive, user-friendly tags that group related endpoints
+- Consistent with API naming (e.g., "Loyalty Program", "User Profile")
+
+### Descriptions
+- Clear, concise descriptions for each endpoint
+- Include business context and use cases
+- Specify any prerequisites or constraints
+
+### Examples
+- Provide realistic examples in schema definitions
+- Use consistent example data across related endpoints
+- Include edge cases where relevant
+
+### Schema References
+- Always reference Zod schemas from model files
+- Use `ParamsFrom()` for query parameters
+- Include proper OpenAPI metadata with examples and descriptions
+
+## Integration Pattern
+
+After creating docs file, always update the OpenAPI document generator:
+
+File: `src/__openApiDocs__/openAPIDocumentGenerator.ts`
+```typescript
+// Add import at top
+import { {camelName}Registry } from '../api/user/{camelPath}/{camelName}.docs'
+
+// Add to registries array
+const registries = [
+  {camelName}Registry,
+  // ... existing registries
+]
+```
+
+**CRITICAL:** OpenAPI documentation must be comprehensive and accurate as it serves as the API contract for frontend developers and external integrations.

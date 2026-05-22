@@ -1,0 +1,96 @@
+name: Deploy Production Database Changes
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  migrate-and-seed:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore NPM Cache
+        id: npm-cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Maybe Install Dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Get GitHub Actions IP
+        id: ip
+        uses: haythem/public-ip@v1.3
+
+      - name: Add GitHub Actions IP to DigitalOcean Database
+        run: |
+          response=$(curl -X PUT -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.PROD_DIGITALOCEAN_UPDATE_TRUSTED_SOURCES_IP_DB_TOKEN }}" \
+          -d '{
+            "rules": [
+              {
+                "type": "ip_addr",
+                "value": "'${{ steps.ip.outputs.ipv4 }}'"
+              },
+              {
+                "type": "app",
+                "value": "${{ secrets.PROD_DIGITAL_OCEAN_APP_PLATFORM_ID }}"
+              }
+            ]
+          }' \
+          "https://api.digitalocean.com/v2/databases/${{ secrets.PROD_DATABASE_ID }}/firewall")
+
+      - name: Run Migrations
+        env:
+          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+        run: |
+          # TODO: Remove the need for using the .env.docker file
+          # Note: getSupportLoyaltyPrograms.seed.ts calls the duffel.client.ts file which needs the .env.docker file
+
+          cp .env.docker .env
+          echo "\nDATABASE_URL=$DATABASE_URL" >> .env
+
+          # Create database functions
+          # npm run create-database-functions
+
+          # Temporaily reset the database
+          # npm run prisma:migrate-deploy-reset
+
+          # First run migrate deploy
+          npm run prisma:migrate-deploy
+
+          # If migration fails, then try reset (only in dev)
+          if [ $? -ne 0 ]; then
+            echo "Migration failed. Skipping reset"
+          fi
+
+          # Wait a moment for migrations to complete
+          sleep 5
+
+          npm run seed-database
+
+      - name: Remove GitHub Actions IP from DigitalOcean Database
+        if: always()
+        run: |
+          response=$(curl -X PUT -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.PROD_DIGITALOCEAN_UPDATE_TRUSTED_SOURCES_IP_DB_TOKEN }}" \
+          -d '{
+            "rules": [
+              {
+                "type": "app",
+                "value": "${{ secrets.PROD_DIGITAL_OCEAN_APP_PLATFORM_ID }}"
+              }
+            ]
+          }' \
+          "https://api.digitalocean.com/v2/databases/${{ secrets.PROD_DATABASE_ID }}/firewall")

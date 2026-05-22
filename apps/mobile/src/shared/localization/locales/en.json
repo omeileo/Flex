@@ -1,0 +1,79 @@
+{
+  "app": {
+    "name": "Flex"
+  },
+  "bootstrap": {
+    "loading": "Getting your Flex experience ready…"
+  },
+  "tabs": {
+    "plan": "Plan",
+    "progress": "Progress",
+    "coach": "Coach",
+    "profile": "Profile"
+  },
+  "profileOnboarding": {
+    "title": "Tell us about your training",
+    "goal": "Primary goal",
+    "goalPlaceholder": "Build strength, lose weight, run a 5K…",
+    "experience": "Experience level",
+    "experienceLevels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "daysPerWeek": "Training days per week",
+    "sessionMinutes": "Session length (minutes)",
+    "submit": "Save profile & build plan",
+    "saving": "Saving…",
+    "validation": {
+      "goalRequired": "Enter your primary goal",
+      "experienceRequired": "Select an experience level",
+      "daysRequired": "Enter training days per week",
+      "minutesRequired": "Enter session length"
+    }
+  },
+  "planHome": {
+    "title": "Your plan",
+    "loading": "Loading your plan…",
+    "empty": "No workouts in your plan yet.",
+    "exerciseCount": "{{count}} exercises"
+  },
+  "planDetail": {
+    "title": "Workout",
+    "loading": "Loading workout…",
+    "setsCount": "{{count}} sets",
+    "startWorkout": "Start workout"
+  },
+  "workoutSession": {
+    "instructions": "Complete your sets, then finish the session to log progress.",
+    "complete": "Complete workout",
+    "completing": "Saving session…"
+  },
+  "exerciseDetail": {
+    "loading": "Loading exercise…",
+    "setLine": "Set {{set}} · {{reps}} reps · {{weight}} kg"
+  },
+  "progress": {
+    "title": "Progress",
+    "comingSoon": "Progress tracking is coming soon."
+  },
+  "coach": {
+    "title": "Coach",
+    "comingSoon": "AI coaching is coming soon."
+  },
+  "profile": {
+    "title": "Profile",
+    "loading": "Loading profile…",
+    "goal": "Goal",
+    "experience": "Experience",
+    "schedule": "Schedule",
+    "scheduleValue": "{{days}} days · {{minutes}} min sessions"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "Network unavailable. Check your connection."
+  },
+  "actions": {
+    "retry": "Retry"
+  }
+}

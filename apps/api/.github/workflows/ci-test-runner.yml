@@ -1,0 +1,33 @@
+name: Template Project Tester
+
+on: push
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore NPM Cache
+        id: npm-cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Maybe Install Dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm i
+
+      - name: Install Rollup Lunix
+        run: npm i @rollup/rollup-linux-x64-gnu --save-dev
+
+      - name: Run Tests
+        run: npm run test

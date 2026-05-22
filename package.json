@@ -1,0 +1,17 @@
+{
+  "name": "flex",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "shared"
+  ],
+  "scripts": {
+    "build:shared": "npm run build -w @flex/shared",
+    "dev:api": "npm run dev -w @flex/api",
+    "dev:mobile": "npm run start -w @flex/mobile",
+    "check:product-flow-docs": "npm run check:product-flow-api-docs -w @flex/api && npm run check:product-flow-docs -w @flex/mobile",
+    "test": "npm run test -w @flex/shared && npm run test -w @flex/api",
+    "lint": "npm run build:shared && npm run lint -w @flex/api"
+  }
+}

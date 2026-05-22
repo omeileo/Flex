@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>{{title}}</title>
+  {{!-- {{> emailStyles}} --}}
+
+  <style type='text/css'>
+    /* Reset styles for email clients */
+    body,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4 !important;
+      font-family: 'DM Sans', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      width: 100% !important;
+    }
+
+    /* Gmail-specific fixes */
+    * {
+      -webkit-text-size-adjust: none;
+    }
+
+    /* Container table */
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #f4f4f4;
+      padding-bottom: 40px;
+    }
+
+    .header {
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .content-wrapper {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 16px;
+      border-spacing: 0;
+    }
+
+    .content {
+      padding: 32px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #1F2937;
+      font-size: 28px;
+      line-height: 32px;
+      margin-bottom: 16px;
+      font-weight: bold;
+    }
+
+    h2 {
+      color: #1F2937;
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: #4B5563;
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 24px;
+    }
+
+    .action-button {
+      background-color: #6D28D9;
+      color: #ffffff !important;
+      display: inline-block;
+      padding: 12px 32px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      margin: 24px 0;
+    }
+
+    .additional-content {
+      font-size: 12px;
+      line-height: 18px;
+      margin-top: 16px;
+    }
+
+    .salutations {
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    .footer {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 24px 0;
+    }
+
+    .footer-text {
+      color: #9CA3AF;
+      font-size: 12px;
+      line-height: 18px;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <table class='wrapper' cellpadding='0' cellspacing='0' role='presentation'>
+    <tr>
+      <td align='center'>
+        <!-- Header Section -->
+        <table class='header' cellpadding='0' cellspacing='0' role='presentation'>
+          <tr>
+            <td align='center'>
+              {{!-- <img src='cid:hourrier-logo' alt='Hourrier' height='90' width='90' style='object-fit: contain;' />
+              --}}
+              <img src='images/hurrier-logo.png' alt='Hurrier' width='90' height='90'
+                style='display: block; max-width: 90px;' />
+            </td>
+          </tr>
+        </table>
+
+        <!-- Main Content -->
+        <table class='content-wrapper' cellpadding='0' cellspacing='0' role='presentation'>
+          <tr>
+            <td class='content'>
+              <!-- Title Section -->
+              {{!-- <h1>{{title}}</h1> --}}
+              <h1>Test Preview</h1>
+
+              <!-- Main Content Section -->
+              <p>
+                Hi {{firstName}},<br /><br />
+              </p>
+
+              {{!-- {{{content}}} --}}
+              {{!-- Thank you for becoming a Hurrier!<br /><br />To get started, please
+              confirm your email
+              address by clicking the
+              link below. --}}
+              <table width='100%' cellpadding='0' cellspacing='0' role='presentation'>
+                <tr>
+                  <td align='center'>
+                    <h2>Order 123 Summary</h2>
+
+                    <table width='60%' cellpadding='8' cellspacing='0' role='presentation'>
+                      <tr>
+                        <td align='left'>
+                          <p style='font-size: 14px; margin: 0;'>Item Amount</p>
+                        </td>
+                        <td align='right'>
+                          <p style='font-size: 14px; margin: 0;'>$120.00</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align='left'>
+                          <p style='font-size: 14px; margin: 0;'>Taxes</p>
+                        </td>
+                        <td align='right'>
+                          <p style='font-size: 14px; margin: 0;'>$10.00</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align='left'>
+                          <p style='font-size: 14px; margin: 0;'>Delivery Fee</p>
+                        </td>
+                        <td align='right'>
+                          <p style='font-size: 14px; margin: 0;'>$35.00</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align='left'>
+                          <p style='font-size: 14px; margin: 0;'><strong>Total</strong></p>
+                        </td>
+                        <td align='right'>
+                          <p style='font-size: 14px; margin: 0;'>$165.00</p>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p style='font-size: 12px; font-style: italic; margin-top: 16px;'>
+                      Please note, prices are subject to change, and we'll keep you updated.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Optional Button Section -->
+              {{!-- {{#if buttonConfig}}
+              <a href='{{buttonConfig.link}}' class='action-button'>
+                {{buttonConfig.text}}
+              </a>
+              {{/if}} --}}
+              <table role='presentation' cellpadding='0' cellspacing='0' style='margin: 0 auto;'>
+                <tr>
+                  <td>
+                    <a href='{{buttonConfig.link}}' class='action-button'>
+                      Confirm Email
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Optional Additional Content Section -->
+              {{!-- {{#if additionalContent}}
+              <p class='additional-content'>
+                {{{additionalContent}}}
+              </p>
+              {{/if}} --}}
+              <p class='additional-content'>
+                If you didn't sign up, simply ignore this message, and no
+                changes will be made.<br />Look forward to having you onboard!<br /><br />
+              </p>
+
+              <!-- Salutations Section -->
+              <p class='salutations'>
+                {{#if customSalutation}}
+                {{{customSalutation}}}
+                {{else}}
+                Best,<br />
+                The Hurrier Team
+                {{/if}}
+              </p>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Footer Section -->
+        <table class='footer' cellpadding='0' cellspacing='0' role='presentation'>
+          <tr>
+            <td align='center'>
+              <p class='footer-text'>
+                Let us know if you have any issues at
+                <a href='mailto:{{supportEmail}}' style='color: #4338CA;'>{{supportEmail}}</a>
+              </p>
+              <p class='footer-text'>{{businessAddress}}</p>
+              <p class='footer-text'>&copy; {{currentYear}} {{businessName}}</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+@startuml Flight Cancellation Refund Flow
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam defaultFontName Arial
+skinparam activityBorderColor #666666
+skinparam activityBackgroundColor #EEEEEE
+
+participant "Refund\nProcessor" as RefundProcessor
+participant "Flight Booking\nSystem" as FlightBookingSystem  
+participant "Payment\nSystem" as PaymentSystem
+participant "Notification\nService" as NotificationService
+database "Database" as Database
+
+title Flight Cancellation Refund Flow
+
+== Cost Analysis ==
+RefundProcessor -> FlightBookingSystem: Get Duffel Order Cost
+FlightBookingSystem -> Database: Query Flight Booking
+Database --> FlightBookingSystem: Return Booking Details
+FlightBookingSystem --> RefundProcessor: Return Duffel Cost
+
+RefundProcessor -> Database: Get Associated Offer Requests
+Database --> RefundProcessor: Return Shopper Payments
+
+== Payment Status Check ==
+RefundProcessor -> PaymentSystem: Check Traveler Payment Status
+PaymentSystem -> Database: Query Payment Records
+Database --> PaymentSystem: Return Payment Details
+PaymentSystem --> RefundProcessor: Return Payment Status
+
+alt Traveler Was Charged
+RefundProcessor -> RefundProcessor: Calculate Refund Amount
+note right: Duffel Cost + Platform Fee
+else Transfer to Traveler
+RefundProcessor -> RefundProcessor: Calculate Chargeback Amount
+note right: Based on Shopper Payments
+end
+
+== Refund Processing ==
+RefundProcessor -> RefundProcessor: Determine Final Amount
+note right: Consider platform fees,\nprocessing fees, etc.
+
+RefundProcessor -> PaymentSystem: Process Refund/Charge
+PaymentSystem --> RefundProcessor: Confirmation
+
+== Notification ==
+RefundProcessor -> NotificationService: Send Cancellation & Refund Notice
+NotificationService -> Database: Get Traveler Contact Details
+Database --> NotificationService: Return Contact Info
+NotificationService -> NotificationService: Send Email Notification
+note right: Include flight details,\ncancellation reason,\nand refund amount
+
+@enduml
