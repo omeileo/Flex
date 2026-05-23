@@ -695,7 +695,8 @@
                       "fill": "$text-primary",
                       "content": "Lose fat",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -719,7 +720,8 @@
                       "fill": "$text-primary",
                       "content": "Endurance",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -743,7 +745,8 @@
                       "fill": "$text-primary",
                       "content": "Return from injury",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -874,33 +877,26 @@
           "type": "frame",
           "id": "s0q76",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "kL9vH",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "L2HYR",
-                  "fill": "$text-inverse",
-                  "content": "Save",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "uUSBp",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Save",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Save"
                 }
-              ]
+              }
             }
           ]
         }
@@ -1162,33 +1158,26 @@
           "type": "frame",
           "id": "Z4YXS",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "DrBNd",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "wdpn5",
-                  "fill": "$text-inverse",
-                  "content": "Add condition",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "M09HW",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Add condition",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Add condition"
                 }
-              ]
+              }
             }
           ]
         }
@@ -1619,33 +1608,26 @@
           "type": "frame",
           "id": "nn22m",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "a4rG8T",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "kzCwj",
-                  "fill": "$text-inverse",
-                  "content": "Save changes",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "zZ67T",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Save changes",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Save changes"
                 }
-              ]
+              }
             }
           ]
         }
@@ -2197,7 +2179,8 @@
                       "fill": "$text-primary",
                       "content": "Knee",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -2225,7 +2208,8 @@
                       "fill": "$text-primary",
                       "content": "Lower back",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -2253,7 +2237,8 @@
                       "fill": "$text-primary",
                       "content": "Hip",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -2281,7 +2266,8 @@
                       "fill": "$text-primary",
                       "content": "Ankle",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -2309,7 +2295,8 @@
                       "fill": "$text-primary",
                       "content": "Wrist",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -2337,7 +2324,8 @@
                       "fill": "$text-primary",
                       "content": "Neck",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -2365,7 +2353,8 @@
                       "fill": "$text-primary",
                       "content": "Other",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -2377,33 +2366,26 @@
           "type": "frame",
           "id": "WQK2u",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "OaIwc",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "l6jrdQ",
-                  "fill": "$text-inverse",
-                  "content": "Continue",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "jyTXP",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Continue",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Continue"
                 }
-              ]
+              }
             }
           ]
         }
@@ -2460,6 +2442,7 @@
             32,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "text",
@@ -2482,25 +2465,16 @@
               "fontWeight": "normal"
             },
             {
-              "type": "frame",
-              "id": "mK8sq",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "fS1Tr",
-                  "fill": "$text-inverse",
-                  "content": "Readapt plan",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "REhgg",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Readapt plan",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Readapt plan"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -4280,7 +4254,8 @@
                       "fill": "$text-primary",
                       "content": "Lose fat",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -4304,7 +4279,8 @@
                       "fill": "$text-primary",
                       "content": "Endurance",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -4328,7 +4304,8 @@
                       "fill": "$text-primary",
                       "content": "Return from injury",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -4459,33 +4436,26 @@
           "type": "frame",
           "id": "lMIak",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "RRUa4",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "R4qCv",
-                  "fill": "$text-inverse",
-                  "content": "Save",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "s1nP90",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Save",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Save"
                 }
-              ]
+              }
             }
           ]
         }
@@ -4612,7 +4582,8 @@
                       "fill": "$text-primary",
                       "content": "Lose fat",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -4636,7 +4607,8 @@
                       "fill": "$text-primary",
                       "content": "Endurance",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -4660,7 +4632,8 @@
                       "fill": "$text-primary",
                       "content": "Return from injury",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -4791,33 +4764,26 @@
           "type": "frame",
           "id": "k2CJn",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "zX7LH",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "oy5AR",
-                  "fill": "$text-inverse",
-                  "content": "Save",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "NSW30",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Save",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Save"
                 }
-              ]
+              }
             }
           ]
         }
@@ -5079,33 +5045,26 @@
           "type": "frame",
           "id": "ly4nX",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "E4aLD",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "E7OdQc",
-                  "fill": "$text-inverse",
-                  "content": "Add condition",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "H2n9rr",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Add condition",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Add condition"
                 }
-              ]
+              }
             }
           ]
         }
@@ -5367,33 +5326,26 @@
           "type": "frame",
           "id": "CstRs",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "MhMXh",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "bRpMk",
-                  "fill": "$text-inverse",
-                  "content": "Add condition",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "ZCwB2",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Add condition",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Add condition"
                 }
-              ]
+              }
             }
           ]
         }
@@ -5824,33 +5776,26 @@
           "type": "frame",
           "id": "vAVhY",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "PgS1x",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "vGqhB",
-                  "fill": "$text-inverse",
-                  "content": "Save changes",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "K3bPG",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Save changes",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Save changes"
                 }
-              ]
+              }
             }
           ]
         }
@@ -6281,33 +6226,26 @@
           "type": "frame",
           "id": "ktz8D",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "i0J2KL",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "PUItB",
-                  "fill": "$text-inverse",
-                  "content": "Save changes",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "a7chl",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Save changes",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Save changes"
                 }
-              ]
+              }
             }
           ]
         }
@@ -7266,7 +7204,8 @@
                       "fill": "$text-primary",
                       "content": "Knee",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7294,7 +7233,8 @@
                       "fill": "$text-primary",
                       "content": "Lower back",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7322,7 +7262,8 @@
                       "fill": "$text-primary",
                       "content": "Hip",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7350,7 +7291,8 @@
                       "fill": "$text-primary",
                       "content": "Ankle",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7378,7 +7320,8 @@
                       "fill": "$text-primary",
                       "content": "Wrist",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7406,7 +7349,8 @@
                       "fill": "$text-primary",
                       "content": "Neck",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7434,7 +7378,8 @@
                       "fill": "$text-primary",
                       "content": "Other",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -7446,33 +7391,26 @@
           "type": "frame",
           "id": "TKtxn",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "clPfp",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "YO12J",
-                  "fill": "$text-inverse",
-                  "content": "Continue",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "k9DLq2",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Continue",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Continue"
                 }
-              ]
+              }
             }
           ]
         }
@@ -7617,7 +7555,8 @@
                       "fill": "$text-primary",
                       "content": "Knee",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7645,7 +7584,8 @@
                       "fill": "$text-primary",
                       "content": "Lower back",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7673,7 +7613,8 @@
                       "fill": "$text-primary",
                       "content": "Hip",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7701,7 +7642,8 @@
                       "fill": "$text-primary",
                       "content": "Ankle",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7729,7 +7671,8 @@
                       "fill": "$text-primary",
                       "content": "Wrist",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7757,7 +7700,8 @@
                       "fill": "$text-primary",
                       "content": "Neck",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -7785,7 +7729,8 @@
                       "fill": "$text-primary",
                       "content": "Other",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -7797,33 +7742,26 @@
           "type": "frame",
           "id": "fK9JP",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "WS5RN",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "z6utMK",
-                  "fill": "$text-inverse",
-                  "content": "Continue",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "wxSDl",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Continue",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Continue"
                 }
-              ]
+              }
             }
           ]
         }
@@ -7880,6 +7818,7 @@
             32,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "text",
@@ -7902,25 +7841,16 @@
               "fontWeight": "normal"
             },
             {
-              "type": "frame",
-              "id": "A8SlJV",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "z35ym",
-                  "fill": "$text-inverse",
-                  "content": "Readapt plan",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "fpxdr",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Readapt plan",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Readapt plan"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -7987,6 +7917,7 @@
             32,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "text",
@@ -8009,25 +7940,16 @@
               "fontWeight": "normal"
             },
             {
-              "type": "frame",
-              "id": "IlCUZ",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "X17tN",
-                  "fill": "$text-inverse",
-                  "content": "Readapt plan",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "D7lVz",
+              "type": "ref",
+              "ref": "R1qt4J",
+              "name": "Button: Readapt plan",
+              "width": 342,
+              "descendants": {
+                "BLt8H": {
+                  "content": "Readapt plan"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -9036,6 +8958,62 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "R1qt4J",
+      "x": 1600,
+      "y": 80,
+      "name": "component/Button/Primary",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "$accent-cta",
+      "cornerRadius": "$radius-pill",
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "BLt8H",
+          "fill": "$text-inverse",
+          "content": "Continue",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "AQmhM",
+      "x": 1600,
+      "y": 160,
+      "name": "component/Button/Secondary",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "$surface",
+      "cornerRadius": "$radius-pill",
+      "stroke": {
+        "thickness": 1,
+        "fill": "$border"
+      },
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "MuezE",
+          "fill": "$text-primary",
+          "content": "Cancel",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
+        }
+      ]
     }
   ],
   "themes": {
@@ -9241,6 +9219,160 @@
           }
         }
       ]
+    },
+    "accent-conditioning": {
+      "type": "color",
+      "value": "#F59E0B"
+    },
+    "accent-strength": {
+      "type": "color",
+      "value": "#6366F1"
+    },
+    "elevation-shadow": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#11182714",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000033",
+          "theme": {
+            "mode": "dark"
+          }
+        },
+        {
+          "value": "#3B122914",
+          "theme": {
+            "mode": "pink"
+          }
+        }
+      ]
+    },
+    "error": {
+      "type": "color",
+      "value": "#DC2626"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "font-display": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "font-size-body": {
+      "type": "number",
+      "value": 14
+    },
+    "font-size-body-lg": {
+      "type": "number",
+      "value": 16
+    },
+    "font-size-caption": {
+      "type": "number",
+      "value": 12
+    },
+    "font-size-display": {
+      "type": "number",
+      "value": 28
+    },
+    "font-size-heading": {
+      "type": "number",
+      "value": 22
+    },
+    "font-size-title": {
+      "type": "number",
+      "value": 18
+    },
+    "font-weight-bold": {
+      "type": "string",
+      "value": "700"
+    },
+    "font-weight-medium": {
+      "type": "string",
+      "value": "500"
+    },
+    "font-weight-regular": {
+      "type": "string",
+      "value": "400"
+    },
+    "font-weight-semibold": {
+      "type": "string",
+      "value": "600"
+    },
+    "overlay-scrim": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#1118275C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000099",
+          "theme": {
+            "mode": "dark"
+          }
+        },
+        {
+          "value": "#3B122966",
+          "theme": {
+            "mode": "pink"
+          }
+        }
+      ]
+    },
+    "radius-lg": {
+      "type": "number",
+      "value": 16
+    },
+    "radius-md": {
+      "type": "number",
+      "value": 8
+    },
+    "radius-pill": {
+      "type": "number",
+      "value": 36
+    },
+    "radius-sm": {
+      "type": "number",
+      "value": 4
+    },
+    "spacing-lg": {
+      "type": "number",
+      "value": 24
+    },
+    "spacing-md": {
+      "type": "number",
+      "value": 16
+    },
+    "spacing-sm": {
+      "type": "number",
+      "value": 8
+    },
+    "spacing-xl": {
+      "type": "number",
+      "value": 32
+    },
+    "spacing-xs": {
+      "type": "number",
+      "value": 4
+    },
+    "spacing-xxl": {
+      "type": "number",
+      "value": 48
+    },
+    "success": {
+      "type": "color",
+      "value": "#16A34A"
+    },
+    "warning": {
+      "type": "color",
+      "value": "#F59E0B"
     }
   }
 }

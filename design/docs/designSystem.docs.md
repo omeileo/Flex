@@ -57,6 +57,35 @@ All designs reference themed tokens from `StyleConstants.ts` (see [themeTokens.d
 
 Pencil files use the `mode` theme axis on frames and `$variable` bindings for theme-aware fills.
 
+## Component Library
+
+Canonical sources live in `design/system/components/`. Each component file has a `reusable: true` master plus refs covering every state.
+
+| Component | File | States |
+| --- | --- | --- |
+| Button | `button.component.design.pen` | Primary · Secondary · Tertiary · Destructive · IconLeft · Disabled · Loading |
+| SelectionCard | `selectionCard.component.design.pen` | Default · Selected · Multi-select · Disabled |
+| ProgressHeader | `progressHeader.component.design.pen` | Start · Mid · End |
+| CoachNote | `coachNote.component.design.pen` | Info (muted) · Warning (amber) · Encouragement (green) · Inline tip |
+| PillTabBar | `pillTabBar.component.design.pen` | Today / Plan / Coach / Profile active |
+| WeekStrip | `weekStrip.component.design.pen` | Today filled · Completed dot · Scheduled ring · Future muted |
+| WeekSummaryCard | `weekSummaryCard.component.design.pen` | Current · Past · Future/Deload |
+| WorkoutCard | `workoutCard.component.design.pen` | Strength · Energy · Mobility · Conditioning · Completed · Upcoming |
+
+### Cross-File Reuse Pattern
+
+Pencil components cannot be referenced across `.pen` files. Each flow file owns a **Component shelf** frame placed to the right of all screens — it holds local copies of the masters the flow needs. Screens drop instances via `type: "ref"` and customize via the `descendants` map.
+
+```jsonc
+{ "type": "ref", "ref": "<local-master-id>", "descendants": { "<child-id>": { "content": "…" } } }
+```
+
+Shelves currently live in: `trainingPlan` (`x:3700`), `onboarding` (`x:6650`), `activeWorkout` (`x:4880`). When wiring a new flow, paste the master frames from `design/system/components/` into a similar shelf, then build screens from refs.
+
+### Token Parity
+
+All flow `.pen` files mirror the themed variable set defined in `design/system/tokens/color.tokens.design.pen`: every color is themed across `light` / `dark` / `pink`, plus full scales for spacing (`xs`/`sm`/`md`/`lg`/`xl`/`xxl`), radius (`sm`/`md`/`lg`/`pill`), font sizes (`caption` → `display`), and font weights (`regular` → `bold`). Token names match `StyleConstants.ts` keys.
+
 ## Agent Workflow
 
 See [workflowGuide.docs.md](workflowGuide.docs.md).

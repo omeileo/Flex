@@ -379,27 +379,19 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "bO6kb",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "L2wgO",
-                  "fill": "#FFFFFF",
-                  "content": "Add location",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "r4rvV",
+              "type": "ref",
+              "ref": "C9kBf",
+              "name": "Button: Add location",
+              "width": 342,
+              "descendants": {
+                "WHeys": {
+                  "content": "Add location"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -719,33 +711,26 @@
           "type": "frame",
           "id": "xc6zQ",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "dSgug",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "I0EkW",
-                  "fill": "#FFFFFF",
-                  "content": "Save changes",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "UDxrd",
+              "type": "ref",
+              "ref": "C9kBf",
+              "name": "Button: Save changes",
+              "width": 342,
+              "descendants": {
+                "WHeys": {
+                  "content": "Save changes"
                 }
-              ]
+              }
             }
           ]
         }
@@ -913,7 +898,8 @@
                       "fill": "$text-primary",
                       "content": "Free weights",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -937,7 +923,8 @@
                       "fill": "$text-primary",
                       "content": "Racks",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -961,7 +948,8 @@
                       "fill": "$text-primary",
                       "content": "Machines",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -1239,7 +1227,8 @@
                       "fill": "$text-primary",
                       "content": "Squat rack",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -1267,7 +1256,8 @@
                       "fill": "$text-primary",
                       "content": "Cable machine",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -1287,6 +1277,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "text",
@@ -1299,25 +1290,16 @@
               "fontWeight": "600"
             },
             {
-              "type": "frame",
-              "id": "C0E8CG",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "fBtM1",
-                  "fill": "#FFFFFF",
-                  "content": "Save",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "H3n4Y",
+              "type": "ref",
+              "ref": "C9kBf",
+              "name": "Button: Save",
+              "width": 342,
+              "descendants": {
+                "WHeys": {
+                  "content": "Save"
                 }
-              ]
+              }
             }
           ]
         }
@@ -1340,10 +1322,192 @@
           "id": "S5HwRo",
           "x": 0,
           "y": 0,
-          "opacity": 0.4,
           "width": 390,
           "height": 844,
-          "fill": "#111827"
+          "fill": "$background",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Bofew",
+              "layoutPosition": "absolute",
+              "x": 24,
+              "y": 56,
+              "width": 342,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yrVrh",
+                  "fill": "$text-primary",
+                  "content": "Equipment",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "zFADb",
+                  "fill": "$text-secondary",
+                  "content": "Home Gym",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WFFi4",
+              "layoutPosition": "absolute",
+              "x": 24,
+              "y": 120,
+              "width": 342,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "cQBaB",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$border"
+                  },
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "zo0tk",
+                      "fill": "$accent-energy",
+                      "width": 20,
+                      "height": 20
+                    },
+                    {
+                      "type": "text",
+                      "id": "TmNEB",
+                      "fill": "$text-primary",
+                      "content": "Barbell",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "FFESR",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$border"
+                  },
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "B9EZRu",
+                      "fill": "$accent-energy",
+                      "width": 20,
+                      "height": 20
+                    },
+                    {
+                      "type": "text",
+                      "id": "Qz4LV",
+                      "fill": "$text-primary",
+                      "content": "Dumbbells",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "FzeST",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$border"
+                  },
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "QZ7wt",
+                      "fill": "$accent-energy",
+                      "width": 20,
+                      "height": 20
+                    },
+                    {
+                      "type": "text",
+                      "id": "Bw2KU",
+                      "fill": "$text-primary",
+                      "content": "Bench",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uI0P8",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$border"
+                  },
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "T2KAtl",
+                      "fill": "$accent-energy",
+                      "width": 20,
+                      "height": 20
+                    },
+                    {
+                      "type": "text",
+                      "id": "MPrjF",
+                      "fill": "$text-primary",
+                      "content": "Pull-up bar",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "zrTzd",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "Scrim",
+          "width": 390,
+          "height": 844,
+          "fill": "#11182766"
         },
         {
           "type": "frame",
@@ -1494,7 +1658,8 @@
                       "fill": "$text-primary",
                       "content": "Accessories",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -1518,7 +1683,8 @@
                       "fill": "$text-primary",
                       "content": "Cardio",
                       "fontFamily": "Inter",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -1602,27 +1768,19 @@
               "width": "fill_container",
               "layout": "vertical",
               "gap": 10,
+              "alignItems": "center",
               "children": [
                 {
-                  "type": "frame",
-                  "id": "xAEeW",
-                  "width": "fill_container",
-                  "height": 52,
-                  "fill": "$accent-cta",
-                  "cornerRadius": 36,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "DA50r",
-                      "fill": "#FFFFFF",
-                      "content": "Add",
-                      "fontFamily": "Inter",
-                      "fontSize": 16,
-                      "fontWeight": "600"
+                  "id": "jUwCo",
+                  "type": "ref",
+                  "ref": "C9kBf",
+                  "name": "Button: Add",
+                  "width": 294,
+                  "descendants": {
+                    "WHeys": {
+                      "content": "Add"
                     }
-                  ]
+                  }
                 },
                 {
                   "type": "text",
@@ -1637,6 +1795,62 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "C9kBf",
+      "x": 2500,
+      "y": 80,
+      "name": "component/Button/Primary",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "$accent-cta",
+      "cornerRadius": 36,
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "WHeys",
+          "fill": "#FFFFFF",
+          "content": "Continue",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "CHqCt",
+      "x": 2500,
+      "y": 160,
+      "name": "component/Button/Secondary",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "$surface",
+      "cornerRadius": 36,
+      "stroke": {
+        "thickness": 1,
+        "fill": "$border"
+      },
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "LkcKI",
+          "fill": "$text-primary",
+          "content": "Cancel",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
         }
       ]
     }

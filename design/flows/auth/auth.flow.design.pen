@@ -26,6 +26,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "frame",
@@ -185,25 +186,16 @@
               ]
             },
             {
-              "type": "frame",
-              "id": "pcy59",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "nmkRG",
-                  "fill": "#FFFFFF",
-                  "content": "Log in",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "n2dJp",
+              "type": "ref",
+              "ref": "pdrz0",
+              "name": "Button: Log in",
+              "width": 342,
+              "descendants": {
+                "e9sCS0": {
+                  "content": "Log in"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -244,6 +236,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "frame",
@@ -485,25 +478,16 @@
               ]
             },
             {
-              "type": "frame",
-              "id": "l8zKX",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "k79VL",
-                  "fill": "#FFFFFF",
-                  "content": "Sign up",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "PXBsX",
+              "type": "ref",
+              "ref": "pdrz0",
+              "name": "Button: Sign up",
+              "width": 342,
+              "descendants": {
+                "e9sCS0": {
+                  "content": "Sign up"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -544,6 +528,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "frame",
@@ -773,25 +758,16 @@
               ]
             },
             {
-              "type": "frame",
-              "id": "ayv1D",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "eH0yG",
-                  "fill": "#FFFFFF",
-                  "content": "Verify email",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "srCsF",
+              "type": "ref",
+              "ref": "pdrz0",
+              "name": "Button: Verify email",
+              "width": 342,
+              "descendants": {
+                "e9sCS0": {
+                  "content": "Verify email"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -814,6 +790,60 @@
               "fontWeight": "normal"
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "pdrz0",
+      "x": 1900,
+      "y": 80,
+      "name": "component/Button/Primary",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "$accent-cta",
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "e9sCS0",
+          "fill": "#FFFFFF",
+          "content": "Continue",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "IuTsg",
+      "x": 1900,
+      "y": 160,
+      "name": "component/Button/Secondary",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "$surface",
+      "stroke": {
+        "thickness": 1,
+        "fill": "$border"
+      },
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "qmx1E",
+          "fill": "$text-primary",
+          "content": "Skip",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
         }
       ]
     }

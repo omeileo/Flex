@@ -4,7 +4,7 @@
     {
       "type": "frame",
       "id": "M6qBwj",
-      "x": 80,
+      "x": 1850,
       "y": 80,
       "name": "Plan Detail Step 4: Workout day detail",
       "clip": true,
@@ -458,27 +458,19 @@
             28,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "OdV6s",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "lv1FU",
-                  "fill": "#FFFFFF",
-                  "content": "Start workout",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "sULP2",
+              "type": "ref",
+              "ref": "mcgg5",
+              "name": "Button: Start workout",
+              "width": 342,
+              "descendants": {
+                "Vwcq4": {
+                  "content": "Start workout"
                 }
-              ]
+              }
             }
           ]
         }
@@ -487,7 +479,7 @@
     {
       "type": "frame",
       "id": "x1cTW",
-      "x": 670,
+      "x": 2440,
       "y": 80,
       "name": "Plan Detail Step 5: Exercise detail",
       "clip": true,
@@ -826,7 +818,7 @@
       "type": "frame",
       "id": "b0dh6n",
       "x": 80,
-      "y": 980,
+      "y": 80,
       "name": "Plan Detail Step 1: Program overview + blurb",
       "clip": true,
       "width": 390,
@@ -1061,33 +1053,26 @@
           "type": "frame",
           "id": "f1XQ7i",
           "width": "fill_container",
+          "layout": "vertical",
           "padding": [
             8,
             24,
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
-              "type": "frame",
-              "id": "k63Kss",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "$accent-cta",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "xwKCD",
-                  "fill": "#FFFFFF",
-                  "content": "Jump to current week",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "n3hzzE",
+              "type": "ref",
+              "ref": "mcgg5",
+              "name": "Button: Jump to current week",
+              "width": 342,
+              "descendants": {
+                "Vwcq4": {
+                  "content": "Jump to current week"
                 }
-              ]
+              }
             }
           ]
         }
@@ -1097,7 +1082,7 @@
       "type": "frame",
       "id": "bPY2B",
       "x": 670,
-      "y": 980,
+      "y": 80,
       "name": "Plan Detail Step 2: Phase detail",
       "clip": true,
       "width": 390,
@@ -1437,7 +1422,7 @@
       "type": "frame",
       "id": "J923G",
       "x": 1260,
-      "y": 980,
+      "y": 80,
       "name": "Plan Detail Step 3: Week schedule",
       "clip": true,
       "width": 390,
@@ -1882,6 +1867,150 @@
                   "fontWeight": "normal"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "mcgg5",
+      "x": 3100,
+      "y": 80,
+      "name": "component/Button/Primary",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "$accent-cta",
+      "cornerRadius": "$radius-pill",
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "Vwcq4",
+          "fill": "#FFFFFF",
+          "content": "Continue",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "SyGh0",
+      "x": 3100,
+      "y": 160,
+      "name": "component/Button/Secondary",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "$surface",
+      "cornerRadius": "$radius-pill",
+      "stroke": {
+        "thickness": 1,
+        "fill": "$border"
+      },
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "h79HXY",
+          "fill": "$text-primary",
+          "content": "Secondary",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "W0iAx",
+      "x": 3100,
+      "y": 260,
+      "name": "component/WorkoutCard",
+      "reusable": true,
+      "width": 358,
+      "height": 88,
+      "fill": "$surface",
+      "cornerRadius": "$radius-lg",
+      "stroke": {
+        "thickness": 1,
+        "fill": "$border"
+      },
+      "gap": 12,
+      "padding": 16,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "G9YgV4",
+          "name": "ModalityBar",
+          "fill": "$accent-strength",
+          "width": 4,
+          "height": 56
+        },
+        {
+          "type": "frame",
+          "id": "iBKpf",
+          "name": "Body",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 4,
+          "children": [
+            {
+              "type": "text",
+              "id": "cCF4I",
+              "fill": "$text-secondary",
+              "content": "Mon 12 May",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
+            },
+            {
+              "type": "text",
+              "id": "DRd0s",
+              "fill": "$text-primary",
+              "content": "Upper Body Strength",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "wsmj1",
+              "fill": "$text-secondary",
+              "content": "45 min · 6 exercises",
+              "fontFamily": "Inter",
+              "fontSize": 14
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "GAmz7",
+          "name": "Checkbox",
+          "width": 24,
+          "height": 24,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "xdqd3",
+              "fill": "#00000000",
+              "width": 24,
+              "height": 24,
+              "stroke": {
+                "thickness": 2,
+                "fill": "$border"
+              }
             }
           ]
         }

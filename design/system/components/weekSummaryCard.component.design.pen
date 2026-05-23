@@ -1,0 +1,156 @@
+{
+  "version": "2.11",
+  "themes": { "mode": ["light", "dark", "pink"] },
+  "variables": {
+    "accent-cta": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#111827" }, { "theme": { "mode": "dark" }, "value": "#F9FAFB" }, { "theme": { "mode": "pink" }, "value": "#DB2777" }] },
+    "accent-energy": { "type": "color", "value": "#22C55E" },
+    "accent-strength": { "type": "color", "value": "#6366F1" },
+    "accent-mobility": { "type": "color", "value": "#14B8A6" },
+    "accent-conditioning": { "type": "color", "value": "#F59E0B" },
+    "background": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#F7F8FA" }, { "theme": { "mode": "dark" }, "value": "#0F1117" }, { "theme": { "mode": "pink" }, "value": "#FFF0F5" }] },
+    "border": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#E5E7EB" }, { "theme": { "mode": "dark" }, "value": "#374151" }, { "theme": { "mode": "pink" }, "value": "#F5C6DE" }] },
+    "surface": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#FFFFFF" }, { "theme": { "mode": "dark" }, "value": "#1A1F2E" }, { "theme": { "mode": "pink" }, "value": "#FFFBFC" }] },
+    "text-primary": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#111827" }, { "theme": { "mode": "dark" }, "value": "#F9FAFB" }, { "theme": { "mode": "pink" }, "value": "#3B1229" }] },
+    "text-secondary": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#6B7280" }, { "theme": { "mode": "dark" }, "value": "#9CA3AF" }, { "theme": { "mode": "pink" }, "value": "#9D6280" }] },
+    "radius-lg": { "type": "number", "value": 16 }
+  },
+  "children": [
+    {
+      "type": "frame",
+      "id": "wscHdr",
+      "x": 80,
+      "y": 40,
+      "width": 1200,
+      "layout": "vertical",
+      "gap": 4,
+      "children": [
+        { "type": "text", "id": "wscTitle", "fill": "$text-primary", "content": "WeekSummaryCard Component", "fontFamily": "Inter", "fontSize": 24, "fontWeight": "700" },
+        { "type": "text", "id": "wscDesc", "fill": "$text-secondary", "textGrowth": "fixed-width", "width": 720, "content": "Week summary in plan overview · current = bordered · past = muted · future = ghost", "fontFamily": "Inter", "fontSize": 13, "fontWeight": "400" }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "cmpWeekSummary",
+      "x": 80,
+      "y": 120,
+      "name": "component/WeekSummaryCard",
+      "reusable": true,
+      "width": 358,
+      "fill": "$surface",
+      "stroke": { "thickness": 2, "fill": "$accent-cta" },
+      "cornerRadius": "$radius-lg",
+      "padding": 16,
+      "layout": "vertical",
+      "gap": 12,
+      "children": [
+        {
+          "type": "frame",
+          "id": "wscRow",
+          "name": "HeaderRow",
+          "width": "fill_container",
+          "layout": "horizontal",
+          "alignItems": "center",
+          "gap": 8,
+          "children": [
+            { "type": "text", "id": "wscWeek", "name": "Week", "fill": "$text-primary", "content": "Week 3", "fontFamily": "Inter", "fontSize": 18, "fontWeight": "700" },
+            { "type": "frame", "id": "wscChip", "name": "Chip", "fill": "$accent-cta", "cornerRadius": 12, "padding": [4, 10], "alignItems": "center", "children": [
+              { "type": "text", "id": "wscChipLbl", "fill": "#FFFFFF", "content": "Current", "fontFamily": "Inter", "fontSize": 11, "fontWeight": "600" }
+            ]},
+            { "type": "frame", "id": "wscSpacer", "name": "Spacer", "width": "fill_container", "fill": "#00000000" },
+            { "type": "text", "id": "wscDates", "name": "Dates", "fill": "$text-secondary", "content": "May 12 – 18", "fontFamily": "Inter", "fontSize": 12, "fontWeight": "500" }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wscBars",
+          "name": "ModalityBars",
+          "width": "fill_container",
+          "layout": "horizontal",
+          "gap": 4,
+          "children": [
+            { "type": "rectangle", "id": "wscB1", "width": "fill_container", "height": 6, "fill": "$accent-strength", "cornerRadius": 3 },
+            { "type": "rectangle", "id": "wscB2", "width": "fill_container", "height": 6, "fill": "$accent-energy", "cornerRadius": 3 },
+            { "type": "rectangle", "id": "wscB3", "width": "fill_container", "height": 6, "fill": "$accent-mobility", "cornerRadius": 3 },
+            { "type": "rectangle", "id": "wscB4", "width": "fill_container", "height": 6, "fill": "$accent-conditioning", "cornerRadius": 3 },
+            { "type": "rectangle", "id": "wscB5", "width": "fill_container", "height": 6, "fill": "$accent-strength", "cornerRadius": 3 },
+            { "type": "rectangle", "id": "wscB6", "width": "fill_container", "height": 6, "fill": "$border", "cornerRadius": 3 },
+            { "type": "rectangle", "id": "wscB7", "width": "fill_container", "height": 6, "fill": "$border", "cornerRadius": 3 }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wscStats",
+          "name": "Stats",
+          "width": "fill_container",
+          "layout": "horizontal",
+          "gap": 16,
+          "children": [
+            { "type": "frame", "id": "wscStatA", "layout": "vertical", "gap": 2, "children": [
+              { "type": "text", "id": "wscStatAV", "fill": "$text-primary", "content": "4/6", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "700" },
+              { "type": "text", "id": "wscStatAL", "fill": "$text-secondary", "content": "Done", "fontFamily": "Inter", "fontSize": 11, "fontWeight": "500" }
+            ]},
+            { "type": "frame", "id": "wscStatB", "layout": "vertical", "gap": 2, "children": [
+              { "type": "text", "id": "wscStatBV", "fill": "$text-primary", "content": "3h 45m", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "700" },
+              { "type": "text", "id": "wscStatBL", "fill": "$text-secondary", "content": "Volume", "fontFamily": "Inter", "fontSize": 11, "fontWeight": "500" }
+            ]},
+            { "type": "frame", "id": "wscStatC", "layout": "vertical", "gap": 2, "children": [
+              { "type": "text", "id": "wscStatCV", "fill": "$text-primary", "content": "Deload?", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "700" },
+              { "type": "text", "id": "wscStatCL", "fill": "$text-secondary", "content": "Next", "fontFamily": "Inter", "fontSize": 11, "fontWeight": "500" }
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ref",
+      "id": "wscPast",
+      "ref": "cmpWeekSummary",
+      "name": "WeekSummaryCard: Past",
+      "x": 480,
+      "y": 120,
+      "stroke": { "thickness": 1, "fill": "$border" },
+      "opacity": 0.85,
+      "descendants": {
+        "wscWeek": { "content": "Week 2" },
+        "wscChip": { "fill": "$border" },
+        "wscChipLbl": { "fill": "$text-secondary", "content": "Past" },
+        "wscDates": { "content": "May 5 – 11" },
+        "wscB6": { "fill": "$accent-mobility" },
+        "wscB7": { "fill": "$accent-energy" },
+        "wscStatAV": { "content": "6/6" },
+        "wscStatBV": { "content": "4h 10m" },
+        "wscStatCV": { "content": "+5%" },
+        "wscStatCL": { "content": "vs W1" }
+      }
+    },
+    {
+      "type": "ref",
+      "id": "wscFuture",
+      "ref": "cmpWeekSummary",
+      "name": "WeekSummaryCard: Future",
+      "x": 80,
+      "y": 320,
+      "stroke": { "thickness": 1, "fill": "$border" },
+      "opacity": 0.6,
+      "descendants": {
+        "wscWeek": { "content": "Week 4" },
+        "wscChip": { "fill": "#FEF3C7" },
+        "wscChipLbl": { "fill": "#F59E0B", "content": "Deload" },
+        "wscDates": { "content": "May 19 – 25" },
+        "wscB1": { "fill": "$border" },
+        "wscB2": { "fill": "$accent-mobility" },
+        "wscB3": { "fill": "$accent-mobility" },
+        "wscB4": { "fill": "$border" },
+        "wscB5": { "fill": "$accent-strength" },
+        "wscB6": { "fill": "$border" },
+        "wscB7": { "fill": "$border" },
+        "wscStatAV": { "content": "—" },
+        "wscStatAL": { "content": "Upcoming" },
+        "wscStatBV": { "content": "2h 30m" },
+        "wscStatBL": { "content": "Est." },
+        "wscStatCV": { "content": "Light" },
+        "wscStatCL": { "content": "Recovery" }
+      }
+    }
+  ]
+}

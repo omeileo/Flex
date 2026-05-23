@@ -26,6 +26,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "frame",
@@ -183,25 +184,16 @@
               ]
             },
             {
-              "type": "frame",
-              "id": "P9Yxlq",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "p5gmq",
-                  "fill": "#FFFFFF",
-                  "content": "Enable cycle-aware training",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "ZnyAj",
+              "type": "ref",
+              "ref": "e9FYzN",
+              "name": "Button: Enable cycle-aware training",
+              "width": 342,
+              "descendants": {
+                "uAUtK": {
+                  "content": "Enable cycle-aware training"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -253,6 +245,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "frame",
@@ -563,25 +556,16 @@
               "fontWeight": "700"
             },
             {
-              "type": "frame",
-              "id": "LwhYb",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "n38oM",
-                  "fill": "#FFFFFF",
-                  "content": "Continue",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "Z7rY3",
+              "type": "ref",
+              "ref": "e9FYzN",
+              "name": "Button: Continue",
+              "width": 342,
+              "descendants": {
+                "uAUtK": {
+                  "content": "Continue"
                 }
-              ]
+              }
             }
           ]
         }
@@ -612,6 +596,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "frame",
@@ -729,25 +714,16 @@
               "fontWeight": "normal"
             },
             {
-              "type": "frame",
-              "id": "hR96p",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "QqTZp",
-                  "fill": "#FFFFFF",
-                  "content": "Save & continue",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "BMMy8",
+              "type": "ref",
+              "ref": "e9FYzN",
+              "name": "Button: Save & continue",
+              "width": 342,
+              "descendants": {
+                "uAUtK": {
+                  "content": "Save & continue"
                 }
-              ]
+              }
             }
           ]
         }
@@ -1231,6 +1207,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "frame",
@@ -1584,25 +1561,16 @@
               ]
             },
             {
-              "type": "frame",
-              "id": "ZjEWj",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "li98t",
-                  "fill": "#FFFFFF",
-                  "content": "Save",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "XQULQ",
+              "type": "ref",
+              "ref": "e9FYzN",
+              "name": "Button: Save",
+              "width": 342,
+              "descendants": {
+                "uAUtK": {
+                  "content": "Save"
                 }
-              ]
+              }
             }
           ]
         }
@@ -1617,7 +1585,7 @@
       "clip": true,
       "width": 390,
       "height": 844,
-      "fill": "#00000066",
+      "fill": "$background",
       "layout": "vertical",
       "children": [
         {
@@ -1626,6 +1594,17 @@
           "fill": "#00000000",
           "width": 390,
           "height": 200
+        },
+        {
+          "type": "frame",
+          "id": "GqlD6",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "Scrim",
+          "width": 390,
+          "height": 844,
+          "fill": "#11182780"
         },
         {
           "type": "frame",
@@ -1647,6 +1626,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "rectangle",
@@ -1884,25 +1864,46 @@
               ]
             },
             {
-              "type": "frame",
-              "id": "Jlv18",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "T729W",
-                  "fill": "#FFFFFF",
-                  "content": "Save",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "z1tNlO",
+              "type": "ref",
+              "ref": "e9FYzN",
+              "name": "Button: Save",
+              "width": 342,
+              "descendants": {
+                "uAUtK": {
+                  "content": "Save"
                 }
-              ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "fdRYY",
+          "layoutPosition": "absolute",
+          "x": 24,
+          "y": 56,
+          "width": 342,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "vWiXJ",
+              "fill": "$text-primary",
+              "content": "Today",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "BYPxq",
+              "fill": "$text-secondary",
+              "content": "Cycle Day 22 · Luteal phase",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
             }
           ]
         }
@@ -2021,6 +2022,7 @@
             12,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "text",
@@ -2128,25 +2130,16 @@
               "fontWeight": "600"
             },
             {
-              "type": "frame",
-              "id": "I7FNd",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "wcsIU",
-                  "fill": "#FFFFFF",
-                  "content": "Start workout",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "LsDyO",
+              "type": "ref",
+              "ref": "e9FYzN",
+              "name": "Button: Start workout",
+              "width": 342,
+              "descendants": {
+                "uAUtK": {
+                  "content": "Start workout"
                 }
-              ]
+              }
             }
           ]
         }
@@ -2240,6 +2233,7 @@
             12,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "text",
@@ -2330,25 +2324,16 @@
               ]
             },
             {
-              "type": "frame",
-              "id": "F7n8o",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "Z5Pud0",
-                  "fill": "#FFFFFF",
-                  "content": "Start workout",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "tMOvX",
+              "type": "ref",
+              "ref": "e9FYzN",
+              "name": "Button: Start workout",
+              "width": 342,
+              "descendants": {
+                "uAUtK": {
+                  "content": "Start workout"
                 }
-              ]
+              }
             }
           ]
         }
@@ -2363,7 +2348,7 @@
       "clip": true,
       "width": 390,
       "height": 844,
-      "fill": "#00000066",
+      "fill": "$background",
       "layout": "vertical",
       "children": [
         {
@@ -2372,6 +2357,17 @@
           "fill": "#00000000",
           "width": 390,
           "height": 500
+        },
+        {
+          "type": "frame",
+          "id": "Ymx21",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "Scrim",
+          "width": 390,
+          "height": 844,
+          "fill": "#11182780"
         },
         {
           "type": "frame",
@@ -2392,6 +2388,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "text",
@@ -2414,25 +2411,16 @@
               "fontWeight": "normal"
             },
             {
-              "type": "frame",
-              "id": "JoF7b",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "nH1XF",
-                  "fill": "#FFFFFF",
-                  "content": "Readapt plan",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "Pdd0X",
+              "type": "ref",
+              "ref": "e9FYzN",
+              "name": "Button: Readapt plan",
+              "width": 342,
+              "descendants": {
+                "uAUtK": {
+                  "content": "Readapt plan"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -2443,6 +2431,36 @@
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "U29ftu",
+          "layoutPosition": "absolute",
+          "x": 24,
+          "y": 56,
+          "width": 342,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "F8LS1",
+              "fill": "$text-primary",
+              "content": "Today",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "G7Imr3",
+              "fill": "$text-secondary",
+              "content": "Cycle settings updated",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
             }
           ]
         }
@@ -2473,6 +2491,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "text",
@@ -2557,25 +2576,16 @@
               "fontWeight": "normal"
             },
             {
-              "type": "frame",
-              "id": "ciENA",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "W5d7L",
-                  "fill": "#FFFFFF",
-                  "content": "Set up cycle tracking",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "kOOyQ",
+              "type": "ref",
+              "ref": "e9FYzN",
+              "name": "Button: Set up cycle tracking",
+              "width": 342,
+              "descendants": {
+                "uAUtK": {
+                  "content": "Set up cycle tracking"
                 }
-              ]
+              }
             }
           ]
         }
@@ -2606,6 +2616,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "frame",
@@ -2685,25 +2696,16 @@
               "fontWeight": "normal"
             },
             {
-              "type": "frame",
-              "id": "NVQpg",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "iP9Bm",
-                  "fill": "#FFFFFF",
-                  "content": "Connect Apple Health",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "WD0H8",
+              "type": "ref",
+              "ref": "e9FYzN",
+              "name": "Button: Connect Apple Health",
+              "width": 342,
+              "descendants": {
+                "uAUtK": {
+                  "content": "Connect Apple Health"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -2728,7 +2730,7 @@
       "clip": true,
       "width": 390,
       "height": 844,
-      "fill": "#00000066",
+      "fill": "$background",
       "layout": "vertical",
       "children": [
         {
@@ -2737,6 +2739,17 @@
           "fill": "#00000000",
           "width": 390,
           "height": 500
+        },
+        {
+          "type": "frame",
+          "id": "vHrAU",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "Scrim",
+          "width": 390,
+          "height": 844,
+          "fill": "#11182780"
         },
         {
           "type": "frame",
@@ -2757,6 +2770,7 @@
             40,
             24
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "text",
@@ -2779,25 +2793,16 @@
               "fontWeight": "normal"
             },
             {
-              "type": "frame",
-              "id": "nSjLZ",
-              "width": "fill_container",
-              "height": 52,
-              "fill": "#111827",
-              "cornerRadius": 36,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "PLZav",
-                  "fill": "#FFFFFF",
-                  "content": "Turn off",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "600"
+              "id": "O2bmVH",
+              "type": "ref",
+              "ref": "Ly4sI",
+              "name": "Button: Turn off",
+              "width": 342,
+              "descendants": {
+                "gWdYj": {
+                  "content": "Turn off cycle tracking"
                 }
-              ]
+              }
             },
             {
               "type": "text",
@@ -2808,6 +2813,36 @@
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "X7KlN",
+          "layoutPosition": "absolute",
+          "x": 24,
+          "y": 56,
+          "width": 342,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "G8YtQN",
+              "fill": "$text-primary",
+              "content": "Cycle settings",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "ZfrBs",
+              "fill": "$text-secondary",
+              "content": "Tracking active",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
             }
           ]
         }
@@ -2822,7 +2857,7 @@
       "clip": true,
       "width": 390,
       "height": 844,
-      "fill": "#00000066",
+      "fill": "$background",
       "layout": "vertical",
       "children": [
         {
@@ -2831,6 +2866,17 @@
           "fill": "#00000000",
           "width": 390,
           "height": 450
+        },
+        {
+          "type": "frame",
+          "id": "WVjQM",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "name": "Scrim",
+          "width": 390,
+          "height": 844,
+          "fill": "#11182780"
         },
         {
           "type": "frame",
@@ -2948,6 +2994,115 @@
               ]
             }
           ]
+        },
+        {
+          "type": "frame",
+          "id": "UgbPt",
+          "layoutPosition": "absolute",
+          "x": 24,
+          "y": 56,
+          "width": 342,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "e1kspy",
+              "fill": "$text-primary",
+              "content": "Today",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "amNSO",
+              "fill": "$text-secondary",
+              "content": "Cycle Day 22 · Low energy logged",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "e9FYzN",
+      "x": 6600,
+      "y": 80,
+      "name": "component/Button/Primary",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "$accent-cta",
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "uAUtK",
+          "fill": "#FFFFFF",
+          "content": "Continue",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "O2SeN",
+      "x": 6600,
+      "y": 160,
+      "name": "component/Button/Secondary",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "$surface",
+      "stroke": {
+        "thickness": 1,
+        "fill": "$border"
+      },
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "hjXCa",
+          "fill": "$text-primary",
+          "content": "Skip",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Ly4sI",
+      "x": 6600,
+      "y": 240,
+      "name": "component/Button/Destructive",
+      "reusable": true,
+      "width": 358,
+      "height": 56,
+      "fill": "#DC2626",
+      "padding": 16,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "gWdYj",
+          "fill": "#FFFFFF",
+          "content": "Turn off",
+          "fontFamily": "Inter",
+          "fontSize": 16,
+          "fontWeight": "600"
         }
       ]
     }

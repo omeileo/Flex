@@ -1,0 +1,144 @@
+{
+  "version": "2.11",
+  "themes": { "mode": ["light", "dark", "pink"] },
+  "variables": {
+    "accent-cta": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#111827" }, { "theme": { "mode": "dark" }, "value": "#F9FAFB" }, { "theme": { "mode": "pink" }, "value": "#DB2777" }] },
+    "background": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#F7F8FA" }, { "theme": { "mode": "dark" }, "value": "#0F1117" }, { "theme": { "mode": "pink" }, "value": "#FFF0F5" }] },
+    "border": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#E5E7EB" }, { "theme": { "mode": "dark" }, "value": "#374151" }, { "theme": { "mode": "pink" }, "value": "#F5C6DE" }] },
+    "surface": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#FFFFFF" }, { "theme": { "mode": "dark" }, "value": "#1A1F2E" }, { "theme": { "mode": "pink" }, "value": "#FFFBFC" }] },
+    "text-primary": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#111827" }, { "theme": { "mode": "dark" }, "value": "#F9FAFB" }, { "theme": { "mode": "pink" }, "value": "#3B1229" }] },
+    "text-secondary": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#6B7280" }, { "theme": { "mode": "dark" }, "value": "#9CA3AF" }, { "theme": { "mode": "pink" }, "value": "#9D6280" }] },
+    "text-inverse": { "type": "color", "value": [{ "theme": { "mode": "light" }, "value": "#FFFFFF" }, { "theme": { "mode": "dark" }, "value": "#111827" }, { "theme": { "mode": "pink" }, "value": "#FFFFFF" }] },
+    "radius-lg": { "type": "number", "value": 16 },
+    "spacing-md": { "type": "number", "value": 16 },
+    "spacing-sm": { "type": "number", "value": 8 }
+  },
+  "children": [
+    {
+      "type": "frame",
+      "id": "selHdr",
+      "x": 80,
+      "y": 40,
+      "width": 1200,
+      "layout": "vertical",
+      "gap": 4,
+      "children": [
+        { "type": "text", "id": "selTitle", "fill": "$text-primary", "content": "SelectionCard Component", "fontFamily": "Inter", "fontSize": 24, "fontWeight": "700" },
+        { "type": "text", "id": "selDesc", "fill": "$text-secondary", "textGrowth": "fixed-width", "width": 720, "content": "Goal & option chips with icon · supports single & multi-select · default / selected / disabled", "fontFamily": "Inter", "fontSize": 13, "fontWeight": "400" }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "cmpSelCard",
+      "x": 80,
+      "y": 120,
+      "name": "component/SelectionCard",
+      "reusable": true,
+      "width": 358,
+      "height": 88,
+      "fill": "$surface",
+      "stroke": { "thickness": 1, "fill": "$border" },
+      "cornerRadius": "$radius-lg",
+      "padding": 16,
+      "alignItems": "center",
+      "gap": 16,
+      "children": [
+        {
+          "type": "frame",
+          "id": "selIconSlot",
+          "name": "IconSlot",
+          "width": 44,
+          "height": 44,
+          "fill": "#F3F4F6",
+          "cornerRadius": 22,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            { "type": "icon_font", "id": "selIcon", "name": "Icon", "iconFontFamily": "lucide", "iconFontName": "target", "fill": "$text-primary", "width": 22, "height": 22 }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "selBody",
+          "name": "Body",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 2,
+          "children": [
+            { "type": "text", "id": "selOptTitle", "name": "Title", "fill": "$text-primary", "content": "Build strength", "fontFamily": "Inter", "fontSize": 16, "fontWeight": "600" },
+            { "type": "text", "id": "selOptSub", "name": "Subtitle", "fill": "$text-secondary", "content": "Compound lifts, progressive overload", "fontFamily": "Inter", "fontSize": 13, "fontWeight": "400" }
+          ]
+        },
+        {
+          "type": "ellipse",
+          "id": "selRadio",
+          "name": "Radio",
+          "width": 22,
+          "height": 22,
+          "fill": "#00000000",
+          "stroke": { "thickness": 2, "fill": "$border" }
+        }
+      ]
+    },
+    {
+      "type": "ref",
+      "id": "selSelected",
+      "ref": "cmpSelCard",
+      "name": "SelectionCard: Selected",
+      "x": 480,
+      "y": 120,
+      "stroke": { "thickness": 2, "fill": "$accent-cta" },
+      "descendants": {
+        "selOptTitle": { "content": "Lose body fat" },
+        "selOptSub": { "content": "Sustainable deficit + strength retention" },
+        "selIcon": { "iconFontName": "flame" },
+        "selRadio": {
+          "fill": "$accent-cta",
+          "stroke": { "thickness": 0, "fill": "$accent-cta" }
+        }
+      }
+    },
+    {
+      "type": "ref",
+      "id": "selMulti",
+      "ref": "cmpSelCard",
+      "name": "SelectionCard: Multi-select",
+      "x": 80,
+      "y": 232,
+      "stroke": { "thickness": 2, "fill": "$accent-cta" },
+      "descendants": {
+        "selOptTitle": { "content": "Knee — left" },
+        "selOptSub": { "content": "Past meniscus repair, no deep flexion" },
+        "selIcon": { "iconFontName": "alert-triangle" },
+        "selRadio": {
+          "type": "frame",
+          "id": "selRadioReplaced",
+          "name": "Checkbox",
+          "width": 22,
+          "height": 22,
+          "fill": "$accent-cta",
+          "cornerRadius": 6,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            { "type": "icon_font", "id": "selCheck", "iconFontFamily": "lucide", "iconFontName": "check", "fill": "$text-inverse", "width": 14, "height": 14 }
+          ]
+        }
+      }
+    },
+    {
+      "type": "ref",
+      "id": "selDisabled",
+      "ref": "cmpSelCard",
+      "name": "SelectionCard: Disabled",
+      "x": 480,
+      "y": 232,
+      "opacity": 0.45,
+      "descendants": {
+        "selOptTitle": { "content": "Improve mobility" },
+        "selOptSub": { "content": "Coming soon" },
+        "selIcon": { "iconFontName": "lock" }
+      }
+    }
+  ]
+}
