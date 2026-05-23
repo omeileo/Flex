@@ -17,7 +17,7 @@ export const paymentIntentsRepository = {
    * @param metadata - Any metadata associated with the payment intent.
    * @returns The created stripe_payment_intents record.
    */
-  async saveStripePaymentIntent(paymentIntentId: string, userId: number): Promise<stripe_payment_intents> {
+  async saveStripePaymentIntent(paymentIntentId: string, userId: string): Promise<stripe_payment_intents> {
     logger.info(
       `Saving Stripe payment intent record for payment intent ID: ${obfuscateStripeData(paymentIntentId)} and user ID: ${userId}`
     )

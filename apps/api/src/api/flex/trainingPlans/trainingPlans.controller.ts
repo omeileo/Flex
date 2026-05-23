@@ -35,7 +35,7 @@ const controller = function () {
     TrainingPlansRoutes.APPLY_WEEKLY_PROGRESSION.routerPath,
     requestHandler(trainingPlanIdParamsValidator, async (req: Request, res: Response) => {
       const { id } = getParams<TrainingPlanParams>(req)
-      const plan = await trainingPlansService.applyWeeklyProgression(Number(id))
+      const plan = await trainingPlansService.applyWeeklyProgression(id)
 
       successResponse(res, StatusCodes.OK, 'Request successful.', plan, 'Weekly progression applied.')
     })
@@ -45,7 +45,7 @@ const controller = function () {
     TrainingPlansRoutes.CHANGES.routerPath,
     requestHandler(trainingPlanIdParamsValidator, async (req: Request, res: Response) => {
       const { id } = getParams<TrainingPlanParams>(req)
-      const changes = await trainingPlansService.getPlanChanges(Number(id))
+      const changes = await trainingPlansService.getPlanChanges(id)
 
       successResponse(res, StatusCodes.OK, 'Request successful.', changes, 'Plan changes loaded.')
     })

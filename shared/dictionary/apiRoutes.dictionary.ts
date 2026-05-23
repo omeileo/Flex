@@ -3,12 +3,13 @@ export const ApiRoutes = {
   authSignUp: '/auth/sign-up',
   authVerifyEmail: '/auth/verify-email',
   authVerifyEmailResend: '/auth/verify-email/resend',
+  authForgetPassword: '/auth/forget-password',
   fitnessProfile: '/fitness-profile',
   trainingPlansGenerate: '/training-plans/generate',
   trainingPlansActive: '/training-plans/active',
-  applyWeeklyProgression: (planId: number) =>
+  applyWeeklyProgression: (planId: string) =>
     `/training-plans/${planId}/apply-weekly-progression`,
-  planChanges: (planId: number) => `/training-plans/${planId}/changes`,
+  planChanges: (planId: string) => `/training-plans/${planId}/changes`,
   exercises: '/exercises',
   workoutSessions: '/workout-sessions'
 } as const

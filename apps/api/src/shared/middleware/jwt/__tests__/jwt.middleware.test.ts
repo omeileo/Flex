@@ -36,7 +36,7 @@ describe('jwt middleware', () => {
   it('rejects blacklisted tokens on protected routes', async () => {
     vi.mocked(getJwtTokenFromRequest).mockReturnValue('revoked-token')
     vi.mocked(blacklistedTokensRepository.getBlacklistedToken).mockResolvedValue({
-      id: 1,
+      id: 'blk_tok_TEST-0000-0000-0000',
       token: 'revoked-token',
       created_at: new Date()
     })

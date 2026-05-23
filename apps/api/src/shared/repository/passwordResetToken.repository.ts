@@ -4,6 +4,7 @@ import { password_reset_tokens, status, users } from '@prisma/client'
 import prisma from '../../../prisma/prisma.client'
 import { forgetPasswordErrors } from '../../api/user/auth/forgetPassword/forgetPassword.dictionary'
 import { globalErrors } from '../dictionary/errors.dictionary'
+import { createIdForTable } from '../functions/id/createIdForTable.functions'
 import { obfuscateSensitiveData } from '../functions/security/security.functions'
 import { statusHelper } from '../functions/status.functions'
 import { token } from '../functions/token.functions'
@@ -35,6 +36,7 @@ export const passwordResetTokenRepository = {
 
     const passwordResetToken = await transaction.password_reset_tokens.create({
       data: {
+        id: createIdForTable('password_reset_tokens'),
         user_id: userId,
         token: token.passwordResetToken.generate(),
         expires_at: token.passwordResetToken.createExpiryDateFromNow()

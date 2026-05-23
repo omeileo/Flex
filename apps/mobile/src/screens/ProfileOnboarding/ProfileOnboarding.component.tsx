@@ -1,15 +1,14 @@
-import React from 'react';
-import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
 
-import styles from './ProfileOnboarding.styles';
-import {
-  ProfileOnboardingComponentProps,
-  ProfileOnboardingFormValues,
-} from './ProfileOnboarding.types';
-import { profileOnboardingSchema } from './ProfileOnboarding.validation';
+import { Pressable, ScrollView, Text, TextInput, View } from 'react-native'
+
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Controller, useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+
+import styles from './ProfileOnboarding.styles'
+import { ProfileOnboardingComponentProps, ProfileOnboardingFormValues } from './ProfileOnboarding.types'
+import { profileOnboardingSchema } from './ProfileOnboarding.validation'
 
 const defaultValues: ProfileOnboardingFormValues = {
   goal: '',
@@ -17,29 +16,22 @@ const defaultValues: ProfileOnboardingFormValues = {
   daysPerWeek: 3,
   sessionMinutes: 45,
   equipment: [],
-  injuries: [],
-};
+  injuries: []
+}
 
-const ProfileOnboardingComponent = ({
-  isSubmitting,
-  error,
-  onSubmit,
-}: ProfileOnboardingComponentProps) => {
-  const { t } = useTranslation();
+const ProfileOnboardingComponent = ({ isSubmitting, error, onSubmit }: ProfileOnboardingComponentProps) => {
+  const { t } = useTranslation()
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<ProfileOnboardingFormValues>({
     defaultValues,
-    resolver: yupResolver(profileOnboardingSchema),
-  });
+    resolver: yupResolver(profileOnboardingSchema)
+  })
 
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.scrollContent}
-    >
+    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       <Text style={styles.title}>{t('profileOnboarding.title')}</Text>
       <Text style={styles.label}>{t('profileOnboarding.goal')}</Text>
       <Controller
@@ -54,9 +46,7 @@ const ProfileOnboardingComponent = ({
           />
         )}
       />
-      {errors.goal ? (
-        <Text style={styles.error}>{t(String(errors.goal.message))}</Text>
-      ) : null}
+      {errors.goal ? <Text style={styles.error}>{t(String(errors.goal.message))}</Text> : null}
 
       <Text style={styles.label}>{t('profileOnboarding.experience')}</Text>
       <Controller
@@ -64,15 +54,10 @@ const ProfileOnboardingComponent = ({
         name="experienceLevel"
         render={({ field: { onChange, value } }) => (
           <View style={styles.experienceRow}>
-            {(['beginner', 'intermediate', 'advanced'] as const).map(level => (
+            {(['beginner', 'intermediate', 'advanced'] as const).map((level) => (
               <Pressable
                 key={level}
-                style={[
-                  styles.input,
-                  value === level
-                    ? styles.experienceOptionSelected
-                    : styles.experienceOption,
-                ]}
+                style={[styles.input, value === level ? styles.experienceOptionSelected : styles.experienceOption]}
                 onPress={() => onChange(level)}
               >
                 <Text>{t(`profileOnboarding.experienceLevels.${level}`)}</Text>
@@ -91,7 +76,7 @@ const ProfileOnboardingComponent = ({
             style={styles.input}
             keyboardType="number-pad"
             value={String(value)}
-            onChangeText={text => onChange(Number(text) || 0)}
+            onChangeText={(text) => onChange(Number(text) || 0)}
           />
         )}
       />
@@ -105,26 +90,20 @@ const ProfileOnboardingComponent = ({
             style={styles.input}
             keyboardType="number-pad"
             value={String(value)}
-            onChangeText={text => onChange(Number(text) || 0)}
+            onChangeText={(text) => onChange(Number(text) || 0)}
           />
         )}
       />
 
       {error ? <Text style={styles.error}>{error}</Text> : null}
 
-      <Pressable
-        style={styles.button}
-        disabled={isSubmitting}
-        onPress={handleSubmit(onSubmit)}
-      >
+      <Pressable style={styles.button} disabled={isSubmitting} onPress={handleSubmit(onSubmit)}>
         <Text style={styles.buttonText}>
-          {isSubmitting
-            ? t('profileOnboarding.saving')
-            : t('profileOnboarding.submit')}
+          {isSubmitting ? t('profileOnboarding.saving') : t('profileOnboarding.submit')}
         </Text>
       </Pressable>
     </ScrollView>
-  );
-};
+  )
+}
 
-export default ProfileOnboardingComponent;
+export default ProfileOnboardingComponent

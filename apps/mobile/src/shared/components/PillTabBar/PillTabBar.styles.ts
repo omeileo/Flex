@@ -1,13 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  elevation,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, elevation, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   container: {
@@ -17,24 +10,24 @@ export default StyleSheet.create({
     padding: spacing.xs,
     marginHorizontal: spacing.md,
     marginBottom: spacing.md,
-    ...elevation.floating,
+    ...elevation.floating
   },
   tab: {
     flex: 1,
     paddingVertical: spacing.sm + 2,
     borderRadius: radii.pill,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   tabActive: {
-    backgroundColor: colors.accent,
+    backgroundColor: colors.accent
   },
   tabLabel: {
     fontSize: typography.caption,
     fontWeight: fontWeights.medium,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   tabLabelActive: {
     color: colors.textInverse,
-    fontWeight: fontWeights.semibold,
-  },
-});
+    fontWeight: fontWeights.semibold
+  }
+})

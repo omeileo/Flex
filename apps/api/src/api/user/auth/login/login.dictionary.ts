@@ -142,7 +142,7 @@ export const loginErrors = {
             issue: 'not_verified'
           }
         ],
-        'Your account has not been verified. Please check your email for the verification link.'
+        'Your account has not been verified. A new verification email has been sent — check your inbox for the code.'
       )
     },
 
@@ -179,7 +179,8 @@ export const loginErrors = {
       ),
       correlationId: CorrelationIdSchema,
       userFriendlyMessage: zodd.string().openapi({
-        example: 'Your account has not been verified. Please check your email for the verification link.',
+        example:
+          'Your account has not been verified. A new verification email has been sent — check your inbox for the code.',
         description: 'User-friendly error message'
       })
     })

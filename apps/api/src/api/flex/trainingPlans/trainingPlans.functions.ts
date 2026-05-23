@@ -126,7 +126,7 @@ export const generateTrainingPlanWithAi = async (
         {
           role: 'system',
           content:
-            'You are a strength coach. Return JSON only with shape {"status":"active","weekNumber":1,"workouts":[{"dayIndex":0,"name":"...","exercises":[{"exerciseId":1,"exerciseName":"...","orderIndex":0,"restSeconds":90,"sets":[{"setNumber":1,"targetReps":8,"repsScheme":"straight"}]}]}],"generatedAt":"ISO-8601"}. Use only exercise ids from the catalog.'
+            'You are a strength coach. Return JSON only with shape {"status":"active","weekNumber":1,"workouts":[{"dayIndex":0,"name":"...","exercises":[{"exerciseId":"exr_XXXX-XXXX-XXXX-XXXX","exerciseName":"...","orderIndex":0,"restSeconds":90,"sets":[{"setNumber":1,"targetReps":8,"repsScheme":"straight"}]}]}],"generatedAt":"ISO-8601"}. Use only exercise ids from the catalog.'
         },
         {
           role: 'user',

@@ -8,8 +8,8 @@ export type ActiveWorkoutView =
   | 'finishSheet'
   | 'save'
   | 'saved'
-  | 'discarded';
+  | 'discarded'
 
 export type ActiveWorkoutFlowPreviewComponentProps = {
-  initialView?: ActiveWorkoutView;
-};
+  initialView?: ActiveWorkoutView
+}

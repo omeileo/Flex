@@ -29,7 +29,7 @@ export const stripeHelper = {
    * @param userId - The ID of the user.
    * @returns A promise that resolves to the Stripe customer object or null if not found.
    */
-  getStripeCustomer: async (userId: number) => {
+  getStripeCustomer: async (userId: string) => {
     const userProfile = await profileRepository.getUserProfile(userId)
 
     if (!userProfile.stripe_customer_id) {
@@ -58,7 +58,7 @@ export const stripeHelper = {
    * @param userId - The ID of the user.
    * @returns A promise that resolves to the Stripe connect account object or null if not found.
    */
-  getStripeConnectAccount: async (userId: number) => {
+  getStripeConnectAccount: async (userId: string) => {
     logger.info(`Retrieving Stripe connect account for user ${userId}`)
 
     try {
@@ -121,7 +121,7 @@ export const stripeHelper = {
     firstName: string,
     lastName: string,
     phoneNumber: string | null,
-    userId: number
+    userId: string
   ) => {
     try {
       logger.info(`Creating Stripe customer for user (${userId}) with email ${obfuscateSensitiveData(email)}`)
@@ -150,7 +150,7 @@ export const stripeHelper = {
    * @param userId - The ID of the user.
    * @returns A promise that resolves to the Stripe customer object or null if creation fails.
    */
-  createStripeCustomer: async (userId: number) => {
+  createStripeCustomer: async (userId: string) => {
     const userProfile = await profileRepository.getUserProfile(userId)
 
     if (userProfile.stripe_customer_id) {
@@ -269,7 +269,7 @@ export const stripeHelper = {
    * @param userId - The ID of the user.
    * @returns A promise that resolves to the Stripe customer object.
    */
-  deleteStripeCustomer: async (userId: number) => {
+  deleteStripeCustomer: async (userId: string) => {
     const userProfile = await profileRepository.getUserProfile(userId)
 
     if (!userProfile.stripe_customer_id) {
@@ -291,7 +291,7 @@ export const stripeHelper = {
    * @param userId - The ID of the user.
    * @returns A promise that resolves to the Stripe setup intent object.
    */
-  createSetupIntent: async (userId: number) => {
+  createSetupIntent: async (userId: string) => {
     try {
       const customer =
         (await stripeHelper.getStripeCustomer(userId)) ?? (await stripeHelper.createStripeCustomer(userId))
@@ -317,7 +317,7 @@ export const stripeHelper = {
    * @param userId - The ID of the user.
    * @returns A promise that resolves to the Stripe payment methods object or null if not found.
    */
-  getPaymentMethods: async (userId: number) => {
+  getPaymentMethods: async (userId: string) => {
     logger.info(`Retrieving payment methods for user ${userId}`)
 
     try {
@@ -350,7 +350,7 @@ export const stripeHelper = {
    * @param features - Customer session features to enable.
    * @returns A promise that resolves to the Stripe customer session.
    */
-  async createBaseCustomerSession(userId: number, features: Record<string, string>) {
+  async createBaseCustomerSession(userId: string, features: Record<string, string>) {
     const customer = (await stripeHelper.getStripeCustomer(userId)) ?? (await stripeHelper.createStripeCustomer(userId))
 
     if (!customer) {
@@ -381,7 +381,7 @@ export const stripeHelper = {
    * @param userId - The ID of the user.
    * @returns A promise that resolves to the Stripe customer session object.
    */
-  createCustomerPaymentSession: async (userId: number): Promise<StripeSession> => {
+  createCustomerPaymentSession: async (userId: string): Promise<StripeSession> => {
     const customerSessionFeatures: Record<string, string> = {
       payment_method_redisplay: 'enabled'
     }
@@ -400,7 +400,7 @@ export const stripeHelper = {
    * @returns A promise that resolves to the Stripe customer session object with setup intent.
    */
   createCustomerSetupSession: async (
-    userId: number
+    userId: string
   ): Promise<{ setupIntent: SetupIntent } & { customerSession: StripeSession }> => {
     const customerSessionFeatures: Record<string, string> = {
       payment_method_redisplay: 'enabled',
@@ -428,7 +428,7 @@ export const stripeHelper = {
    * @param userId - The ID of the user.
    * @returns A promise that resolves to the Stripe checkout session object.
    */
-  createCheckoutSession: async (userId: number) => {
+  createCheckoutSession: async (userId: string) => {
     const customer = (await stripeHelper.getStripeCustomer(userId)) ?? (await stripeHelper.createStripeCustomer(userId))
 
     if (!customer) {
@@ -450,7 +450,7 @@ export const stripeHelper = {
    * @param userId - The ID of the user.
    * @returns A promise that resolves to the Stripe account session object.
    */
-  createAccountSession: async (userId: number, countryCode?: string, phoneNumber?: string): Promise<StripeSession> => {
+  createAccountSession: async (userId: string, countryCode?: string, phoneNumber?: string): Promise<StripeSession> => {
     const userProfile = await profileRepository.getUserProfile(userId)
     let stripeConnectAccountId = userProfile.stripe_connect_account_id
 
@@ -531,7 +531,7 @@ export const stripeHelper = {
    * @returns A promise that resolves to the Stripe payment intent object.
    */
   createPaymentIntentForHold: async (
-    userId: number,
+    userId: string,
     amount: number,
     currency: string,
     metadata: Record<string, string>,
@@ -583,7 +583,7 @@ export const stripeHelper = {
    * @returns A promise that resolves to the Stripe payment intent object.
    */
   createPaymentIntentForImmediateCharge: async (
-    userId: number,
+    userId: string,
     paymentMethodId: string,
     amount: number,
     currency: string,
@@ -895,7 +895,7 @@ export const stripeHelper = {
   createRefund: async (
     paymentIntentId: string,
     amount: number,
-    userId: number,
+    userId: string,
     metadata: Record<string, string>
   ): Promise<Stripe.Refund | null> => {
     const isUserAllowedToRequestRefund = await stripeHelper.canUserRequestRefund(paymentIntentId, userId)
@@ -1027,7 +1027,7 @@ export const stripeHelper = {
    * @param paymentIntentId - The ID of the payment intent.
    * @returns A promise that resolves to true if the user can request a refund, false otherwise.
    */
-  canUserRequestRefund: async (paymentIntentId: string, userId: number) => {
+  canUserRequestRefund: async (paymentIntentId: string, userId: string) => {
     logger.info(
       `Checking if user can request refund for payment intent: ${obfuscateStripeData(paymentIntentId)} with userId: ${userId}`
     )
@@ -1082,7 +1082,7 @@ export const stripeHelper = {
    * @param userId - The ID of the user.
    * @returns A promise that resolves to an object containing verification status and details.
    */
-  checkIdVerificationStatus: async (userId: number) => {
+  checkIdVerificationStatus: async (userId: string) => {
     logger.info(`Checking ID Verification Status of user (${userId})`)
 
     let verificationStatusResponse: IDVerificationStatus = {

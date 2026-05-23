@@ -43,7 +43,7 @@ export const rolesRepository = {
     }
   },
 
-  getRolesOfUser: async (userId: number): Promise<string[]> => {
+  getRolesOfUser: async (userId: string): Promise<string[]> => {
     logger.info(`Getting roles of user: ${userId}`)
 
     try {

@@ -1,13 +1,21 @@
-import type {
-  FitnessProfile,
-  FitnessProfileUpsert,
-} from '@flex/shared/types/fitnessProfile/fitnessProfile.schemas';
-import { getFlexApi } from '../../../../networkRequests/flexApi/flexApi.functions';
+import type { FitnessProfileUpsert } from '@flex/shared/types/fitnessProfile/fitnessProfile.schemas'
+import { configureRequest } from '@network/apiClient/apiClient.functions'
+import urls from '@network/apiClient/endpoints'
 
-export const saveProfileApi = async (
-  request: FitnessProfileUpsert,
-): Promise<FitnessProfile> => {
-  return getFlexApi().upsertFitnessProfile(request) as Promise<FitnessProfile>;
-};
+import { SaveProfileErrorResponse, SaveProfileSuccessResponse } from './saveProfile.types'
 
-export default saveProfileApi;
+export const saveProfileApi = async (request: FitnessProfileUpsert): Promise<SaveProfileSuccessResponse> => {
+  const response = await configureRequest({
+    url: urls.fitnessProfile.upsertProfile,
+    method: 'PUT',
+    data: request
+  })
+
+  if (response.status >= 200 && response.status < 300) {
+    return response as SaveProfileSuccessResponse
+  } else {
+    throw response as SaveProfileErrorResponse
+  }
+}
+
+export default saveProfileApi

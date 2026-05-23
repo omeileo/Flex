@@ -1,9 +1,11 @@
-import React from 'react';
-import { Pressable, ScrollView, Text, TextInput } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
 
-import styles from './VerifyEmail.styles';
-import { VerifyEmailComponentProps } from './VerifyEmail.types';
+import { Pressable, ScrollView, Text, TextInput } from 'react-native'
+
+import { useTranslation } from 'react-i18next'
+
+import styles from './VerifyEmail.styles'
+import { VerifyEmailComponentProps } from './VerifyEmail.types'
 
 const VerifyEmailComponent = ({
   email,
@@ -17,15 +19,12 @@ const VerifyEmailComponent = ({
   onCodeChange,
   onSubmit,
   onResendPress,
-  onLoginPress,
+  onLoginPress
 }: VerifyEmailComponentProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.scrollContent}
-    >
+    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       <Text style={styles.title}>{t('auth.verifyEmail.title')}</Text>
       <Text style={styles.subtitle}>{t('auth.verifyEmail.subtitle')}</Text>
 
@@ -54,27 +53,15 @@ const VerifyEmailComponent = ({
       {error ? <Text style={styles.error}>{error}</Text> : null}
       {resendMessage ? <Text style={styles.info}>{resendMessage}</Text> : null}
 
-      <Pressable
-        style={styles.button}
-        disabled={isSubmitting}
-        onPress={onSubmit}
-      >
+      <Pressable style={styles.button} disabled={isSubmitting} onPress={onSubmit}>
         <Text style={styles.buttonText}>
-          {isSubmitting
-            ? t('auth.verifyEmail.submitting')
-            : t('auth.verifyEmail.submit')}
+          {isSubmitting ? t('auth.verifyEmail.submitting') : t('auth.verifyEmail.submit')}
         </Text>
       </Pressable>
 
-      <Pressable
-        style={styles.link}
-        disabled={isResending}
-        onPress={onResendPress}
-      >
+      <Pressable style={styles.link} disabled={isResending} onPress={onResendPress}>
         <Text style={styles.linkText}>
-          {isResending
-            ? t('auth.verifyEmail.resending')
-            : t('auth.verifyEmail.resend')}
+          {isResending ? t('auth.verifyEmail.resending') : t('auth.verifyEmail.resend')}
         </Text>
       </Pressable>
 
@@ -82,7 +69,7 @@ const VerifyEmailComponent = ({
         <Text style={styles.linkText}>{t('auth.verifyEmail.goToLogin')}</Text>
       </Pressable>
     </ScrollView>
-  );
-};
+  )
+}
 
-export default VerifyEmailComponent;
+export default VerifyEmailComponent

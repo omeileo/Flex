@@ -2,6 +2,7 @@ import { ExerciseCategory } from '@flex/shared/enums/exerciseCategory.enum'
 import { PrismaClient } from '@prisma/client'
 
 import { logger } from '../../src/app'
+import { createIdForTable } from '../../src/shared/functions/id/createIdForTable.functions'
 
 const flexExerciseSeedData = [
   {
@@ -140,7 +141,10 @@ export default async function flexExercisesSeed(prisma: PrismaClient) {
           video_url: exercise.video_url,
           contraindications: exercise.contraindications
         },
-        create: exercise
+        create: {
+          id: createIdForTable('exercises'),
+          ...exercise
+        }
       })
     }
 

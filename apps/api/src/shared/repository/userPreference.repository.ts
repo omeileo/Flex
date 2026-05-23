@@ -3,6 +3,7 @@ import { user_preferences, users } from '@prisma/client'
 import prisma from '../../../prisma/prisma.client'
 import { globalErrors } from '../dictionary/errors.dictionary'
 import { Preferences } from '../enums/preferences.enum'
+import { createIdForTable } from '../functions/id/createIdForTable.functions'
 import { PrismaTransaction } from '../types/repository.types'
 
 export const userPreferenceRepository = {
@@ -31,6 +32,7 @@ export const userPreferenceRepository = {
 
     const userPreference = await transaction.user_preferences.create({
       data: {
+        id: createIdForTable('user_preferences'),
         user_id: userId,
         preference_id: preferenceItem.id
       }

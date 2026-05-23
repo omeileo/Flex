@@ -21,9 +21,10 @@ export interface Route {
 
 export type RootStackParamList = {
   Landing: undefined
-  Login: undefined
+  Login: { successMessage?: string } | undefined
   SignUp: undefined
-  VerifyEmail: undefined
+  VerifyEmail: { email?: string; code?: string; verificationEmailSent?: boolean } | undefined
+  ForgetPassword: { email?: string } | undefined
   FlexBootstrap: undefined
   MainTabs: undefined
   ProfileOnboarding: undefined

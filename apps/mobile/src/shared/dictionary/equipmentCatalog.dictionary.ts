@@ -1,14 +1,8 @@
-import { PredefinedEquipment } from '@shared/types/workoutEquipment.types';
+import { PredefinedEquipment } from '@shared/types/workoutEquipment.types'
 
-export const equipmentCategoryTags = [
-  'Free weights',
-  'Racks',
-  'Machines',
-  'Cardio',
-  'Accessories',
-];
+export const equipmentCategoryTags = ['Free weights', 'Racks', 'Machines', 'Cardio', 'Accessories']
 
-export const equipmentPickerCategories = ['All', ...equipmentCategoryTags];
+export const equipmentPickerCategories = ['All', ...equipmentCategoryTags]
 
 export const predefinedEquipmentCatalog: PredefinedEquipment[] = [
   { id: 'barbell', label: 'Barbell', category: 'Free weights' },
@@ -26,23 +20,17 @@ export const predefinedEquipmentCatalog: PredefinedEquipment[] = [
   {
     id: 'resistance-bands',
     label: 'Resistance bands',
-    category: 'Accessories',
+    category: 'Accessories'
   },
   { id: 'medicine-ball', label: 'Medicine ball', category: 'Accessories' },
-  { id: 'yoga-mat', label: 'Yoga mat', category: 'Accessories' },
-];
+  { id: 'yoga-mat', label: 'Yoga mat', category: 'Accessories' }
+]
 
-export const commonEquipmentIds = [
-  'dumbbells',
-  'barbell',
-  'bench',
-  'squat-rack',
-  'cable-machine',
-];
+export const commonEquipmentIds = ['dumbbells', 'barbell', 'bench', 'squat-rack', 'cable-machine']
 
 export const locationPresetOptions = [
   { id: 'home' as const, label: 'Home gym' },
   { id: 'commercial' as const, label: 'Commercial gym' },
   { id: 'travel' as const, label: 'Hotel / travel' },
-  { id: 'custom' as const, label: 'Custom' },
-];
+  { id: 'custom' as const, label: 'Custom' }
+]

@@ -21,7 +21,7 @@ export const exercisesRepository = {
     })
   },
 
-  findByIds: async (ids: number[]) => {
+  findByIds: async (ids: string[]) => {
     return prisma.exercises.findMany({
       where: {
         id: { in: ids }

@@ -5,7 +5,7 @@ import prisma from '../../../../../prisma/prisma.client'
 import { globalErrors } from '../../../../shared/dictionary/errors.dictionary'
 
 export const profileRepository = {
-  getUserProfile: async (userId: number) => {
+  getUserProfile: async (userId: string) => {
     logger.info(`Retrieving user profile for user ${userId}`)
 
     try {
@@ -63,7 +63,7 @@ export const profileRepository = {
    * @returns A promise that resolves to the updated user.
    * @throws Throws an error if the user cannot be updated.
    */
-  updateUserStripeCustomerId: async (userId: number, stripeCustomerId: string) => {
+  updateUserStripeCustomerId: async (userId: string, stripeCustomerId: string) => {
     const updatedUser = await prisma.user_profiles.update({
       where: { id: userId },
       data: {
@@ -86,7 +86,7 @@ export const profileRepository = {
    * @returns A promise that resolves to the updated user.
    * @throws Throws an error if the user cannot be updated.
    */
-  updateUserStripeConnectAccountId: async (userId: number, stripeConnectAccountId: string) => {
+  updateUserStripeConnectAccountId: async (userId: string, stripeConnectAccountId: string) => {
     const updatedUser = await prisma.user_profiles.update({
       where: { id: userId },
       data: {
@@ -102,7 +102,7 @@ export const profileRepository = {
     return updatedUser
   },
 
-  updateUserPhoneNumber: async (userId: number, phoneNumber: string) => {
+  updateUserPhoneNumber: async (userId: string, phoneNumber: string) => {
     logger.info(`Updating user ${userId} with phone number ${obfuscateSensitiveData(phoneNumber)}`)
 
     try {
@@ -127,7 +127,7 @@ export const profileRepository = {
     }
   },
 
-  updateUserFirebaseUserId: async (userId: number, firebaseUserId: string) => {
+  updateUserFirebaseUserId: async (userId: string, firebaseUserId: string) => {
     logger.info(`Attempting to update the Firebase user ID for user ${userId}.`)
 
     try {

@@ -70,7 +70,7 @@ export const trainingPlansService = {
     }
   },
 
-  applyWeeklyProgression: async (planId: number): Promise<TrainingPlan> => {
+  applyWeeklyProgression: async (planId: string): Promise<TrainingPlan> => {
     const currentUser = getCurrentLoggedInUserOrThrow()
     const planRecord = await trainingPlansRepository.findByIdForUser(planId, currentUser.userId)
 
@@ -117,7 +117,7 @@ export const trainingPlansService = {
     return updatedPlan
   },
 
-  getPlanChanges: async (planId: number): Promise<PlanChangeLogEntry[]> => {
+  getPlanChanges: async (planId: string): Promise<PlanChangeLogEntry[]> => {
     const currentUser = getCurrentLoggedInUserOrThrow()
     const planRecord = await trainingPlansRepository.findByIdForUser(planId, currentUser.userId)
 
@@ -129,7 +129,7 @@ export const trainingPlansService = {
 
     return changes.map((change: plan_change_log) => ({
       id: change.id,
-      exerciseId: change.exercise_id ?? 0,
+      exerciseId: change.exercise_id ?? '',
       exerciseName: '',
       field: change.field as PlanChangeLogEntry['field'],
       previousValue: Number(change.previous_value),

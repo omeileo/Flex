@@ -13,7 +13,7 @@ export const plannedSetSchema = z.object({
 })
 
 export const plannedExerciseSchema = z.object({
-  exerciseId: z.number().int().positive(),
+  exerciseId: z.string().min(1).max(64),
   exerciseName: z.string(),
   orderIndex: z.number().int().nonnegative(),
   sets: z.array(plannedSetSchema).min(1),
@@ -28,8 +28,8 @@ export const plannedWorkoutSchema = z.object({
 })
 
 export const trainingPlanSchema = z.object({
-  id: z.number().optional(),
-  userId: z.number().optional(),
+  id: z.string().min(1).max(64).optional(),
+  userId: z.string().min(1).max(64).optional(),
   status: z.nativeEnum(PlanStatus),
   weekNumber: z.number().int().positive().default(1),
   workouts: z.array(plannedWorkoutSchema).min(1),

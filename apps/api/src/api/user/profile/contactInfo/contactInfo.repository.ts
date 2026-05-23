@@ -3,7 +3,7 @@ import { globalErrors } from '../../../../shared/dictionary/errors.dictionary'
 import { UpdateContactInfoRequest } from './contactInfo.types'
 
 export const contactInfoRepository = {
-  updateContactInfo: async function (userId: number, newContactInfo: UpdateContactInfoRequest) {
+  updateContactInfo: async function (userId: string, newContactInfo: UpdateContactInfoRequest) {
     // Todo: Handle ForbiddenActionError: https://appshopapps.atlassian.net/browse/HR-41
     const updatedContactInfo = await prisma.user_profiles.updateMany({
       where: {

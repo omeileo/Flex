@@ -50,13 +50,13 @@ export const createFlexApiClient = (config: FlexApiClientConfig) => {
     generateTrainingPlan: (body?: GeneratePlanRequest) =>
       request(ApiRoutes.trainingPlansGenerate, { method: 'POST', body: body ?? {} }),
     getActiveTrainingPlan: () => request(ApiRoutes.trainingPlansActive),
-    applyWeeklyProgression: (planId: number) =>
+    applyWeeklyProgression: (planId: string) =>
       request(ApiRoutes.applyWeeklyProgression(planId), { method: 'POST' }),
-    getPlanChanges: (planId: number) => request(ApiRoutes.planChanges(planId)),
+    getPlanChanges: (planId: string) => request(ApiRoutes.planChanges(planId)),
     listExercises: () => request(ApiRoutes.exercises),
     createWorkoutSession: (body: WorkoutSessionCreate) =>
       request(ApiRoutes.workoutSessions, { method: 'POST', body }),
-    completeWorkoutSession: (id: number, body: WorkoutSessionComplete) =>
+    completeWorkoutSession: (id: string, body: WorkoutSessionComplete) =>
       request(`${ApiRoutes.workoutSessions}/${id}/complete`, { method: 'POST', body })
   }
 }

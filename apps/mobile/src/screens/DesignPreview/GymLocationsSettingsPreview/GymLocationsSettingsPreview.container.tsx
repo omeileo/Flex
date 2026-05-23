@@ -1,9 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import GymLocationsSettingsPreviewComponent from './GymLocationsSettingsPreview.component';
+import GymLocationsSettingsPreviewComponent from './GymLocationsSettingsPreview.component'
 
-const GymLocationsSettingsPreviewContainer = () => (
-  <GymLocationsSettingsPreviewComponent />
-);
+const GymLocationsSettingsPreviewContainer = () => <GymLocationsSettingsPreviewComponent />
 
-export default GymLocationsSettingsPreviewContainer;
+export default GymLocationsSettingsPreviewContainer

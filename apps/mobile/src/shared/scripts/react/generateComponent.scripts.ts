@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'fs'
+import path from 'path'
 
 /**
  * Scaffolds a shared RN component (or a sub-component nested under a screen).
@@ -13,61 +13,53 @@ import path from 'path';
  *   node ./src/shared/scripts/react/generateComponent.scripts.ts PostCard PostsList
  */
 
-const args = process.argv.slice(2);
-const [componentName, parentScreen] = args;
+const args = process.argv.slice(2)
+const [componentName, parentScreen] = args
 
 if (!componentName) {
-  console.error('Usage: generateComponent <ComponentName> [parentScreen]');
-  process.exit(1);
+  console.error('Usage: generateComponent <ComponentName> [parentScreen]')
+  process.exit(1)
 }
 
 if (!/^[A-Z][A-Za-z0-9]*$/.test(componentName)) {
-  console.error(`ComponentName must be PascalCase (got '${componentName}').`);
-  process.exit(1);
+  console.error(`ComponentName must be PascalCase (got '${componentName}').`)
+  process.exit(1)
 }
 
-const projectRoot = process.cwd();
+const projectRoot = process.cwd()
 
 const findExistingScreen = (input: string): string | undefined => {
-  const screensDir = path.join(projectRoot, 'src/screens');
-  if (!fs.existsSync(screensDir)) return undefined;
+  const screensDir = path.join(projectRoot, 'src/screens')
+  if (!fs.existsSync(screensDir)) return undefined
 
-  const screens = fs.readdirSync(screensDir);
-  const regex = new RegExp(`^${input}$`, 'i');
+  const screens = fs.readdirSync(screensDir)
+  const regex = new RegExp(`^${input}$`, 'i')
 
-  return screens.find(screen => regex.test(screen));
-};
+  return screens.find((screen) => regex.test(screen))
+}
 
-let targetPath: string;
+let targetPath: string
 if (parentScreen) {
-  const existingScreen = findExistingScreen(parentScreen);
+  const existingScreen = findExistingScreen(parentScreen)
   if (!existingScreen) {
-    console.error(
-      `Parent screen '${parentScreen}' not found under src/screens/.`,
-    );
-    process.exit(1);
+    console.error(`Parent screen '${parentScreen}' not found under src/screens/.`)
+    process.exit(1)
   }
-  targetPath = path.join(
-    projectRoot,
-    'src/screens',
-    existingScreen,
-    'components',
-    componentName,
-  );
+  targetPath = path.join(projectRoot, 'src/screens', existingScreen, 'components', componentName)
 } else {
-  targetPath = path.join(projectRoot, 'src/shared/components', componentName);
+  targetPath = path.join(projectRoot, 'src/shared/components', componentName)
 }
 
 const createFile = (filePath: string, content: string) => {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.mkdirSync(path.dirname(filePath), { recursive: true })
   if (fs.existsSync(filePath)) {
-    console.log(`skip (exists) ${path.relative(projectRoot, filePath)}`);
+    console.log(`skip (exists) ${path.relative(projectRoot, filePath)}`)
 
-    return;
+    return
   }
-  fs.writeFileSync(filePath, content, 'utf8');
-  console.log(`create ${path.relative(projectRoot, filePath)}`);
-};
+  fs.writeFileSync(filePath, content, 'utf8')
+  console.log(`create ${path.relative(projectRoot, filePath)}`)
+}
 
 createFile(
   path.join(targetPath, `${componentName}.component.tsx`),
@@ -82,8 +74,8 @@ const ${componentName} = (_props: ${componentName}Props) => {
 }
 
 export default ${componentName}
-`,
-);
+`
+)
 
 createFile(
   path.join(targetPath, `${componentName}.styles.ts`),
@@ -94,16 +86,16 @@ const styles = StyleSheet.create({
 })
 
 export default styles
-`,
-);
+`
+)
 
 createFile(
   path.join(targetPath, `${componentName}.types.ts`),
   `export interface ${componentName}Props {
   // TODO: define component props
 }
-`,
-);
+`
+)
 
 createFile(
   path.join(targetPath, `${componentName}.tests.tsx`),
@@ -117,9 +109,7 @@ describe('${componentName}', () => {
     render(<${componentName} />)
   })
 })
-`,
-);
+`
+)
 
-console.log(
-  `\n${componentName} scaffolded at ${path.relative(projectRoot, targetPath)}/`,
-);
+console.log(`\n${componentName} scaffolded at ${path.relative(projectRoot, targetPath)}/`)

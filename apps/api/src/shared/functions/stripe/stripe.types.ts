@@ -5,7 +5,7 @@ export interface User {
   lastName: string
   email: string
   phoneNumber?: string
-  hourrierUserId: number
+  hourrierUserId: string
   countryCode: string
 }
 

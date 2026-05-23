@@ -1,14 +1,14 @@
 import { Roles } from '@/shared/enums/roles.enum'
 
 export interface CurrentUser {
-  userId: number | null
+  userId: string | null
   userIp: string
   userAgent: string
   userRole: Roles
 }
 
 export interface CurrentUserRequired {
-  userId: number
+  userId: string
   userIp: string
   userAgent: string
   userRole: Roles

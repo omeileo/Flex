@@ -12,8 +12,8 @@ datasource db {
 // Audit Logs Table
 // This table keeps track of user actions for auditing purposes
 model audit_logs {
-  id             Int      @id @default(autoincrement())
-  user_id        Int?
+  id             String   @id @db.VarChar(64)
+  user_id        String?  @db.VarChar(64)
   user_role      String?
   action         String   @db.VarChar(255)
   ip_address     String?  @db.VarChar(45)
@@ -28,7 +28,7 @@ model audit_logs {
 // Blacklisted Tokens Table
 // This table stores tokens that have been invalidated or blacklisted
 model blacklisted_tokens {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @db.VarChar(64)
   token     String   @unique
 
   created_at DateTime @default(now()) @db.Timestamp(6)
@@ -37,8 +37,8 @@ model blacklisted_tokens {
 // Email Verification Tokens Table
 // This table stores tokens used for email verification
 model email_verification_tokens {
-  id         Int      @id @default(autoincrement())
-  user_id    Int
+  id         String   @id @db.VarChar(64)
+  user_id    String   @db.VarChar(64)
   token      String   @unique(map: "index_email_verification_tokens_token") @db.VarChar(255)
   short_code String   @unique(map: "index_email_verification_tokens_short_code") @db.VarChar(6)
 
@@ -53,14 +53,14 @@ model email_verification_tokens {
 // Notifications Table
 // This table stores notifications sent to users
 model notifications {
-  id                 Int    @id @default(autoincrement())
-  recipient_id       Int
-  author_id          Int
+  id                 String   @id @db.VarChar(64)
+  recipient_id       String   @db.VarChar(64)
+  author_id          String   @db.VarChar(64)
   author_type        String @db.VarChar(50) // system, user
   type               String @db.VarChar(50) // alert, notification
   priority           String @db.VarChar(50) // low, medium, high
-  delivery_status_id Int
-  read_status_id     Int?
+  delivery_status_id String   @db.VarChar(64)
+  read_status_id     String?  @db.VarChar(64)
 
   created_at                                      DateTime  @default(now()) @db.Timestamp(6)
   updated_at                                      DateTime? @db.Timestamp(6)
@@ -78,12 +78,12 @@ model notifications {
 // Notification Contents Table
 // This table stores the contents of notifications
 model notification_contents {
-  id               Int    @id @default(autoincrement())
-  notification_id  Int
+  id               String   @id @db.VarChar(64)
+  notification_id  String   @db.VarChar(64)
   title            String @db.VarChar(255)
   body             String
   delivery_channel String @db.VarChar(255) // email, push, sms, in-app
-  template_id      Int?
+  template_id      String?  @db.VarChar(64)
 
   created_at DateTime  @default(now()) @db.Timestamp(6)
   updated_at DateTime? @db.Timestamp(6)
@@ -98,7 +98,7 @@ model notification_contents {
 // Notification Templates Table
 // This table stores information about notification templates
 model notification_templates {
-  id               Int    @id @default(autoincrement())
+  id               String   @id @db.VarChar(64)
   name             String @db.VarChar(255)
   description      String
   template_content String
@@ -112,8 +112,8 @@ model notification_templates {
 // Password Reset Tokens Table
 // This table stores password reset tokens for users
 model password_reset_tokens {
-  id         Int      @id @default(autoincrement())
-  user_id    Int
+  id         String   @id @db.VarChar(64)
+  user_id    String   @db.VarChar(64)
   token      String   @unique(map: "index_password_reset_tokens_token") @db.VarChar(255)
   created_at DateTime @default(now()) @db.Timestamp(6)
   expires_at DateTime @db.Timestamp(6)
@@ -125,10 +125,10 @@ model password_reset_tokens {
 // Payment Changes Table
 // This table stores changes made to payment information
 model payment_changes {
-  id                    Int      @id @default(autoincrement())
-  payment_id            Int
+  id                    String   @id @db.VarChar(64)
+  payment_id            String   @db.VarChar(64)
   change_initiator_type String   @db.VarChar(50)
-  change_initiator_id   Int
+  change_initiator_id   String   @db.VarChar(64)
   change_type           String   @db.VarChar(50)
   old_value             String?
   new_value             String?
@@ -143,9 +143,9 @@ model payment_changes {
 // Payments Table
 // This table stores information about payments made by users
 model payments {
-  id             Int      @id @default(autoincrement())
+  id             String   @id @db.VarChar(64)
   initiator_type String   @db.VarChar(50)
-  initiator_id   Int
+  initiator_id   String   @db.VarChar(64)
   total          Decimal  @db.Decimal(10, 2)
   subtotal       Decimal  @db.Decimal(10, 2)
   tax            Decimal  @db.Decimal(10, 2)
@@ -154,7 +154,7 @@ model payments {
   delivery_fee   Decimal? @db.Decimal(10, 2)
   discount       Decimal  @db.Decimal(10, 2)
   currency       String   @db.VarChar(10)
-  status_id      Int
+  status_id      String   @db.VarChar(64)
   metadata       Json?
 
   created_at DateTime  @default(now()) @db.Timestamp(6)
@@ -173,9 +173,9 @@ model payments {
 // Payment Intents Table
 // This table stores payment intents for payments made by users
 model stripe_payment_intents {
-  id                String @id
+  id                String   @id @db.VarChar(64)
   payment_intent_id String @unique(map: "index_payment_intents_payment_intent_id") @db.VarChar(255)
-  user_id           Int
+  user_id           String   @db.VarChar(64)
 
   created_at DateTime  @default(now()) @db.Timestamp(6)
   updated_at DateTime? @db.Timestamp(6)
@@ -188,8 +188,8 @@ model stripe_payment_intents {
 // External System Payment Details Table
 // This table stores payment details for external system payments received from users via Stripe.
 model stripe_payment_details {
-  id                  Int       @id @default(autoincrement())
-  payment_id          Int
+  id                  String   @id @db.VarChar(64)
+  payment_id          String   @db.VarChar(64)
   payment_intent_id   String    @unique(map: "index_external_system_payment_details_payment_intent_id") @db.VarChar(255)
   payment_status      String    @db.VarChar(255)
   amount              Decimal   @db.Decimal(10, 2)
@@ -208,7 +208,7 @@ model stripe_payment_details {
 // Tax Countries Table
 // This table stores information about different countries for tax purposes
 model tax_countries {
-  id   Int     @id @default(autoincrement())
+  id   String   @id @db.VarChar(64)
   code String? @unique
   name String
 
@@ -225,9 +225,9 @@ model tax_countries {
 // For example, if the country is the United States, the administrative divisions would be the states.
 // If the country is Canada, the administrative divisions would be the provinces.
 model tax_country_administrative_divisions {
-  id         Int    @id @default(autoincrement())
+  id         String   @id @db.VarChar(64)
   name       String
-  country_id Int
+  country_id String   @db.VarChar(64)
   type       String
 
   tax_rates      tax_rates[]
@@ -241,10 +241,10 @@ model tax_country_administrative_divisions {
 // Tax Rates Table
 // This table stores sales tax rates for different locations
 model tax_rates {
-  id                         Int     @id @default(autoincrement())
+  id                         String   @id @db.VarChar(64)
   rate                       Decimal @db.Decimal(5, 4)
-  country_id                 Int?
-  administrative_division_id Int?
+  country_id                 String?  @db.VarChar(64)
+  administrative_division_id String?  @db.VarChar(64)
 
   country                 tax_countries?                        @relation(fields: [country_id], references: [id])
   administrative_division tax_country_administrative_divisions? @relation(fields: [administrative_division_id], references: [id])
@@ -256,9 +256,9 @@ model tax_rates {
 // Tax Exemptions Table
 // This table stores exemption information for specific categories of items
 model tax_exemptions {
-  id                                   Int      @id @default(autoincrement())
-  administrative_division_id           Int
-  tax_country_id                       Int?
+  id                                   String   @id @db.VarChar(64)
+  administrative_division_id           String   @db.VarChar(64)
+  tax_country_id                       String?  @db.VarChar(64)
   category                             String
   no_tax                               Boolean?
   conditional_exemption                Boolean?
@@ -275,7 +275,7 @@ model tax_exemptions {
 // Permissions Table
 // This table stores information about permissions that can be assigned to users
 model permissions {
-  id               Int                @id @default(autoincrement())
+  id               String   @id @db.VarChar(64)
   name             String             @unique(map: "index_permissions_name") @db.VarChar(100)
   description      String?            @db.VarChar(255)
   created_at       DateTime           @default(now()) @db.Timestamp(6)
@@ -287,7 +287,7 @@ model permissions {
 // Preferences Table
 // This table stores information about user preferences
 model preferences {
-  id               Int                @id @default(autoincrement())
+  id               String   @id @db.VarChar(64)
   name             String             @db.VarChar(255)
   description      String?
   created_at       DateTime           @default(now()) @db.Timestamp(6)
@@ -298,11 +298,11 @@ model preferences {
 // Refund Requests Table
 // This table stores information about refund requests made by users
 model refund_requests {
-  id                                 Int     @id @default(autoincrement())
-  user_id                            Int
+  id                                 String   @id @db.VarChar(64)
+  user_id                            String   @db.VarChar(64)
   refund_id                          String  @unique(map: "index_refund_requests_refund_id") @db.VarChar(255)
-  external_system_payment_details_id Int
-  paymentsId                         Int?
+  external_system_payment_details_id String   @db.VarChar(64)
+  paymentsId                         String?  @db.VarChar(64)
   status                             String  @db.VarChar(255)
   amount                             Decimal @db.Decimal(10, 2)
   currency                           String  @db.VarChar(10)
@@ -325,9 +325,9 @@ model refund_requests {
 // Role Permissions Table
 // This table stores information about permissions assigned to roles
 model role_permissions {
-  id            Int         @id @default(autoincrement())
-  role_id       Int
-  permission_id Int
+  id            String   @id @db.VarChar(64)
+  role_id       String   @db.VarChar(64)
+  permission_id String   @db.VarChar(64)
   created_at    DateTime    @default(now()) @db.Timestamp(6)
   updated_at    DateTime?   @db.Timestamp(6)
   permissions   permissions @relation(fields: [permission_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
@@ -341,7 +341,7 @@ model role_permissions {
 // Roles Table
 // This table stores information about roles that can be assigned to users
 model roles {
-  id               Int                @id @default(autoincrement())
+  id               String   @id @db.VarChar(64)
   name             String             @unique(map: "index_roles_name") @db.VarChar(50)
   description      String?            @db.VarChar(255)
   created_at       DateTime           @default(now()) @db.Timestamp(6)
@@ -353,8 +353,8 @@ model roles {
 // Status Table
 // This table stores information about statuses that can be assigned to users, items, and other entities
 model status {
-  id           Int    @id @default(autoincrement())
-  type_id      Int
+  id           String   @id @db.VarChar(64)
+  type_id      String   @db.VarChar(64)
   name         String @db.VarChar(50)
   description  String
   display_name String @db.VarChar(100)
@@ -373,7 +373,7 @@ model status {
 // Status Types Table
 // This table stores information about the types of statuses that can be assigned to users, items, and other entities
 model status_types {
-  id          Int      @id @default(autoincrement())
+  id          String   @id @db.VarChar(64)
   type        String   @unique(map: "index_status_types_type") @db.VarChar(50)
   description String
   status      status[]
@@ -382,9 +382,9 @@ model status_types {
 // User Permissions Table
 // This table stores information about permissions assigned to users
 model user_permissions {
-  id            Int         @id @default(autoincrement())
-  user_id       Int
-  permission_id Int
+  id            String   @id @db.VarChar(64)
+  user_id       String   @db.VarChar(64)
+  permission_id String   @db.VarChar(64)
   is_granted    Boolean
   assigned_at   DateTime?   @default(now()) @db.Timestamp(6)
   updated_at    DateTime?   @db.Timestamp(6)
@@ -399,9 +399,9 @@ model user_permissions {
 // User Preferences Table
 // This table stores information about user preferences
 model user_preferences {
-  id            Int         @id @default(autoincrement())
-  user_id       Int
-  preference_id Int
+  id            String   @id @db.VarChar(64)
+  user_id       String   @db.VarChar(64)
+  preference_id String   @db.VarChar(64)
   value         Boolean     @default(false)
   created_at    DateTime    @default(now()) @db.Timestamp(6)
   updated_at    DateTime?   @db.Timestamp(6)
@@ -415,7 +415,7 @@ model user_preferences {
 // User Profiles Table
 // This table stores information about user profiles
 model user_profiles {
-  id                        Int       @id @default(autoincrement())
+  id                        String   @id @db.VarChar(64)
   stripe_customer_id        String?   @db.VarChar(255) //
   stripe_connect_account_id String?   @db.VarChar(255) // TODO: Normalize this into a new table
   firebase_user_id          String?   @db.VarChar(255)
@@ -437,9 +437,9 @@ model user_profiles {
 // User Roles Table
 // This table stores information about roles assigned to users
 model user_roles {
-  id          Int      @id @default(autoincrement())
-  user_id     Int
-  role_id     Int
+  id          String   @id @db.VarChar(64)
+  user_id     String   @db.VarChar(64)
+  role_id     String   @db.VarChar(64)
   assigned_at DateTime @default(now()) @db.Timestamp(6)
   roles       roles    @relation(fields: [role_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   users       users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
@@ -452,8 +452,8 @@ model user_roles {
 // User Sessions Table
 // This table stores information about user sessions
 model user_sessions {
-  id            Int       @id @default(autoincrement())
-  user_id       Int
+  id            String   @id @db.VarChar(64)
+  user_id       String   @db.VarChar(64)
   session_token String    @unique(map: "index_user_sessions_session_token") @db.VarChar(512)
   login_time    DateTime  @db.Timestamp(6)
   logout_time   DateTime? @db.Timestamp(6)
@@ -470,11 +470,11 @@ model user_sessions {
 // Users Table
 // This table stores information about users
 model users {
-  id                Int    @id @default(autoincrement())
+  id                String   @id @db.VarChar(64)
   email             String @unique(map: "index_users_email") @db.VarChar(255)
   password_hash     String @db.VarChar(255)
-  user_status_id    Int
-  user_profile_id   Int    @unique
+  user_status_id    String   @db.VarChar(64)
+  user_profile_id   String   @db.VarChar(64)    @unique
   password_attempts Int    @default(0)
 
   created_at DateTime  @default(now()) @db.Timestamp(6)
@@ -497,15 +497,24 @@ model users {
   fitness_profile                                   fitness_profiles?
   training_plans                                    training_plans[]
   workout_sessions                                  workout_sessions[]
+  user_app_settings                                 user_app_settings?
+  workout_locations                                 workout_locations[]
+  wellness_conditions                               wellness_conditions[]
+  excluded_exercises                                excluded_exercises[]
+  cycle_profiles                                    cycle_profiles?
 }
 
 model fitness_profiles {
-  id                Int      @id @default(autoincrement())
-  user_id           Int      @unique
+  id                String   @id @db.VarChar(64)
+  user_id           String   @db.VarChar(64)      @unique
   goal              String   @db.VarChar(255)
   experience_level  String   @db.VarChar(50)
   days_per_week     Int
   session_minutes   Int
+  sex_at_birth      String?  @db.VarChar(30)
+  age_band          String?  @db.VarChar(20)
+  diet_preferences  Json     @default("[]")
+  calorie_target    Int?
   equipment         Json     @default("[]")
   injuries          Json     @default("[]")
   preferences       Json?
@@ -517,7 +526,7 @@ model fitness_profiles {
 }
 
 model exercises {
-  id                Int      @id @default(autoincrement())
+  id                String   @id @db.VarChar(64)
   name              String   @unique @db.VarChar(255)
   category          String   @db.VarChar(50)
   muscle_groups     Json     @default("[]")
@@ -527,12 +536,13 @@ model exercises {
   created_at        DateTime @default(now()) @db.Timestamp(6)
 
   planned_exercises planned_exercises[]
+  excluded_exercises excluded_exercises[]
 }
 
 model training_plans {
-  id                   Int      @id @default(autoincrement())
-  user_id              Int
-  fitness_profile_id   Int
+  id                   String   @id @db.VarChar(64)
+  user_id              String   @db.VarChar(64)
+  fitness_profile_id   String   @db.VarChar(64)
   status               String   @db.VarChar(50)
   week_number          Int      @default(1)
   plan_json            Json
@@ -551,8 +561,8 @@ model training_plans {
 }
 
 model plan_phases {
-  id               Int      @id @default(autoincrement())
-  training_plan_id Int
+  id               String   @id @db.VarChar(64)
+  training_plan_id String   @db.VarChar(64)
   name             String   @db.VarChar(255)
   week_start       Int
   week_end         Int
@@ -568,8 +578,8 @@ model plan_phases {
 }
 
 model plan_weeks {
-  id            Int @id @default(autoincrement())
-  plan_phase_id Int
+  id            String @id @db.VarChar(64)
+  plan_phase_id String @db.VarChar(64)
   week_number   Int
 
   plan_phases      plan_phases        @relation(fields: [plan_phase_id], references: [id], onDelete: Cascade)
@@ -579,9 +589,9 @@ model plan_weeks {
 }
 
 model planned_workouts {
-  id               Int      @id @default(autoincrement())
-  training_plan_id Int
-  plan_week_id     Int?
+  id               String   @id @db.VarChar(64)
+  training_plan_id String   @db.VarChar(64)
+  plan_week_id     String?  @db.VarChar(64)
   day_index        Int
   name             String   @db.VarChar(255)
   warmup_notes     Json     @default("[]")
@@ -596,8 +606,8 @@ model planned_workouts {
 }
 
 model workout_sections {
-  id                 Int    @id @default(autoincrement())
-  planned_workout_id Int
+  id                 String @id @db.VarChar(64)
+  planned_workout_id String @db.VarChar(64)
   name               String @db.VarChar(255)
   order_index        Int
 
@@ -608,10 +618,10 @@ model workout_sections {
 }
 
 model planned_exercises {
-  id                  Int     @id @default(autoincrement())
-  planned_workout_id  Int
-  workout_section_id  Int?
-  exercise_id         Int
+  id                  String  @id @db.VarChar(64)
+  planned_workout_id  String  @db.VarChar(64)
+  workout_section_id  String? @db.VarChar(64)
+  exercise_id         String  @db.VarChar(64)
   order_index         Int
   sets_json           Json
   rest_seconds        Int     @default(90)
@@ -626,9 +636,9 @@ model planned_exercises {
 }
 
 model plan_change_log {
-  id               Int      @id @default(autoincrement())
-  training_plan_id Int
-  exercise_id      Int?
+  id               String   @id @db.VarChar(64)
+  training_plan_id String   @db.VarChar(64)
+  exercise_id      String?  @db.VarChar(64)
   field            String   @db.VarChar(50)
   previous_value   String?  @db.VarChar(255)
   next_value       String?  @db.VarChar(255)
@@ -641,9 +651,9 @@ model plan_change_log {
 }
 
 model workout_sessions {
-  id                 Int       @id @default(autoincrement())
-  training_plan_id   Int
-  user_id            Int
+  id                 String    @id @db.VarChar(64)
+  training_plan_id   String    @db.VarChar(64)
+  user_id            String   @db.VarChar(64)
   workout_day_index  Int
   started_at         DateTime  @default(now()) @db.Timestamp(6)
   completed_at       DateTime? @db.Timestamp(6)
@@ -657,9 +667,9 @@ model workout_sessions {
 }
 
 model session_sets {
-  id                 Int     @id @default(autoincrement())
-  workout_session_id Int
-  exercise_id        Int
+  id                 String  @id @db.VarChar(64)
+  workout_session_id String  @db.VarChar(64)
+  exercise_id        String  @db.VarChar(64)
   set_number         Int
   reps_completed     Int?
   weight_kg          Float?
@@ -671,10 +681,108 @@ model session_sets {
   @@index([workout_session_id], map: "index_session_sets_workout_session_id")
 }
 
+model user_app_settings {
+  id                         String   @id @db.VarChar(64)
+  user_id                    String   @db.VarChar(64)      @unique
+  theme_mode                 String   @default("light") @db.VarChar(20)
+  active_workout_location_id String?  @db.VarChar(64)
+  created_at                 DateTime @default(now()) @db.Timestamp(6)
+  updated_at                 DateTime? @db.Timestamp(6)
+
+  users users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id], map: "index_user_app_settings_user_id")
+}
+
+model workout_locations {
+  id              String   @id @db.VarChar(64)
+  user_id         String   @db.VarChar(64)
+  name            String   @db.VarChar(255)
+  preset_type     String   @db.VarChar(50)
+  notes           String?
+  is_default      Boolean  @default(false)
+  bodyweight_only Boolean  @default(false)
+  equipment       Json     @default("[]")
+  created_at      DateTime @default(now()) @db.Timestamp(6)
+  updated_at      DateTime? @db.Timestamp(6)
+
+  users users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id], map: "index_workout_locations_user_id")
+}
+
+model wellness_conditions {
+  id                     String   @id @db.VarChar(64)
+  user_id                String   @db.VarChar(64)
+  body_area              String    @db.VarChar(50)
+  label                  String?   @db.VarChar(255)
+  status                 String    @db.VarChar(30)
+  last_flare_up_at       DateTime? @db.Timestamp(6)
+  movement_restrictions  Json      @default("[]")
+  aggravating_exercises  Json      @default("[]")
+  notes                  String?
+  created_at             DateTime  @default(now()) @db.Timestamp(6)
+  updated_at             DateTime? @db.Timestamp(6)
+
+  users users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id], map: "index_wellness_conditions_user_id")
+}
+
+model excluded_exercises {
+  id           String   @id @db.VarChar(64)
+  user_id      String   @db.VarChar(64)
+  exercise_id  String?  @db.VarChar(64)
+  custom_label String?  @db.VarChar(255)
+  created_at   DateTime @default(now()) @db.Timestamp(6)
+
+  users     users      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  exercises exercises? @relation(fields: [exercise_id], references: [id], onDelete: SetNull)
+
+  @@index([user_id], map: "index_excluded_exercises_user_id")
+  @@index([exercise_id], map: "index_excluded_exercises_exercise_id")
+}
+
+model cycle_profiles {
+  id                     String   @id @db.VarChar(64)
+  user_id                String   @db.VarChar(64)       @unique
+  enabled                Boolean   @default(false)
+  last_period_start_at   DateTime  @db.Date
+  avg_cycle_length_days  Int       @default(28)
+  avg_period_length_days Int       @default(5)
+  contraception          String?   @db.VarChar(50)
+  tracked_symptoms       Json      @default("[]")
+  data_source            String    @default("manual") @db.VarChar(30)
+  health_sync            Json?
+  created_at             DateTime  @default(now()) @db.Timestamp(6)
+  updated_at             DateTime? @db.Timestamp(6)
+
+  users            users              @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  cycle_daily_logs cycle_daily_logs[]
+
+  @@index([user_id], map: "index_cycle_profiles_user_id")
+}
+
+model cycle_daily_logs {
+  id               String   @id @db.VarChar(64)
+  cycle_profile_id String
+  log_date         DateTime @db.Date
+  energy           String?  @db.VarChar(20)
+  flow_level       String?  @db.VarChar(20)
+  symptoms         Json     @default("[]")
+  mood             Json     @default("[]")
+  created_at       DateTime @default(now()) @db.Timestamp(6)
+
+  cycle_profiles cycle_profiles @relation(fields: [cycle_profile_id], references: [id], onDelete: Cascade)
+
+  @@unique([cycle_profile_id, log_date], map: "index_cycle_daily_logs_profile_date")
+  @@index([cycle_profile_id], map: "index_cycle_daily_logs_cycle_profile_id")
+}
+
 // Systems Table
 // This table stores information about systems used by the platform
 model systems {
-  id          Int     @id @default(autoincrement())
+  id          String   @id @db.VarChar(64)
   name        String  @unique(map: "index_systems_name") @db.VarChar(50)
   description String  @db.VarChar(255)
   is_internal Boolean @default(true)

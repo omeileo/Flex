@@ -1,4 +1,4 @@
 export type CoachNoteProps = {
-  message: string;
-  coachName?: string;
-};
+  message: string
+  coachName?: string
+}

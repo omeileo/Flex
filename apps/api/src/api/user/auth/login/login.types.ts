@@ -14,7 +14,7 @@ export type LoginResponse = Zod.infer<typeof LoginResponseBody>
  * Represents the payload of the JWT token currently only containing the user's id.
  */
 export interface JwtPayload {
-  userId: number
+  userId: string
 }
 
 /**
@@ -35,12 +35,12 @@ export interface JwtPayload {
 export interface LoginUser {
   email: string
   status: {
-    id: number
-    type_id: number
+    id: string
+    type_id: string
     name: string
     description: string | null
     display_name: string | null
   }
-  id: number
+  id: string
   password_hash: string
 }

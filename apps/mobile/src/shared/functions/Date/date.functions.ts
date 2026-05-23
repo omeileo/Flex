@@ -1,16 +1,16 @@
 /* eslint-disable no-console */
-import { DateTime, Duration, DurationLike, DurationLikeObject } from 'luxon';
+import { DateTime, Duration, DurationLike, DurationLikeObject } from 'luxon'
 
-import logger from '../Logger/logger.functions';
-import { dateFormatRegex, durationRegex } from './date.regex';
-import { Date, DateDurationUnit } from './date.types';
+import logger from '../Logger/logger.functions'
+import { dateFormatRegex, durationRegex } from './date.regex'
+import { Date, DateDurationUnit } from './date.types'
 
 export const dateTimeFormats = {
   date: {
     day: {
       short: 'E',
       medium: 'EEE',
-      full: 'EEEE',
+      full: 'EEEE'
     },
     short: 'MMM d',
     medium: 'MMM d, yyyy',
@@ -19,17 +19,17 @@ export const dateTimeFormats = {
     extended: 'EEEE, MMMM d, yyyy',
     default: 'dd/MM/yyyy',
     api: 'yyyy-MM-dd',
-    calendar: 'EEE, dd MMM',
+    calendar: 'EEE, dd MMM'
   },
 
   time: {
     short: 'h:mm a',
     long: 'HH:mm:ss.SSS',
-    duration: 'HH:mm',
+    duration: 'HH:mm'
   },
 
-  currentDateTimeFormat: 'yyyy-MM-dd HH:mm:ss.SSS',
-};
+  currentDateTimeFormat: 'yyyy-MM-dd HH:mm:ss.SSS'
+}
 
 /**
  * Function used to handle all date processing within the app.
@@ -38,15 +38,9 @@ export const dateTimeFormats = {
  * @param {Date|string|number} [dateTime] Date and time as a Luxon DateTime, a string, or a Unix timestamp.
  * @param {string} [dateFormat] Format of the dateTime if it is a string.
  */
-export default function date(
-  dateTime?: Date | string | number,
-  dateFormat?: string,
-) {
-  const currentDateTime = DateTime.local();
-  const defaultDate: Date = getValidatedDateTime(
-    dateTime !== undefined ? dateTime : DateTime.local(),
-    dateFormat,
-  );
+export default function date(dateTime?: Date | string | number, dateFormat?: string) {
+  const currentDateTime = DateTime.local()
+  const defaultDate: Date = getValidatedDateTime(dateTime !== undefined ? dateTime : DateTime.local(), dateFormat)
 
   return {
     /**
@@ -121,14 +115,14 @@ export default function date(
      * @example date(chatStartTime).format(dateTimeFormats.time.long)
      */
     format: (dateFormat: string) => {
-      let formattedDate = null;
-      const isValid = isValidFormatToWhichToConvert(defaultDate, dateFormat);
+      let formattedDate = null
+      const isValid = isValidFormatToWhichToConvert(defaultDate, dateFormat)
 
       if (isValid) {
-        formattedDate = defaultDate.toFormat(dateFormat);
+        formattedDate = defaultDate.toFormat(dateFormat)
       }
 
-      return formattedDate;
+      return formattedDate
     },
 
     /**
@@ -140,7 +134,7 @@ export default function date(
      * @example date(currentDateTime, 'yyyy-MM-dd HH:mm:ss.SSS').add({ days: 3, hours: 4, minutes: 39 }) // 3 days, 4 hours, and 39 minutes from the specified date
      */
     add: (duration: DurationLike) => {
-      return defaultDate.plus(duration);
+      return defaultDate.plus(duration)
     },
 
     /**
@@ -152,7 +146,7 @@ export default function date(
      * @example date(currentDateTime, 'yyyy-MM-dd HH:mm:ss.SSS').subtract({ days: 3, hours: 4, minutes: 39 }) // 3 days, 4 hours, and 39 minutes before the specified date
      */
     subtract: (duration: DurationLike) => {
-      return defaultDate.minus(duration);
+      return defaultDate.minus(duration)
     },
 
     /**
@@ -165,17 +159,11 @@ export default function date(
      * @example date(currentDate).difference(1516315636958)
      * @example date(startDate).difference(endDate, undefined, 'days')
      */
-    difference: (
-      dateTime: DateTime | string | number,
-      dateFormat?: string,
-      duration?: DateDurationUnit,
-    ) => {
-      const otherDate: DateTime = getValidatedDateTime(dateTime, dateFormat);
-      const difference = defaultDate
-        .diff(otherDate)
-        .as(duration ?? 'milliseconds');
+    difference: (dateTime: DateTime | string | number, dateFormat?: string, duration?: DateDurationUnit) => {
+      const otherDate: DateTime = getValidatedDateTime(dateTime, dateFormat)
+      const difference = defaultDate.diff(otherDate).as(duration ?? 'milliseconds')
 
-      return difference;
+      return difference
     },
 
     /**
@@ -192,10 +180,10 @@ export default function date(
         hours: 0,
         minutes: 0,
         seconds: 0,
-        milliseconds: 0,
-      };
+        milliseconds: 0
+      }
 
-      return Duration.fromObject(returnValue);
+      return Duration.fromObject(returnValue)
     },
 
     /**
@@ -207,10 +195,10 @@ export default function date(
      * @example date().isBefore(1516315636958)
      */
     isBefore: (dateTime: DateTime | string | number, dateFormat?: string) => {
-      const otherDate: DateTime = getValidatedDateTime(dateTime, dateFormat);
-      const isBefore = defaultDate < otherDate;
+      const otherDate: DateTime = getValidatedDateTime(dateTime, dateFormat)
+      const isBefore = defaultDate < otherDate
 
-      return isBefore;
+      return isBefore
     },
 
     /**
@@ -221,14 +209,11 @@ export default function date(
      * @example date(currentDateTime, defaultDateTimeFormat).isSameOrBefore(chatStartTime, defaultTimeFormat)
      * @example date().isSameOrBefore(1516315636958)
      */
-    isSameOrBefore: (
-      dateTime: DateTime | string | number,
-      dateFormat?: string,
-    ) => {
-      const otherDate: DateTime = getValidatedDateTime(dateTime, dateFormat);
-      const isSameOrBefore = defaultDate <= otherDate;
+    isSameOrBefore: (dateTime: DateTime | string | number, dateFormat?: string) => {
+      const otherDate: DateTime = getValidatedDateTime(dateTime, dateFormat)
+      const isSameOrBefore = defaultDate <= otherDate
 
-      return isSameOrBefore;
+      return isSameOrBefore
     },
 
     /**
@@ -240,10 +225,10 @@ export default function date(
      * @example date().isAfter(1516315636958)
      */
     isAfter: (dateTime: DateTime | string | number, dateFormat?: string) => {
-      const otherDate: DateTime = getValidatedDateTime(dateTime, dateFormat);
-      const isAfter = defaultDate > otherDate;
+      const otherDate: DateTime = getValidatedDateTime(dateTime, dateFormat)
+      const isAfter = defaultDate > otherDate
 
-      return isAfter;
+      return isAfter
     },
 
     /**
@@ -254,24 +239,21 @@ export default function date(
      * @example date(currentDateTime, defaultDateTimeFormat).isSameOrAfter(chatEndTime, defaultTimeFormat)
      * @example date().isSameOrAfter(1516315636958)
      */
-    isSameOrAfter: (
-      dateTime: DateTime | string | number,
-      dateFormat?: string,
-    ) => {
-      const otherDate: DateTime = getValidatedDateTime(dateTime, dateFormat);
-      const isSameOrAfter = defaultDate >= otherDate;
+    isSameOrAfter: (dateTime: DateTime | string | number, dateFormat?: string) => {
+      const otherDate: DateTime = getValidatedDateTime(dateTime, dateFormat)
+      const isSameOrAfter = defaultDate >= otherDate
 
-      return isSameOrAfter;
+      return isSameOrAfter
     },
 
     isWeekend: () => {
-      let isWeekend = false;
+      let isWeekend = false
 
       if (defaultDate.weekday === 6 || defaultDate.weekday === 7) {
-        isWeekend = true;
+        isWeekend = true
       }
 
-      return isWeekend;
+      return isWeekend
     },
 
     /**
@@ -280,7 +262,7 @@ export default function date(
      * @example date('2024-09-24T00:00:00.000Z').toUTC()
      */
     toUTC: () => {
-      return defaultDate.toUTC();
+      return defaultDate.toUTC()
     },
 
     /**
@@ -293,10 +275,10 @@ export default function date(
      */
     parseUTC: (dateString: string, format?: string) => {
       if (format) {
-        return DateTime.fromFormat(dateString, format, { zone: 'utc' });
+        return DateTime.fromFormat(dateString, format, { zone: 'utc' })
       }
 
-      return DateTime.fromISO(dateString, { zone: 'utc' });
+      return DateTime.fromISO(dateString, { zone: 'utc' })
     },
     /**
      * Returns a string representation of this time relative to now, such as "in two days". Rounds down by default.
@@ -306,7 +288,7 @@ export default function date(
      * @example date(currentDateTime).fromNow(false)
      */
     fromNow: (roundDown?: boolean) => {
-      return defaultDate.toRelative({ round: roundDown ?? true });
+      return defaultDate.toRelative({ round: roundDown ?? true })
     },
 
     /**
@@ -316,36 +298,36 @@ export default function date(
      * @example date().startOf('year') // set the date and time to be 12:00 a.m. of the current year
      */
     startOf: (timeUnit?: DateDurationUnit) => {
-      let startOfTimeObject = {};
+      let startOfTimeObject = {}
 
       switch (timeUnit) {
         case 'second':
-          break;
+          break
 
         case 'minute':
-          break;
+          break
 
         case 'hour':
-          break;
+          break
 
         case 'day':
-          startOfTimeObject = { hour: 0, minute: 0, second: 0, millisecond: 0 };
-          break;
+          startOfTimeObject = { hour: 0, minute: 0, second: 0, millisecond: 0 }
+          break
 
         case 'week':
-          break;
+          break
 
         case 'month':
-          break;
+          break
 
         case 'quarter':
-          break;
+          break
 
         case 'year':
-          break;
+          break
       }
 
-      return defaultDate.set(startOfTimeObject);
+      return defaultDate.set(startOfTimeObject)
     },
 
     /**
@@ -355,41 +337,41 @@ export default function date(
      * @example date().endOf('year') // set the date and time to be 11:59 p.m. of the current year
      */
     endOf: (timeUnit?: DateDurationUnit) => {
-      let endOfTimeObject = {};
+      let endOfTimeObject = {}
 
       switch (timeUnit) {
         case 'second':
-          break;
+          break
 
         case 'minute':
-          break;
+          break
 
         case 'hour':
-          break;
+          break
 
         case 'day':
           endOfTimeObject = {
             hour: 23,
             minute: 59,
             second: 59,
-            millisecond: 999,
-          };
-          break;
+            millisecond: 999
+          }
+          break
 
         case 'week':
-          break;
+          break
 
         case 'month':
-          break;
+          break
 
         case 'quarter':
-          break;
+          break
 
         case 'year':
-          break;
+          break
       }
 
-      return defaultDate.set(endOfTimeObject);
+      return defaultDate.set(endOfTimeObject)
     },
 
     /**
@@ -399,13 +381,13 @@ export default function date(
      * @example date().removeTimeFromISOString('2023-05-15T14:30:00.000Z') // returns '2023-05-15T00:00:00.000Z'
      */
     removeTimeFromISOString: (isoDateTimeString: string) => {
-      const parsedDate = DateTime.fromISO(isoDateTimeString);
+      const parsedDate = DateTime.fromISO(isoDateTimeString)
 
       if (!parsedDate.isValid) {
-        throw new Error('Invalid ISO datetime string provided');
+        throw new Error('Invalid ISO datetime string provided')
       }
 
-      return parsedDate.startOf('day').toISO();
+      return parsedDate.startOf('day').toISO()
     },
 
     /**
@@ -422,31 +404,24 @@ export default function date(
       birthDate: DateTime | string | number,
       referenceDate: DateTime | string | number = DateTime.now(),
       birthDateFormat?: string,
-      referenceDateFormat?: string,
+      referenceDateFormat?: string
     ) => {
-      const birthDateTime: DateTime = getValidatedDateTime(
-        birthDate,
-        birthDateFormat,
-      );
-      const refDate: DateTime = getValidatedDateTime(
-        referenceDate,
-        referenceDateFormat,
-      );
+      const birthDateTime: DateTime = getValidatedDateTime(birthDate, birthDateFormat)
+      const refDate: DateTime = getValidatedDateTime(referenceDate, referenceDateFormat)
 
-      let age = refDate.year - birthDateTime.year;
+      let age = refDate.year - birthDateTime.year
 
       // Adjust age if birthday hasn't occurred yet in the reference year
       const hasBirthdayOccurred =
         refDate.month > birthDateTime.month ||
-        (refDate.month === birthDateTime.month &&
-          refDate.day >= birthDateTime.day);
+        (refDate.month === birthDateTime.month && refDate.day >= birthDateTime.day)
 
       // If the birthday hasn't occurred yet in the reference year, subtract one year from the age
       if (!hasBirthdayOccurred) {
-        age--;
+        age--
       }
 
-      return age;
+      return age
     },
 
     /**
@@ -458,15 +433,11 @@ export default function date(
      */
     parseISO8601Duration: (isoDuration: string): Duration | null => {
       try {
-        return Duration.fromISO(isoDuration);
+        return Duration.fromISO(isoDuration)
       } catch (error) {
-        logger.logError(
-          error,
-          'Error parsing ISO 8601 duration string',
-          'parseISO8601Duration',
-        );
+        logger.logError(error, 'Error parsing ISO 8601 duration string', 'parseISO8601Duration')
 
-        return null;
+        return null
       }
     },
 
@@ -480,72 +451,66 @@ export default function date(
      * @example date().convertDurationToISO8601('1y 2mo 3d 4h 5m 6s') // returns 'P1Y2M3DT4H5M6S'
      */
     convertDurationToISO8601: (duration: string): string => {
-      const match = duration.match(durationRegex);
-      let isoDuration = null;
+      const match = duration.match(durationRegex)
+      let isoDuration = null
 
       if (!match) {
         logger.logError(
           new Error(`Invalid duration format: ${duration}`),
           'Invalid duration format',
-          'convertDurationToISO8601',
-        );
+          'convertDurationToISO8601'
+        )
 
-        isoDuration = 'PT0H0M';
+        isoDuration = 'PT0H0M'
       } else {
         // Extract all possible duration components
-        const years =
-          match[1] && match[2]?.toLowerCase() === 'y' ? match[1] : '0';
-        const months =
-          match[3] && match[4]?.toLowerCase() === 'mo' ? match[3] : '0';
+        const years = match[1] && match[2]?.toLowerCase() === 'y' ? match[1] : '0'
+        const months = match[3] && match[4]?.toLowerCase() === 'mo' ? match[3] : '0'
         const days =
-          (match[1] && match[2]?.toLowerCase() === 'd') ||
-          (match[5] && match[6]?.toLowerCase() === 'd')
+          (match[1] && match[2]?.toLowerCase() === 'd') || (match[5] && match[6]?.toLowerCase() === 'd')
             ? match[2]?.toLowerCase() === 'd'
               ? match[1]
               : match[5]
-            : '0';
+            : '0'
         const hours =
-          (match[1] && match[2]?.toLowerCase() === 'h') ||
-          (match[7] && match[8]?.toLowerCase() === 'h')
+          (match[1] && match[2]?.toLowerCase() === 'h') || (match[7] && match[8]?.toLowerCase() === 'h')
             ? match[2]?.toLowerCase() === 'h'
               ? match[1]
               : match[7]
-            : '0';
+            : '0'
         const minutes =
-          (match[1] && match[2]?.toLowerCase() === 'm') ||
-          (match[9] && match[10]?.toLowerCase() === 'm')
+          (match[1] && match[2]?.toLowerCase() === 'm') || (match[9] && match[10]?.toLowerCase() === 'm')
             ? match[2]?.toLowerCase() === 'm'
               ? match[1]
               : match[9]
-            : '0';
+            : '0'
         const seconds =
-          (match[1] && match[2]?.toLowerCase() === 's') ||
-          (match[11] && match[12]?.toLowerCase() === 's')
+          (match[1] && match[2]?.toLowerCase() === 's') || (match[11] && match[12]?.toLowerCase() === 's')
             ? match[2]?.toLowerCase() === 's'
               ? match[1]
               : match[11]
-            : '0';
+            : '0'
 
         // Build ISO 8601 duration string
-        isoDuration = 'P';
+        isoDuration = 'P'
 
-        if (years !== '0') isoDuration += `${years}Y`;
-        if (months !== '0') isoDuration += `${months}M`;
-        if (days !== '0') isoDuration += `${days}D`;
+        if (years !== '0') isoDuration += `${years}Y`
+        if (months !== '0') isoDuration += `${months}M`
+        if (days !== '0') isoDuration += `${days}D`
 
         // Add time part if any time components exist
         if (hours !== '0' || minutes !== '0' || seconds !== '0') {
-          isoDuration += 'T';
-          if (hours !== '0') isoDuration += `${hours}H`;
-          if (minutes !== '0') isoDuration += `${minutes}M`;
-          if (seconds !== '0') isoDuration += `${seconds}S`;
+          isoDuration += 'T'
+          if (hours !== '0') isoDuration += `${hours}H`
+          if (minutes !== '0') isoDuration += `${minutes}M`
+          if (seconds !== '0') isoDuration += `${seconds}S`
         }
 
         // If no duration components were found, return a zero duration
-        if (isoDuration === 'P') isoDuration = 'PT0H0M';
+        if (isoDuration === 'P') isoDuration = 'PT0H0M'
       }
 
-      return isoDuration;
+      return isoDuration
     },
 
     /**
@@ -557,147 +522,129 @@ export default function date(
      * @example date().convertMillisecondsToISO8601(3600000) // returns 'PT1H'
      */
     convertMillisecondsToISO8601: (milliseconds: number): string => {
-      const duration = Duration.fromMillis(milliseconds);
+      const duration = Duration.fromMillis(milliseconds)
 
-      return duration.toISO();
-    },
-  };
+      return duration.toISO()
+    }
+  }
 }
 
-const getValidatedDateTime = (
-  dateTime: DateTime | string | number,
-  dateFormat?: string,
-) => {
+const getValidatedDateTime = (dateTime: DateTime | string | number, dateFormat?: string) => {
   let defaultDate: DateTime = DateTime.fromObject({
     year: 0,
     month: 0,
-    day: 0,
-  });
-  const currentDateTime = DateTime.local();
-  let isValid = false;
+    day: 0
+  })
+  const currentDateTime = DateTime.local()
+  let isValid = false
 
   if (dateTime) {
-    isValid = isValidFormatFromWhichConversionCanBeDone(dateTime, dateFormat);
+    isValid = isValidFormatFromWhichConversionCanBeDone(dateTime, dateFormat)
 
     if (isValid) {
       if (dateTime instanceof DateTime) {
-        defaultDate = dateTime;
+        defaultDate = dateTime
       } else if (typeof dateTime === 'string') {
         if (dateFormat === undefined) {
-          const deducedDateFormat = determineDateFormat(dateTime);
+          const deducedDateFormat = determineDateFormat(dateTime)
 
           if (deducedDateFormat === 'ISO 8601') {
-            defaultDate = DateTime.fromISO(dateTime, { zone: 'utc' });
+            defaultDate = DateTime.fromISO(dateTime, { zone: 'utc' })
           } else {
-            defaultDate = DateTime.fromFormat(
-              dateTime,
-              deducedDateFormat ?? '',
-            );
+            defaultDate = DateTime.fromFormat(dateTime, deducedDateFormat ?? '')
           }
         } else {
-          defaultDate = DateTime.fromFormat(dateTime, dateFormat);
+          defaultDate = DateTime.fromFormat(dateTime, dateFormat)
         }
       } else if (typeof dateTime === 'number') {
-        let timestampInMilliseconds = dateTime;
+        let timestampInMilliseconds = dateTime
 
         if (JSON.stringify(dateTime).length === 10) {
-          timestampInMilliseconds = dateTime * 1000;
+          timestampInMilliseconds = dateTime * 1000
         }
 
-        defaultDate = DateTime.fromMillis(timestampInMilliseconds);
+        defaultDate = DateTime.fromMillis(timestampInMilliseconds)
       }
     }
   } else {
-    defaultDate = currentDateTime;
+    defaultDate = currentDateTime
   }
 
-  return defaultDate;
-};
+  return defaultDate
+}
 
-const isValidFormatToWhichToConvert = (
-  dateTime: DateTime,
-  dateFormat: string,
-) => {
-  let isValid = null;
+const isValidFormatToWhichToConvert = (dateTime: DateTime, dateFormat: string) => {
+  let isValid = null
 
   try {
-    isValid = dateTime.toFormat(dateFormat).length > 0;
+    isValid = dateTime.toFormat(dateFormat).length > 0
   } catch (error) {
-    console.log(
-      `ERROR: dateFormat specified (${dateFormat}) is not a valid format.`,
-    );
-    isValid = false;
+    console.log(`ERROR: dateFormat specified (${dateFormat}) is not a valid format.`)
+    isValid = false
   }
 
-  return isValid;
-};
+  return isValid
+}
 
-const isValidFormatFromWhichConversionCanBeDone = (
-  dateTime: DateTime | string | number,
-  dateFormat?: string,
-) => {
-  let isValid = null;
-  let convertedDateTime: DateTime;
+const isValidFormatFromWhichConversionCanBeDone = (dateTime: DateTime | string | number, dateFormat?: string) => {
+  let isValid = null
+  let convertedDateTime: DateTime
 
   if (dateTime instanceof DateTime) {
-    isValid = true;
+    isValid = true
   } else if (typeof dateTime === 'string') {
     if (!dateFormat) {
-      const deducedDateFormat = determineDateFormat(dateTime);
+      const deducedDateFormat = determineDateFormat(dateTime)
 
       if (deducedDateFormat !== null) {
-        isValid = true;
+        isValid = true
       } else {
-        isValid = false;
+        isValid = false
         console.log(
-          `ERROR: Could not dynamically deduce date format from the string provided. A valid dateFormat should be passed to format '${dateTime}'.`,
-        );
+          `ERROR: Could not dynamically deduce date format from the string provided. A valid dateFormat should be passed to format '${dateTime}'.`
+        )
       }
     } else {
-      convertedDateTime = DateTime.fromFormat(dateTime, dateFormat);
+      convertedDateTime = DateTime.fromFormat(dateTime, dateFormat)
 
       if (convertedDateTime.isValid) {
-        isValid = true;
+        isValid = true
       } else {
-        isValid = false;
-        console.log(
-          `ERROR: dateFormat specified (${dateFormat}) is not a valid format for ${dateTime}.`,
-        );
+        isValid = false
+        console.log(`ERROR: dateFormat specified (${dateFormat}) is not a valid format for ${dateTime}.`)
       }
     }
   } else if (typeof dateTime === 'number') {
-    convertedDateTime = DateTime.fromMillis(dateTime);
+    convertedDateTime = DateTime.fromMillis(dateTime)
 
     if (convertedDateTime.isValid) {
-      isValid = true;
+      isValid = true
     } else {
-      isValid = false;
-      console.log(
-        `ERROR: dateTime specified (${dateTime}) is not a valid timestamp.`,
-      );
+      isValid = false
+      console.log(`ERROR: dateTime specified (${dateTime}) is not a valid timestamp.`)
     }
   } else {
-    isValid = false;
+    isValid = false
     console.log(
-      `ERROR: Invalid arguments: dateTime must be a DateTime object or a string with a dateFormat. ${dateTime} is a ${typeof dateTime}.`,
-    );
+      `ERROR: Invalid arguments: dateTime must be a DateTime object or a string with a dateFormat. ${dateTime} is a ${typeof dateTime}.`
+    )
   }
 
-  return isValid;
-};
+  return isValid
+}
 
 const determineDateFormat = (dateTime: string) => {
-  let dateFormat = null;
+  let dateFormat = null
 
   for (const pattern of dateFormatRegex) {
     if (pattern.regex.test(dateTime)) {
-      dateFormat = pattern.dateFormat;
-      break;
+      dateFormat = pattern.dateFormat
+      break
     }
   }
 
-  return dateFormat;
-};
+  return dateFormat
+}
 
 /**
  * Formats an ISO 8601 duration string into a user-friendly string.
@@ -708,46 +655,46 @@ const determineDateFormat = (dateTime: string) => {
  */
 export const formatDuration = function (isoDuration?: string): string {
   if (!isoDuration) {
-    return 'N/A';
+    return 'N/A'
   }
 
   // Parse the ISO 8601 duration
-  const duration = Duration.fromISO(isoDuration);
+  const duration = Duration.fromISO(isoDuration)
 
   // Get hours and minutes from the duration
-  const hours = duration.hours;
-  const minutes = duration.minutes;
-  const seconds = duration?.seconds;
+  const hours = duration.hours
+  const minutes = duration.minutes
+  const seconds = duration?.seconds
 
   if (seconds && !hours) {
     // Convert seconds to additional minutes and hours
-    const additionalMinutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
+    const additionalMinutes = Math.floor(seconds / 60)
+    const remainingSeconds = seconds % 60
 
     // Add the additional minutes to the total
-    const totalMinutes = minutes + additionalMinutes;
-    const additionalHours = Math.floor(totalMinutes / 60);
-    const finalMinutes = totalMinutes % 60;
+    const totalMinutes = minutes + additionalMinutes
+    const additionalHours = Math.floor(totalMinutes / 60)
+    const finalMinutes = totalMinutes % 60
 
     // Add the additional hours to the total
-    const finalHours = hours + additionalHours;
+    const finalHours = hours + additionalHours
 
     // If there are remaining seconds, round up the minutes
     if (remainingSeconds > 0) {
-      return `${finalHours}h ${finalMinutes + 1}m`;
+      return `${finalHours}h ${finalMinutes + 1}m`
     }
 
-    return `${finalHours}h ${finalMinutes}m`;
+    return `${finalHours}h ${finalMinutes}m`
   }
 
   // Format the duration for the user
-  return `${hours}h ${minutes}m`;
-};
+  return `${hours}h ${minutes}m`
+}
 
 export const formatTime = (dateTimeString: string): string => {
-  return DateTime.fromISO(dateTimeString).toLocaleString(DateTime.TIME_SIMPLE);
-};
+  return DateTime.fromISO(dateTimeString).toLocaleString(DateTime.TIME_SIMPLE)
+}
 
 export const formatDate = (dateTimeString: string): string => {
-  return DateTime.fromISO(dateTimeString).toLocaleString(DateTime.DATE_MED);
-};
+  return DateTime.fromISO(dateTimeString).toLocaleString(DateTime.DATE_MED)
+}

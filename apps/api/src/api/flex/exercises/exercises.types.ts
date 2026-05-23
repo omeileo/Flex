@@ -1,7 +1,7 @@
 import { ExerciseCategory } from '@flex/shared/enums/exerciseCategory.enum'
 
 export type ExerciseListItem = {
-  id: number
+  id: string
   name: string
   category: ExerciseCategory
   muscleGroups: string[]

@@ -1,10 +1,19 @@
-import type { ProgressionChange } from '@flex/shared/functions/progression/progression.types';
-import { getFlexApi } from '../../../../networkRequests/flexApi/flexApi.functions';
+import { configureRequest, replacePathVariables } from '@network/apiClient/apiClient.functions'
+import urls from '@network/apiClient/endpoints'
 
-export const getPlanChangesApi = async (
-  planId: number,
-): Promise<ProgressionChange[]> => {
-  return getFlexApi().getPlanChanges(planId) as Promise<ProgressionChange[]>;
-};
+import { GetPlanChangesErrorResponse, GetPlanChangesSuccessResponse } from './getPlanChanges.types'
 
-export default getPlanChangesApi;
+export const getPlanChangesApi = async (planId: string): Promise<GetPlanChangesSuccessResponse> => {
+  const response = await configureRequest({
+    url: replacePathVariables(urls.trainingPlan.planChanges, { planId }),
+    method: 'GET'
+  })
+
+  if (response.status >= 200 && response.status < 300) {
+    return response as GetPlanChangesSuccessResponse
+  } else {
+    throw response as GetPlanChangesErrorResponse
+  }
+}
+
+export default getPlanChangesApi

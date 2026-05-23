@@ -1,28 +1,30 @@
-import { ApiSuccessResponse } from '@shared/types/api.types';
+import { ApiErrorResponse, ApiSuccessResponse } from '@shared/types/api.types'
 
 export interface SignUpRequest {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  wantsDealsAndDiscounts?: boolean;
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+  wantsDealsAndDiscounts?: boolean
 }
 
 export interface SignUpResponseData {
-  id: number;
-  email: string;
+  id: number
+  email: string
   status: {
-    id: number;
-    name: string;
-    display_name: string;
-    description: string;
-  };
+    id: number
+    name: string
+    display_name: string
+    description: string
+  }
 }
 
-export type SignUpSuccessResponse = ApiSuccessResponse<SignUpResponseData>;
+export type SignUpSuccessResponse = ApiSuccessResponse<SignUpResponseData>
+
+export type SignUpErrorResponse = ApiErrorResponse
 
 export interface SignUpState {
-  loading: boolean;
-  error: string | null;
-  successMessage: string | null;
+  loading: boolean
+  error: string | null
+  successMessage: string | null
 }

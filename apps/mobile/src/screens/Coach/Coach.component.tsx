@@ -1,8 +1,9 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React from 'react'
 
-import styles from './Coach.styles';
-import { CoachComponentProps } from './Coach.types';
+import { Text, View } from 'react-native'
+
+import styles from './Coach.styles'
+import { CoachComponentProps } from './Coach.types'
 
 const CoachComponent = ({ title, message }: CoachComponentProps) => {
   return (
@@ -10,7 +11,7 @@ const CoachComponent = ({ title, message }: CoachComponentProps) => {
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.message}>{message}</Text>
     </View>
-  );
-};
+  )
+}
 
-export default CoachComponent;
+export default CoachComponent

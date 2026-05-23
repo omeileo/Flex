@@ -10,6 +10,7 @@ import { Roles } from '../enums/roles.enum'
 import { Status } from '../enums/status.enum'
 import { StatusType } from '../enums/statusType.enum'
 import { env } from '../functions/envConfig'
+import { createIdForTable } from '../functions/id/createIdForTable.functions'
 import passwordHasher from '../functions/password.functions'
 import { PrismaTransaction } from '../types/repository.types'
 import { rolesRepository } from './roles.repository'
@@ -71,13 +72,17 @@ export const userRepository = {
       // Create the user
       createdUser = await transaction.users.create({
         data: {
+          id: createIdForTable('users'),
           email: emailAddress,
           password_hash: await passwordHasher.hash(password_hash),
           password_attempts: 0,
           user_status_id: unverifiedStatus.id,
           user_profile_id: userProfile.id,
           user_roles: {
-            create: defaultRoles.map((role) => ({ role_id: role.id }))
+            create: defaultRoles.map((role) => ({
+              id: createIdForTable('user_roles'),
+              role_id: role.id
+            }))
           }
         }
       })
@@ -107,7 +112,7 @@ export const userRepository = {
    * @returns A promise that resolves to the updated user.
    * @throws Throws an error if the user cannot be updated.
    */
-  updateUserStatus: async (userId: number, status: Status, transaction: PrismaTransaction = prisma) => {
+  updateUserStatus: async (userId: string, status: Status, transaction: PrismaTransaction = prisma) => {
     const newStatus = await statusRepository.getStatus(StatusType.user_status, status, transaction)
 
     // Update the user's status
@@ -150,7 +155,7 @@ export const userRepository = {
    * @returns A promise that resolves to the user's details.
    * @throws Throws an error if the user cannot be found.
    */
-  getAllDataForUser: async (userId: number) => {
+  getAllDataForUser: async (userId: string) => {
     logger.info(`Getting all data for user ${userId}`)
 
     const userDetail = await prisma.users.findFirst({
@@ -179,7 +184,7 @@ export const userRepository = {
    * @returns A promise that resolves to the user with their profile.
    * @throws Throws an error if the user cannot be found.
    */
-  getUserWithProfile: async (userId: number) => {
+  getUserWithProfile: async (userId: string) => {
     const userDetail = await prisma.users.findFirst({
       where: { id: userId },
       select: {
@@ -203,7 +208,7 @@ export const userRepository = {
    * @returns A promise that resolves to the user with their status.
    * @throws Throws an error if the user cannot be found.
    */
-  getUserWithStatus: async (userId: number) => {
+  getUserWithStatus: async (userId: string) => {
     // Get the user with their status
     const user = await prisma.users.findFirst({
       where: { id: userId },
@@ -226,7 +231,7 @@ export const userRepository = {
    * Ensures that the new password is different from the old password.
    * @param userId - The ID of the user.
    */
-  updateUserPassword: async (userId: number, newPassword: string) => {
+  updateUserPassword: async (userId: string, newPassword: string) => {
     logger.info(`Updating password for user ${userId}`)
 
     const user = await prisma.users.findFirst({

@@ -1,8 +1,8 @@
 import { logger } from '@/app'
 import {
   Prisma,
-  external_system_payment_details,
   payments,
+  stripe_payment_details,
   tax_countries,
   tax_country_administrative_divisions
 } from '@prisma/client'
@@ -14,6 +14,7 @@ import { ActionInitiators } from '../enums/actionInitiators.enum'
 import { Roles } from '../enums/roles.enum'
 import { Status } from '../enums/status.enum'
 import { StatusType } from '../enums/statusType.enum'
+import { createIdForTable } from '../functions/id/createIdForTable.functions'
 import { getCorrespondingPaymentStatus } from '../functions/payments/payments.functions'
 import { getTaxRateForAdministrativeDivision } from '../functions/payments/taxes/taxes.functions'
 import { obfuscateStripeData } from '../functions/security/security.functions'
@@ -46,7 +47,7 @@ export const paymentsRepository = {
    */
   createPayment: async (
     paymentIntent: Stripe.PaymentIntent,
-    userId: number,
+    userId: string,
     isInitatedBySystem?: boolean,
     paymentMetadata?: Record<string, string>,
     metadata?: CreatePaymentMetadata,
@@ -67,6 +68,7 @@ export const paymentsRepository = {
 
       const payment = await transaction.payments.create({
         data: {
+          id: createIdForTable('payments'),
           initiator_type: isInitatedBySystem ? ActionInitiators.System : ActionInitiators.User,
           initiator_id: userId,
           total: paymentData.total,
@@ -133,7 +135,7 @@ export const paymentsRepository = {
    * @throws {EntityNotUpdated} If the payment cannot be canceled.
    */
   cancelPayment: async (
-    paymentId: number,
+    paymentId: string,
     paymentIntentId: string,
     transaction: PrismaTransaction = prisma
   ): Promise<payments | null> => {
@@ -194,15 +196,15 @@ export const paymentsRepository = {
    */
   createExternalSystemPaymentDetails: async (
     paymentIntent: Stripe.PaymentIntent,
-    paymentId: number,
+    paymentId: string,
     transaction: PrismaTransaction = prisma
-  ): Promise<external_system_payment_details> => {
+  ): Promise<stripe_payment_details> => {
     logger.info(
       `Attempting to create external system payment details for payment ${paymentId} and payment intent ${obfuscateStripeData(paymentIntent.id)}`
     )
 
     // Check if the record already exists in the table
-    const existingRecord = await transaction.external_system_payment_details.findFirst({
+    const existingRecord = await transaction.stripe_payment_details.findFirst({
       where: {
         payment_id: paymentId,
         payment_intent_id: paymentIntent.id
@@ -228,8 +230,9 @@ export const paymentsRepository = {
           `Creating external system payment details for payment ${paymentId} and payment intent ${obfuscateStripeData(paymentIntent.id)}`
         )
 
-        const createdExternalSystemPaymentDetails = await transaction.external_system_payment_details.create({
+        const createdExternalSystemPaymentDetails = await transaction.stripe_payment_details.create({
           data: {
+            id: createIdForTable('stripe_payment_details'),
             payment_id: paymentId,
             payment_intent_id: paymentIntent.id,
             payment_status: paymentIntent.status,
@@ -260,7 +263,7 @@ export const paymentsRepository = {
    * @returns A Promise that resolves to the payment.
    * @throws {EntityNotFound} If the payment cannot be found.
    */
-  getPaymentById: async (paymentId: number, transaction: PrismaTransaction = prisma): Promise<payments | null> => {
+  getPaymentById: async (paymentId: string, transaction: PrismaTransaction = prisma): Promise<payments | null> => {
     logger.info(`Attempting to get payment by ID ${paymentId}`)
 
     try {
@@ -280,13 +283,13 @@ export const paymentsRepository = {
   getExternalSystemPaymentDetailsByPaymentIntentId: async (
     paymentIntentId: string,
     transaction: PrismaTransaction = prisma
-  ): Promise<external_system_payment_details | null> => {
+  ): Promise<stripe_payment_details | null> => {
     logger.info(
       `Attempting to get external system payment details for payment intent ${obfuscateStripeData(paymentIntentId)}`
     )
 
     try {
-      const externalSystemPaymentDetails = await transaction.external_system_payment_details.findUnique({
+      const externalSystemPaymentDetails = await transaction.stripe_payment_details.findUnique({
         where: { payment_intent_id: paymentIntentId }
       })
 
@@ -303,18 +306,18 @@ export const paymentsRepository = {
   },
 
   getPaymentAndExternalSystemPaymentDetailsByPaymentId: async (
-    paymentId: number,
+    paymentId: string,
     transaction: PrismaTransaction = prisma
   ): Promise<{
     payment: payments
-    externalSystemPaymentDetails: external_system_payment_details
+    externalSystemPaymentDetails: stripe_payment_details
   } | null> => {
     logger.info(`Attempting to get payment and external system payment details for payment ${paymentId}`)
 
     try {
       const payment = await paymentsRepository.getPaymentById(paymentId, transaction)
 
-      const externalSystemPaymentDetails = await transaction.external_system_payment_details.findFirst({
+      const externalSystemPaymentDetails = await transaction.stripe_payment_details.findFirst({
         where: {
           payment_id: paymentId,
           payment_status: {
@@ -342,14 +345,14 @@ export const paymentsRepository = {
     transaction: PrismaTransaction = prisma
   ): Promise<{
     payment: payments
-    externalSystemPaymentDetails: external_system_payment_details
+    externalSystemPaymentDetails: stripe_payment_details
   } | null> => {
     logger.info(
       `Attempting to get payment and external system payment details for payment intent ${obfuscateStripeData(paymentIntentId)}`
     )
 
     try {
-      const externalSystemPaymentDetails = await transaction.external_system_payment_details.findFirst({
+      const externalSystemPaymentDetails = await transaction.stripe_payment_details.findFirst({
         where: {
           payment_intent_id: paymentIntentId,
           payment_status: {
@@ -393,7 +396,7 @@ export const paymentsRepository = {
   updateExistingPaymentAndCreateNewExternalSystemPaymentDetails: async (
     existingPaymentIntentId: string,
     newPaymentIntent: Stripe.PaymentIntent,
-    userId: number,
+    userId: string,
     userRole: Roles,
     transaction: PrismaTransaction = prisma
   ): Promise<payments> => {
@@ -409,7 +412,7 @@ export const paymentsRepository = {
 
       const paymentData: CheckoutSessionPaymentData = JSON.parse(newPaymentIntent.metadata?.paymentData)
 
-      const existingExternalPaymentDetailsRecord = await transaction.external_system_payment_details.findFirst({
+      const existingExternalPaymentDetailsRecord = await transaction.stripe_payment_details.findFirst({
         where: {
           payment_intent_id: existingPaymentIntentId
         }
@@ -553,7 +556,7 @@ export const paymentsRepository = {
     }
   },
 
-  getPaymentStatus: async (paymentId: number): Promise<string | null> => {
+  getPaymentStatus: async (paymentId: string): Promise<string | null> => {
     logger.info(`Attempting to get payment status for payment ${paymentId}`)
     const payment = await paymentsRepository.getPaymentById(paymentId)
 
@@ -577,7 +580,7 @@ export const paymentsRepository = {
     }
   },
 
-  updatePaymentStatus: async (paymentId: number, paymentStatus: Status): Promise<payments> => {
+  updatePaymentStatus: async (paymentId: string, paymentStatus: Status): Promise<payments> => {
     logger.info(`Attempting to update payment ${paymentId} to status ${paymentStatus}`)
 
     try {
@@ -605,7 +608,7 @@ export const paymentsRepository = {
     paymentIntent: Stripe.PaymentIntent,
     capturedAmount?: number,
     transaction: PrismaTransaction = prisma
-  ): Promise<external_system_payment_details> => {
+  ): Promise<stripe_payment_details> => {
     logger.info(
       `Attempting to update external system payment details status for payment intent ${obfuscateStripeData(paymentIntent.id)}`
     )
@@ -615,7 +618,7 @@ export const paymentsRepository = {
         paymentIntent.id
       )
 
-      const updatedExternalSystemPaymentDetails = await transaction.external_system_payment_details.update({
+      const updatedExternalSystemPaymentDetails = await transaction.stripe_payment_details.update({
         where: { id: externalSystemPaymentDetails?.id },
         data: {
           payment_status: paymentIntent.status,
@@ -690,14 +693,14 @@ export const paymentsRepository = {
   getSuccessfulPaymentsForOfferRequest: async (
     offerRequestId: number,
     transaction: PrismaTransaction = prisma
-  ): Promise<(payments & { external_system_payment_details: external_system_payment_details[] })[]> => {
+  ): Promise<(payments & { stripe_payment_details: stripe_payment_details[] })[]> => {
     logger.info(`Attempting to get successful payments for offer request ${offerRequestId}`)
 
     try {
       const payments = await transaction.payments.findMany({
         where: {
           offer_requests: { id: offerRequestId },
-          external_system_payment_details: {
+          stripe_payment_details: {
             every: {
               payment_status: {
                 in: [StripePaymentIntentStatus.Succeeded]
@@ -706,7 +709,7 @@ export const paymentsRepository = {
           }
         },
         include: {
-          external_system_payment_details: true
+          stripe_payment_details: true
         }
       })
 
@@ -728,14 +731,14 @@ export const paymentsRepository = {
   getPaymentsOnHoldForOfferRequest: async (
     offerRequestId: number,
     transaction: PrismaTransaction = prisma
-  ): Promise<(payments & { external_system_payment_details: external_system_payment_details[] })[]> => {
+  ): Promise<(payments & { stripe_payment_details: stripe_payment_details[] })[]> => {
     logger.info(`Attempting to get payments on hold for offer request ${offerRequestId}`)
 
     try {
       const payments = await transaction.payments.findMany({
         where: {
           offer_requests: { id: offerRequestId },
-          external_system_payment_details: {
+          stripe_payment_details: {
             every: {
               payment_status: {
                 in: [
@@ -748,7 +751,7 @@ export const paymentsRepository = {
           }
         },
         include: {
-          external_system_payment_details: true
+          stripe_payment_details: true
         }
       })
 
@@ -777,7 +780,7 @@ export const paymentsRepository = {
       const payment = await transaction.payments.findFirst({
         where: {
           offer_requests: { id: offerRequestId },
-          external_system_payment_details: {
+          stripe_payment_details: {
             every: {
               payment_status: {
                 in: [StripePaymentIntentStatus.Canceled]
@@ -786,7 +789,7 @@ export const paymentsRepository = {
           }
         },
         include: {
-          external_system_payment_details: true
+          stripe_payment_details: true
         }
       })
 
@@ -795,7 +798,7 @@ export const paymentsRepository = {
 
         return false
       } else {
-        const paymentStatus = payment.external_system_payment_details.find(
+        const paymentStatus = payment.stripe_payment_details.find(
           (paymentDetail) => paymentDetail.payment_status === StripePaymentIntentStatus.Canceled
         )
 
@@ -826,7 +829,7 @@ export const paymentsRepository = {
   getSuccessfulPaymentsForFlightBooking: async (
     flightBookingId: number,
     transaction: PrismaTransaction = prisma
-  ): Promise<(payments & { external_system_payment_details: external_system_payment_details[] })[]> => {
+  ): Promise<(payments & { stripe_payment_details: stripe_payment_details[] })[]> => {
     logger.info(`Attempting to get successful payments for flight booking ${flightBookingId}`)
 
     try {
@@ -837,7 +840,7 @@ export const paymentsRepository = {
               id: flightBookingId
             }
           },
-          external_system_payment_details: {
+          stripe_payment_details: {
             some: {
               payment_status: {
                 in: [StripePaymentIntentStatus.Succeeded]
@@ -846,12 +849,12 @@ export const paymentsRepository = {
           }
         },
         include: {
-          external_system_payment_details: true
+          stripe_payment_details: true
         }
       })
 
       logger.info(
-        `Found ${payments.flatMap((payment) => payment.external_system_payment_details)?.length} successful payment details for flight booking ${flightBookingId}`
+        `Found ${payments.flatMap((payment) => payment.stripe_payment_details)?.length} successful payment details for flight booking ${flightBookingId}`
       )
 
       return payments

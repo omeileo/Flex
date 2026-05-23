@@ -1,30 +1,29 @@
-import React, { useCallback, useState } from 'react';
-import { Pressable, ScrollView, Text, View } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import React, { useCallback, useState } from 'react'
 
-import AuthBrandHeader from '@shared/components/AuthBrandHeader/AuthBrandHeader.component';
-import FormTextField from '@shared/components/FormTextField/FormTextField.component';
-import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component';
-import VerificationCodeInput from '@shared/components/VerificationCodeInput/VerificationCodeInput.component';
+import { Pressable, ScrollView, Text, View } from 'react-native'
 
-import styles from './AuthFlowPreview.styles';
-import {
-  AuthFlowPreviewComponentProps,
-  AuthFlowView,
-} from './AuthFlowPreview.types';
+import { useTranslation } from 'react-i18next'
+
+import AuthBrandHeader from '@shared/components/AuthBrandHeader/AuthBrandHeader.component'
+import FormTextField from '@shared/components/FormTextField/FormTextField.component'
+import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
+import VerificationCodeInput from '@shared/components/VerificationCodeInput/VerificationCodeInput.component'
+
+import styles from './AuthFlowPreview.styles'
+import { AuthFlowPreviewComponentProps, AuthFlowView } from './AuthFlowPreview.types'
 
 const AuthFlowPreviewComponent = (_props: AuthFlowPreviewComponentProps) => {
-  const { t } = useTranslation();
-  const [view, setView] = useState<AuthFlowView>('signIn');
-  const [email, setEmail] = useState('you@example.com');
-  const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [code, setCode] = useState('ABC');
+  const { t } = useTranslation()
+  const [view, setView] = useState<AuthFlowView>('signIn')
+  const [email, setEmail] = useState('you@example.com')
+  const [password, setPassword] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [code, setCode] = useState('ABC')
 
   const renderViewChip = useCallback(
     (chipView: AuthFlowView, label: string) => {
-      const isActive = view === chipView;
+      const isActive = view === chipView
 
       return (
         <Pressable
@@ -32,16 +31,12 @@ const AuthFlowPreviewComponent = (_props: AuthFlowPreviewComponentProps) => {
           style={[styles.viewChip, isActive && styles.viewChipActive]}
           onPress={() => setView(chipView)}
         >
-          <Text
-            style={[styles.viewChipText, isActive && styles.viewChipTextActive]}
-          >
-            {label}
-          </Text>
+          <Text style={[styles.viewChipText, isActive && styles.viewChipTextActive]}>{label}</Text>
         </Pressable>
-      );
+      )
     },
-    [view],
-  );
+    [view]
+  )
 
   const renderSignIn = () => (
     <>
@@ -67,13 +62,11 @@ const AuthFlowPreviewComponent = (_props: AuthFlowPreviewComponentProps) => {
       <Pressable style={styles.linkRow} onPress={() => setView('signUp')}>
         <Text style={styles.linkText}>
           {t('designPreview.auth.needAccount')}
-          <Text style={styles.linkEmphasis}>
-            {t('designPreview.auth.signUpLink')}
-          </Text>
+          <Text style={styles.linkEmphasis}>{t('designPreview.auth.signUpLink')}</Text>
         </Text>
       </Pressable>
     </>
-  );
+  )
 
   const renderSignUp = () => (
     <>
@@ -108,20 +101,15 @@ const AuthFlowPreviewComponent = (_props: AuthFlowPreviewComponentProps) => {
         secureTextEntry
         autoComplete="new-password"
       />
-      <PrimaryButton
-        label={t('auth.signUp.submit')}
-        onPress={() => setView('verify')}
-      />
+      <PrimaryButton label={t('auth.signUp.submit')} onPress={() => setView('verify')} />
       <Pressable style={styles.linkRow} onPress={() => setView('signIn')}>
         <Text style={styles.linkText}>
           {t('designPreview.auth.haveAccount')}
-          <Text style={styles.linkEmphasis}>
-            {t('designPreview.auth.signInLink')}
-          </Text>
+          <Text style={styles.linkEmphasis}>{t('designPreview.auth.signInLink')}</Text>
         </Text>
       </Pressable>
     </>
-  );
+  )
 
   const renderVerify = () => (
     <>
@@ -138,28 +126,20 @@ const AuthFlowPreviewComponent = (_props: AuthFlowPreviewComponentProps) => {
       />
       <Text style={styles.fieldLabel}>{t('auth.verifyEmail.code')}</Text>
       <VerificationCodeInput value={code} onChange={setCode} />
-      <PrimaryButton
-        label={t('auth.verifyEmail.submit')}
-        onPress={() => undefined}
-      />
+      <PrimaryButton label={t('auth.verifyEmail.submit')} onPress={() => undefined} />
       <View style={styles.footer}>
         <Pressable onPress={() => undefined}>
-          <Text style={[styles.linkText, styles.linkEmphasis]}>
-            {t('auth.verifyEmail.resend')}
-          </Text>
+          <Text style={[styles.linkText, styles.linkEmphasis]}>{t('auth.verifyEmail.resend')}</Text>
         </Pressable>
         <Pressable onPress={() => setView('signIn')}>
           <Text style={styles.linkText}>{t('auth.verifyEmail.goToLogin')}</Text>
         </Pressable>
       </View>
     </>
-  );
+  )
 
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.scrollContent}
-    >
+    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       <View style={styles.viewChips}>
         {renderViewChip('signIn', t('designPreview.auth.signInChip'))}
         {renderViewChip('signUp', t('designPreview.auth.signUpChip'))}
@@ -169,7 +149,7 @@ const AuthFlowPreviewComponent = (_props: AuthFlowPreviewComponentProps) => {
       {view === 'signUp' ? renderSignUp() : null}
       {view === 'verify' ? renderVerify() : null}
     </ScrollView>
-  );
-};
+  )
+}
 
-export default AuthFlowPreviewComponent;
+export default AuthFlowPreviewComponent

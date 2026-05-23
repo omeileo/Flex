@@ -1,33 +1,24 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
 
-import ErrorView from '@shared/components/ErrorView/ErrorView.component';
-import LoadingView from '@shared/components/LoadingView/LoadingView.component';
+import { Text, View } from 'react-native'
 
-import styles from './Profile.styles';
-import { ProfileComponentProps } from './Profile.types';
+import { useTranslation } from 'react-i18next'
 
-const ProfileComponent = ({
-  profile,
-  isLoading,
-  error,
-  onRefresh,
-}: ProfileComponentProps) => {
-  const { t } = useTranslation();
+import ErrorView from '@shared/components/ErrorView/ErrorView.component'
+import LoadingView from '@shared/components/LoadingView/LoadingView.component'
+
+import styles from './Profile.styles'
+import { ProfileComponentProps } from './Profile.types'
+
+const ProfileComponent = ({ profile, isLoading, error, onRefresh }: ProfileComponentProps) => {
+  const { t } = useTranslation()
 
   if (isLoading && !profile) {
-    return <LoadingView message={t('profile.loading')} />;
+    return <LoadingView message={t('profile.loading')} />
   }
 
   if (error) {
-    return (
-      <ErrorView
-        message={error}
-        onRetry={onRefresh}
-        retryLabel={t('actions.retry')}
-      />
-    );
+    return <ErrorView message={error} onRetry={onRefresh} retryLabel={t('actions.retry')} />
   }
 
   return (
@@ -46,12 +37,12 @@ const ProfileComponent = ({
         <Text style={styles.value}>
           {t('profile.scheduleValue', {
             days: profile?.daysPerWeek ?? 0,
-            minutes: profile?.sessionMinutes ?? 0,
+            minutes: profile?.sessionMinutes ?? 0
           })}
         </Text>
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default ProfileComponent;
+export default ProfileComponent

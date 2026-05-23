@@ -10,7 +10,7 @@ export const generateTrainingPlanRequestValidator = validateIncomingApiRequest(I
 
 export const TrainingPlanIdParamsSchema = z.object({
   params: z.object({
-    id: z.string().regex(/^\d+$/)
+    id: z.string().min(1).max(64)
   })
 })
 

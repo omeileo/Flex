@@ -1,22 +1,18 @@
-import { Platform } from 'react-native';
+import { Platform } from 'react-native'
 
-import envJson from '../environmentVariables/env.json';
+import envJson from '../environmentVariables/env.json'
 
-type EnvJson = Record<string, string | number | boolean | undefined>;
+type EnvJson = Record<string, string | number | boolean | undefined>
 
-const source = envJson as EnvJson;
+const source = envJson as EnvJson
 
 const resolveApiBaseUrl = (baseUrl: string, environment: string): string => {
-  if (
-    environment === 'local' &&
-    Platform.OS === 'android' &&
-    baseUrl.includes('localhost')
-  ) {
-    return baseUrl.replace('localhost', '10.0.2.2');
+  if (environment === 'local' && Platform.OS === 'android' && baseUrl.includes('localhost')) {
+    return baseUrl.replace('localhost', '10.0.2.2')
   }
 
-  return baseUrl;
-};
+  return baseUrl
+}
 
 /**
  * Utility function to safely access environment variables.
@@ -24,10 +20,10 @@ const resolveApiBaseUrl = (baseUrl: string, environment: string): string => {
  * by `npm run setup-env -- <env>`), mirroring the web app's `import.meta.env` shape.
  */
 const getEnvVar = (key: string, defaultValue = ''): string => {
-  const value = source[key];
+  const value = source[key]
 
-  return value === undefined || value === null ? defaultValue : String(value);
-};
+  return value === undefined || value === null ? defaultValue : String(value)
+}
 
 const env = {
   /**
@@ -51,7 +47,7 @@ const env = {
    */
   API_BASE_URL: resolveApiBaseUrl(
     getEnvVar('API_BASE_URL', 'https://jsonplaceholder.typicode.com'),
-    getEnvVar('ENVIRONMENT', 'development'),
+    getEnvVar('ENVIRONMENT', 'development')
   ),
 
   /**
@@ -79,7 +75,7 @@ const env = {
   /**
    * Splash Screen Timeout (milliseconds).
    */
-  SPLASH_SCREEN_TIMEOUT_MS: getEnvVar('SPLASH_SCREEN_TIMEOUT_MS', '5000'),
-};
+  SPLASH_SCREEN_TIMEOUT_MS: getEnvVar('SPLASH_SCREEN_TIMEOUT_MS', '5000')
+}
 
-export default env;
+export default env

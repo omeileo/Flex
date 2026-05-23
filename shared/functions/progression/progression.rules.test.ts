@@ -10,7 +10,7 @@ describe('applyWeeklyProgression', () => {
         weekNumber: 1,
         exercises: [
           {
-            exerciseId: 1,
+            exerciseId: 'exr_A1B2-C3D4-E5F6-G7H8',
             exerciseName: 'Squat',
             orderIndex: 0,
             restSeconds: 90,
@@ -25,7 +25,7 @@ describe('applyWeeklyProgression', () => {
           }
         ]
       },
-      [{ exerciseId: 1, setNumber: 1, completed: true, repsCompleted: 8, weightKg: 60 }]
+      [{ exerciseId: 'exr_A1B2-C3D4-E5F6-G7H8', setNumber: 1, completed: true, repsCompleted: 8, weightKg: 60 }]
     )
 
     expect(result.exercises[0].sets[0].targetWeightKg).toBe(62.5)
@@ -38,7 +38,7 @@ describe('applyWeeklyProgression', () => {
         weekNumber: 1,
         exercises: [
           {
-            exerciseId: 1,
+            exerciseId: 'exr_A1B2-C3D4-E5F6-G7H8',
             exerciseName: 'Squat',
             orderIndex: 0,
             restSeconds: 90,
@@ -53,7 +53,7 @@ describe('applyWeeklyProgression', () => {
           }
         ]
       },
-      [{ exerciseId: 1, setNumber: 1, completed: false }]
+      [{ exerciseId: 'exr_A1B2-C3D4-E5F6-G7H8', setNumber: 1, completed: false }]
     )
 
     expect(result.exercises[0].sets[0].targetWeightKg).toBe(60)

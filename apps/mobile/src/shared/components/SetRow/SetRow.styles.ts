@@ -1,12 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   row: {
@@ -18,45 +12,45 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     backgroundColor: colors.surface,
-    marginBottom: spacing.xs,
+    marginBottom: spacing.xs
   },
   rowActive: {
     borderColor: colors.accentEnergy,
-    backgroundColor: '#F0FDF4',
+    backgroundColor: '#F0FDF4'
   },
   rowCompleted: {
-    opacity: 0.85,
+    opacity: 0.85
   },
   statusCell: {
     width: 28,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   statusIcon: {
     fontSize: typography.bodyLarge,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   statusIconActive: {
-    color: colors.accentEnergy,
+    color: colors.accentEnergy
   },
   statusIconDone: {
-    color: colors.accentEnergy,
+    color: colors.accentEnergy
   },
   cell: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   cellLabel: {
     fontSize: typography.caption,
     color: colors.textSecondary,
-    marginBottom: 2,
+    marginBottom: 2
   },
   cellValue: {
     fontSize: typography.body,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   cellValueMuted: {
     color: colors.textSecondary,
-    fontWeight: fontWeights.regular,
-  },
-});
+    fontWeight: fontWeights.regular
+  }
+})

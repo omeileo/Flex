@@ -8,6 +8,7 @@ describe('ApiRoutes dictionary', () => {
     expect(ApiRoutes.authSignUp).toBe('/auth/sign-up')
     expect(ApiRoutes.authVerifyEmail).toBe('/auth/verify-email')
     expect(ApiRoutes.authVerifyEmailResend).toBe('/auth/verify-email/resend')
+    expect(ApiRoutes.authForgetPassword).toBe('/auth/forget-password')
   })
 
   it('exposes stable flex paths', () => {
@@ -17,9 +18,11 @@ describe('ApiRoutes dictionary', () => {
   })
 
   it('builds plan-scoped progression paths', () => {
-    expect(ApiRoutes.applyWeeklyProgression(12)).toBe(
-      '/training-plans/12/apply-weekly-progression'
+    const planId = 'trn_pln_A1B2-C3D4-E5F6-G7H8'
+
+    expect(ApiRoutes.applyWeeklyProgression(planId)).toBe(
+      '/training-plans/trn_pln_A1B2-C3D4-E5F6-G7H8/apply-weekly-progression'
     )
-    expect(ApiRoutes.planChanges(12)).toBe('/training-plans/12/changes')
+    expect(ApiRoutes.planChanges(planId)).toBe('/training-plans/trn_pln_A1B2-C3D4-E5F6-G7H8/changes')
   })
 })

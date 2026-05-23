@@ -1,11 +1,12 @@
-import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import React from 'react'
 
-import { colors } from '@shared/styles/StyleConstants';
-import { workoutModalityColors } from '@shared/types/workoutModality.types';
+import { Pressable, Text, View } from 'react-native'
 
-import styles from './WorkoutCard.styles';
-import { WorkoutCardProps } from './WorkoutCard.types';
+import { colors } from '@shared/styles/StyleConstants'
+import { workoutModalityColors } from '@shared/types/workoutModality.types'
+
+import styles from './WorkoutCard.styles'
+import { WorkoutCardProps } from './WorkoutCard.types'
 
 const WorkoutCard = ({
   title,
@@ -15,38 +16,22 @@ const WorkoutCard = ({
   completed = false,
   onPress,
   onToggleComplete,
-  style,
+  style
 }: WorkoutCardProps) => {
-  const modalityColor = workoutModalityColors[modality];
+  const modalityColor = workoutModalityColors[modality]
 
   return (
-    <Pressable
-      style={[styles.card, style]}
-      onPress={onPress}
-      disabled={!onPress}
-    >
+    <Pressable style={[styles.card, style]} onPress={onPress} disabled={!onPress}>
       <View style={styles.modalityBar}>
-        <View
-          style={[
-            styles.modalityBarSegment,
-            { backgroundColor: modalityColor },
-          ]}
-        />
-        <View
-          style={[
-            styles.modalityBarSegment,
-            { backgroundColor: colors.accentEnergy },
-          ]}
-        />
+        <View style={[styles.modalityBarSegment, { backgroundColor: modalityColor }]} />
+        <View style={[styles.modalityBarSegment, { backgroundColor: colors.accentEnergy }]} />
       </View>
 
       <View style={styles.content}>
         <View style={styles.textBlock}>
           {dateLabel ? <Text style={styles.dateLabel}>{dateLabel}</Text> : null}
           <Text style={styles.title}>{title}</Text>
-          {durationMinutes ? (
-            <Text style={styles.meta}>{durationMinutes} min</Text>
-          ) : null}
+          {durationMinutes ? <Text style={styles.meta}>{durationMinutes} min</Text> : null}
         </View>
 
         {onToggleComplete ? (
@@ -60,7 +45,7 @@ const WorkoutCard = ({
         ) : null}
       </View>
     </Pressable>
-  );
-};
+  )
+}
 
-export default WorkoutCard;
+export default WorkoutCard

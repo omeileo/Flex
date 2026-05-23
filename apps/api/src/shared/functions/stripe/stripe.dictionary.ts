@@ -396,7 +396,7 @@ export const stripeErrors = {
   },
 
   couldNotFindPaymentMethod: {
-    build: (userId: number) => {
+    build: (userId: string) => {
       return quickErrorResponse(
         StatusCodes.NOT_FOUND,
         'Not Found',

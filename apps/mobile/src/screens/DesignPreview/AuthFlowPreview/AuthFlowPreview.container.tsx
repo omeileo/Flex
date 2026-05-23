@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import AuthFlowPreviewComponent from './AuthFlowPreview.component';
+import AuthFlowPreviewComponent from './AuthFlowPreview.component'
 
-const AuthFlowPreviewContainer = () => <AuthFlowPreviewComponent />;
+const AuthFlowPreviewContainer = () => <AuthFlowPreviewComponent />
 
-export default AuthFlowPreviewContainer;
+export default AuthFlowPreviewContainer

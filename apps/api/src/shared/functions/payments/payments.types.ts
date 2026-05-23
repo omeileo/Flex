@@ -62,9 +62,9 @@ export interface CalculateTaxResponse {
 }
 
 export interface TaxExemption {
-  id: number
-  administrative_division_id: number
-  tax_country_id: number | null
+  id: string
+  administrative_division_id: string
+  tax_country_id: string | null
   category: string
   no_tax: boolean | null
   conditional_exemption: boolean | null
@@ -85,5 +85,5 @@ export interface FlightBookingServiceTotals {
 }
 
 export type ExternalSystemPaymentDetails = NonNullable<
-  Prisma.PromiseReturnType<typeof prisma.external_system_payment_details.findUnique>
+  Prisma.PromiseReturnType<typeof prisma.stripe_payment_details.findUnique>
 >

@@ -1,31 +1,24 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  elevation,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, elevation, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
-    padding: spacing.lg,
+    padding: spacing.lg
   },
   title: {
     fontSize: typography.display,
     fontWeight: fontWeights.bold,
     color: colors.textPrimary,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   subtitle: {
     fontSize: typography.bodyLarge,
     color: colors.textSecondary,
     marginBottom: spacing.xl,
-    lineHeight: 24,
+    lineHeight: 24
   },
   card: {
     backgroundColor: colors.surface,
@@ -34,17 +27,17 @@ export default StyleSheet.create({
     marginBottom: spacing.md,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
-    ...elevation.subtle,
+    ...elevation.subtle
   },
   cardTitle: {
     fontSize: typography.title,
     fontWeight: fontWeights.semibold,
     color: colors.textPrimary,
-    marginBottom: spacing.xs,
+    marginBottom: spacing.xs
   },
   cardMeta: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    marginBottom: spacing.md,
-  },
-});
+    marginBottom: spacing.md
+  }
+})

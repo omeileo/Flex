@@ -3,6 +3,7 @@ import { email_verification_tokens, users } from '@prisma/client'
 import prisma from '../../../prisma/prisma.client'
 import { verifyEmailErrors } from '../../api/user/auth/verifyEmail/verifyEmail.dictionary'
 import { globalErrors } from '../dictionary/errors.dictionary'
+import { createIdForTable } from '../functions/id/createIdForTable.functions'
 import { token } from '../functions/token.functions'
 import { PrismaTransaction } from '../types/repository.types'
 
@@ -30,6 +31,7 @@ export const emailVerificationTokenRepository = {
       try {
         const emailVerificationToken = await transaction.email_verification_tokens.create({
           data: {
+            id: createIdForTable('email_verification_tokens'),
             user_id: userId,
             token: token.emailVerificationToken.generate(),
             short_code: token.emailVerificationToken.generateShortCode(),
@@ -95,7 +97,10 @@ export const emailVerificationTokenRepository = {
         ...(email
           ? {
               users: {
-                email: email.trim().toLowerCase()
+                email: {
+                  equals: email.trim(),
+                  mode: 'insensitive'
+                }
               }
             }
           : {})

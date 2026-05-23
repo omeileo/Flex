@@ -1,35 +1,33 @@
-import React, { useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useCallback, useEffect } from 'react'
 
-import { getActivePlan } from '@redux/states/trainingPlan/getActivePlan/getActivePlan.slice';
-import { AppDispatch, RootState } from '@redux/store/store.types';
-import router from '@router/functions/router.functions';
+import { getActivePlan } from '@redux/states/trainingPlan/getActivePlan/getActivePlan.slice'
+import { AppDispatch, RootState } from '@redux/store/store.types'
+import router from '@router/functions/router.functions'
+import { useDispatch, useSelector } from 'react-redux'
 
-import PlanHomeComponent from './PlanHome.component';
+import PlanHomeComponent from './PlanHome.component'
 
 const PlanHomeContainer = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const navigate = router.navigate();
-  const { loading, success, error } = useSelector(
-    (state: RootState) => state.getActivePlan,
-  );
+  const dispatch = useDispatch<AppDispatch>()
+  const navigate = router.navigate()
+  const { loading, success, error } = useSelector((state: RootState) => state.getActivePlan)
 
   const loadPlan = useCallback(() => {
-    dispatch(getActivePlan());
-  }, [dispatch]);
+    dispatch(getActivePlan())
+  }, [dispatch])
 
   useEffect(() => {
-    loadPlan();
-  }, [loadPlan]);
+    loadPlan()
+  }, [loadPlan])
 
   const handleWorkoutPress = useCallback(
     (workout: { dayIndex: number; name: string }) => {
       navigate('PlanDetail', {
-        params: { dayIndex: workout.dayIndex, workoutName: workout.name },
-      });
+        params: { dayIndex: workout.dayIndex, workoutName: workout.name }
+      })
     },
-    [navigate],
-  );
+    [navigate]
+  )
 
   return (
     <PlanHomeComponent
@@ -39,7 +37,7 @@ const PlanHomeContainer = () => {
       onRefresh={loadPlan}
       onWorkoutPress={handleWorkoutPress}
     />
-  );
-};
+  )
+}
 
-export default PlanHomeContainer;
+export default PlanHomeContainer

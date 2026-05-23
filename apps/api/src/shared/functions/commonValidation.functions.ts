@@ -7,16 +7,16 @@ import { zodd } from './zod.functions'
  */
 export const commonValidations = {
   /**
-   * Validates an ID value.
-   * @param data - The ID value to validate.
-   * @returns The validated ID as a number.
-   * @throws {Error} If the ID is not a numeric value or is not a positive number.
+   * Validates a Hourrier-style prefixed string ID.
    */
   id: zodd
     .string()
-    .refine((data: string) => !isNaN(Number(data)), 'ID must be a numeric value')
-    .transform(Number)
-    .refine((num: number) => num > 0, 'ID must be a positive number'),
+    .min(1)
+    .max(64)
+    .regex(
+      /^[a-z0-9_]+_[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/,
+      'ID must be a valid prefixed string identifier'
+    ),
 
   /**
    * Password Validation

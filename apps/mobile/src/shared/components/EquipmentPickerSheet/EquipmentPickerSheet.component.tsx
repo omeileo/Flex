@@ -1,11 +1,13 @@
-import React, { useMemo } from 'react';
-import { Pressable, Text, View } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import React, { useMemo } from 'react'
 
-import EquipmentChip from '@shared/components/EquipmentChip/EquipmentChip.component';
+import { Pressable, Text, View } from 'react-native'
 
-import styles from './EquipmentPickerSheet.styles';
-import { EquipmentPickerSheetProps } from './EquipmentPickerSheet.types';
+import { useTranslation } from 'react-i18next'
+
+import EquipmentChip from '@shared/components/EquipmentChip/EquipmentChip.component'
+
+import styles from './EquipmentPickerSheet.styles'
+import { EquipmentPickerSheetProps } from './EquipmentPickerSheet.types'
 
 const EquipmentPickerSheet = ({
   locationName,
@@ -18,29 +20,29 @@ const EquipmentPickerSheet = ({
   onToggleEquipment,
   onAddCustomPress,
   onSelectCommon,
-  onBodyweightOnly,
+  onBodyweightOnly
 }: EquipmentPickerSheetProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   const filteredEquipment = useMemo(() => {
     if (activeCategory === 'All') {
-      return equipment;
+      return equipment
     }
 
-    return equipment.filter(item => item.category === activeCategory);
-  }, [activeCategory, equipment]);
+    return equipment.filter((item) => item.category === activeCategory)
+  }, [activeCategory, equipment])
 
   return (
     <View>
       <Text style={styles.subheader}>
         {t('designPreview.gymLocations.equipmentSubcopy', {
-          name: locationName,
+          name: locationName
         })}
       </Text>
 
       <View style={styles.categoryRow}>
-        {categories.map(category => {
-          const active = category === activeCategory;
+        {categories.map((category) => {
+          const active = category === activeCategory
 
           return (
             <Pressable
@@ -48,34 +50,23 @@ const EquipmentPickerSheet = ({
               style={[styles.categoryPill, active && styles.categoryPillActive]}
               onPress={() => onCategoryChange(category)}
             >
-              <Text
-                style={[
-                  styles.categoryText,
-                  active && styles.categoryTextActive,
-                ]}
-              >
-                {category}
-              </Text>
+              <Text style={[styles.categoryText, active && styles.categoryTextActive]}>{category}</Text>
             </Pressable>
-          );
+          )
         })}
       </View>
 
       <View style={styles.quickRow}>
         <Pressable style={styles.quickLink} onPress={onSelectCommon}>
-          <Text style={styles.quickText}>
-            {t('designPreview.gymLocations.selectCommon')}
-          </Text>
+          <Text style={styles.quickText}>{t('designPreview.gymLocations.selectCommon')}</Text>
         </Pressable>
         <Pressable style={styles.quickLink} onPress={onBodyweightOnly}>
-          <Text style={styles.quickText}>
-            {t('designPreview.gymLocations.bodyweightOnly')}
-          </Text>
+          <Text style={styles.quickText}>{t('designPreview.gymLocations.bodyweightOnly')}</Text>
         </Pressable>
       </View>
 
       <View style={styles.chipGrid}>
-        {filteredEquipment.map(item => (
+        {filteredEquipment.map((item) => (
           <EquipmentChip
             key={item.id}
             label={item.label}
@@ -83,23 +74,16 @@ const EquipmentPickerSheet = ({
             onPress={() => onToggleEquipment(item.id)}
           />
         ))}
-        {customLabels.map(label => (
-          <EquipmentChip
-            key={label}
-            label={label}
-            selected
-            onPress={onAddCustomPress}
-          />
+        {customLabels.map((label) => (
+          <EquipmentChip key={label} label={label} selected onPress={onAddCustomPress} />
         ))}
       </View>
 
       <Pressable style={styles.addCustom} onPress={onAddCustomPress}>
-        <Text style={styles.addCustomText}>
-          {t('designPreview.gymLocations.addCustom')}
-        </Text>
+        <Text style={styles.addCustomText}>{t('designPreview.gymLocations.addCustom')}</Text>
       </Pressable>
     </View>
-  );
-};
+  )
+}
 
-export default EquipmentPickerSheet;
+export default EquipmentPickerSheet

@@ -4,7 +4,7 @@ import { dobToISOString } from '../../../../shared/functions/date.functions'
 import { UpdatePersonalInfoRequest } from './personalInfo.types'
 
 export const personalInfoRepository = {
-  updatePersonalInfo: async function (userId: number, newPersonalInfo: UpdatePersonalInfoRequest) {
+  updatePersonalInfo: async function (userId: string, newPersonalInfo: UpdatePersonalInfoRequest) {
     // Todo: Handle ForbiddenActionError: https://appshopapps.atlassian.net/browse/HR-41
     const updatedPersonalInfo = await prisma.user_profiles.updateMany({
       where: {

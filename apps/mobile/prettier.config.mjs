@@ -1,13 +1,6 @@
 export default {
   plugins: ['@trivago/prettier-plugin-sort-imports'],
-  importOrder: [
-    '^react$',
-    '^react-native$',
-    '<THIRD_PARTY_MODULES>',
-    '.*.container$',
-    '.*.component$',
-    '^[./]',
-  ],
+  importOrder: ['^react$', '^react-native$', '<THIRD_PARTY_MODULES>', '.*.container$', '.*.component$', '^[./]'],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   singleQuote: true,
@@ -18,5 +11,5 @@ export default {
   printWidth: 120,
   bracketSpacing: true,
   proseWrap: 'preserve',
-  htmlWhitespaceSensitivity: 'css',
-};
+  htmlWhitespaceSensitivity: 'css'
+}

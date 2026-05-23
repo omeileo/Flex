@@ -1,4 +1,4 @@
-import logger from '../Logger/logger.functions';
+import logger from '../Logger/logger.functions'
 
 /**
  * Strips a prefix from a custom ID that was generated with a `prefix_` segment.
@@ -6,19 +6,15 @@ import logger from '../Logger/logger.functions';
  */
 export function stripPrefixFromId(id: string): string {
   try {
-    const lastUnderscoreIndex = id.lastIndexOf('_');
+    const lastUnderscoreIndex = id.lastIndexOf('_')
 
     if (lastUnderscoreIndex === -1) {
-      return id;
+      return id
     }
 
-    return id.substring(lastUnderscoreIndex + 1);
+    return id.substring(lastUnderscoreIndex + 1)
   } catch (error) {
-    logger.logError(
-      error,
-      'Error stripping prefix from ID',
-      'stripPrefixFromId',
-    );
-    throw error;
+    logger.logError(error, 'Error stripping prefix from ID', 'stripPrefixFromId')
+    throw error
   }
 }

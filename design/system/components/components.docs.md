@@ -14,6 +14,16 @@ Reusable UI primitives for Flex mobile. Each component file defines a `reusable:
 | WeekStrip | `weekStrip.component.design.pen` | `WeekStrip` (today, completed, scheduled, future) |
 | WeekSummaryCard | `weekSummaryCard.component.design.pen` | `WeekSummaryCard` (current, past, future/deload) |
 | WorkoutCard | `workoutCard.component.design.pen` | `WorkoutCard` (default per modality, completed, upcoming) |
+| ScreenHeader | — | `ScreenHeader` (back + title nav bar) |
+| SecondaryButton | `button.component.design.pen` | `SecondaryButton` (secondary, destructive variants) |
+| ThemePicker | — | `ThemePicker` (Light / Dark / Gym Girlie preview cards) |
+| ThemeSwatchRow | — | `ThemeSwatchRow` (inline hub swatches) |
+| MovementRestrictionChip | — | `MovementRestrictionChip` (injury restriction multi-select) |
+| ExerciseExcludeRow | — | `ExerciseExcludeRow` (global exclude toggle row) |
+| CyclePhaseChip | — | `CyclePhaseChip` (cycle phase pill) |
+| SymptomLogChip | — | `SymptomLogChip` (daily log symptom selector) |
+| CycleCalendarStrip | — | `CycleCalendarStrip` (week row period highlights) |
+| StatCard | — | `StatCard` (progress metric tile) |
 
 ## Token Parity
 

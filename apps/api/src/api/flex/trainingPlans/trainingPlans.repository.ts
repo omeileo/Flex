@@ -4,10 +4,11 @@ import type { TrainingPlan } from '@flex/shared/types/trainingPlan/trainingPlan.
 import { Prisma, type plan_change_log, type session_sets } from '@prisma/client'
 
 import prisma from '../../../../prisma/prisma.client'
+import { createIdForTable } from '../../../shared/functions/id/createIdForTable.functions'
 
 const mapPlanRecordToTrainingPlan = (plan: {
-  id: number
-  user_id: number
+  id: string
+  user_id: string
   status: string
   week_number: number
   plan_json: Prisma.JsonValue
@@ -25,7 +26,7 @@ const mapPlanRecordToTrainingPlan = (plan: {
 }
 
 export const trainingPlansRepository = {
-  findActiveByUserId: async (userId: number) => {
+  findActiveByUserId: async (userId: string) => {
     return prisma.training_plans.findFirst({
       where: {
         user_id: userId,
@@ -37,7 +38,7 @@ export const trainingPlansRepository = {
     })
   },
 
-  findByIdForUser: async (planId: number, userId: number) => {
+  findByIdForUser: async (planId: string, userId: string) => {
     return prisma.training_plans.findFirst({
       where: {
         id: planId,
@@ -47,13 +48,14 @@ export const trainingPlansRepository = {
   },
 
   createPlan: async (input: {
-    userId: number
-    fitnessProfileId: number
+    userId: string
+    fitnessProfileId: string
     plan: Omit<TrainingPlan, 'id' | 'userId'>
   }) => {
     return prisma.$transaction(async (tx) => {
       const createdPlan = await tx.training_plans.create({
         data: {
+          id: createIdForTable('training_plans'),
           user_id: input.userId,
           fitness_profile_id: input.fitnessProfileId,
           status: input.plan.status,
@@ -68,6 +70,7 @@ export const trainingPlansRepository = {
 
       const phase = await tx.plan_phases.create({
         data: {
+          id: createIdForTable('plan_phases'),
           training_plan_id: createdPlan.id,
           name: 'Foundation Phase',
           week_start: 1,
@@ -80,6 +83,7 @@ export const trainingPlansRepository = {
 
       const week = await tx.plan_weeks.create({
         data: {
+          id: createIdForTable('plan_weeks'),
           plan_phase_id: phase.id,
           week_number: input.plan.weekNumber
         }
@@ -88,6 +92,7 @@ export const trainingPlansRepository = {
       for (const workout of input.plan.workouts) {
         const plannedWorkout = await tx.planned_workouts.create({
           data: {
+            id: createIdForTable('planned_workouts'),
             training_plan_id: createdPlan.id,
             plan_week_id: week.id,
             day_index: workout.dayIndex,
@@ -98,6 +103,7 @@ export const trainingPlansRepository = {
 
         const mainSection = await tx.workout_sections.create({
           data: {
+            id: createIdForTable('workout_sections'),
             planned_workout_id: plannedWorkout.id,
             name: 'Main',
             order_index: 0
@@ -107,6 +113,7 @@ export const trainingPlansRepository = {
         for (const exercise of workout.exercises) {
           await tx.planned_exercises.create({
             data: {
+              id: createIdForTable('planned_exercises'),
               planned_workout_id: plannedWorkout.id,
               workout_section_id: mainSection.id,
               exercise_id: exercise.exerciseId,
@@ -139,7 +146,7 @@ export const trainingPlansRepository = {
   },
 
   updatePlanProgression: async (input: {
-    planId: number
+    planId: string
     weekNumber: number
     planJson: TrainingPlan
     changes: ProgressionChange[]
@@ -186,6 +193,7 @@ export const trainingPlansRepository = {
       if (input.changes.length > 0) {
         await tx.plan_change_log.createMany({
           data: input.changes.map((change) => ({
+            id: createIdForTable('plan_change_log'),
             training_plan_id: input.planId,
             exercise_id: change.exerciseId,
             field: change.field,
@@ -198,14 +206,14 @@ export const trainingPlansRepository = {
     })
   },
 
-  getPlanChanges: async (planId: number) => {
+  getPlanChanges: async (planId: string) => {
     return prisma.plan_change_log.findMany({
       where: { training_plan_id: planId },
       orderBy: { created_at: 'desc' }
     })
   },
 
-  getRecentSessionPerformances: async (planId: number, userId: number) => {
+  getRecentSessionPerformances: async (planId: string, userId: string) => {
     const latestSession = await prisma.workout_sessions.findFirst({
       where: {
         training_plan_id: planId,

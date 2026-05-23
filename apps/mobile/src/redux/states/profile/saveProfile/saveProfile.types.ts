@@ -1,16 +1,19 @@
-import type {
-  FitnessProfile,
-  FitnessProfileUpsert,
-} from '@flex/shared/types/fitnessProfile/fitnessProfile.schemas';
-import { SliceActions } from '../../../../shared/types/slice.types';
-import { saveProfileActions } from './saveProfile.slice';
+import type { FitnessProfile, FitnessProfileUpsert } from '@flex/shared/types/fitnessProfile/fitnessProfile.schemas'
 
-export type SaveProfileRequest = Record<string, never>;
+import { ApiErrorResponse, ApiSuccessResponse } from '../../../../shared/types/api.types'
+import { SliceActions } from '../../../../shared/types/slice.types'
+import { saveProfileActions } from './saveProfile.slice'
+
+export type SaveProfileRequest = FitnessProfileUpsert
+
+export type SaveProfileSuccessResponse = ApiSuccessResponse<FitnessProfile>
+
+export type SaveProfileErrorResponse = ApiErrorResponse
 
 export interface SaveProfileState {
-  loading: boolean;
-  error: string | null;
-  success: FitnessProfile | null;
+  loading: boolean
+  error: string | null
+  success: FitnessProfile | null
 }
 
-export type SaveProfileActionTypes = SliceActions<typeof saveProfileActions>;
+export type SaveProfileActionTypes = SliceActions<typeof saveProfileActions>

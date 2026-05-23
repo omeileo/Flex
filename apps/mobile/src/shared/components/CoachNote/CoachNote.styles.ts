@@ -1,12 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   container: {
@@ -17,7 +11,7 @@ export default StyleSheet.create({
     padding: spacing.md,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
-    marginVertical: spacing.sm,
+    marginVertical: spacing.sm
   },
   avatar: {
     width: 36,
@@ -26,17 +20,17 @@ export default StyleSheet.create({
     backgroundColor: colors.accentMuted,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: spacing.sm,
+    marginRight: spacing.sm
   },
   avatarText: {
     fontSize: typography.caption,
     fontWeight: fontWeights.bold,
-    color: colors.accent,
+    color: colors.accent
   },
   message: {
     flex: 1,
     fontSize: typography.bodyLarge,
     color: colors.textPrimary,
-    lineHeight: 22,
-  },
-});
+    lineHeight: 22
+  }
+})

@@ -1,12 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   row: {
@@ -18,23 +12,23 @@ export default StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
     padding: spacing.md,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   content: {
     flex: 1,
-    gap: spacing.xs,
+    gap: spacing.xs
   },
   title: {
     fontSize: typography.bodyLarge,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   preview: {
     fontSize: typography.caption,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   chevron: {
     fontSize: typography.heading,
-    color: colors.textSecondary,
-  },
-});
+    color: colors.textSecondary
+  }
+})

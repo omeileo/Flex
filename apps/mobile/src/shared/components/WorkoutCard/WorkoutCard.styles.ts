@@ -1,13 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  elevation,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, elevation, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   card: {
@@ -18,39 +11,39 @@ export default StyleSheet.create({
     marginBottom: spacing.sm,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
-    ...elevation.subtle,
+    ...elevation.subtle
   },
   modalityBar: {
     width: 4,
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   modalityBarSegment: {
-    flex: 1,
+    flex: 1
   },
   content: {
     flex: 1,
     padding: spacing.md,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   textBlock: {
-    flex: 1,
+    flex: 1
   },
   dateLabel: {
     fontSize: typography.caption,
     color: colors.textSecondary,
     marginBottom: spacing.xs,
-    fontWeight: fontWeights.medium,
+    fontWeight: fontWeights.medium
   },
   title: {
     fontSize: typography.title,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   meta: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    marginTop: spacing.xs,
+    marginTop: spacing.xs
   },
   checkbox: {
     width: 24,
@@ -60,15 +53,15 @@ export default StyleSheet.create({
     borderColor: colors.border,
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: spacing.sm,
+    marginLeft: spacing.sm
   },
   checkboxCompleted: {
     backgroundColor: colors.success,
-    borderColor: colors.success,
+    borderColor: colors.success
   },
   checkmark: {
     color: colors.textInverse,
     fontSize: typography.caption,
-    fontWeight: fontWeights.bold,
-  },
-});
+    fontWeight: fontWeights.bold
+  }
+})

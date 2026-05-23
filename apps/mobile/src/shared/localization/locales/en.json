@@ -18,7 +18,17 @@
       "passwordPlaceholder": "Your password",
       "submit": "Log in",
       "submitting": "Logging in…",
+      "forgotPassword": "Forgot password?",
       "goToSignUp": "Need an account? Sign up"
+    },
+    "forgetPassword": {
+      "title": "Reset your password",
+      "subtitle": "Enter the email for your account and we will send you a reset link.",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "submit": "Send reset link",
+      "submitting": "Sending…",
+      "goToLogin": "Back to log in"
     },
     "signUp": {
       "title": "Create your account",
@@ -39,6 +49,7 @@
       "submitting": "Verifying…",
       "resend": "Resend code",
       "resending": "Sending…",
+      "verificationEmailSent": "A new verification code was sent to your email.",
       "goToLogin": "Back to log in",
       "codeRequired": "Verification code is required",
       "codeLength": "Enter the 6-character code from your email"
@@ -55,11 +66,38 @@
   "bootstrap": {
     "loading": "Getting your Flex experience ready…"
   },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "message": "An unexpected error occurred. Please try again.",
+    "retry": "Try again"
+  },
   "tabs": {
     "plan": "Plan",
     "progress": "Progress",
     "coach": "Coach",
     "profile": "Profile"
+  },
+  "components": {
+    "form": {
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
+    },
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "pink": "Gym Girlie"
+    },
+    "chat": {
+      "send": "Send",
+      "attachProfile": "Attach profile summary",
+      "placeholder": "Tell your coach what you want to train for…"
+    },
+    "healthSync": {
+      "appleHealth": "Apple Health",
+      "healthConnect": "Health Connect",
+      "comingSoon": "Coming soon",
+      "phaseTwo": "Available in a future update"
+    }
   },
   "profileOnboarding": {
     "title": "Tell us about your training",

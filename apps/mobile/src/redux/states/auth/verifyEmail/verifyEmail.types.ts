@@ -1,36 +1,37 @@
-import { ApiSuccessResponse } from '@shared/types/api.types';
+import { ApiErrorResponse, ApiSuccessResponse } from '@shared/types/api.types'
 
 export interface VerifyEmailWithCodeRequest {
-  code: string;
-  email?: string;
+  code: string
+  email?: string
 }
 
 export interface VerifyEmailResponseData {
-  id: number;
-  email: string;
+  id: number
+  email: string
   status: {
-    id: number;
-    name: string;
-    display_name: string;
-    description: string;
-  };
+    id: number
+    name: string
+    display_name: string
+    description: string
+  }
 }
 
-export type VerifyEmailSuccessResponse =
-  ApiSuccessResponse<VerifyEmailResponseData>;
+export type VerifyEmailSuccessResponse = ApiSuccessResponse<VerifyEmailResponseData>
+
+export type VerifyEmailErrorResponse = ApiErrorResponse
 
 export interface ResendVerifyEmailRequest {
-  email: string;
+  email: string
 }
 
-export type ResendVerifyEmailSuccessResponse = ApiSuccessResponse<
-  Record<string, never>
->;
+export type ResendVerifyEmailSuccessResponse = ApiSuccessResponse<Record<string, never>>
+
+export type ResendVerifyEmailErrorResponse = ApiErrorResponse
 
 export interface VerifyEmailState {
-  loading: boolean;
-  resendLoading: boolean;
-  error: string | null;
-  resendMessage: string | null;
-  verified: boolean;
+  loading: boolean
+  resendLoading: boolean
+  error: string | null
+  resendMessage: string | null
+  verified: boolean
 }

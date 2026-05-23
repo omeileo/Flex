@@ -1,17 +1,14 @@
-import React from 'react';
-import { Pressable, Text, View } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
 
-import styles from './Landing.styles';
-import { LandingComponentProps } from './Landing.types';
+import { Pressable, Text, View } from 'react-native'
 
-const LandingComponent = ({
-  onLogin,
-  onSignUp,
-  onDesignPreview,
-  showDesignPreview,
-}: LandingComponentProps) => {
-  const { t } = useTranslation();
+import { useTranslation } from 'react-i18next'
+
+import styles from './Landing.styles'
+import { LandingComponentProps } from './Landing.types'
+
+const LandingComponent = ({ onLogin, onSignUp, onDesignPreview, showDesignPreview }: LandingComponentProps) => {
+  const { t } = useTranslation()
 
   return (
     <View style={styles.container}>
@@ -32,7 +29,7 @@ const LandingComponent = ({
         </Pressable>
       ) : null}
     </View>
-  );
-};
+  )
+}
 
-export default LandingComponent;
+export default LandingComponent

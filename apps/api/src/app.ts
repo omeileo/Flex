@@ -39,8 +39,8 @@ app.use(logConnectionUsage)
 // Routes
 registerRoutes(app)
 
-// Only show Swagger UI in local environments
-if (env.NODE_ENV === 'local') {
+// Only show Swagger UI in local and test environments
+if (env.NODE_ENV === 'local' || env.NODE_ENV === 'test') {
   app.use(openAPIRouter)
 }
 

@@ -1,16 +1,17 @@
 import { Prisma } from '@prisma/client'
 
 import prisma from '../../../../prisma/prisma.client'
+import { createIdForTable } from '../../../shared/functions/id/createIdForTable.functions'
 
 export const workoutSessionsRepository = {
   createSession: async (input: {
-    userId: number
-    trainingPlanId: number
+    userId: string
+    trainingPlanId: string
     workoutDayIndex: number
     startedAt?: string
     sessionJson: Record<string, unknown>
     exercises: {
-      exerciseId: number
+      exerciseId: string
       sets: {
         setNumber: number
         repsCompleted?: number
@@ -23,6 +24,7 @@ export const workoutSessionsRepository = {
     return prisma.$transaction(async (tx) => {
       const session = await tx.workout_sessions.create({
         data: {
+          id: createIdForTable('workout_sessions'),
           user_id: input.userId,
           training_plan_id: input.trainingPlanId,
           workout_day_index: input.workoutDayIndex,
@@ -33,6 +35,7 @@ export const workoutSessionsRepository = {
 
       const setRows = input.exercises.flatMap((exercise) =>
         exercise.sets.map((set) => ({
+          id: createIdForTable('session_sets'),
           workout_session_id: session.id,
           exercise_id: exercise.exerciseId,
           set_number: set.setNumber,
@@ -52,11 +55,11 @@ export const workoutSessionsRepository = {
   },
 
   completeSession: async (input: {
-    sessionId: number
-    userId: number
+    sessionId: string
+    userId: string
     completedAt?: string
     exercises: {
-      exerciseId: number
+      exerciseId: string
       sets: {
         setNumber: number
         repsCompleted?: number
@@ -91,6 +94,7 @@ export const workoutSessionsRepository = {
 
       const setRows = input.exercises.flatMap((exercise) =>
         exercise.sets.map((set) => ({
+          id: createIdForTable('session_sets'),
           workout_session_id: input.sessionId,
           exercise_id: exercise.exerciseId,
           set_number: set.setNumber,

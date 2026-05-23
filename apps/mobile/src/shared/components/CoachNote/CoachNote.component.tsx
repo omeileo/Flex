@@ -1,16 +1,17 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React from 'react'
 
-import styles from './CoachNote.styles';
-import { CoachNoteProps } from './CoachNote.types';
+import { Text, View } from 'react-native'
+
+import styles from './CoachNote.styles'
+import { CoachNoteProps } from './CoachNote.types'
 
 const CoachNote = ({ message, coachName = 'Flex Coach' }: CoachNoteProps) => {
   const initials = coachName
     .split(' ')
-    .map(part => part[0])
+    .map((part) => part[0])
     .join('')
     .slice(0, 2)
-    .toUpperCase();
+    .toUpperCase()
 
   return (
     <View style={styles.container}>
@@ -21,7 +22,7 @@ const CoachNote = ({ message, coachName = 'Flex Coach' }: CoachNoteProps) => {
         {message}
       </Text>
     </View>
-  );
-};
+  )
+}
 
-export default CoachNote;
+export default CoachNote

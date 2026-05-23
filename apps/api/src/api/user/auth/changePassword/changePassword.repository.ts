@@ -11,7 +11,7 @@ import { changePasswordErrors } from './changePassword.dictionary'
  * @throws {ForbiddenActionError} If the user's status does not allow password change.
  */
 export const changePasswordRepository = {
-  getUser: async function (userId: number) {
+  getUser: async function (userId: string) {
     const user = await prisma.users.findFirst({
       where: {
         id: userId

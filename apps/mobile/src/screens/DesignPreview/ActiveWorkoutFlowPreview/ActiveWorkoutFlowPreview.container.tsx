@@ -1,9 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import ActiveWorkoutFlowPreviewComponent from './ActiveWorkoutFlowPreview.component';
+import ActiveWorkoutFlowPreviewComponent from './ActiveWorkoutFlowPreview.component'
 
-const ActiveWorkoutFlowPreviewContainer = () => (
-  <ActiveWorkoutFlowPreviewComponent />
-);
+const ActiveWorkoutFlowPreviewContainer = () => <ActiveWorkoutFlowPreviewComponent />
 
-export default ActiveWorkoutFlowPreviewContainer;
+export default ActiveWorkoutFlowPreviewContainer

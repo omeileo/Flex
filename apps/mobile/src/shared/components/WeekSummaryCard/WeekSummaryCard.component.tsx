@@ -1,10 +1,11 @@
-import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import React from 'react'
 
-import { workoutModalityColors } from '@shared/types/workoutModality.types';
+import { Pressable, Text, View } from 'react-native'
 
-import styles from './WeekSummaryCard.styles';
-import { WeekSummaryCardProps } from './WeekSummaryCard.types';
+import { workoutModalityColors } from '@shared/types/workoutModality.types'
+
+import styles from './WeekSummaryCard.styles'
+import { WeekSummaryCardProps } from './WeekSummaryCard.types'
 
 const WeekSummaryCard = ({
   weekNumber,
@@ -13,13 +14,9 @@ const WeekSummaryCard = ({
   totalVolume,
   workouts,
   isCurrent = false,
-  onPress,
+  onPress
 }: WeekSummaryCardProps) => (
-  <Pressable
-    style={[styles.card, isCurrent && styles.cardCurrent]}
-    onPress={onPress}
-    disabled={!onPress}
-  >
+  <Pressable style={[styles.card, isCurrent && styles.cardCurrent]} onPress={onPress} disabled={!onPress}>
     <View style={styles.header}>
       <View>
         <Text style={styles.weekTitle}>Week {weekNumber}</Text>
@@ -31,18 +28,13 @@ const WeekSummaryCard = ({
       {workoutCount} workouts · {totalVolume}
     </Text>
 
-    {workouts.map(workout => (
+    {workouts.map((workout) => (
       <View key={workout.id} style={styles.workoutRow}>
-        <View
-          style={[
-            styles.modalityDot,
-            { backgroundColor: workoutModalityColors[workout.modality] },
-          ]}
-        />
+        <View style={[styles.modalityDot, { backgroundColor: workoutModalityColors[workout.modality] }]} />
         <Text style={styles.workoutTitle}>{workout.title}</Text>
       </View>
     ))}
   </Pressable>
-);
+)
 
-export default WeekSummaryCard;
+export default WeekSummaryCard

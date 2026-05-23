@@ -1,8 +1,9 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React from 'react'
 
-import styles from './Progress.styles';
-import { StubScreenComponentProps } from './Progress.types';
+import { Text, View } from 'react-native'
+
+import styles from './Progress.styles'
+import { StubScreenComponentProps } from './Progress.types'
 
 const ProgressComponent = ({ title, message }: StubScreenComponentProps) => {
   return (
@@ -10,7 +11,7 @@ const ProgressComponent = ({ title, message }: StubScreenComponentProps) => {
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.message}>{message}</Text>
     </View>
-  );
-};
+  )
+}
 
-export default ProgressComponent;
+export default ProgressComponent

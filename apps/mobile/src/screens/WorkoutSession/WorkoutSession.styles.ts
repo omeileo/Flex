@@ -1,42 +1,37 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
-    padding: spacing.lg,
+    padding: spacing.lg
   },
   title: {
     fontSize: typography.heading,
     fontWeight: '700',
     color: colors.textPrimary,
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   subtitle: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.lg
   },
   button: {
     backgroundColor: colors.accent,
     borderRadius: radii.md,
     paddingVertical: spacing.md,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   buttonText: {
     color: colors.textInverse,
     fontWeight: '600',
-    fontSize: typography.bodyLarge,
+    fontSize: typography.bodyLarge
   },
   error: {
     color: colors.error,
-    marginBottom: spacing.md,
-  },
-});
+    marginBottom: spacing.md
+  }
+})

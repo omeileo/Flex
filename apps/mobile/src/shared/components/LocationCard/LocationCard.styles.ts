@@ -1,12 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   card: {
@@ -18,25 +12,25 @@ export default StyleSheet.create({
     marginBottom: spacing.sm,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   cardPressed: {
-    opacity: 0.92,
+    opacity: 0.92
   },
   left: {
     flex: 1,
-    gap: spacing.xs,
+    gap: spacing.xs
   },
   nameRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
   name: {
     fontSize: typography.bodyLarge,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   badge: {
     fontSize: typography.caption,
@@ -45,20 +39,20 @@ export default StyleSheet.create({
     backgroundColor: colors.background,
     paddingHorizontal: spacing.sm,
     paddingVertical: 2,
-    borderRadius: radii.sm,
+    borderRadius: radii.sm
   },
   meta: {
     fontSize: typography.body,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   defaultLabel: {
     fontSize: typography.caption,
     fontWeight: fontWeights.semibold,
-    color: colors.accentEnergy,
+    color: colors.accentEnergy
   },
   chevron: {
     fontSize: typography.title,
     color: colors.textSecondary,
-    marginLeft: spacing.sm,
-  },
-});
+    marginLeft: spacing.sm
+  }
+})

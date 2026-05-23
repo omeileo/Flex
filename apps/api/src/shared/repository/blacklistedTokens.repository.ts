@@ -3,6 +3,7 @@ import { blacklisted_tokens } from '@prisma/client'
 
 import prisma from '../../../prisma/prisma.client'
 import { globalErrors } from '../dictionary/errors.dictionary'
+import { createIdForTable } from '../functions/id/createIdForTable.functions'
 import { obfuscateSensitiveData } from '../functions/security/security.functions'
 import { auditLogRepository } from './auditLog/auditLog.repository'
 
@@ -29,6 +30,7 @@ export const blacklistedTokensRepository = {
       // Create new blacklisted token only if it doesn't exist
       const blacklistedToken = await prisma.blacklisted_tokens.create({
         data: {
+          id: createIdForTable('blacklisted_tokens'),
           token
         }
       })

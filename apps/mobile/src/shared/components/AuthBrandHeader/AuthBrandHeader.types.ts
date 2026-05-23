@@ -1,3 +1,3 @@
 export type AuthBrandHeaderProps = {
-  tagline?: string;
-};
+  tagline?: string
+}

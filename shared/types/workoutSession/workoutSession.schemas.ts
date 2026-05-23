@@ -9,12 +9,12 @@ export const loggedSetSchema = z.object({
 })
 
 export const loggedExerciseSchema = z.object({
-  exerciseId: z.number().int().positive(),
+  exerciseId: z.string().min(1).max(64),
   sets: z.array(loggedSetSchema).min(1)
 })
 
 export const workoutSessionCreateSchema = z.object({
-  trainingPlanId: z.number().int().positive(),
+  trainingPlanId: z.string().min(1).max(64),
   workoutDayIndex: z.number().int().nonnegative(),
   startedAt: z.string().datetime().optional(),
   exercises: z.array(loggedExerciseSchema).min(1)

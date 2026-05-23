@@ -1,12 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   card: {
@@ -17,23 +11,23 @@ export default StyleSheet.create({
     paddingVertical: spacing.sm + 2,
     paddingHorizontal: spacing.md,
     minHeight: 44,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   cardSelected: {
     borderColor: colors.accent,
-    backgroundColor: colors.accentMuted,
+    backgroundColor: colors.accentMuted
   },
   label: {
     fontSize: typography.body,
     fontWeight: fontWeights.medium,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   labelSelected: {
-    fontWeight: fontWeights.semibold,
+    fontWeight: fontWeights.semibold
   },
   description: {
     fontSize: typography.caption,
     color: colors.textSecondary,
-    marginTop: spacing.xs,
-  },
-});
+    marginTop: spacing.xs
+  }
+})

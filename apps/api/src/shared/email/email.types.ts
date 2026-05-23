@@ -74,7 +74,7 @@ export interface BaseEmailContext {
 }
 
 export interface NotificationAuthor {
-  id: number
+  id: string
   type: NotificationAuthorCategoryType
 }
 

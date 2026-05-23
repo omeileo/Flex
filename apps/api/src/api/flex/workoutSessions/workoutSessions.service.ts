@@ -34,7 +34,7 @@ export const workoutSessionsService = {
     }
   },
 
-  completeWorkoutSession: async (sessionId: number, payload: CompleteWorkoutSessionRequest) => {
+  completeWorkoutSession: async (sessionId: string, payload: CompleteWorkoutSessionRequest) => {
     const currentUser = getCurrentLoggedInUserOrThrow()
 
     const session = await workoutSessionsRepository.completeSession({

@@ -1,9 +1,9 @@
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs'
 
 const SessionTimeoutSubject = new Subject<{
-  reset?: boolean;
-  duration?: number;
-  stop?: boolean;
-}>();
+  reset?: boolean
+  duration?: number
+  stop?: boolean
+}>()
 
-export default SessionTimeoutSubject;
+export default SessionTimeoutSubject

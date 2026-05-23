@@ -1,8 +1,8 @@
-import { LoginState } from './login.types';
+import { LoginState } from './login.types'
 
 const loginInitialState: LoginState = {
   loading: false,
-  error: null,
-};
+  error: null
+}
 
-export default loginInitialState;
+export default loginInitialState

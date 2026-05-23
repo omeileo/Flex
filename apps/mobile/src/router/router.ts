@@ -1,5 +1,5 @@
-import router from './functions/router.functions';
-import routes from './routes.dictionary';
+import router from './functions/router.functions'
+import routes from './routes.dictionary'
 
 const ROUTES = router.generateRoutes(
   [
@@ -7,6 +7,7 @@ const ROUTES = router.generateRoutes(
     routes.login,
     routes.signUp,
     routes.verifyEmail,
+    routes.forgetPassword,
     routes.flexBootstrap,
     routes.mainTabs,
     routes.profileOnboarding,
@@ -17,9 +18,9 @@ const ROUTES = router.generateRoutes(
     routes.onboardingFlowPreview,
     routes.trainingPlanFlowPreview,
     routes.activeWorkoutFlowPreview,
-    routes.gymLocationsSettingsPreview,
+    routes.gymLocationsSettingsPreview
   ],
-  { initialRouteName: routes.landing.path },
-);
+  { initialRouteName: routes.landing.path }
+)
 
-export default ROUTES;
+export default ROUTES

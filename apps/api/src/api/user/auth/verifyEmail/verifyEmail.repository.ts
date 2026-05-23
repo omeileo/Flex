@@ -14,7 +14,7 @@ import { verifyEmailErrors } from './verifyEmail.dictionary'
  * Repository for verifying email addresses.
  */
 export const verifyEmailRepository = {
-  getUser: async function (userId: number) {
+  getUser: async function (userId: string) {
     const user = await prisma.users.findFirst({
       where: {
         id: userId
@@ -41,7 +41,10 @@ export const verifyEmailRepository = {
   getUserByEmail: async function (email: string) {
     const user = await prisma.users.findFirst({
       where: {
-        email: email
+        email: {
+          equals: email.trim(),
+          mode: 'insensitive'
+        }
       },
       select: {
         id: true,

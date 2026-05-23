@@ -1,23 +1,18 @@
-import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import React from 'react'
 
-import styles from './LocationCard.styles';
-import { LocationCardProps } from './LocationCard.types';
+import { Pressable, Text, View } from 'react-native'
+
+import styles from './LocationCard.styles'
+import { LocationCardProps } from './LocationCard.types'
 
 const presetLabels: Record<LocationCardProps['presetType'], string> = {
   home: 'Home',
   commercial: 'Gym',
   travel: 'Travel',
-  custom: 'Custom',
-};
+  custom: 'Custom'
+}
 
-const LocationCard = ({
-  name,
-  presetType,
-  equipmentCount,
-  isDefault,
-  onPress,
-}: LocationCardProps) => (
+const LocationCard = ({ name, presetType, equipmentCount, isDefault, onPress }: LocationCardProps) => (
   <Pressable
     style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}
     onPress={onPress}
@@ -37,6 +32,6 @@ const LocationCard = ({
     </View>
     <Text style={styles.chevron}>›</Text>
   </Pressable>
-);
+)
 
-export default LocationCard;
+export default LocationCard

@@ -1,27 +1,21 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: colors.background
   },
   scrollContent: {
     padding: spacing.lg,
-    paddingBottom: spacing.xxl,
+    paddingBottom: spacing.xxl
   },
   viewChips: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.lg
   },
   viewChip: {
     paddingHorizontal: spacing.md,
@@ -29,59 +23,59 @@ export default StyleSheet.create({
     borderRadius: radii.pill,
     backgroundColor: colors.surface,
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.border,
+    borderColor: colors.border
   },
   viewChipActive: {
     backgroundColor: colors.accent,
-    borderColor: colors.accent,
+    borderColor: colors.accent
   },
   viewChipText: {
     fontSize: typography.caption,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   viewChipTextActive: {
-    color: colors.textInverse,
+    color: colors.textInverse
   },
   title: {
     fontSize: typography.heading,
     fontWeight: fontWeights.bold,
     color: colors.textPrimary,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   subtitle: {
     fontSize: typography.body,
     color: colors.textSecondary,
     lineHeight: 20,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.lg
   },
   fieldLabel: {
     fontSize: typography.body,
     fontWeight: fontWeights.semibold,
     color: colors.textPrimary,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   linkRow: {
     marginTop: spacing.lg,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   linkText: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   linkEmphasis: {
     color: colors.textPrimary,
-    fontWeight: fontWeights.semibold,
+    fontWeight: fontWeights.semibold
   },
   info: {
     fontSize: typography.caption,
     color: colors.textSecondary,
     textAlign: 'center',
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   footer: {
     marginTop: spacing.md,
-    gap: spacing.md,
-  },
-});
+    gap: spacing.md
+  }
+})

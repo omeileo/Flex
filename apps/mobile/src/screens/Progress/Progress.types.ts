@@ -1,4 +1,4 @@
 export interface StubScreenComponentProps {
-  title: string;
-  message: string;
+  title: string
+  message: string
 }

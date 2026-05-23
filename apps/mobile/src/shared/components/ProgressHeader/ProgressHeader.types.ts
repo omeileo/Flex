@@ -1,5 +1,5 @@
 export type ProgressHeaderProps = {
-  currentStep: number;
-  totalSteps: number;
-  stepLabel?: string;
-};
+  currentStep: number
+  totalSteps: number
+  stepLabel?: string
+}

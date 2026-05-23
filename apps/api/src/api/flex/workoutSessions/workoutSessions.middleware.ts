@@ -12,7 +12,7 @@ export const IncomingCreateWorkoutSessionRequest = z.object({
 export const IncomingCompleteWorkoutSessionRequest = z.object({
   body: workoutSessionCompleteSchema,
   params: z.object({
-    id: z.string().regex(/^\d+$/)
+    id: z.string().min(1).max(64)
   })
 })
 

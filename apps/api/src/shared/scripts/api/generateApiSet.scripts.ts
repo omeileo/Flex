@@ -540,7 +540,7 @@ const ${subjectName}Settings = {
 
 export const ${subjectName}Repository = {
   add${sentenceCaseSubjectName}: async function (
-    userId: number,
+    userId: string,
     new${sentenceCaseSubjectName}: ${sentenceCaseSubjectName}
   ) {
     const ${subjectName}sCount = await prisma.${snakeCaseSubjectName.toLowerCase()}s.count({
@@ -572,7 +572,7 @@ export const ${subjectName}Repository = {
     return ${subjectName}
   },
 
-  get${sentenceCaseSubjectName}s: async function (userId: number) {
+  get${sentenceCaseSubjectName}s: async function (userId: string) {
     const ${subjectName}s = await prisma.${snakeCaseSubjectName.toLowerCase()}s.findMany({
       where: {
         user_id: userId
@@ -588,7 +588,7 @@ export const ${subjectName}Repository = {
   },
 
   update${sentenceCaseSubjectName}: async function (
-    userId: number,
+    userId: string,
     ${subjectName}Id: number,
     new${sentenceCaseSubjectName}: Update${sentenceCaseSubjectName}Request
   ) {
@@ -618,7 +618,7 @@ export const ${subjectName}Repository = {
   },
 
   delete${sentenceCaseSubjectName}: async function (
-    userId: number,
+    userId: string,
     ${subjectName}Id: number
   ) {
     const id = Number(${subjectName}Id)

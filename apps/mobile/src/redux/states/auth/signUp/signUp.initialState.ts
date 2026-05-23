@@ -1,9 +1,9 @@
-import { SignUpState } from './signUp.types';
+import { SignUpState } from './signUp.types'
 
 const signUpInitialState: SignUpState = {
   loading: false,
   error: null,
-  successMessage: null,
-};
+  successMessage: null
+}
 
-export default signUpInitialState;
+export default signUpInitialState

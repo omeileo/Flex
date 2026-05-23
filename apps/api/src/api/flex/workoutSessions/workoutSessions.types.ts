@@ -11,8 +11,8 @@ export type WorkoutSessionParams = {
 }
 
 export type WorkoutSessionResponse = {
-  id: number
-  trainingPlanId: number
+  id: string
+  trainingPlanId: string
   workoutDayIndex: number
   startedAt: string
   completedAt?: string

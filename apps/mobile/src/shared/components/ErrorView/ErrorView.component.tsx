@@ -1,27 +1,20 @@
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import React from 'react'
 
-import styles from './ErrorView.styles';
-import { ErrorViewProps } from './ErrorView.types';
+import { Text, TouchableOpacity, View } from 'react-native'
 
-const ErrorView = ({
-  message,
-  onRetry,
-  retryLabel = 'Retry',
-}: ErrorViewProps) => (
+import styles from './ErrorView.styles'
+import { ErrorViewProps } from './ErrorView.types'
+
+const ErrorView = ({ message, onRetry, retryLabel = 'Retry' }: ErrorViewProps) => (
   <View style={styles.container}>
     <Text style={styles.message}>{message}</Text>
 
     {onRetry ? (
-      <TouchableOpacity
-        style={styles.retryButton}
-        onPress={onRetry}
-        accessibilityRole="button"
-      >
+      <TouchableOpacity style={styles.retryButton} onPress={onRetry} accessibilityRole="button">
         <Text style={styles.retryLabel}>{retryLabel}</Text>
       </TouchableOpacity>
     ) : null}
   </View>
-);
+)
 
-export default ErrorView;
+export default ErrorView

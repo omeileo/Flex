@@ -7,9 +7,10 @@ import { StripePaymentIntentStatus, StripeRefundStatus } from '@/shared/function
 import { stripeHelper } from '@/shared/functions/stripe/stripe.functions'
 import { paymentsRepository } from '@/shared/repository/payments.repository'
 import { statusRepository } from '@/shared/repository/status.repository'
-import { external_system_payment_details, refund_requests } from '@prisma/client'
+import { refund_requests, stripe_payment_details } from '@prisma/client'
 
 import prisma from '../../../../../prisma/prisma.client'
+import { createIdForTable } from '../../../../shared/functions/id/createIdForTable.functions'
 import { refundErrors } from './refund.dictionary'
 import { FlightBookingRefundMetadata, OfferRequestRefundMetadata, RequestOfferRefundRequestBody } from './refund.types'
 
@@ -23,9 +24,9 @@ export const refundRepository = {
    * @returns {Promise<void>}
    */
   processRefund: async function (
-    payment: external_system_payment_details,
+    payment: stripe_payment_details,
     refundAmount: number,
-    userId: number,
+    userId: string,
     context: {
       entityType: string
       entityId: number | string
@@ -46,6 +47,7 @@ export const refundRepository = {
         try {
           await prisma.refund_requests.create({
             data: {
+              id: createIdForTable('refund_requests'),
               user_id: userId,
               amount: stripeHelper.convertStripeAmountToDollars(refund.amount),
               external_system_payment_details_id: payment.id,
@@ -116,7 +118,7 @@ export const refundRepository = {
    * @returns {number} - The amount eligible for a refund
    */
   getRefundableAmount: async function (
-    successfulPayment: external_system_payment_details,
+    successfulPayment: stripe_payment_details,
     recordId: number,
     recordType: 'offer request' | 'flight booking'
   ): Promise<number> {

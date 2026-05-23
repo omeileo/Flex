@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 
 import { logger } from '../../../src/app'
+import { createIdForTable } from '../../../src/shared/functions/id/createIdForTable.functions'
 import userPreferences from './data/userPreferences.data'
 
 export default async function (prisma: PrismaClient) {
@@ -8,10 +9,26 @@ export default async function (prisma: PrismaClient) {
 
   try {
     for (const preference of userPreferences) {
-      await prisma.preferences.upsert({
-        where: { id: preference.id },
-        update: {},
-        create: preference
+      const existing = await prisma.preferences.findFirst({
+        where: { name: preference.name }
+      })
+
+      if (existing) {
+        await prisma.preferences.update({
+          where: { id: existing.id },
+          data: {
+            description: preference.description
+          }
+        })
+        continue
+      }
+
+      await prisma.preferences.create({
+        data: {
+          id: createIdForTable('preferences'),
+          name: preference.name,
+          description: preference.description
+        }
       })
     }
 

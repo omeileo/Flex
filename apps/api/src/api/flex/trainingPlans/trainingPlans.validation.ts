@@ -9,7 +9,7 @@ const generatedTrainingPlanSchema = trainingPlanSchema.omit({ id: true, userId: 
 
 export const validateGeneratedTrainingPlan = (
   plan: Omit<TrainingPlan, 'id' | 'userId'>,
-  validExerciseIds: Set<number>
+  validExerciseIds: Set<string>
 ): Omit<TrainingPlan, 'id' | 'userId'> => {
   const parsed = generatedTrainingPlanSchema.safeParse(plan)
 

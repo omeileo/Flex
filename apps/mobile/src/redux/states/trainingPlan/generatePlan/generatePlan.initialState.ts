@@ -1,9 +1,9 @@
-import { GeneratePlanState } from './generatePlan.types';
+import { GeneratePlanState } from './generatePlan.types'
 
 const initialState: GeneratePlanState = {
   loading: false,
   error: null,
-  success: null,
-};
+  success: null
+}
 
-export default initialState;
+export default initialState

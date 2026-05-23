@@ -1,12 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   button: {
@@ -16,14 +10,14 @@ export default StyleSheet.create({
     paddingHorizontal: spacing.lg,
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 52,
+    minHeight: 52
   },
   buttonDisabled: {
-    opacity: 0.4,
+    opacity: 0.4
   },
   label: {
     color: colors.textInverse,
     fontSize: typography.bodyLarge,
-    fontWeight: fontWeights.semibold,
-  },
-});
+    fontWeight: fontWeights.semibold
+  }
+})

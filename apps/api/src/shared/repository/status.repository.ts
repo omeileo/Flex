@@ -58,7 +58,7 @@ export const statusRepository = {
    * @returns A Promise that resolves to the target status.
    * @throws {CriticalSystemEntryNotFound} If the status is not found.
    */
-  getStatusById: async (statusId: number, transaction: PrismaTransaction = prisma): Promise<status> => {
+  getStatusById: async (statusId: string, transaction: PrismaTransaction = prisma): Promise<status> => {
     const status = await transaction.status.findFirst({
       where: { id: statusId }
     })

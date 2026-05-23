@@ -1,40 +1,31 @@
-import React from 'react';
-import { Pressable, ScrollView, Text, View } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
 
-import styles from './ExerciseSwapSheet.styles';
-import { ExerciseSwapSheetProps } from './ExerciseSwapSheet.types';
+import { Pressable, ScrollView, Text, View } from 'react-native'
 
-const ExerciseSwapSheet = ({
-  options,
-  filterChips,
-  onSelect,
-  onCancel,
-}: ExerciseSwapSheetProps) => {
-  const { t } = useTranslation();
+import { useTranslation } from 'react-i18next'
+
+import styles from './ExerciseSwapSheet.styles'
+import { ExerciseSwapSheetProps } from './ExerciseSwapSheet.types'
+
+const ExerciseSwapSheet = ({ options, filterChips, onSelect, onCancel }: ExerciseSwapSheetProps) => {
+  const { t } = useTranslation()
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Pressable onPress={onCancel}>
-          <Text style={styles.cancel}>
-            {t('designPreview.activeWorkout.cancel')}
-          </Text>
+          <Text style={styles.cancel}>{t('designPreview.activeWorkout.cancel')}</Text>
         </Pressable>
-        <Text style={styles.title}>
-          {t('designPreview.activeWorkout.replaceExercise')}
-        </Text>
+        <Text style={styles.title}>{t('designPreview.activeWorkout.replaceExercise')}</Text>
         <View style={styles.headerSpacer} />
       </View>
 
       <View style={styles.search}>
-        <Text style={styles.searchPlaceholder}>
-          {t('designPreview.activeWorkout.searchExercises')}
-        </Text>
+        <Text style={styles.searchPlaceholder}>{t('designPreview.activeWorkout.searchExercises')}</Text>
       </View>
 
       <View style={styles.chips}>
-        {filterChips.map(chip => (
+        {filterChips.map((chip) => (
           <View key={chip} style={styles.chip}>
             <Text style={styles.chipText}>{chip}</Text>
           </View>
@@ -42,12 +33,8 @@ const ExerciseSwapSheet = ({
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        {options.map(option => (
-          <Pressable
-            key={option.id}
-            style={styles.option}
-            onPress={() => onSelect(option.id)}
-          >
+        {options.map((option) => (
+          <Pressable key={option.id} style={styles.option} onPress={() => onSelect(option.id)}>
             <View style={styles.thumb} />
             <View>
               <Text style={styles.optionName}>{option.name}</Text>
@@ -57,7 +44,7 @@ const ExerciseSwapSheet = ({
         ))}
       </ScrollView>
     </View>
-  );
-};
+  )
+}
 
-export default ExerciseSwapSheet;
+export default ExerciseSwapSheet

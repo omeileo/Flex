@@ -1,54 +1,38 @@
-import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import React from 'react'
 
-import styles from './SetRow.styles';
-import { SetRowProps } from './SetRow.types';
+import { Pressable, Text, View } from 'react-native'
+
+import styles from './SetRow.styles'
+import { SetRowProps } from './SetRow.types'
 
 const statusIcon = (status: SetRowProps['status']) => {
   if (status === 'completed') {
-    return '✓';
+    return '✓'
   }
 
   if (status === 'active') {
-    return '●';
+    return '●'
   }
 
   if (status === 'skipped') {
-    return '—';
+    return '—'
   }
 
-  return '○';
-};
+  return '○'
+}
 
-const SetRow = ({
-  setNumber,
-  previousLabel,
-  reps,
-  weightKg,
-  status,
-  onPress,
-}: SetRowProps) => {
-  const isActive = status === 'active';
-  const isCompleted = status === 'completed';
+const SetRow = ({ setNumber, previousLabel, reps, weightKg, status, onPress }: SetRowProps) => {
+  const isActive = status === 'active'
+  const isCompleted = status === 'completed'
 
   return (
     <Pressable
-      style={[
-        styles.row,
-        isActive && styles.rowActive,
-        isCompleted && styles.rowCompleted,
-      ]}
+      style={[styles.row, isActive && styles.rowActive, isCompleted && styles.rowCompleted]}
       onPress={onPress}
       disabled={!onPress}
     >
       <View style={styles.statusCell}>
-        <Text
-          style={[
-            styles.statusIcon,
-            isActive && styles.statusIconActive,
-            isCompleted && styles.statusIconDone,
-          ]}
-        >
+        <Text style={[styles.statusIcon, isActive && styles.statusIconActive, isCompleted && styles.statusIconDone]}>
           {statusIcon(status)}
         </Text>
       </View>
@@ -60,9 +44,7 @@ const SetRow = ({
 
       <View style={styles.cell}>
         <Text style={styles.cellLabel}>Prev</Text>
-        <Text style={[styles.cellValue, styles.cellValueMuted]}>
-          {previousLabel ?? '—'}
-        </Text>
+        <Text style={[styles.cellValue, styles.cellValueMuted]}>{previousLabel ?? '—'}</Text>
       </View>
 
       <View style={styles.cell}>
@@ -75,7 +57,7 @@ const SetRow = ({
         <Text style={styles.cellValue}>{weightKg}</Text>
       </View>
     </Pressable>
-  );
-};
+  )
+}
 
-export default SetRow;
+export default SetRow

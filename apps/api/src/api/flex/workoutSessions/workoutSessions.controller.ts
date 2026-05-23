@@ -34,7 +34,7 @@ const controller = function () {
     requestHandler(completeWorkoutSessionRequestValidator, async (req: Request, res: Response) => {
       const { id } = getParams<WorkoutSessionParams>(req)
       const payload = getRequestBody<CompleteWorkoutSessionRequest>(req)
-      const session = await workoutSessionsService.completeWorkoutSession(Number(id), payload)
+      const session = await workoutSessionsService.completeWorkoutSession(id, payload)
 
       successResponse(res, StatusCodes.OK, 'Request successful.', session, 'Workout session completed.')
     })

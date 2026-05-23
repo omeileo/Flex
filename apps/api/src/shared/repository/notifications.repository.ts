@@ -10,6 +10,7 @@ import prisma from 'prisma/prisma.client'
 
 import { NotificationAuthor } from '../email/email.types'
 import date from '../functions/Date/date.functions'
+import { createIdForTable } from '../functions/id/createIdForTable.functions'
 import { PrismaTransaction } from '../types/repository.types'
 
 /**
@@ -40,6 +41,7 @@ export const notificationsRepository = {
       if (isAuthorAllowed) {
         const notification = await transaction.notifications.create({
           data: {
+            id: createIdForTable('notifications'),
             recipient_id: data.recipient_id,
             author_id: data.author_id,
             author_type: data.author_type,
@@ -51,6 +53,7 @@ export const notificationsRepository = {
 
         await transaction.notification_contents.create({
           data: {
+            id: createIdForTable('notification_contents'),
             title: data.title,
             body: data.body,
             delivery_channel: data.delivery_channel,
@@ -131,7 +134,7 @@ export const notificationsRepository = {
    */
   linkNotificationToFlightBooking: async (
     flightBookingId: number,
-    notificationId: number,
+    notificationId: string,
     transaction: PrismaTransaction = prisma
   ): Promise<flight_bookings_notifications> => {
     try {
@@ -179,7 +182,7 @@ export const notificationsRepository = {
   linkNotificationToFlightBookingFlight: async (
     flightBookingId: number,
     flightId: number,
-    notificationId: number
+    notificationId: string
   ): Promise<flight_bookings_flight_notifications> => {
     try {
       logger.info(

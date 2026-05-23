@@ -9,6 +9,7 @@ import { env } from '../../../../shared/functions/envConfig'
 import passwordHasher from '../../../../shared/functions/password.functions'
 import { jwtService } from '../../../../shared/middleware/jwt/jwt.functions'
 import { auditLogRepository } from '../../../../shared/repository/auditLog/auditLog.repository'
+import { verifyEmailService } from '../verifyEmail/verifyEmail.service'
 import { loginErrors } from './login.dictionary'
 import { loginRepository } from './login.repository'
 import { LoginRequest, LoginResponse, LoginUser } from './login.types'
@@ -23,6 +24,12 @@ export const loginService = {
     const user = await loginRepository.getUserToLoginByEmail(loginRequest.email)
 
     if (user.status.name === Status.unverified) {
+      try {
+        await verifyEmailService.resendEmailLink({ email: loginRequest.email })
+      } catch (resendError) {
+        logger.error('Error resending verification email during login attempt', resendError)
+      }
+
       throw loginErrors.accountNotVerified.build()
     }
 

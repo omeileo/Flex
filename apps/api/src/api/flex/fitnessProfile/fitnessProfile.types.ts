@@ -3,6 +3,6 @@ import { FitnessProfileUpsert } from '@flex/shared/types/fitnessProfile/fitnessP
 export type UpsertFitnessProfileRequest = FitnessProfileUpsert
 
 export type FitnessProfileResponse = FitnessProfileUpsert & {
-  id: number
-  userId: number
+  id: string
+  userId: string
 }

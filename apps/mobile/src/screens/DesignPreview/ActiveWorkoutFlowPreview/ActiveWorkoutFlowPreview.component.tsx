@@ -1,33 +1,29 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import { Modal, Pressable, ScrollView, Text, View } from 'react-native';
-import { useTranslation } from 'react-i18next';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import React, { useCallback, useMemo, useState } from 'react'
 
-import CoachNote from '@shared/components/CoachNote/CoachNote.component';
-import ExerciseSwapSheet from '@shared/components/ExerciseSwapSheet/ExerciseSwapSheet.component';
-import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component';
-import RestTimerBar from '@shared/components/RestTimerBar/RestTimerBar.component';
-import SetRow from '@shared/components/SetRow/SetRow.component';
-import { SetRowStatus } from '@shared/components/SetRow/SetRow.types';
+import { Modal, Pressable, ScrollView, Text, View } from 'react-native'
+
+import { SetRowStatus } from '@shared/components/SetRow/SetRow.types'
+import { useTranslation } from 'react-i18next'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+
+import CoachNote from '@shared/components/CoachNote/CoachNote.component'
+import ExerciseSwapSheet from '@shared/components/ExerciseSwapSheet/ExerciseSwapSheet.component'
+import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
+import RestTimerBar from '@shared/components/RestTimerBar/RestTimerBar.component'
+import SetRow from '@shared/components/SetRow/SetRow.component'
 
 import {
   activeWorkoutExerciseMenu,
   activeWorkoutPreviewExercises,
   activeWorkoutSwapChips,
-  activeWorkoutSwapOptions,
-} from '../designPreviewMock.data';
-import styles, {
-  containerWithInset,
-  outcomeLayoutWithInset,
-} from './ActiveWorkoutFlowPreview.styles';
-import {
-  ActiveWorkoutFlowPreviewComponentProps,
-  ActiveWorkoutView,
-} from './ActiveWorkoutFlowPreview.types';
+  activeWorkoutSwapOptions
+} from '../designPreviewMock.data'
+import styles, { containerWithInset, outcomeLayoutWithInset } from './ActiveWorkoutFlowPreview.styles'
+import { ActiveWorkoutFlowPreviewComponentProps, ActiveWorkoutView } from './ActiveWorkoutFlowPreview.types'
 
 const previewViews: Array<{
-  key: ActiveWorkoutView | 'cancel';
-  label: string;
+  key: ActiveWorkoutView | 'cancel'
+  label: string
 }> = [
   { key: 'preStart', label: 'Pre-start' },
   { key: 'active', label: 'Active' },
@@ -38,84 +34,78 @@ const previewViews: Array<{
   { key: 'finishSheet', label: 'Finish' },
   { key: 'save', label: 'Save' },
   { key: 'saved', label: 'Saved' },
-  { key: 'cancel', label: 'Cancel' },
-];
+  { key: 'cancel', label: 'Cancel' }
+]
 
 const defaultSets: Array<{
-  setNumber: number;
-  reps: number;
-  weightKg: number;
-  status: SetRowStatus;
-  previousLabel: string;
+  setNumber: number
+  reps: number
+  weightKg: number
+  status: SetRowStatus
+  previousLabel: string
 }> = [
   {
     setNumber: 1,
     reps: 8,
     weightKg: 40,
     status: 'completed',
-    previousLabel: '8×38',
+    previousLabel: '8×38'
   },
   {
     setNumber: 2,
     reps: 8,
     weightKg: 40,
     status: 'active',
-    previousLabel: '8×38',
+    previousLabel: '8×38'
   },
   {
     setNumber: 3,
     reps: 8,
     weightKg: 40,
     status: 'pending',
-    previousLabel: '8×38',
-  },
-];
+    previousLabel: '8×38'
+  }
+]
 
-const ActiveWorkoutFlowPreviewComponent = ({
-  initialView = 'active',
-}: ActiveWorkoutFlowPreviewComponentProps) => {
-  const { t } = useTranslation();
-  const insets = useSafeAreaInsets();
-  const [activeView, setActiveView] = useState<ActiveWorkoutView>(initialView);
-  const [restSeconds, setRestSeconds] = useState(88);
-  const [cancelOpen, setCancelOpen] = useState(false);
+const ActiveWorkoutFlowPreviewComponent = ({ initialView = 'active' }: ActiveWorkoutFlowPreviewComponentProps) => {
+  const { t } = useTranslation()
+  const insets = useSafeAreaInsets()
+  const [activeView, setActiveView] = useState<ActiveWorkoutView>(initialView)
+  const [restSeconds, setRestSeconds] = useState(88)
+  const [cancelOpen, setCancelOpen] = useState(false)
 
-  const showRestOverlay = activeView === 'rest';
-  const showPausedOverlay = activeView === 'paused';
-  const showFinishSheet = activeView === 'finishSheet';
-  const showCancelOverlay = activeView === 'cancel' || cancelOpen;
+  const showRestOverlay = activeView === 'rest'
+  const showPausedOverlay = activeView === 'paused'
+  const showFinishSheet = activeView === 'finishSheet'
+  const showCancelOverlay = activeView === 'cancel' || cancelOpen
 
   const handleViewChip = useCallback((key: ActiveWorkoutView | 'cancel') => {
     if (key === 'cancel') {
-      setCancelOpen(true);
+      setCancelOpen(true)
 
-      return;
+      return
     }
 
-    setCancelOpen(false);
-    setActiveView(key);
-  }, []);
+    setCancelOpen(false)
+    setActiveView(key)
+  }, [])
 
   const handleRestAdjust = useCallback((delta: number) => {
-    setRestSeconds(current => Math.max(0, current + delta));
-  }, []);
+    setRestSeconds((current) => Math.max(0, current + delta))
+  }, [])
 
   const renderPreStart = () => (
     <>
       <View style={styles.header}>
         <Text style={styles.headerMeta}>←</Text>
-        <Text style={styles.headerTitle}>
-          {t('designPreview.activeWorkout.workoutTitle')}
-        </Text>
+        <Text style={styles.headerTitle}>{t('designPreview.activeWorkout.workoutTitle')}</Text>
         <Text style={styles.headerMeta}>⋯</Text>
       </View>
 
-      <Text style={styles.metaRow}>
-        {t('designPreview.activeWorkout.preStartMeta')}
-      </Text>
+      <Text style={styles.metaRow}>{t('designPreview.activeWorkout.preStartMeta')}</Text>
       <CoachNote message={t('designPreview.activeWorkout.preStartCoach')} />
 
-      {activeWorkoutPreviewExercises.map(exercise => (
+      {activeWorkoutPreviewExercises.map((exercise) => (
         <View key={exercise.id} style={styles.exerciseRow}>
           <View style={styles.modalityBar} />
           <View>
@@ -126,36 +116,23 @@ const ActiveWorkoutFlowPreviewComponent = ({
       ))}
 
       <View style={styles.footer}>
-        <PrimaryButton
-          label={t('designPreview.activeWorkout.beginWorkout')}
-          onPress={() => setActiveView('active')}
-        />
+        <PrimaryButton label={t('designPreview.activeWorkout.beginWorkout')} onPress={() => setActiveView('active')} />
         <Pressable onPress={() => undefined}>
-          <Text style={[styles.headerMeta, styles.headerMetaCenter]}>
-            {t('designPreview.activeWorkout.notNow')}
-          </Text>
+          <Text style={[styles.headerMeta, styles.headerMetaCenter]}>{t('designPreview.activeWorkout.notNow')}</Text>
         </Pressable>
       </View>
     </>
-  );
+  )
 
   const renderActive = () => (
     <>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>18:42</Text>
         <View style={styles.headerActionsRow}>
-          <Pressable
-            style={styles.headerPill}
-            onPress={() => setActiveView('paused')}
-          >
-            <Text style={styles.headerPillText}>
-              {t('designPreview.activeWorkout.pause')}
-            </Text>
+          <Pressable style={styles.headerPill} onPress={() => setActiveView('paused')}>
+            <Text style={styles.headerPillText}>{t('designPreview.activeWorkout.pause')}</Text>
           </Pressable>
-          <Pressable
-            style={[styles.headerPill, styles.headerPillDark]}
-            onPress={() => setActiveView('finishSheet')}
-          >
+          <Pressable style={[styles.headerPill, styles.headerPillDark]} onPress={() => setActiveView('finishSheet')}>
             <Text style={[styles.headerPillText, styles.headerPillTextLight]}>
               {t('designPreview.activeWorkout.finish')}
             </Text>
@@ -166,7 +143,7 @@ const ActiveWorkoutFlowPreviewComponent = ({
       <Text style={styles.progressLabel}>
         {t('designPreview.activeWorkout.exerciseProgress', {
           current: 2,
-          total: 6,
+          total: 6
         })}
       </Text>
       <View style={styles.progressTrack}>
@@ -180,9 +157,7 @@ const ActiveWorkoutFlowPreviewComponent = ({
       <Text style={styles.prescription}>3 × 8–10 @ 40 kg</Text>
 
       <View style={styles.videoPlaceholder}>
-        <Text style={styles.headerMeta}>
-          ▶ {t('designPreview.activeWorkout.video')}
-        </Text>
+        <Text style={styles.headerMeta}>▶ {t('designPreview.activeWorkout.video')}</Text>
       </View>
 
       <View style={styles.tableHeader}>
@@ -193,7 +168,7 @@ const ActiveWorkoutFlowPreviewComponent = ({
         <Text style={styles.tableHeaderCell}>kg</Text>
       </View>
 
-      {defaultSets.map(set => (
+      {defaultSets.map((set) => (
         <SetRow
           key={set.setNumber}
           setNumber={set.setNumber}
@@ -201,9 +176,7 @@ const ActiveWorkoutFlowPreviewComponent = ({
           reps={set.reps}
           weightKg={set.weightKg}
           status={set.status}
-          onPress={
-            set.status === 'active' ? () => setActiveView('rest') : undefined
-          }
+          onPress={set.status === 'active' ? () => setActiveView('rest') : undefined}
         />
       ))}
 
@@ -214,16 +187,11 @@ const ActiveWorkoutFlowPreviewComponent = ({
       />
 
       <View style={styles.navRow}>
-        <Text style={styles.headerMeta}>
-          {t('designPreview.activeWorkout.prevExercise')}
-        </Text>
-        <PrimaryButton
-          label={t('designPreview.activeWorkout.nextExercise')}
-          onPress={() => undefined}
-        />
+        <Text style={styles.headerMeta}>{t('designPreview.activeWorkout.prevExercise')}</Text>
+        <PrimaryButton label={t('designPreview.activeWorkout.nextExercise')} onPress={() => undefined} />
       </View>
     </>
-  );
+  )
 
   const renderExerciseMenu = () => (
     <>
@@ -235,37 +203,26 @@ const ActiveWorkoutFlowPreviewComponent = ({
         </Pressable>
       </View>
 
-      {activeWorkoutExerciseMenu.map(item => (
+      {activeWorkoutExerciseMenu.map((item) => (
         <Pressable
           key={item}
           style={styles.menuItem}
-          onPress={
-            item.includes('Replace') ? () => setActiveView('swap') : undefined
-          }
+          onPress={item.includes('Replace') ? () => setActiveView('swap') : undefined}
         >
           <Text style={styles.menuItemText}>{item}</Text>
         </Pressable>
       ))}
 
-      <Text style={[styles.headerMeta, styles.headerMetaSpaced]}>
-        {t('designPreview.activeWorkout.addNote')}
-      </Text>
-      <PrimaryButton
-        label={t('designPreview.activeWorkout.done')}
-        onPress={() => setActiveView('active')}
-      />
+      <Text style={[styles.headerMeta, styles.headerMetaSpaced]}>{t('designPreview.activeWorkout.addNote')}</Text>
+      <PrimaryButton label={t('designPreview.activeWorkout.done')} onPress={() => setActiveView('active')} />
     </>
-  );
+  )
 
   const renderSave = () => (
     <>
       <View style={styles.header}>
-        <Text style={styles.headerMeta}>
-          {t('designPreview.activeWorkout.resume')}
-        </Text>
-        <Text style={styles.headerTitle}>
-          {t('designPreview.activeWorkout.saveTitle')}
-        </Text>
+        <Text style={styles.headerMeta}>{t('designPreview.activeWorkout.resume')}</Text>
+        <Text style={styles.headerTitle}>{t('designPreview.activeWorkout.saveTitle')}</Text>
         <View style={[styles.headerPill, styles.headerPillDark]}>
           <Text style={[styles.headerPillText, styles.headerPillTextLight]}>
             {t('designPreview.activeWorkout.save')}
@@ -273,61 +230,41 @@ const ActiveWorkoutFlowPreviewComponent = ({
         </View>
       </View>
 
-      <Text style={styles.sectionTitle}>
-        {t('designPreview.activeWorkout.workoutTitle')}
-      </Text>
+      <Text style={styles.sectionTitle}>{t('designPreview.activeWorkout.workoutTitle')}</Text>
 
       <View style={styles.statsRow}>
         <View style={styles.statBlock}>
-          <Text style={styles.statLabel}>
-            {t('designPreview.activeWorkout.duration')}
-          </Text>
+          <Text style={styles.statLabel}>{t('designPreview.activeWorkout.duration')}</Text>
           <Text style={styles.statValue}>42:18</Text>
         </View>
         <View style={styles.statBlock}>
-          <Text style={styles.statLabel}>
-            {t('designPreview.activeWorkout.volume')}
-          </Text>
+          <Text style={styles.statLabel}>{t('designPreview.activeWorkout.volume')}</Text>
           <Text style={styles.statValue}>4,280 kg</Text>
         </View>
         <View style={styles.statBlock}>
-          <Text style={styles.statLabel}>
-            {t('designPreview.activeWorkout.sets')}
-          </Text>
+          <Text style={styles.statLabel}>{t('designPreview.activeWorkout.sets')}</Text>
           <Text style={styles.statValue}>14</Text>
         </View>
       </View>
 
-      <Text style={[styles.statLabel, styles.statLabelSpaced]}>
-        {t('designPreview.activeWorkout.exercisesLabel')}
-      </Text>
+      <Text style={[styles.statLabel, styles.statLabelSpaced]}>{t('designPreview.activeWorkout.exercisesLabel')}</Text>
       <Text style={styles.saveExerciseName}>Barbell Squat</Text>
       <Text style={styles.saveExerciseData}>8×40 kg, 8×42 kg, 8×42 kg</Text>
       <Text style={styles.saveExerciseName}>Romanian Deadlift</Text>
       <Text style={styles.saveExerciseData}>10×60 kg, 10×60 kg</Text>
 
       <View style={styles.notesBox}>
-        <Text style={styles.notesPlaceholder}>
-          {t('designPreview.activeWorkout.privateNotes')}
-        </Text>
+        <Text style={styles.notesPlaceholder}>{t('designPreview.activeWorkout.privateNotes')}</Text>
       </View>
 
       <View style={styles.footer}>
-        <Pressable
-          style={styles.secondaryOutline}
-          onPress={() => setActiveView('discarded')}
-        >
-          <Text style={styles.secondaryOutlineLabel}>
-            {t('designPreview.activeWorkout.discardWorkout')}
-          </Text>
+        <Pressable style={styles.secondaryOutline} onPress={() => setActiveView('discarded')}>
+          <Text style={styles.secondaryOutlineLabel}>{t('designPreview.activeWorkout.discardWorkout')}</Text>
         </Pressable>
-        <PrimaryButton
-          label={t('designPreview.activeWorkout.saveWorkout')}
-          onPress={() => setActiveView('saved')}
-        />
+        <PrimaryButton label={t('designPreview.activeWorkout.saveWorkout')} onPress={() => setActiveView('saved')} />
       </View>
     </>
-  );
+  )
 
   const renderSaved = () => (
     <View style={outcomeLayoutWithInset(spacingBottom(insets.bottom))}>
@@ -335,48 +272,34 @@ const ActiveWorkoutFlowPreviewComponent = ({
         <View style={styles.successIcon}>
           <Text style={styles.successCheck}>✓</Text>
         </View>
-        <Text style={styles.centeredTitle}>
-          {t('designPreview.activeWorkout.savedTitle')}
-        </Text>
-        <Text style={styles.centeredMeta}>
-          {t('designPreview.activeWorkout.savedMeta')}
-        </Text>
+        <Text style={styles.centeredTitle}>{t('designPreview.activeWorkout.savedTitle')}</Text>
+        <Text style={styles.centeredMeta}>{t('designPreview.activeWorkout.savedMeta')}</Text>
       </View>
-      <PrimaryButton
-        label={t('designPreview.activeWorkout.done')}
-        onPress={() => setActiveView('preStart')}
-      />
+      <PrimaryButton label={t('designPreview.activeWorkout.done')} onPress={() => setActiveView('preStart')} />
     </View>
-  );
+  )
 
   const renderDiscarded = () => (
     <View style={outcomeLayoutWithInset(spacingBottom(insets.bottom))}>
       <View style={styles.discardedContentTop}>
-        <Text style={styles.centeredTitle}>
-          {t('designPreview.activeWorkout.discardedTitle')}
-        </Text>
-        <Text style={styles.centeredMeta}>
-          {t('designPreview.activeWorkout.discardedMeta')}
-        </Text>
+        <Text style={styles.centeredTitle}>{t('designPreview.activeWorkout.discardedTitle')}</Text>
+        <Text style={styles.centeredMeta}>{t('designPreview.activeWorkout.discardedMeta')}</Text>
       </View>
-      <PrimaryButton
-        label={t('designPreview.activeWorkout.backToToday')}
-        onPress={() => setActiveView('preStart')}
-      />
+      <PrimaryButton label={t('designPreview.activeWorkout.backToToday')} onPress={() => setActiveView('preStart')} />
     </View>
-  );
+  )
 
   const body = useMemo(() => {
     if (activeView === 'preStart') {
-      return renderPreStart();
+      return renderPreStart()
     }
 
     if (activeView === 'active' || activeView === 'rest') {
-      return renderActive();
+      return renderActive()
     }
 
     if (activeView === 'exerciseMenu') {
-      return renderExerciseMenu();
+      return renderExerciseMenu()
     }
 
     if (activeView === 'swap') {
@@ -387,23 +310,23 @@ const ActiveWorkoutFlowPreviewComponent = ({
           onSelect={() => setActiveView('active')}
           onCancel={() => setActiveView('active')}
         />
-      );
+      )
     }
 
     if (activeView === 'save') {
-      return renderSave();
+      return renderSave()
     }
 
     if (activeView === 'saved') {
-      return renderSaved();
+      return renderSaved()
     }
 
     if (activeView === 'discarded') {
-      return renderDiscarded();
+      return renderDiscarded()
     }
 
-    return renderActive();
-  }, [activeView, restSeconds, t]);
+    return renderActive()
+  }, [activeView, restSeconds, t])
 
   return (
     <View style={[styles.container, containerWithInset(insets.top)]}>
@@ -413,11 +336,8 @@ const ActiveWorkoutFlowPreviewComponent = ({
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.viewSwitcher}>
-          {previewViews.map(view => {
-            const isActive =
-              view.key === 'cancel'
-                ? showCancelOverlay
-                : activeView === view.key;
+          {previewViews.map((view) => {
+            const isActive = view.key === 'cancel' ? showCancelOverlay : activeView === view.key
 
             return (
               <Pressable
@@ -425,16 +345,9 @@ const ActiveWorkoutFlowPreviewComponent = ({
                 style={[styles.viewChip, isActive && styles.viewChipActive]}
                 onPress={() => handleViewChip(view.key)}
               >
-                <Text
-                  style={[
-                    styles.viewChipText,
-                    isActive && styles.viewChipTextActive,
-                  ]}
-                >
-                  {view.label}
-                </Text>
+                <Text style={[styles.viewChipText, isActive && styles.viewChipTextActive]}>{view.label}</Text>
               </Pressable>
-            );
+            )
           })}
         </View>
 
@@ -458,82 +371,43 @@ const ActiveWorkoutFlowPreviewComponent = ({
         animationType="fade"
         onRequestClose={() => setActiveView('active')}
       >
-        <Pressable
-          style={styles.overlayCenter}
-          onPress={() => setActiveView('active')}
-        >
-          <Pressable
-            style={styles.pauseCard}
-            onPress={event => event.stopPropagation()}
-          >
-            <Text style={styles.pauseTitle}>
-              {t('designPreview.activeWorkout.pausedTitle')}
-            </Text>
-            <Text style={styles.pauseMeta}>
-              {t('designPreview.activeWorkout.pausedMeta')}
-            </Text>
-            <PrimaryButton
-              label={t('designPreview.activeWorkout.resume')}
-              onPress={() => setActiveView('active')}
-            />
+        <Pressable style={styles.overlayCenter} onPress={() => setActiveView('active')}>
+          <Pressable style={styles.pauseCard} onPress={(event) => event.stopPropagation()}>
+            <Text style={styles.pauseTitle}>{t('designPreview.activeWorkout.pausedTitle')}</Text>
+            <Text style={styles.pauseMeta}>{t('designPreview.activeWorkout.pausedMeta')}</Text>
+            <PrimaryButton label={t('designPreview.activeWorkout.resume')} onPress={() => setActiveView('active')} />
             <PrimaryButton
               label={t('designPreview.activeWorkout.finishWorkout')}
               onPress={() => setActiveView('finishSheet')}
             />
             <Pressable onPress={() => setCancelOpen(true)}>
-              <Text style={styles.destructiveText}>
-                {t('designPreview.activeWorkout.cancelWorkout')}
-              </Text>
+              <Text style={styles.destructiveText}>{t('designPreview.activeWorkout.cancelWorkout')}</Text>
             </Pressable>
           </Pressable>
         </Pressable>
       </Modal>
 
-      <Modal
-        visible={showFinishSheet}
-        transparent
-        animationType="slide"
-        onRequestClose={() => setActiveView('active')}
-      >
-        <Pressable
-          style={styles.overlay}
-          onPress={() => setActiveView('active')}
-        >
-          <Pressable
-            style={styles.sheet}
-            onPress={event => event.stopPropagation()}
-          >
-            <Text style={styles.sheetTitle}>
-              {t('designPreview.activeWorkout.finishTitle')}
-            </Text>
+      <Modal visible={showFinishSheet} transparent animationType="slide" onRequestClose={() => setActiveView('active')}>
+        <Pressable style={styles.overlay} onPress={() => setActiveView('active')}>
+          <Pressable style={styles.sheet} onPress={(event) => event.stopPropagation()}>
+            <Text style={styles.sheetTitle}>{t('designPreview.activeWorkout.finishTitle')}</Text>
             <View style={styles.statsRow}>
               <View style={styles.statBlock}>
-                <Text style={styles.statLabel}>
-                  {t('designPreview.activeWorkout.duration')}
-                </Text>
+                <Text style={styles.statLabel}>{t('designPreview.activeWorkout.duration')}</Text>
                 <Text style={styles.statValue}>42:18</Text>
               </View>
               <View style={styles.statBlock}>
-                <Text style={styles.statLabel}>
-                  {t('designPreview.activeWorkout.volume')}
-                </Text>
+                <Text style={styles.statLabel}>{t('designPreview.activeWorkout.volume')}</Text>
                 <Text style={styles.statValue}>4,280 kg</Text>
               </View>
               <View style={styles.statBlock}>
-                <Text style={styles.statLabel}>
-                  {t('designPreview.activeWorkout.sets')}
-                </Text>
+                <Text style={styles.statLabel}>{t('designPreview.activeWorkout.sets')}</Text>
                 <Text style={styles.statValue}>14</Text>
               </View>
             </View>
             <View style={styles.headerPillRow}>
-              <Pressable
-                style={[styles.headerPill, styles.headerPillFlex]}
-                onPress={() => setActiveView('active')}
-              >
-                <Text
-                  style={[styles.headerPillText, styles.headerPillTextCenter]}
-                >
+              <Pressable style={[styles.headerPill, styles.headerPillFlex]} onPress={() => setActiveView('active')}>
+                <Text style={[styles.headerPillText, styles.headerPillTextCenter]}>
                   {t('designPreview.activeWorkout.resume')}
                 </Text>
               </Pressable>
@@ -548,42 +422,22 @@ const ActiveWorkoutFlowPreviewComponent = ({
         </Pressable>
       </Modal>
 
-      <Modal
-        visible={showCancelOverlay}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setCancelOpen(false)}
-      >
-        <Pressable
-          style={styles.overlayCenter}
-          onPress={() => setCancelOpen(false)}
-        >
-          <Pressable
-            style={styles.alertCard}
-            onPress={event => event.stopPropagation()}
-          >
+      <Modal visible={showCancelOverlay} transparent animationType="fade" onRequestClose={() => setCancelOpen(false)}>
+        <Pressable style={styles.overlayCenter} onPress={() => setCancelOpen(false)}>
+          <Pressable style={styles.alertCard} onPress={(event) => event.stopPropagation()}>
             <View style={styles.alertBody}>
-              <Text style={styles.alertTitle}>
-                {t('designPreview.activeWorkout.discardTitle')}
-              </Text>
-              <Text style={styles.alertCopy}>
-                {t('designPreview.activeWorkout.discardCopy')}
-              </Text>
+              <Text style={styles.alertTitle}>{t('designPreview.activeWorkout.discardTitle')}</Text>
+              <Text style={styles.alertCopy}>{t('designPreview.activeWorkout.discardCopy')}</Text>
             </View>
             <View style={styles.alertActions}>
-              <Pressable
-                style={styles.alertAction}
-                onPress={() => setCancelOpen(false)}
-              >
-                <Text style={styles.alertActionText}>
-                  {t('designPreview.activeWorkout.keepGoing')}
-                </Text>
+              <Pressable style={styles.alertAction} onPress={() => setCancelOpen(false)}>
+                <Text style={styles.alertActionText}>{t('designPreview.activeWorkout.keepGoing')}</Text>
               </Pressable>
               <Pressable
                 style={[styles.alertAction, styles.alertActionLast]}
                 onPress={() => {
-                  setCancelOpen(false);
-                  setActiveView('discarded');
+                  setCancelOpen(false)
+                  setActiveView('discarded')
                 }}
               >
                 <Text style={[styles.alertActionText, styles.alertDestructive]}>
@@ -595,9 +449,9 @@ const ActiveWorkoutFlowPreviewComponent = ({
         </Pressable>
       </Modal>
     </View>
-  );
-};
+  )
+}
 
-const spacingBottom = (inset: number) => Math.max(inset, 24);
+const spacingBottom = (inset: number) => Math.max(inset, 24)
 
-export default ActiveWorkoutFlowPreviewComponent;
+export default ActiveWorkoutFlowPreviewComponent

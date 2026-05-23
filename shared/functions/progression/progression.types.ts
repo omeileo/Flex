@@ -11,7 +11,7 @@ export type ProgressionResult = {
 }
 
 export type ProgressionChange = {
-  exerciseId: number
+  exerciseId: string
   exerciseName: string
   field: 'targetReps' | 'targetWeightKg' | 'targetRpe'
   previousValue: number
@@ -20,7 +20,7 @@ export type ProgressionChange = {
 }
 
 export type SetPerformance = {
-  exerciseId: number
+  exerciseId: string
   setNumber: number
   repsCompleted?: number
   weightKg?: number

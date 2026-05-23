@@ -1,9 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import ProfileSettingsFlowPreviewComponent from './ProfileSettingsFlowPreview.component';
+import ProfileSettingsFlowPreviewComponent from './ProfileSettingsFlowPreview.component'
 
-const ProfileSettingsFlowPreviewContainer = () => (
-  <ProfileSettingsFlowPreviewComponent />
-);
+const ProfileSettingsFlowPreviewContainer = () => <ProfileSettingsFlowPreviewComponent />
 
-export default ProfileSettingsFlowPreviewContainer;
+export default ProfileSettingsFlowPreviewContainer

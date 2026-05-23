@@ -1,8 +1,9 @@
-import React from 'react';
-import { Pressable, Text } from 'react-native';
+import React from 'react'
 
-import styles from './EquipmentChip.styles';
-import { EquipmentChipProps } from './EquipmentChip.types';
+import { Pressable, Text } from 'react-native'
+
+import styles from './EquipmentChip.styles'
+import { EquipmentChipProps } from './EquipmentChip.types'
 
 const EquipmentChip = ({ label, selected, onPress }: EquipmentChipProps) => (
   <Pressable
@@ -11,10 +12,8 @@ const EquipmentChip = ({ label, selected, onPress }: EquipmentChipProps) => (
     accessibilityRole="button"
     accessibilityState={{ selected }}
   >
-    <Text style={[styles.label, selected && styles.labelSelected]}>
-      {label}
-    </Text>
+    <Text style={[styles.label, selected && styles.labelSelected]}>{label}</Text>
   </Pressable>
-);
+)
 
-export default EquipmentChip;
+export default EquipmentChip

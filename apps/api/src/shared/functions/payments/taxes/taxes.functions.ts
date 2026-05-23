@@ -29,14 +29,14 @@ export async function calculateTax(itemDetails: ItemDetails[]): Promise<Calculat
 
   const itemPurchaseTaxAdministrativeDivision: string | null = null
   let totalTax = 0
-  let taxCountry: { id: number; name: string } | null = null
-  let taxAdministrativeDivision: { id: number; name: string } | null = null
+  let taxCountry: { id: string; name: string } | null = null
+  let taxAdministrativeDivision: { id: string; name: string } | null = null
 
   let taxRate: {
-    id: number
+    id: string
     rate: number
-    country_id: number | null
-    administrative_division_id: number | null
+    country_id: string | null
+    administrative_division_id: string | null
     administrative_division_name?: string | null
     country_name?: string | null
   } | null = null
@@ -157,13 +157,13 @@ export async function calculateTax(itemDetails: ItemDetails[]): Promise<Calculat
 }
 
 export async function getTaxRateForAdministrativeDivision(administrativeDivision: string, country: string) {
-  let taxCountry: { id: number; name: string } | null = null
+  let taxCountry: { id: string; name: string } | null = null
 
   let taxRate: {
-    id: number
+    id: string
     rate: number
-    country_id: number | null
-    administrative_division_id: number | null
+    country_id: string | null
+    administrative_division_id: string | null
     administrative_division_name?: string | null
   } | null = null
 
@@ -202,10 +202,10 @@ export async function getTaxRateForAdministrativeDivision(administrativeDivision
 
 async function getTaxRateForCountry(country: string) {
   let taxRate: {
-    id: number
+    id: string
     rate: number
-    country_id: number | null
-    administrative_division_id: number | null
+    country_id: string | null
+    administrative_division_id: string | null
   } | null = null
   logger.info(`Getting tax rate for country: ${country}`)
 

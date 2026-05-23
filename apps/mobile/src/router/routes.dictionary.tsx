@@ -8,6 +8,7 @@ import ProfileSettingsFlowPreview from '../screens/DesignPreview/ProfileSettings
 import TrainingPlanFlowPreview from '../screens/DesignPreview/TrainingPlanFlowPreview/TrainingPlanFlowPreview.container'
 import ExerciseDetail from '../screens/ExerciseDetail/ExerciseDetail.container'
 import FlexBootstrap from '../screens/FlexBootstrap/FlexBootstrap.container'
+import ForgetPassword from '../screens/ForgetPassword/ForgetPassword.container'
 import Landing from '../screens/Landing/Landing.container'
 import Login from '../screens/Login/Login.container'
 import PlanDetail from '../screens/PlanDetail/PlanDetail.container'
@@ -57,6 +58,16 @@ const routes = {
     options: {
       headerShown: true,
       title: 'Verify email'
+    }
+  },
+  forgetPassword: {
+    name: 'ForgetPassword',
+    path: 'ForgetPassword',
+    isAuthenticationRequired: false,
+    component: ForgetPassword,
+    options: {
+      headerShown: true,
+      title: 'Reset password'
     }
   },
   flexBootstrap: {

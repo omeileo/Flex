@@ -1,22 +1,16 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   container: {
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   label: {
     fontSize: typography.body,
     fontWeight: fontWeights.semibold,
     color: colors.textPrimary,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   input: {
     backgroundColor: colors.surface,
@@ -27,18 +21,18 @@ export default StyleSheet.create({
     paddingVertical: spacing.sm + 2,
     fontSize: typography.bodyLarge,
     color: colors.textPrimary,
-    minHeight: 48,
+    minHeight: 48
   },
   inputReadOnly: {
     backgroundColor: colors.background,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   inputError: {
-    borderColor: colors.error,
+    borderColor: colors.error
   },
   error: {
     fontSize: typography.caption,
     color: colors.error,
-    marginTop: spacing.xs,
-  },
-});
+    marginTop: spacing.xs
+  }
+})

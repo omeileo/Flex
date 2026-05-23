@@ -1,13 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  elevation,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, elevation, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   card: {
@@ -17,49 +10,49 @@ export default StyleSheet.create({
     marginBottom: spacing.sm,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
-    opacity: 0.85,
+    opacity: 0.85
   },
   cardCurrent: {
     borderWidth: 2,
     borderColor: colors.accent,
     opacity: 1,
-    ...elevation.card,
+    ...elevation.card
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   weekTitle: {
     fontSize: typography.title,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   dateRange: {
     fontSize: typography.caption,
     color: colors.textSecondary,
-    marginTop: spacing.xs,
+    marginTop: spacing.xs
   },
   stats: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   workoutRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: spacing.xs,
+    paddingVertical: spacing.xs
   },
   modalityDot: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    marginRight: spacing.sm,
+    marginRight: spacing.sm
   },
   workoutTitle: {
     fontSize: typography.body,
     color: colors.textPrimary,
-    flex: 1,
-  },
-});
+    flex: 1
+  }
+})

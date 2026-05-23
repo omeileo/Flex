@@ -1,8 +1,8 @@
 import { z } from 'zod'
 
 export const fitnessProfileSchema = z.object({
-  id: z.number().optional(),
-  userId: z.number().optional(),
+  id: z.string().min(1).max(64).optional(),
+  userId: z.string().min(1).max(64).optional(),
   goal: z.string().min(1),
   experienceLevel: z.enum(['beginner', 'intermediate', 'advanced']),
   daysPerWeek: z.number().int().min(1).max(7),

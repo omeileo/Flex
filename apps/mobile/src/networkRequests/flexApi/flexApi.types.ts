@@ -1,3 +1,3 @@
-import type { FlexApiClient } from '@flex/shared/functions/http/flexApiClient/flexApiClient';
+import type { FlexApiClient } from '@flex/shared/functions/http/flexApiClient/flexApiClient'
 
-export type FlexApiInstance = FlexApiClient;
+export type FlexApiInstance = FlexApiClient

@@ -1,29 +1,22 @@
-import { StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native'
 
-import {
-  colors,
-  elevation,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, elevation, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: colors.background
   },
   content: {
     flex: 1,
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacing.md
   },
   viewSwitcher: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
     marginBottom: spacing.md,
-    marginTop: spacing.sm,
+    marginTop: spacing.sm
   },
   viewChip: {
     paddingVertical: spacing.xs,
@@ -31,40 +24,40 @@ const styles = StyleSheet.create({
     borderRadius: radii.pill,
     backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.border
   },
   viewChipActive: {
     backgroundColor: colors.accentMuted,
-    borderColor: colors.accent,
+    borderColor: colors.accent
   },
   viewChipText: {
     fontSize: typography.caption,
     color: colors.textSecondary,
-    fontWeight: fontWeights.medium,
+    fontWeight: fontWeights.medium
   },
   viewChipTextActive: {
     color: colors.textPrimary,
-    fontWeight: fontWeights.semibold,
+    fontWeight: fontWeights.semibold
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.md
   },
   headerTitle: {
     fontSize: typography.title,
     fontWeight: fontWeights.bold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   headerMeta: {
     fontSize: typography.body,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   metaRow: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   exerciseRow: {
     flexDirection: 'row',
@@ -75,55 +68,55 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     borderWidth: 1,
     borderColor: colors.border,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   modalityBar: {
     width: 4,
     height: 36,
     borderRadius: 2,
-    backgroundColor: colors.accentStrength,
+    backgroundColor: colors.accentStrength
   },
   exerciseName: {
     fontSize: typography.bodyLarge,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   exerciseRx: {
     fontSize: typography.caption,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   progressLabel: {
     fontSize: typography.caption,
     color: colors.textSecondary,
-    marginBottom: spacing.xs,
+    marginBottom: spacing.xs
   },
   progressTrack: {
     flexDirection: 'row',
     gap: 4,
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   progressSegment: {
     flex: 1,
     height: 6,
     borderRadius: 3,
-    backgroundColor: colors.border,
+    backgroundColor: colors.border
   },
   progressDone: {
-    backgroundColor: colors.accentEnergy,
+    backgroundColor: colors.accentEnergy
   },
   progressCurrent: {
-    backgroundColor: colors.accent,
+    backgroundColor: colors.accent
   },
   sectionTitle: {
     fontSize: typography.heading,
     fontWeight: fontWeights.bold,
     color: colors.textPrimary,
-    marginBottom: spacing.xs,
+    marginBottom: spacing.xs
   },
   prescription: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   videoPlaceholder: {
     height: 120,
@@ -131,18 +124,18 @@ const styles = StyleSheet.create({
     backgroundColor: colors.border,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   tableHeader: {
     flexDirection: 'row',
     marginBottom: spacing.xs,
-    paddingHorizontal: spacing.sm,
+    paddingHorizontal: spacing.sm
   },
   tableHeaderCell: {
     flex: 1,
     fontSize: typography.caption,
     color: colors.textSecondary,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   headerPill: {
     paddingVertical: spacing.xs,
@@ -150,41 +143,41 @@ const styles = StyleSheet.create({
     borderRadius: radii.pill,
     backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.border
   },
   headerPillDark: {
     backgroundColor: colors.accent,
-    borderColor: colors.accent,
+    borderColor: colors.accent
   },
   headerPillText: {
     fontSize: typography.caption,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   headerPillTextLight: {
-    color: colors.textInverse,
+    color: colors.textInverse
   },
   logSetButton: {
     marginTop: spacing.sm,
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   navRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: spacing.xl,
+    marginBottom: spacing.xl
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(17,24,39,0.45)',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-end'
   },
   overlayCenter: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(17,24,39,0.45)',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: spacing.lg,
+    padding: spacing.lg
   },
   pauseCard: {
     width: '100%',
@@ -193,73 +186,73 @@ const styles = StyleSheet.create({
     borderRadius: radii.lg,
     padding: spacing.lg,
     gap: spacing.md,
-    ...elevation.floating,
+    ...elevation.floating
   },
   pauseTitle: {
     fontSize: typography.heading,
     fontWeight: fontWeights.bold,
     color: colors.textPrimary,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   pauseMeta: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   destructiveText: {
     fontSize: typography.body,
     color: colors.error,
     textAlign: 'center',
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.sm
   },
   menuItem: {
     paddingVertical: spacing.md,
     borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    borderBottomColor: colors.border
   },
   menuItemText: {
     fontSize: typography.bodyLarge,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   sheet: {
     backgroundColor: colors.surface,
     borderTopLeftRadius: radii.lg,
     borderTopRightRadius: radii.lg,
     padding: spacing.lg,
-    ...elevation.floating,
+    ...elevation.floating
   },
   sheetTitle: {
     fontSize: typography.heading,
     fontWeight: fontWeights.bold,
     color: colors.textPrimary,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   statsRow: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   statBlock: {
-    alignItems: 'center',
+    alignItems: 'center'
   },
   statLabel: {
     fontSize: typography.caption,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   statValue: {
     fontSize: typography.title,
     fontWeight: fontWeights.bold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   saveExerciseName: {
     fontSize: typography.bodyLarge,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   saveExerciseData: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   notesBox: {
     minHeight: 80,
@@ -268,11 +261,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     padding: spacing.md,
-    marginVertical: spacing.md,
+    marginVertical: spacing.md
   },
   notesPlaceholder: {
     fontSize: typography.body,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   successIcon: {
     width: 80,
@@ -283,24 +276,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     marginTop: 120,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.lg
   },
   successCheck: {
     fontSize: 36,
-    color: colors.accentEnergy,
+    color: colors.accentEnergy
   },
   centeredTitle: {
     fontSize: typography.heading,
     fontWeight: fontWeights.bold,
     color: colors.textPrimary,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   centeredMeta: {
     fontSize: typography.bodyLarge,
     color: colors.textSecondary,
     textAlign: 'center',
     marginTop: spacing.sm,
-    marginBottom: spacing.xl,
+    marginBottom: spacing.xl
   },
   alertCard: {
     width: '100%',
@@ -308,50 +301,50 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     borderRadius: radii.lg,
     overflow: 'hidden',
-    ...elevation.floating,
+    ...elevation.floating
   },
   alertBody: {
     padding: spacing.lg,
-    gap: spacing.sm,
+    gap: spacing.sm
   },
   alertTitle: {
     fontSize: typography.title,
     fontWeight: fontWeights.bold,
     color: colors.textPrimary,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   alertCopy: {
     fontSize: typography.body,
     color: colors.textSecondary,
     textAlign: 'center',
-    lineHeight: 22,
+    lineHeight: 22
   },
   alertActions: {
     flexDirection: 'row',
     borderTopWidth: 1,
-    borderTopColor: colors.border,
+    borderTopColor: colors.border
   },
   alertAction: {
     flex: 1,
     paddingVertical: spacing.md,
     alignItems: 'center',
     borderRightWidth: 1,
-    borderRightColor: colors.border,
+    borderRightColor: colors.border
   },
   alertActionLast: {
-    borderRightWidth: 0,
+    borderRightWidth: 0
   },
   alertActionText: {
     fontSize: typography.bodyLarge,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   alertDestructive: {
-    color: colors.error,
+    color: colors.error
   },
   footer: {
     paddingBottom: spacing.xl,
-    gap: spacing.sm,
+    gap: spacing.sm
   },
   secondaryOutline: {
     borderWidth: 1,
@@ -361,61 +354,61 @@ const styles = StyleSheet.create({
     minHeight: 48,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.md
   },
   secondaryOutlineLabel: {
     fontSize: typography.bodyLarge,
     fontWeight: fontWeights.semibold,
-    color: colors.error,
+    color: colors.error
   },
   headerMetaCenter: {
-    textAlign: 'center',
+    textAlign: 'center'
   },
   headerActionsRow: {
     flexDirection: 'row',
-    gap: spacing.sm,
+    gap: spacing.sm
   },
   headerMetaSpaced: {
-    marginVertical: spacing.md,
+    marginVertical: spacing.md
   },
   statLabelSpaced: {
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   headerPillRow: {
     flexDirection: 'row',
-    gap: 10,
+    gap: 10
   },
   headerPillFlex: {
     flex: 1,
     height: 52,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   headerPillTextCenter: {
-    textAlign: 'center',
+    textAlign: 'center'
   },
   flexOne: {
-    flex: 1,
+    flex: 1
   },
   scrollContent: {
-    paddingBottom: 48,
+    paddingBottom: 48
   },
   discardedContentTop: {
-    marginTop: 160,
+    marginTop: 160
   },
   outcomeLayout: {
     flex: 1,
-    justifyContent: 'space-between',
-  },
-});
+    justifyContent: 'space-between'
+  }
+})
 
 export const containerWithInset = (paddingTop: number): ViewStyle => ({
-  paddingTop,
-});
+  paddingTop
+})
 
 export const outcomeLayoutWithInset = (paddingBottom: number): ViewStyle => ({
   flex: 1,
   justifyContent: 'space-between',
-  paddingBottom,
-});
+  paddingBottom
+})
 
-export default styles;
+export default styles

@@ -1,13 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  elevation,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, elevation, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   container: {
@@ -19,7 +12,7 @@ export default StyleSheet.create({
     paddingBottom: spacing.xl,
     borderTopWidth: 1,
     borderColor: colors.border,
-    ...elevation.floating,
+    ...elevation.floating
   },
   handle: {
     width: 40,
@@ -27,41 +20,41 @@ export default StyleSheet.create({
     borderRadius: 2,
     backgroundColor: colors.border,
     alignSelf: 'center',
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   title: {
     fontSize: typography.title,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   skipButton: {
     paddingVertical: spacing.xs,
     paddingHorizontal: spacing.md,
     borderRadius: radii.pill,
-    backgroundColor: colors.background,
+    backgroundColor: colors.background
   },
   skipLabel: {
     fontSize: typography.body,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   timer: {
     fontSize: 48,
     fontWeight: fontWeights.bold,
     color: colors.textPrimary,
     textAlign: 'center',
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   adjustRow: {
     flexDirection: 'row',
     gap: spacing.sm,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   adjustButton: {
     flex: 1,
@@ -70,16 +63,16 @@ export default StyleSheet.create({
     backgroundColor: colors.background,
     borderWidth: 1,
     borderColor: colors.border,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   adjustLabel: {
     fontSize: typography.bodyLarge,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   nextLabel: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    textAlign: 'center',
-  },
-});
+    textAlign: 'center'
+  }
+})

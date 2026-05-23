@@ -1,21 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   container: {
-    marginBottom: spacing.lg,
+    marginBottom: spacing.lg
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: spacing.sm,
+    gap: spacing.sm
   },
   box: {
     flex: 1,
@@ -26,22 +20,22 @@ export default StyleSheet.create({
     borderColor: colors.border,
     backgroundColor: colors.surface,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   boxFilled: {
     borderColor: colors.accent,
-    borderWidth: 2,
+    borderWidth: 2
   },
   boxText: {
     fontSize: typography.title,
     fontWeight: fontWeights.semibold,
     color: colors.textPrimary,
-    textTransform: 'uppercase',
+    textTransform: 'uppercase'
   },
   hiddenInput: {
     height: 0,
     width: 0,
     opacity: 0,
-    position: 'absolute',
-  },
-});
+    position: 'absolute'
+  }
+})

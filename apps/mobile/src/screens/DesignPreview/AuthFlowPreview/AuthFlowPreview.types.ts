@@ -1,3 +1,3 @@
-export type AuthFlowView = 'signIn' | 'signUp' | 'verify';
+export type AuthFlowView = 'signIn' | 'signUp' | 'verify'
 
-export type AuthFlowPreviewComponentProps = Record<string, never>;
+export type AuthFlowPreviewComponentProps = Record<string, never>

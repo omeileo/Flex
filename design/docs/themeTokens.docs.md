@@ -56,6 +56,9 @@ Modality accent colors (`accentEnergy`, `accentStrength`, etc.) are **shared acr
 | `colors.error`              | `#DC2626` | Errors, validation                  |
 | `colors.warning`            | `#F59E0B` | Warnings, deload weeks              |
 | `colors.success`            | `#16A34A` | Completed workouts                  |
+| `colors.accentCycle`        | `#BE185D` | Cycle phase chip accent             |
+| `colors.accentCycleMuted`   | `#F9A8D4` | Cycle chip border / muted accent    |
+| `colors.accentCycleSoft`    | `#FDF2F8` | Cycle hero cards, period highlights |
 
 ### Workout Card Gradient Bars
 
@@ -126,6 +129,15 @@ Dark and Gym Girlie elevation shadows should use theme-appropriate shadow colors
 - **PrimaryButton** — Full-width pill CTA (theme-aware fill)
 - **PillTabBar** — 4-tab floating capsule (Today, Plan, Coach, Profile)
 - **ThemePicker** — Three preview cards (Light, Dark, Gym Girlie) with selected border state
+- **ThemeSwatchRow** — Inline mini accent swatches for hub preview rows
+- **ScreenHeader** — Back + centered title navigation bar
+- **SecondaryButton** — Outlined secondary and destructive pill CTAs
+- **MovementRestrictionChip** — Injury restriction multi-select chip
+- **ExerciseExcludeRow** — Global exclude list row with checkbox
+- **CyclePhaseChip** — Rose-tint cycle phase pill
+- **SymptomLogChip** — Circular daily log symptom selector
+- **CycleCalendarStrip** — Week row with period day highlights
+- **StatCard** — Progress tab metric tile
 
 ## Mobbin Research Notes
 

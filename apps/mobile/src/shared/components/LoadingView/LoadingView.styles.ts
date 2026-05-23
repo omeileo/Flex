@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import { colors, spacing, typography } from '@shared/styles/StyleConstants';
+import { colors, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   container: {
@@ -8,11 +8,11 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.background,
-    padding: spacing.lg,
+    padding: spacing.lg
   },
   message: {
     marginTop: spacing.md,
     fontSize: typography.body,
-    color: colors.textSecondary,
-  },
-});
+    color: colors.textSecondary
+  }
+})

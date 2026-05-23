@@ -1,32 +1,26 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import {
-  colors,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacing.md
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.md
   },
   cancel: {
     fontSize: typography.bodyLarge,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   title: {
     fontSize: typography.title,
     fontWeight: fontWeights.bold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   search: {
     height: 44,
@@ -36,17 +30,17 @@ export default StyleSheet.create({
     borderColor: colors.border,
     justifyContent: 'center',
     paddingHorizontal: spacing.md,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   searchPlaceholder: {
     fontSize: typography.body,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   chips: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   chip: {
     paddingVertical: spacing.xs,
@@ -54,12 +48,12 @@ export default StyleSheet.create({
     borderRadius: radii.pill,
     backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.border
   },
   chipText: {
     fontSize: typography.caption,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   option: {
     flexDirection: 'row',
@@ -70,24 +64,24 @@ export default StyleSheet.create({
     backgroundColor: colors.surface,
     borderWidth: 1,
     borderColor: colors.border,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   thumb: {
     width: 40,
     height: 40,
     borderRadius: radii.md,
-    backgroundColor: colors.border,
+    backgroundColor: colors.border
   },
   optionName: {
     fontSize: typography.bodyLarge,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   optionMeta: {
     fontSize: typography.caption,
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
   headerSpacer: {
-    width: 48,
-  },
-});
+    width: 48
+  }
+})

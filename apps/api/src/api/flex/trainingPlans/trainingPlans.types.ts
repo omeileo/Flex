@@ -8,7 +8,7 @@ export type TrainingPlanParams = {
 }
 
 export type PlanChangeLogEntry = ProgressionChange & {
-  id: number
+  id: string
   createdAt: string
 }
 
