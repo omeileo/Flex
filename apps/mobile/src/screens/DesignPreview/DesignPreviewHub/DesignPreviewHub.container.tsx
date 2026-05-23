@@ -1,47 +1,52 @@
-import React, { useCallback } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useCallback } from 'react'
 
-import { RootStackNavigationProp } from '@router/router.types';
+import { useNavigation } from '@react-navigation/native'
+import { RootStackNavigationProp } from '@router/router.types'
 
-import DesignPreviewHubComponent from './DesignPreviewHub.component';
+import DesignPreviewHubComponent from './DesignPreviewHub.component'
 
 const DesignPreviewHubContainer = () => {
-  const navigation = useNavigation<RootStackNavigationProp>();
+  const navigation = useNavigation<RootStackNavigationProp>()
 
   const handleOpenOnboarding = useCallback(() => {
-    navigation.navigate('OnboardingFlowPreview');
-  }, [navigation]);
+    navigation.navigate('OnboardingFlowPreview')
+  }, [navigation])
 
   const handleOpenTrainingPlan = useCallback(() => {
-    navigation.navigate('TrainingPlanFlowPreview');
-  }, [navigation]);
+    navigation.navigate('TrainingPlanFlowPreview')
+  }, [navigation])
+
+  const handleOpenPlanDetail = useCallback(() => {
+    navigation.navigate('PlanDetailFlowPreview')
+  }, [navigation])
 
   const handleOpenActiveWorkout = useCallback(() => {
-    navigation.navigate('ActiveWorkoutFlowPreview');
-  }, [navigation]);
+    navigation.navigate('ActiveWorkoutFlowPreview')
+  }, [navigation])
 
   const handleOpenGymLocations = useCallback(() => {
-    navigation.navigate('GymLocationsSettingsPreview');
-  }, [navigation]);
+    navigation.navigate('GymLocationsSettingsPreview')
+  }, [navigation])
 
   const handleOpenAuth = useCallback(() => {
-    navigation.navigate('AuthFlowPreview');
-  }, [navigation]);
+    navigation.navigate('AuthFlowPreview')
+  }, [navigation])
 
   const handleOpenProfileSettings = useCallback(() => {
-    navigation.navigate('ProfileSettingsFlowPreview');
-  }, [navigation]);
+    navigation.navigate('ProfileSettingsFlowPreview')
+  }, [navigation])
 
   return (
     <DesignPreviewHubComponent
       onOpenOnboarding={handleOpenOnboarding}
       onOpenTrainingPlan={handleOpenTrainingPlan}
+      onOpenPlanDetail={handleOpenPlanDetail}
       onOpenActiveWorkout={handleOpenActiveWorkout}
       onOpenGymLocations={handleOpenGymLocations}
       onOpenAuth={handleOpenAuth}
       onOpenProfileSettings={handleOpenProfileSettings}
     />
-  );
-};
+  )
+}
 
-export default DesignPreviewHubContainer;
+export default DesignPreviewHubContainer

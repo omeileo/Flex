@@ -1,0 +1,3001 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "m7n1n",
+      "x": 80,
+      "y": 80,
+      "name": "CycleAwareTraining Flow Step 1: Onboarding opt-in",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F7F8FA",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "OhNE8",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            56,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "VSRDH",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "I4Wzv3",
+                  "fill": "#6B7280",
+                  "content": "Step 5b of 8",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "T5OPR3",
+                  "width": "fill_container",
+                  "height": 6,
+                  "fill": "#E5E7EB",
+                  "cornerRadius": 3,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 3,
+                      "id": "pGeOM",
+                      "fill": "#22C55E",
+                      "width": 120,
+                      "height": 6
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "zvjvZ",
+              "fill": "#111827",
+              "content": "Train with your cycle?",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "Xx7vT",
+              "fill": "#6B7280",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Flex can adjust volume and intensity based on your phase — and how you feel each day.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "d5nbyA",
+              "width": "fill_container",
+              "fill": "#FDF2F8",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#F9A8D4"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "mHimn",
+                  "fill": "#BE185D",
+                  "width": 40,
+                  "height": 4
+                },
+                {
+                  "type": "frame",
+                  "id": "Yr7c2",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "qIB79",
+                      "fill": "#BE185D",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "q3ASd",
+                      "fill": "#111827",
+                      "content": "Phase-aware coach notes on Today",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YTXUz",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "EcBFx",
+                      "fill": "#BE185D",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "xkeb0",
+                      "fill": "#111827",
+                      "content": "Lighter sessions on low-energy days",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DID5s",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "YiPCK",
+                      "fill": "#BE185D",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "EJ1yU",
+                      "fill": "#111827",
+                      "content": "Private — you control what's shared",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "P9Yxlq",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "p5gmq",
+                  "fill": "#FFFFFF",
+                  "content": "Enable cycle-aware training",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "WJDE5",
+              "fill": "#111827",
+              "content": "Not now",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "ew9kL",
+              "fill": "#6B7280",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "You can turn this on anytime in Profile.",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ynsgC",
+      "x": 670,
+      "y": 80,
+      "name": "CycleAwareTraining Flow Step 2: Last period",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F7F8FA",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "CaVym",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            56,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "HzmZr",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "omFxi",
+                  "fill": "#111827",
+                  "content": "←",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "drM4s",
+                  "fill": "#111827",
+                  "content": "Cycle setup",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "VtgIx",
+              "fill": "#111827",
+              "content": "When did your last period start?",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "cyojn",
+              "fill": "#6B7280",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "We'll estimate your current phase from this.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "r0fitJ",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "u7lLJ",
+                  "fill": "#6B7280",
+                  "content": "MARCH 2026",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "t2k34",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "g8KesU",
+                      "width": 40,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "nEDRe",
+                          "fill": "#00000000",
+                          "width": 32,
+                          "height": 32,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E5E7EB"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "id": "x6bloN",
+                          "fill": "#6B7280",
+                          "content": "S",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NOmZq",
+                      "width": 40,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "RpXix",
+                          "fill": "#00000000",
+                          "width": 32,
+                          "height": 32,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E5E7EB"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "id": "AX3tm",
+                          "fill": "#6B7280",
+                          "content": "M",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "QUdtF",
+                      "width": 40,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "IS4OC",
+                          "fill": "#00000000",
+                          "width": 32,
+                          "height": 32,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E5E7EB"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "id": "Iinik",
+                          "fill": "#6B7280",
+                          "content": "T",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BObOa",
+                      "width": 40,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "Z9leXI",
+                          "fill": "#FDF2F8",
+                          "width": 32,
+                          "height": 32,
+                          "stroke": {
+                            "thickness": 2,
+                            "fill": "#BE185D"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "id": "gtWkT",
+                          "fill": "#BE185D",
+                          "content": "W",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gDfjO",
+                      "width": 40,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "V3j4P",
+                          "fill": "#00000000",
+                          "width": 32,
+                          "height": 32,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E5E7EB"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "id": "z2kbL",
+                          "fill": "#6B7280",
+                          "content": "T",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sK2tx",
+                      "width": 40,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "C4bOIx",
+                          "fill": "#00000000",
+                          "width": 32,
+                          "height": 32,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E5E7EB"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "id": "s0ReBK",
+                          "fill": "#6B7280",
+                          "content": "F",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Nkl2l",
+                      "width": 40,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "wGBLE",
+                          "fill": "#00000000",
+                          "width": 32,
+                          "height": 32,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E5E7EB"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "id": "y0850o",
+                          "fill": "#6B7280",
+                          "content": "S",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "djnTn",
+                  "fill": "#F9A8D4",
+                  "width": 280,
+                  "height": 4
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "zqi7E",
+              "fill": "#111827",
+              "content": "March 4, 2026",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "LwhYb",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n38oM",
+                  "fill": "#FFFFFF",
+                  "content": "Continue",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "xUkLD",
+      "x": 1260,
+      "y": 80,
+      "name": "CycleAwareTraining Flow Step 3: Cycle lengths",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F7F8FA",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "FtLdQ",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            56,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "NCyuY",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Z2zAD9",
+                  "fill": "#111827",
+                  "content": "←",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "M89o1Q",
+                  "fill": "#111827",
+                  "content": "Cycle setup",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "G94qb",
+              "fill": "#111827",
+              "content": "Your typical cycle",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "K3UBb",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 16,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "OnGFH",
+                  "fill": "#111827",
+                  "content": "Average cycle length",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "g0FkIX",
+                  "fill": "#BE185D",
+                  "content": "28 days",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bpBlN",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 16,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Wb0FK",
+                  "fill": "#111827",
+                  "content": "Period length",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "tHvzF",
+                  "fill": "#BE185D",
+                  "content": "5 days",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "jl9Iz",
+              "fill": "#6B7280",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Predictions improve as you log each period.",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "hR96p",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QqTZp",
+                  "fill": "#FFFFFF",
+                  "content": "Save & continue",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "jyZa6",
+      "x": 1850,
+      "y": 80,
+      "name": "CycleAwareTraining Flow Step 4: Profile hub row",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F7F8FA",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "tpFAa",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            56,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "YVo5k",
+              "fill": "#111827",
+              "content": "Training profile",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "GXDYO",
+              "fill": "#6B7280",
+              "content": "WELLNESS",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "bUKJB",
+              "width": "fill_container",
+              "fill": "#FDF2F8",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#F9A8D4"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "QTbF2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zT8tl",
+                      "fill": "#111827",
+                      "content": "Cycle-aware training",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Z7eWo",
+                      "fill": "#BE185D",
+                      "content": "Luteal · Day 22 · On",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "j18m2",
+                  "fill": "#6B7280",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "eONDz",
+      "x": 2440,
+      "y": 80,
+      "name": "CycleAwareTraining Flow Step 5: Cycle settings",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F7F8FA",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "VlQOi",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            56,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "b9Bmx",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "SFaYa",
+                  "fill": "#111827",
+                  "content": "←",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "tx5Fb",
+                  "fill": "#111827",
+                  "content": "Cycle-aware training",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "wD755",
+              "fill": "#6B7280",
+              "content": "CYCLE-AWARE TRAINING",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "C0aBhg",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "a0DGf",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jUyXz",
+                      "fill": "#111827",
+                      "content": "Adjust plans for my cycle",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "TqATA",
+                      "width": 44,
+                      "height": 26,
+                      "fill": "#BE185D",
+                      "cornerRadius": 13,
+                      "padding": 3,
+                      "justifyContent": "end",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "Wc0Ff",
+                          "fill": "#FFFFFF",
+                          "width": 20,
+                          "height": 20
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "XVHFo",
+                  "fill": "#6B7280",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Flex adjusts volume and intensity based on cycle phase and daily check-ins.",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "U8mBZ",
+              "fill": "#6B7280",
+              "content": "YOUR CYCLE",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "mPqfR",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "zWRsM",
+                  "fill": "#111827",
+                  "content": "Last period start",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "V0SDHS",
+                  "fill": "#6B7280",
+                  "content": "Mar 4, 2026",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "xnQU2",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mKDTy",
+                  "fill": "#111827",
+                  "content": "Cycle length",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "sCkKs",
+                  "fill": "#6B7280",
+                  "content": "28 days",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pieW2",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FIeFw",
+                  "fill": "#111827",
+                  "content": "Period length",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "sRy9W",
+                  "fill": "#6B7280",
+                  "content": "5 days",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "ouk4W",
+              "fill": "#6B7280",
+              "content": "DATA SOURCES",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "D2h1c",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "UN3BO",
+                  "fill": "#111827",
+                  "content": "Manual logging",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "efl9L",
+                  "fill": "#BE185D",
+                  "content": "Active",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NE2md",
+              "width": "fill_container",
+              "fill": "#F3F4F6",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XINfG",
+                  "fill": "#9CA3AF",
+                  "content": "Apple Health",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "IrQow",
+                  "fill": "#9CA3AF",
+                  "content": "Coming soon",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sA1Cb",
+              "width": "fill_container",
+              "fill": "#F3F4F6",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "i7ZC9l",
+                  "fill": "#9CA3AF",
+                  "content": "Health Connect",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "B9CFu",
+                  "fill": "#9CA3AF",
+                  "content": "Coming soon",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "pOQC5",
+      "x": 3620,
+      "y": 80,
+      "name": "CycleAwareTraining Flow Step 6: Customize symptoms",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F7F8FA",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "wE2X2",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            56,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "g8FV1",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gJ215",
+                  "fill": "#111827",
+                  "content": "←",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "JYGgu",
+                  "fill": "#111827",
+                  "content": "Customize symptoms",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "TRzVL",
+              "fill": "#6B7280",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Choose what appears in your daily check-in.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "W4ckxP",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n2Yg5",
+                  "fill": "#111827",
+                  "content": "Energy",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "DxBYb",
+                  "width": 44,
+                  "height": 26,
+                  "fill": "#BE185D",
+                  "cornerRadius": 13,
+                  "padding": 3,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "NJIaE",
+                      "fill": "#FFFFFF",
+                      "width": 20,
+                      "height": 20
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "tZAK8",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "v3Hd3",
+                  "fill": "#111827",
+                  "content": "Cramps",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "X338sF",
+                  "width": 44,
+                  "height": 26,
+                  "fill": "#BE185D",
+                  "cornerRadius": 13,
+                  "padding": 3,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "FJVoA",
+                      "fill": "#FFFFFF",
+                      "width": 20,
+                      "height": 20
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Lvv09",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AYS1D",
+                  "fill": "#111827",
+                  "content": "Flow intensity",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "xQCJf",
+                  "width": 44,
+                  "height": 26,
+                  "fill": "#BE185D",
+                  "cornerRadius": 13,
+                  "padding": 3,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "VAwdE",
+                      "fill": "#FFFFFF",
+                      "width": 20,
+                      "height": 20
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pYfhO",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "D0jcSn",
+                  "fill": "#111827",
+                  "content": "Mood",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "YTZWu",
+                  "width": 44,
+                  "height": 26,
+                  "fill": "#BE185D",
+                  "cornerRadius": 13,
+                  "padding": 3,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "IDzbV",
+                      "fill": "#FFFFFF",
+                      "width": 20,
+                      "height": 20
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "r32Lyg",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "smhLk",
+                  "fill": "#111827",
+                  "content": "Bloating",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "RD7uy",
+                  "width": 44,
+                  "height": 26,
+                  "fill": "#BE185D",
+                  "cornerRadius": 13,
+                  "padding": 3,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "IQbbl",
+                      "fill": "#FFFFFF",
+                      "width": 20,
+                      "height": 20
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "aW6vK",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XdLBM",
+                  "fill": "#111827",
+                  "content": "Headache",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "Jzx5o",
+                  "width": 44,
+                  "height": 26,
+                  "fill": "#D1D5DB",
+                  "cornerRadius": 13,
+                  "padding": 3,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "N1Df0c",
+                      "fill": "#FFFFFF",
+                      "width": 20,
+                      "height": 20
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "V6tv09",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": 14,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "saqXk",
+                  "fill": "#111827",
+                  "content": "Breast tenderness",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "m1hUG",
+                  "width": 44,
+                  "height": 26,
+                  "fill": "#D1D5DB",
+                  "cornerRadius": 13,
+                  "padding": 3,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "ABbZC",
+                      "fill": "#FFFFFF",
+                      "width": 20,
+                      "height": 20
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ZjEWj",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "li98t",
+                  "fill": "#FFFFFF",
+                  "content": "Save",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "rPX6J",
+      "x": 4210,
+      "y": 80,
+      "name": "CycleAwareTraining Flow Step 7: Daily log sheet",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#00000066",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "H71TOK",
+          "fill": "#00000000",
+          "width": 390,
+          "height": 200
+        },
+        {
+          "type": "frame",
+          "id": "DvAlN",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFFFFF",
+          "cornerRadius": [
+            24,
+            24,
+            0,
+            0
+          ],
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            12,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 2,
+              "id": "kLoMS",
+              "fill": "#D1D5DB",
+              "width": 40,
+              "height": 4
+            },
+            {
+              "type": "text",
+              "id": "pjxOd",
+              "fill": "#111827",
+              "content": "How are you feeling?",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "hLjyc",
+              "fill": "#BE185D",
+              "content": "Cycle Day 22 · Luteal phase",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "M2EPVp",
+              "fill": "#6B7280",
+              "content": "ENERGY",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "snzBZ",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UZ9LJ",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#E5E7EB"
+                  },
+                  "padding": [
+                    10,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "h52UZ",
+                      "fill": "#111827",
+                      "content": "Low",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "h2gbf",
+                  "fill": "#FDF2F8",
+                  "cornerRadius": 20,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#BE185D"
+                  },
+                  "padding": [
+                    10,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mYn6W",
+                      "fill": "#BE185D",
+                      "content": "Normal",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "p9we8",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#E5E7EB"
+                  },
+                  "padding": [
+                    10,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gfdkg",
+                      "fill": "#111827",
+                      "content": "High",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "nmyoX",
+              "fill": "#6B7280",
+              "content": "SYMPTOMS",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "RFPmt",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "SvF1n",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#E5E7EB"
+                  },
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Avs09",
+                      "fill": "#111827",
+                      "content": "Cramps",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ohhLi",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#E5E7EB"
+                  },
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "hp8nA",
+                      "fill": "#111827",
+                      "content": "Bloating",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jS7eq",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#E5E7EB"
+                  },
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "O4zN5J",
+                      "fill": "#111827",
+                      "content": "Fatigue",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "L44rzB",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#E5E7EB"
+                  },
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gP9wd",
+                      "fill": "#111827",
+                      "content": "None",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Jlv18",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "T729W",
+                  "fill": "#FFFFFF",
+                  "content": "Save",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "H2HKl",
+      "x": 4800,
+      "y": 80,
+      "name": "CycleAwareTraining Flow Step 8: Today cycle active",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F7F8FA",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "BpRtP",
+          "width": "fill_container",
+          "padding": [
+            56,
+            24,
+            8,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Q3XDS",
+              "fill": "#111827",
+              "content": "Week 2/8",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "nUU5z",
+          "width": "fill_container",
+          "gap": 8,
+          "padding": [
+            0,
+            24,
+            8,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "m3UcR",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "padding": [
+                8,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "dhYCt",
+                  "fill": "#111827",
+                  "content": "🏠 Home Gym ▾",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "a4gh7",
+              "fill": "#FDF2F8",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#BE185D"
+              },
+              "padding": [
+                8,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "k4rBaE",
+                  "fill": "#BE185D",
+                  "content": "Luteal · Day 22 ▾",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "D70NQu",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            0,
+            24,
+            12,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "njH7k",
+              "fill": "#111827",
+              "content": "Today's workouts",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "nAyql",
+              "width": "fill_container",
+              "height": 72,
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "gap": 10,
+              "padding": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "DHZjV",
+                  "fill": "#6366F1",
+                  "width": 4,
+                  "height": 44
+                },
+                {
+                  "type": "frame",
+                  "id": "SKJ33",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "hPu5l",
+                      "fill": "#111827",
+                      "content": "Day 1 — Upper Push",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ioVGg",
+                      "fill": "#6B7280",
+                      "content": "55 min · Foundation · RPE 6–7",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qVzNj",
+              "width": "fill_container",
+              "fill": "#FDF2F8",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#F9A8D4"
+              },
+              "gap": 10,
+              "padding": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "D2AKH",
+                  "fill": "#BE185D",
+                  "width": 4,
+                  "height": 36
+                },
+                {
+                  "type": "text",
+                  "id": "Juwu1",
+                  "fill": "#6B7280",
+                  "textGrowth": "fixed-width",
+                  "width": 280,
+                  "content": "You're in your luteal phase — we'll keep intensity moderate.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "Tuest",
+              "fill": "#BE185D",
+              "content": "+ Log how you feel",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "I7FNd",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wcsIU",
+                  "fill": "#FFFFFF",
+                  "content": "Start workout",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "WRn0h",
+      "x": 5390,
+      "y": 80,
+      "name": "CycleAwareTraining Flow Step 9: Today period day",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F7F8FA",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "gBZvM",
+          "width": "fill_container",
+          "padding": [
+            56,
+            24,
+            8,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "a0hHrk",
+              "fill": "#111827",
+              "content": "Week 2/8",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ewraQ",
+          "width": "fill_container",
+          "gap": 8,
+          "padding": [
+            0,
+            24,
+            8,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "DvgLr",
+              "fill": "#BE185D",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 0,
+                "fill": "#BE185D"
+              },
+              "padding": [
+                8,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "r8bU5",
+                  "fill": "#FFFFFF",
+                  "content": "Period · Day 2 ▾",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "J2git",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            0,
+            24,
+            12,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "J5Rwd",
+              "fill": "#111827",
+              "content": "Today's workouts",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "M12E37",
+              "width": "fill_container",
+              "height": 72,
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "gap": 10,
+              "padding": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "NRVZf",
+                  "fill": "#BE185D",
+                  "width": 4,
+                  "height": 44
+                },
+                {
+                  "type": "frame",
+                  "id": "rJFZp",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pETCk",
+                      "fill": "#111827",
+                      "content": "Day 1 — Upper Push",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "nVIYK",
+                      "fill": "#BE185D",
+                      "content": "52 min · Adjusted for cycle · RPE 5–6",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ntvaw",
+              "width": "fill_container",
+              "fill": "#FDF2F8",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#F9A8D4"
+              },
+              "gap": 10,
+              "padding": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Y3m0aK",
+                  "fill": "#6B7280",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Take it easier today — reduced leg volume and swapped jump work for low-impact options.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "F7n8o",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Z5Pud0",
+                  "fill": "#FFFFFF",
+                  "content": "Start workout",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "RIJrD",
+      "x": 5980,
+      "y": 80,
+      "name": "CycleAwareTraining Flow Step 10: Plan readapt",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#00000066",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "r9ivk",
+          "fill": "#00000000",
+          "width": 390,
+          "height": 500
+        },
+        {
+          "type": "frame",
+          "id": "Gumh7",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "cornerRadius": [
+            24,
+            24,
+            0,
+            0
+          ],
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            24,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "n9k8zA",
+              "fill": "#111827",
+              "content": "Update your plan?",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "aGeg9",
+              "fill": "#6B7280",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "You updated cycle settings. Flex can readapt the rest of your plan for cycle-aware training.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "JoF7b",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "nH1XF",
+                  "fill": "#FFFFFF",
+                  "content": "Readapt plan",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "XpAYF",
+              "fill": "#111827",
+              "content": "Keep current plan",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "RJRww",
+      "x": 1850,
+      "y": 1074,
+      "name": "CycleAwareTraining Branch: Profile opt-in",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F7F8FA",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "W4nOLQ",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            56,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "A2FyV",
+              "fill": "#111827",
+              "content": "Cycle-aware training",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "pBGLH",
+              "fill": "#6B7280",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Available to everyone — opt in anytime to adjust workouts around your cycle.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "ip6sl",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "w9xyGr",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Z6ooIW",
+                      "fill": "#111827",
+                      "content": "Adjust plans for my cycle",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "y0rVsz",
+                      "width": 44,
+                      "height": 26,
+                      "fill": "#D1D5DB",
+                      "cornerRadius": 13,
+                      "padding": 3,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "s5ka9",
+                          "fill": "#FFFFFF",
+                          "width": 20,
+                          "height": 20
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "FaxLE",
+              "fill": "#6B7280",
+              "content": "Status: Off",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "ciENA",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "W5d7L",
+                  "fill": "#FFFFFF",
+                  "content": "Set up cycle tracking",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "aBNRU",
+      "x": 2440,
+      "y": 1074,
+      "name": "CycleAwareTraining Branch: Health sync phase 2",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F7F8FA",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "dv79K",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            56,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "q1XQLk",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "nVDZv",
+                  "fill": "#111827",
+                  "content": "←",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "f2Y8k",
+                  "fill": "#111827",
+                  "content": "Apple Health",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "kBOzw",
+              "fill": "#BE185D",
+              "content": "PHASE 2",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "vftuO",
+              "width": 64,
+              "height": 64,
+              "fill": "#FDF2F8",
+              "cornerRadius": 16,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "oYQxg",
+                  "fill": "#BE185D",
+                  "content": "♥",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "JXP3M",
+              "fill": "#111827",
+              "content": "Connect Apple Health",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "uJNHv",
+              "fill": "#6B7280",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Import period history and symptoms from Apple Health. Flex never writes to Health without permission.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "NVQpg",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "iP9Bm",
+                  "fill": "#FFFFFF",
+                  "content": "Connect Apple Health",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "W9h5J",
+              "fill": "#111827",
+              "content": "Not now",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "UVkXV",
+      "x": 3030,
+      "y": 1074,
+      "name": "CycleAwareTraining Branch: Toggle off confirm",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#00000066",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "V45Mg",
+          "fill": "#00000000",
+          "width": 390,
+          "height": 500
+        },
+        {
+          "type": "frame",
+          "id": "b5r9eq",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "cornerRadius": [
+            24,
+            24,
+            0,
+            0
+          ],
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            24,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "qNeqS",
+              "fill": "#111827",
+              "content": "Turn off cycle-aware training?",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "wG15v",
+              "fill": "#6B7280",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Predictions pause and cycle info hides from Today. Your logged data is kept.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "nSjLZ",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#111827",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PLZav",
+                  "fill": "#FFFFFF",
+                  "content": "Turn off",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "j7vKb",
+              "fill": "#111827",
+              "content": "Cancel",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "w7w3TX",
+      "x": 4210,
+      "y": 1074,
+      "name": "CycleAwareTraining Branch: Lighter workout confirm",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#00000066",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "F1pd7",
+          "fill": "#00000000",
+          "width": 390,
+          "height": 450
+        },
+        {
+          "type": "frame",
+          "id": "k0YOD",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "cornerRadius": [
+            24,
+            24,
+            0,
+            0
+          ],
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            24,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "jc6LN",
+              "fill": "#111827",
+              "content": "Adjust today's workout?",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "enrb7",
+              "fill": "#6B7280",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "You logged low energy. Flex can lighten today's session.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "c8F3Pn",
+              "width": "fill_container",
+              "height": 48,
+              "fill": "#111827",
+              "cornerRadius": 24,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "g21XOG",
+                  "fill": "#FFFFFF",
+                  "content": "Lighter session",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "G00Zkk",
+              "width": "fill_container",
+              "height": 48,
+              "fill": "#FFFFFF",
+              "cornerRadius": 24,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZsXlM",
+                  "fill": "#111827",
+                  "content": "Keep planned",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "DL7gx",
+              "width": "fill_container",
+              "height": 48,
+              "fill": "#FFFFFF",
+              "cornerRadius": 24,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E5E7EB"
+              },
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "IVv9T",
+                  "fill": "#111827",
+                  "content": "Skip today",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "accent-cta": {
+      "type": "color",
+      "value": "#111827"
+    },
+    "accent-cycle": {
+      "type": "color",
+      "value": "#BE185D"
+    },
+    "accent-cycle-muted": {
+      "type": "color",
+      "value": "#F9A8D4"
+    },
+    "accent-cycle-soft": {
+      "type": "color",
+      "value": "#FDF2F8"
+    },
+    "accent-energy": {
+      "type": "color",
+      "value": "#22C55E"
+    },
+    "background": {
+      "type": "color",
+      "value": "#F7F8FA"
+    },
+    "border": {
+      "type": "color",
+      "value": "#E5E7EB"
+    },
+    "error": {
+      "type": "color",
+      "value": "#DC2626"
+    },
+    "surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#111827"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#6B7280"
+    }
+  }
+}

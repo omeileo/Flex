@@ -1,76 +1,69 @@
-import { StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native'
 
-import {
-  colors,
-  elevation,
-  fontWeights,
-  radii,
-  spacing,
-  typography,
-} from '@shared/styles/StyleConstants';
+import { colors, elevation, fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: colors.background
   },
   content: {
     flex: 1,
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacing.md
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.md
   },
   headerTitle: {
     fontSize: typography.heading,
     fontWeight: fontWeights.bold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   headerMeta: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    fontWeight: fontWeights.medium,
+    fontWeight: fontWeights.medium
   },
   sectionTitle: {
     fontSize: typography.title,
     fontWeight: fontWeights.semibold,
     color: colors.textPrimary,
     marginBottom: spacing.sm,
-    marginTop: spacing.sm,
+    marginTop: spacing.sm
   },
   weekNav: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   weekNavButton: {
-    padding: spacing.sm,
+    padding: spacing.sm
   },
   weekNavLabel: {
     fontSize: typography.title,
     fontWeight: fontWeights.semibold,
-    color: colors.textPrimary,
+    color: colors.textPrimary
   },
   progressTrack: {
     height: 8,
     backgroundColor: colors.border,
     borderRadius: radii.sm,
     overflow: 'hidden',
-    marginBottom: spacing.lg,
+    marginBottom: spacing.lg
   },
   progressFill: {
     height: '100%',
     width: '25%',
-    backgroundColor: colors.accentEnergy,
+    backgroundColor: colors.accentEnergy
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(17,24,39,0.4)',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-end'
   },
   sheet: {
     backgroundColor: colors.surface,
@@ -78,7 +71,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: radii.lg,
     padding: spacing.lg,
     maxHeight: '70%',
-    ...elevation.floating,
+    ...elevation.floating
   },
   sheetHandle: {
     width: 40,
@@ -86,18 +79,18 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     backgroundColor: colors.border,
     alignSelf: 'center',
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   sheetTitle: {
     fontSize: typography.heading,
     fontWeight: fontWeights.bold,
     color: colors.textPrimary,
-    marginBottom: spacing.xs,
+    marginBottom: spacing.xs
   },
   sheetStats: {
     fontSize: typography.body,
     color: colors.textSecondary,
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   modalIcon: {
     width: 48,
@@ -107,46 +100,46 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   modalIconText: {
-    fontSize: 24,
+    fontSize: 24
   },
   modalHeadline: {
     fontSize: typography.heading,
     fontWeight: fontWeights.bold,
     color: colors.textPrimary,
     textAlign: 'center',
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
   modalCopy: {
     fontSize: typography.bodyLarge,
     color: colors.textSecondary,
     textAlign: 'center',
     lineHeight: 24,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.lg
   },
   secondaryButton: {
     marginTop: spacing.sm,
     paddingVertical: spacing.md,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   secondaryButtonText: {
     fontSize: typography.bodyLarge,
     color: colors.textSecondary,
-    fontWeight: fontWeights.medium,
+    fontWeight: fontWeights.medium
   },
   footerCta: {
     paddingHorizontal: spacing.md,
-    paddingBottom: spacing.sm,
+    paddingBottom: spacing.sm
   },
   calendarIcon: {
-    fontSize: typography.title,
+    fontSize: typography.title
   },
   viewSwitcher: {
     flexDirection: 'row',
     gap: spacing.sm,
-    marginBottom: spacing.md,
+    marginBottom: spacing.md
   },
   viewChip: {
     paddingVertical: spacing.xs,
@@ -154,38 +147,50 @@ const styles = StyleSheet.create({
     borderRadius: radii.pill,
     backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.border
   },
   viewChipActive: {
     backgroundColor: colors.accentMuted,
-    borderColor: colors.accent,
+    borderColor: colors.accent
   },
   viewChipText: {
     fontSize: typography.caption,
     color: colors.textSecondary,
-    fontWeight: fontWeights.medium,
+    fontWeight: fontWeights.medium
   },
   viewChipTextActive: {
     color: colors.textPrimary,
-    fontWeight: fontWeights.semibold,
+    fontWeight: fontWeights.semibold
   },
   currentWeekButton: {
-    marginTop: spacing.sm,
+    marginTop: spacing.sm
+  },
+  focusCard: {
+    marginBottom: spacing.sm,
+    padding: spacing.md,
+    borderRadius: radii.md
+  },
+  chatUserBubble: {
+    padding: spacing.sm,
+    alignSelf: 'flex-end'
+  },
+  recapBullet: {
+    marginTop: spacing.sm
   },
   scrollContent: {
-    paddingBottom: 120,
-  },
-});
+    paddingBottom: 120
+  }
+})
 
 export const containerWithInset = (paddingTop: number): ViewStyle => ({
-  paddingTop,
-});
+  paddingTop
+})
 
 export const floatingTabBar = (bottom: number): ViewStyle => ({
   position: 'absolute',
   left: 0,
   right: 0,
-  bottom,
-});
+  bottom
+})
 
-export default styles;
+export default styles

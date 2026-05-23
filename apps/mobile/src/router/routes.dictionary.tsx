@@ -1,20 +1,22 @@
-import DesignPreviewHub from '../screens/DesignPreview/DesignPreviewHub/DesignPreviewHub.container';
-import OnboardingFlowPreview from '../screens/DesignPreview/OnboardingFlowPreview/OnboardingFlowPreview.container';
-import TrainingPlanFlowPreview from '../screens/DesignPreview/TrainingPlanFlowPreview/TrainingPlanFlowPreview.container';
-import GymLocationsSettingsPreview from '../screens/DesignPreview/GymLocationsSettingsPreview/GymLocationsSettingsPreview.container';
-import ActiveWorkoutFlowPreview from '../screens/DesignPreview/ActiveWorkoutFlowPreview/ActiveWorkoutFlowPreview.container';
-import AuthFlowPreview from '../screens/DesignPreview/AuthFlowPreview/AuthFlowPreview.container';
-import ProfileSettingsFlowPreview from '../screens/DesignPreview/ProfileSettingsFlowPreview/ProfileSettingsFlowPreview.container';
-import FlexBootstrap from '../screens/FlexBootstrap/FlexBootstrap.container';
-import Landing from '../screens/Landing/Landing.container';
-import Login from '../screens/Login/Login.container';
-import SignUp from '../screens/SignUp/SignUp.container';
-import VerifyEmail from '../screens/VerifyEmail/VerifyEmail.container';
-import ProfileOnboarding from '../screens/ProfileOnboarding/ProfileOnboarding.container';
-import PlanDetail from '../screens/PlanDetail/PlanDetail.container';
-import WorkoutSession from '../screens/WorkoutSession/WorkoutSession.container';
-import ExerciseDetail from '../screens/ExerciseDetail/ExerciseDetail.container';
-import MainTabsNavigator from './navigators/MainTabs.navigator';
+import ActiveWorkoutFlowPreview from '../screens/DesignPreview/ActiveWorkoutFlowPreview/ActiveWorkoutFlowPreview.container'
+import AuthFlowPreview from '../screens/DesignPreview/AuthFlowPreview/AuthFlowPreview.container'
+import DesignPreviewHub from '../screens/DesignPreview/DesignPreviewHub/DesignPreviewHub.container'
+import GymLocationsSettingsPreview from '../screens/DesignPreview/GymLocationsSettingsPreview/GymLocationsSettingsPreview.container'
+import OnboardingFlowPreview from '../screens/DesignPreview/OnboardingFlowPreview/OnboardingFlowPreview.container'
+import PlanDetailFlowPreview from '../screens/DesignPreview/PlanDetailFlowPreview/PlanDetailFlowPreview.container'
+import ProfileSettingsFlowPreview from '../screens/DesignPreview/ProfileSettingsFlowPreview/ProfileSettingsFlowPreview.container'
+import TrainingPlanFlowPreview from '../screens/DesignPreview/TrainingPlanFlowPreview/TrainingPlanFlowPreview.container'
+import ExerciseDetail from '../screens/ExerciseDetail/ExerciseDetail.container'
+import FlexBootstrap from '../screens/FlexBootstrap/FlexBootstrap.container'
+import Landing from '../screens/Landing/Landing.container'
+import Login from '../screens/Login/Login.container'
+import PlanDetail from '../screens/PlanDetail/PlanDetail.container'
+import ProfileOnboarding from '../screens/ProfileOnboarding/ProfileOnboarding.container'
+import SignUp from '../screens/SignUp/SignUp.container'
+import VerifyEmail from '../screens/VerifyEmail/VerifyEmail.container'
+import WorkoutSession from '../screens/WorkoutSession/WorkoutSession.container'
+
+import MainTabsNavigator from './navigators/MainTabs.navigator'
 
 const routes = {
   landing: {
@@ -24,8 +26,8 @@ const routes = {
     component: Landing,
     options: {
       headerShown: false,
-      title: 'Flex',
-    },
+      title: 'Flex'
+    }
   },
   login: {
     name: 'Login',
@@ -34,8 +36,8 @@ const routes = {
     component: Login,
     options: {
       headerShown: true,
-      title: 'Log in',
-    },
+      title: 'Log in'
+    }
   },
   signUp: {
     name: 'SignUp',
@@ -44,8 +46,8 @@ const routes = {
     component: SignUp,
     options: {
       headerShown: true,
-      title: 'Sign up',
-    },
+      title: 'Sign up'
+    }
   },
   verifyEmail: {
     name: 'VerifyEmail',
@@ -54,8 +56,8 @@ const routes = {
     component: VerifyEmail,
     options: {
       headerShown: true,
-      title: 'Verify email',
-    },
+      title: 'Verify email'
+    }
   },
   flexBootstrap: {
     name: 'FlexBootstrap',
@@ -64,8 +66,8 @@ const routes = {
     component: FlexBootstrap,
     options: {
       headerShown: false,
-      title: 'Flex',
-    },
+      title: 'Flex'
+    }
   },
   mainTabs: {
     name: 'MainTabs',
@@ -75,8 +77,8 @@ const routes = {
     component: MainTabsNavigator,
     options: {
       headerShown: false,
-      title: 'Flex',
-    },
+      title: 'Flex'
+    }
   },
   profileOnboarding: {
     name: 'ProfileOnboarding',
@@ -85,8 +87,8 @@ const routes = {
     component: ProfileOnboarding,
     options: {
       headerShown: true,
-      title: 'Profile',
-    },
+      title: 'Profile'
+    }
   },
   planDetail: {
     name: 'PlanDetail',
@@ -96,8 +98,8 @@ const routes = {
     component: PlanDetail,
     options: {
       headerShown: true,
-      title: 'Workout',
-    },
+      title: 'Workout'
+    }
   },
   workoutSession: {
     name: 'WorkoutSession',
@@ -107,8 +109,8 @@ const routes = {
     component: WorkoutSession,
     options: {
       headerShown: true,
-      title: 'Session',
-    },
+      title: 'Session'
+    }
   },
   exerciseDetail: {
     name: 'ExerciseDetail',
@@ -118,8 +120,8 @@ const routes = {
     component: ExerciseDetail,
     options: {
       headerShown: true,
-      title: 'Exercise',
-    },
+      title: 'Exercise'
+    }
   },
   designPreviewHub: {
     name: 'DesignPreviewHub',
@@ -128,8 +130,8 @@ const routes = {
     component: DesignPreviewHub,
     options: {
       headerShown: true,
-      title: 'Design Preview',
-    },
+      title: 'Design Preview'
+    }
   },
   onboardingFlowPreview: {
     name: 'OnboardingFlowPreview',
@@ -138,8 +140,8 @@ const routes = {
     component: OnboardingFlowPreview,
     options: {
       headerShown: true,
-      title: 'Onboarding Preview',
-    },
+      title: 'Onboarding Preview'
+    }
   },
   trainingPlanFlowPreview: {
     name: 'TrainingPlanFlowPreview',
@@ -148,8 +150,18 @@ const routes = {
     component: TrainingPlanFlowPreview,
     options: {
       headerShown: true,
-      title: 'Training Plan Preview',
-    },
+      title: 'Training Plan Preview'
+    }
+  },
+  planDetailFlowPreview: {
+    name: 'PlanDetailFlowPreview',
+    path: 'PlanDetailFlowPreview',
+    isAuthenticationRequired: false,
+    component: PlanDetailFlowPreview,
+    options: {
+      headerShown: true,
+      title: 'Plan Detail Preview'
+    }
   },
   activeWorkoutFlowPreview: {
     name: 'ActiveWorkoutFlowPreview',
@@ -158,8 +170,8 @@ const routes = {
     component: ActiveWorkoutFlowPreview,
     options: {
       headerShown: true,
-      title: 'Active Workout Preview',
-    },
+      title: 'Active Workout Preview'
+    }
   },
   gymLocationsSettingsPreview: {
     name: 'GymLocationsSettingsPreview',
@@ -168,8 +180,8 @@ const routes = {
     component: GymLocationsSettingsPreview,
     options: {
       headerShown: true,
-      title: 'Gym Locations Preview',
-    },
+      title: 'Gym Locations Preview'
+    }
   },
   authFlowPreview: {
     name: 'AuthFlowPreview',
@@ -178,8 +190,8 @@ const routes = {
     component: AuthFlowPreview,
     options: {
       headerShown: true,
-      title: 'Auth Preview',
-    },
+      title: 'Auth Preview'
+    }
   },
   profileSettingsFlowPreview: {
     name: 'ProfileSettingsFlowPreview',
@@ -188,9 +200,9 @@ const routes = {
     component: ProfileSettingsFlowPreview,
     options: {
       headerShown: true,
-      title: 'Profile Settings Preview',
-    },
-  },
-};
+      title: 'Profile Settings Preview'
+    }
+  }
+}
 
-export default routes;
+export default routes

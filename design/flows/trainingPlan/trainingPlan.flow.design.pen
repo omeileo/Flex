@@ -2,23 +2,11 @@
   "version": "2.11",
   "children": [
     {
-      "type": "text",
-      "id": "8457d1f6-fc78-4514-a34f-29bb051e10bf",
-      "x": 80,
-      "y": -229,
-      "name": "Getting started",
-      "fill": "#54aa81ff",
-      "content": "Getting started",
-      "fontFamily": "Inter",
-      "fontSize": 50,
-      "fontWeight": "600"
-    },
-    {
       "type": "frame",
       "id": "wZsQM",
       "x": 80,
       "y": 80,
-      "name": "Training Plan Flow Step 1: Multi-week plan overview",
+      "name": "Training Plan Step 6: Multi-week plan overview",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -60,6 +48,131 @@
         },
         {
           "type": "frame",
+          "id": "mpo9f",
+          "width": "fill_container",
+          "fill": "$surface",
+          "cornerRadius": 16,
+          "stroke": {
+            "thickness": 1,
+            "fill": "$accent-strength"
+          },
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 14,
+          "children": [
+            {
+              "type": "text",
+              "id": "a1qT7",
+              "fill": "$text-primary",
+              "textGrowth": "fixed-width",
+              "width": 320,
+              "content": "12-Week Strength + 5K · Shoulder-safe, rack-free lifting with 2 easy runs/week.",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "fRd19",
+              "fill": "$accent-strength",
+              "content": "Read more →",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "vkfQg",
+          "width": "fill_container",
+          "gap": 8,
+          "padding": [
+            12,
+            24,
+            8,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "WfjWX",
+              "fill": "$accent-strength",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$accent-strength"
+              },
+              "padding": [
+                6,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "GkmY3",
+                  "fill": "#FFFFFF",
+                  "content": "Foundation",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "L0HAj",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "padding": [
+                6,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "G4WuZs",
+                  "fill": "$text-primary",
+                  "content": "Strength",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "MKGm3",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "padding": [
+                6,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "CgcGE",
+                  "fill": "$text-primary",
+                  "content": "Peak",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
           "id": "HBK8C",
           "width": "fill_container",
           "height": "fill_container",
@@ -75,6 +188,7 @@
             {
               "type": "frame",
               "id": "CgUWt",
+              "name": "Week 1 card current",
               "width": "fill_container",
               "fill": "$surface",
               "cornerRadius": 16,
@@ -117,7 +231,7 @@
                   "type": "text",
                   "id": "dar0k",
                   "fill": "$text-secondary",
-                  "content": "3 workouts · 4.2h vol",
+                  "content": "Foundation · 6 sessions · 12,400 kg · 10 km run",
                   "fontFamily": "Inter",
                   "fontSize": 12,
                   "fontWeight": "normal"
@@ -140,7 +254,7 @@
                       "type": "text",
                       "id": "ilNH3",
                       "fill": "$text-primary",
-                      "content": "Upper Body",
+                      "content": "Day 1 — Upper Push",
                       "fontFamily": "Inter",
                       "fontSize": 14,
                       "fontWeight": "500"
@@ -149,7 +263,7 @@
                       "type": "text",
                       "id": "hsuRp",
                       "fill": "$text-secondary",
-                      "content": "45 min",
+                      "content": "55 min",
                       "fontFamily": "Inter",
                       "fontSize": 12,
                       "fontWeight": "normal"
@@ -174,7 +288,7 @@
                       "type": "text",
                       "id": "ktMUW",
                       "fill": "$text-primary",
-                      "content": "Easy Run",
+                      "content": "Day 2 — Lower Strength",
                       "fontFamily": "Inter",
                       "fontSize": 14,
                       "fontWeight": "500"
@@ -183,7 +297,42 @@
                       "type": "text",
                       "id": "B9dAH",
                       "fill": "$text-secondary",
-                      "content": "35 min",
+                      "content": "50 min",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "j0W6hr",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "WdUm9",
+                      "width": 8,
+                      "height": 8,
+                      "fill": "$accent-energy",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "text",
+                      "id": "Fpdg2",
+                      "fill": "$text-primary",
+                      "content": "Sat — Easy Run",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Y3Tzel",
+                      "fill": "$text-secondary",
+                      "content": "30 min",
                       "fontFamily": "Inter",
                       "fontSize": 12,
                       "fontWeight": "normal"
@@ -237,7 +386,7 @@
                   "type": "text",
                   "id": "i7lML",
                   "fill": "$text-secondary",
-                  "content": "3 workouts · 4.0h vol",
+                  "content": "Foundation · 6 sessions · 13,100 kg · 12 km run",
                   "fontFamily": "Inter",
                   "fontSize": 12,
                   "fontWeight": "normal"
@@ -260,7 +409,7 @@
                       "type": "text",
                       "id": "fcvVs",
                       "fill": "$text-primary",
-                      "content": "Lower Body",
+                      "content": "Day 1 — Upper Push",
                       "fontFamily": "Inter",
                       "fontSize": 14,
                       "fontWeight": "500"
@@ -270,6 +419,41 @@
                       "id": "m5xuF",
                       "fill": "$text-secondary",
                       "content": "50 min",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "l7WsF8",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "XbnaL",
+                      "width": 8,
+                      "height": 8,
+                      "fill": "$accent-energy",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "text",
+                      "id": "GaZqT",
+                      "fill": "$text-primary",
+                      "content": "Sat — Easy Run",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "V4iMWF",
+                      "fill": "$text-secondary",
+                      "content": "32 min",
                       "fontFamily": "Inter",
                       "fontSize": 12,
                       "fontWeight": "normal"
@@ -323,7 +507,92 @@
                   "type": "text",
                   "id": "D06o0",
                   "fill": "$text-secondary",
-                  "content": "3 workouts · 3.8h vol",
+                  "content": "Strength · 6 sessions · 13,800 kg · 12 km run",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JwUPZ",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "hyJBO",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YUORW",
+                      "fill": "$text-primary",
+                      "content": "Week 4",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "s4hpRh",
+                      "fill": "$accent-strength",
+                      "content": "End Foundation",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "bJTGx",
+                  "fill": "$text-secondary",
+                  "content": "Jun 2–8",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TOL7E",
+              "width": "fill_container",
+              "fill": "#FEF3C7",
+              "cornerRadius": 12,
+              "gap": 8,
+              "padding": [
+                10,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mSjhF",
+                  "content": "⚠",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "rbrpA",
+                  "fill": "#92400E",
+                  "textGrowth": "fixed-width",
+                  "width": 280,
+                  "content": "Optional deload after Week 8 — coach will prompt if recovery dips",
                   "fontFamily": "Inter",
                   "fontSize": 12,
                   "fontWeight": "normal"
@@ -451,7 +720,7 @@
       "id": "od8R9",
       "x": 670,
       "y": 80,
-      "name": "Training Plan Flow Step 2: Week overview bottom sheet",
+      "name": "Training Plan Step 7: Week overview sheet",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -495,7 +764,30 @@
               "stroke": {
                 "thickness": 1,
                 "fill": "$border"
-              }
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cqdDr",
+                  "fill": "$text-primary",
+                  "content": "Week 1 · Foundation",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "G3bKia",
+                  "fill": "$text-secondary",
+                  "content": "6 sessions · 12,400 kg",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
             },
             {
               "type": "frame",
@@ -507,7 +799,30 @@
               "stroke": {
                 "thickness": 1,
                 "fill": "$border"
-              }
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HXRrx",
+                  "fill": "$text-primary",
+                  "content": "Week 2 · Foundation",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "XeDC2",
+                  "fill": "$text-secondary",
+                  "content": "Volume +5%",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
             },
             {
               "type": "frame",
@@ -519,7 +834,30 @@
               "stroke": {
                 "thickness": 1,
                 "fill": "$border"
-              }
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "jwe3w",
+                  "fill": "$text-primary",
+                  "content": "Week 3 · Strength",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "K4o0eQ",
+                  "fill": "$text-secondary",
+                  "content": "Phase transition",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
             }
           ]
         },
@@ -529,7 +867,7 @@
           "x": 0,
           "y": 324,
           "width": 390,
-          "height": 520,
+          "height": 620,
           "fill": "$surface",
           "cornerRadius": [
             24,
@@ -570,7 +908,7 @@
               "type": "text",
               "id": "bc9Qs",
               "fill": "$text-primary",
-              "content": "Week 1 Overview",
+              "content": "Week 1 · Foundation Phase",
               "fontFamily": "Inter",
               "fontSize": 20,
               "fontWeight": "700"
@@ -579,23 +917,100 @@
               "type": "text",
               "id": "l5cBfE",
               "fill": "$text-secondary",
-              "content": "3 workouts · 4.2h total volume",
+              "content": "6 workouts · 12,400 kg · 10 km run",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "normal"
             },
             {
               "type": "frame",
+              "id": "Se1Os",
+              "width": "fill_container",
+              "gap": 6,
+              "padding": [
+                0,
+                0,
+                4,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oFRza",
+                  "fill": "$background",
+                  "cornerRadius": 8,
+                  "padding": [
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "E9GzJ",
+                      "fill": "$text-secondary",
+                      "content": "RPE 6–7",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ncKOK",
+                  "fill": "$background",
+                  "cornerRadius": 8,
+                  "padding": [
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mzfSZ",
+                      "fill": "$text-secondary",
+                      "content": "+2.5–5 lb/wk",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HQwAY",
+                  "fill": "$background",
+                  "cornerRadius": 8,
+                  "padding": [
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SgVOX",
+                      "fill": "$text-secondary",
+                      "content": "Rest 2–3 min",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
               "id": "KqzrQ",
               "width": "fill_container",
-              "height": 72,
+              "height": 96,
               "fill": "$surface",
               "cornerRadius": 16,
               "stroke": {
                 "thickness": 1,
                 "fill": "$border"
               },
-              "gap": 10,
+              "gap": 12,
               "padding": 12,
               "alignItems": "center",
               "children": [
@@ -605,7 +1020,7 @@
                   "id": "R4GZS",
                   "fill": "#6366F1",
                   "width": 4,
-                  "height": 44
+                  "height": 52
                 },
                 {
                   "type": "frame",
@@ -618,7 +1033,7 @@
                       "type": "text",
                       "id": "viPqB",
                       "fill": "$text-primary",
-                      "content": "Upper Body Strength",
+                      "content": "Mon — Upper Push",
                       "fontFamily": "Inter",
                       "fontSize": 15,
                       "fontWeight": "600"
@@ -627,7 +1042,7 @@
                       "type": "text",
                       "id": "VGWGE",
                       "fill": "$text-secondary",
-                      "content": "45 min · 6 exercises",
+                      "content": "55 min · 6 exercises",
                       "fontFamily": "Inter",
                       "fontSize": 12,
                       "fontWeight": "normal"
@@ -644,69 +1059,15 @@
                     "thickness": 2,
                     "fill": "$border"
                   }
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "eKVZK",
-              "width": "fill_container",
-              "height": 72,
-              "fill": "$surface",
-              "cornerRadius": 16,
-              "stroke": {
-                "thickness": 1,
-                "fill": "$border"
-              },
-              "gap": 10,
-              "padding": 12,
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "rectangle",
-                  "cornerRadius": 2,
-                  "id": "nXfim",
-                  "fill": "#22C55E",
-                  "width": 4,
-                  "height": 44
                 },
                 {
-                  "type": "frame",
-                  "id": "VZ6Ll",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 2,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "DoDCc",
-                      "fill": "$text-primary",
-                      "content": "Easy Run",
-                      "fontFamily": "Inter",
-                      "fontSize": 15,
-                      "fontWeight": "600"
-                    },
-                    {
-                      "type": "text",
-                      "id": "Xx7O1",
-                      "fill": "$text-secondary",
-                      "content": "35 min · Zone 2",
-                      "fontFamily": "Inter",
-                      "fontSize": 12,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                },
-                {
-                  "type": "ellipse",
-                  "id": "N08v5j",
-                  "fill": "#00000000",
-                  "width": 20,
-                  "height": 20,
-                  "stroke": {
-                    "thickness": 2,
-                    "fill": "$border"
-                  }
+                  "type": "text",
+                  "id": "l4nny",
+                  "fill": "$text-secondary",
+                  "content": "OHP 3×5–8 · Incline DB 3×10 · Flat DB…",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -714,14 +1075,14 @@
               "type": "frame",
               "id": "IjLbI",
               "width": "fill_container",
-              "height": 72,
+              "height": 96,
               "fill": "$surface",
               "cornerRadius": 16,
               "stroke": {
                 "thickness": 1,
                 "fill": "$border"
               },
-              "gap": 10,
+              "gap": 12,
               "padding": 12,
               "alignItems": "center",
               "children": [
@@ -729,9 +1090,9 @@
                   "type": "rectangle",
                   "cornerRadius": 2,
                   "id": "x5jkjy",
-                  "fill": "#14B8A6",
+                  "fill": "#6366F1",
                   "width": 4,
-                  "height": 44
+                  "height": 52
                 },
                 {
                   "type": "frame",
@@ -744,7 +1105,7 @@
                       "type": "text",
                       "id": "qTA3V",
                       "fill": "$text-primary",
-                      "content": "Mobility Flow",
+                      "content": "Wed — Upper Pull",
                       "fontFamily": "Inter",
                       "fontSize": 15,
                       "fontWeight": "600"
@@ -753,7 +1114,7 @@
                       "type": "text",
                       "id": "yFxPF",
                       "fill": "$text-secondary",
-                      "content": "20 min · Recovery",
+                      "content": "45 min · Pull-up progression",
                       "fontFamily": "Inter",
                       "fontSize": 12,
                       "fontWeight": "normal"
@@ -770,6 +1131,209 @@
                     "thickness": 2,
                     "fill": "$border"
                   }
+                },
+                {
+                  "type": "text",
+                  "id": "k2um0M",
+                  "fill": "$text-secondary",
+                  "content": "Pull-ups 4×5 · Rows 3×10 · Face pulls…",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eKVZK",
+              "width": "fill_container",
+              "height": 96,
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "nXfim",
+                  "fill": "#22C55E",
+                  "width": 4,
+                  "height": 52
+                },
+                {
+                  "type": "frame",
+                  "id": "VZ6Ll",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DoDCc",
+                      "fill": "$text-primary",
+                      "content": "Tue — Lower Strength",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Xx7O1",
+                      "fill": "$text-secondary",
+                      "content": "50 min · Zercher focus",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "ellipse",
+                  "id": "N08v5j",
+                  "fill": "#00000000",
+                  "width": 20,
+                  "height": 20,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "$border"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "an8bj",
+                  "fill": "$text-secondary",
+                  "content": "Zercher 3×6 · RDL 3×8 · Bulgarian split…",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ahwKq",
+              "width": "fill_container",
+              "height": 96,
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "skKbI",
+                  "fill": "#6366F1",
+                  "width": 4,
+                  "height": 52
+                },
+                {
+                  "type": "frame",
+                  "id": "kBzCT",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uWmCB",
+                      "fill": "$text-primary",
+                      "content": "Thu — Power/Glutes",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LfBni",
+                      "fill": "$text-secondary",
+                      "content": "45 min · Hip thrust focus",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "bood6",
+                  "fill": "$text-secondary",
+                  "content": "Hip thrust 4×8 · RDL 3×10 · KB swing…",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "u2zZ3G",
+              "width": "fill_container",
+              "height": 96,
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "EuMOu",
+                  "fill": "#22C55E",
+                  "width": 4,
+                  "height": 52
+                },
+                {
+                  "type": "frame",
+                  "id": "uUb3B",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "N1jSj",
+                      "fill": "$text-primary",
+                      "content": "Sat — Easy Run",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HoiYM",
+                      "fill": "$text-secondary",
+                      "content": "30 min · Zone 2",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "p9eag",
+                  "fill": "$text-secondary",
+                  "content": "5K conversational · aerobic base",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -803,7 +1367,7 @@
       "id": "nRCtb",
       "x": 1260,
       "y": 80,
-      "name": "Training Plan Flow Step 3: Today daily workout",
+      "name": "Training Plan Step 8: Today daily workout",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -827,7 +1391,7 @@
               "type": "text",
               "id": "IOxld",
               "fill": "$text-primary",
-              "content": "Week 2/8",
+              "content": "Week 1/12",
               "fontFamily": "Inter",
               "fontSize": 18,
               "fontWeight": "700"
@@ -861,6 +1425,33 @@
         },
         {
           "type": "frame",
+          "id": "R2nj6",
+          "fill": "$surface",
+          "cornerRadius": 16,
+          "stroke": {
+            "thickness": 1,
+            "fill": "$border"
+          },
+          "gap": 6,
+          "padding": [
+            8,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "IEERP",
+              "fill": "$text-primary",
+              "content": "🏠 Home Gym ▾",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
           "id": "s0jYc",
           "width": "fill_container",
           "gap": 6,
@@ -883,12 +1474,12 @@
                 {
                   "type": "ellipse",
                   "id": "CKEBU",
-                  "fill": "$surface",
+                  "fill": "$accent-strength",
                   "width": 32,
                   "height": 32,
                   "stroke": {
-                    "thickness": 1,
-                    "fill": "$border"
+                    "thickness": 0,
+                    "fill": "$accent-strength"
                   }
                 },
                 {
@@ -912,12 +1503,12 @@
                 {
                   "type": "ellipse",
                   "id": "B5FpTM",
-                  "fill": "$surface",
+                  "fill": "$accent-strength",
                   "width": 32,
                   "height": 32,
                   "stroke": {
-                    "thickness": 1,
-                    "fill": "$border"
+                    "thickness": 0,
+                    "fill": "$accent-strength"
                   }
                 },
                 {
@@ -941,7 +1532,7 @@
                 {
                   "type": "ellipse",
                   "id": "Mvhg9",
-                  "fill": "$accent-cta",
+                  "fill": "$accent-strength",
                   "width": 32,
                   "height": 32,
                   "stroke": {
@@ -971,12 +1562,12 @@
                 {
                   "type": "ellipse",
                   "id": "soNWM",
-                  "fill": "$surface",
+                  "fill": "$accent-energy",
                   "width": 32,
                   "height": 32,
                   "stroke": {
-                    "thickness": 1,
-                    "fill": "$border"
+                    "thickness": 0,
+                    "fill": "$accent-energy"
                   }
                 },
                 {
@@ -1000,12 +1591,12 @@
                 {
                   "type": "ellipse",
                   "id": "JhbCj",
-                  "fill": "$surface",
+                  "fill": "$accent-strength",
                   "width": 32,
                   "height": 32,
                   "stroke": {
-                    "thickness": 1,
-                    "fill": "$border"
+                    "thickness": 0,
+                    "fill": "$accent-strength"
                   }
                 },
                 {
@@ -1029,12 +1620,12 @@
                 {
                   "type": "ellipse",
                   "id": "CH8ND",
-                  "fill": "$surface",
+                  "fill": "$accent-energy",
                   "width": 32,
                   "height": 32,
                   "stroke": {
-                    "thickness": 1,
-                    "fill": "$border"
+                    "thickness": 0,
+                    "fill": "$accent-energy"
                   }
                 },
                 {
@@ -1135,7 +1726,7 @@
                       "type": "text",
                       "id": "NQEQd",
                       "fill": "$text-primary",
-                      "content": "Upper Body Strength",
+                      "content": "Day 1 — Upper Push",
                       "fontFamily": "Inter",
                       "fontSize": 15,
                       "fontWeight": "600"
@@ -1144,7 +1735,7 @@
                       "type": "text",
                       "id": "R3rK02",
                       "fill": "$text-secondary",
-                      "content": "45 min · Strength",
+                      "content": "55 min · Foundation · RPE 6–7",
                       "fontFamily": "Inter",
                       "fontSize": 12,
                       "fontWeight": "normal"
@@ -1198,7 +1789,7 @@
                       "type": "text",
                       "id": "l2K1l",
                       "fill": "$text-primary",
-                      "content": "Mobility Flow",
+                      "content": "Sat — Easy Run",
                       "fontFamily": "Inter",
                       "fontSize": 15,
                       "fontWeight": "600"
@@ -1207,7 +1798,7 @@
                       "type": "text",
                       "id": "qU5t0",
                       "fill": "$text-secondary",
-                      "content": "20 min · Recovery",
+                      "content": "30 min · 5K conversational",
                       "fontFamily": "Inter",
                       "fontSize": 12,
                       "fontWeight": "normal"
@@ -1254,7 +1845,7 @@
                   "fill": "$text-secondary",
                   "textGrowth": "fixed-width",
                   "width": 260,
-                  "content": "Coach: Great week so far — focus on form today.",
+                  "content": "Coach: Control eccentric on pressing. Partial ROM on flies today.",
                   "fontFamily": "Inter",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -1403,7 +1994,7 @@
       "id": "F0rRd",
       "x": 1850,
       "y": 80,
-      "name": "Training Plan Flow Step 4: Weekly progression plan overview",
+      "name": "Training Plan Step 9: Weekly progression",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -1597,6 +2188,45 @@
         },
         {
           "type": "frame",
+          "id": "xK8Jo",
+          "width": "fill_container",
+          "fill": "$surface",
+          "cornerRadius": 12,
+          "stroke": {
+            "thickness": 1,
+            "fill": "$accent-strength"
+          },
+          "layout": "vertical",
+          "gap": 4,
+          "padding": [
+            0,
+            24,
+            8,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "k7zRj",
+              "fill": "$accent-strength",
+              "content": "Foundation Phase · Week 1",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "G6TgXv",
+              "fill": "$text-secondary",
+              "content": "RPE 6–7 · +1–2 reps or 2.5–5 lb weekly",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
           "id": "rdgbn",
           "width": "fill_container",
           "height": "fill_container",
@@ -1613,16 +2243,16 @@
               "type": "frame",
               "id": "u3TDw",
               "width": "fill_container",
-              "height": 72,
+              "height": 100,
               "fill": "$surface",
               "cornerRadius": 16,
               "stroke": {
                 "thickness": 1,
                 "fill": "$border"
               },
-              "gap": 10,
-              "padding": 12,
-              "alignItems": "center",
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 14,
               "children": [
                 {
                   "type": "rectangle",
@@ -1643,7 +2273,7 @@
                       "type": "text",
                       "id": "ygNAa",
                       "fill": "$text-primary",
-                      "content": "Upper Body Strength",
+                      "content": "Mon — Upper Push",
                       "fontFamily": "Inter",
                       "fontSize": 15,
                       "fontWeight": "600"
@@ -1652,12 +2282,32 @@
                       "type": "text",
                       "id": "u1Df7",
                       "fill": "$text-secondary",
-                      "content": "Tue · 45 min",
+                      "content": "Mon · 55 min",
                       "fontFamily": "Inter",
                       "fontSize": 12,
                       "fontWeight": "normal"
                     }
                   ]
+                },
+                {
+                  "type": "text",
+                  "id": "B0SWC9",
+                  "fill": "$text-secondary",
+                  "content": "Mon — Upper Push",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "akDDO",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "OHP, Incline DB bench, Flat DB, Fly, Push-ups",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -1665,16 +2315,16 @@
               "type": "frame",
               "id": "Nwxxp",
               "width": "fill_container",
-              "height": 72,
+              "height": 100,
               "fill": "$surface",
               "cornerRadius": 16,
               "stroke": {
                 "thickness": 1,
                 "fill": "$border"
               },
-              "gap": 10,
-              "padding": 12,
-              "alignItems": "center",
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 14,
               "children": [
                 {
                   "type": "rectangle",
@@ -1695,7 +2345,7 @@
                       "type": "text",
                       "id": "kfLeF",
                       "fill": "$text-primary",
-                      "content": "Easy Run",
+                      "content": "Tue — Lower Strength",
                       "fontFamily": "Inter",
                       "fontSize": 15,
                       "fontWeight": "600"
@@ -1704,12 +2354,32 @@
                       "type": "text",
                       "id": "aZbYi",
                       "fill": "$text-secondary",
-                      "content": "Thu · 35 min",
+                      "content": "Tue · 50 min",
                       "fontFamily": "Inter",
                       "fontSize": 12,
                       "fontWeight": "normal"
                     }
                   ]
+                },
+                {
+                  "type": "text",
+                  "id": "oQt1b",
+                  "fill": "$text-secondary",
+                  "content": "Tue — Lower Strength",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "clNBN",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Zercher squat, RDL, Bulgarian split, Lunges, Plank",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -1717,16 +2387,16 @@
               "type": "frame",
               "id": "g2GKL",
               "width": "fill_container",
-              "height": 72,
+              "height": 100,
               "fill": "$surface",
               "cornerRadius": 16,
               "stroke": {
                 "thickness": 1,
                 "fill": "$border"
               },
-              "gap": 10,
-              "padding": 12,
-              "alignItems": "center",
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 14,
               "children": [
                 {
                   "type": "rectangle",
@@ -1747,7 +2417,7 @@
                       "type": "text",
                       "id": "J0P6K",
                       "fill": "$text-primary",
-                      "content": "HIIT Circuit",
+                      "content": "Sat — Easy Run",
                       "fontFamily": "Inter",
                       "fontSize": 15,
                       "fontWeight": "600"
@@ -1762,6 +2432,105 @@
                       "fontWeight": "normal"
                     }
                   ]
+                },
+                {
+                  "type": "text",
+                  "id": "QZ2Ql",
+                  "fill": "$text-secondary",
+                  "content": "5K conversational · aerobic base",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "k6I44",
+              "width": "fill_container",
+              "height": 100,
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "rhhUM",
+                  "fill": "#6366F1",
+                  "width": 4,
+                  "height": 44
+                },
+                {
+                  "type": "text",
+                  "id": "dhIsV",
+                  "fill": "$text-secondary",
+                  "content": "Wed — Upper Pull",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "P0Mbd1",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Pull-ups, Barbell rows, Face pulls, Curls",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "RcRiR",
+              "width": "fill_container",
+              "height": 100,
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "cfKwl",
+                  "fill": "#F59E0B",
+                  "width": 4,
+                  "height": 44
+                },
+                {
+                  "type": "text",
+                  "id": "Z3NYSO",
+                  "fill": "$text-secondary",
+                  "content": "Fri — Upper Hypertrophy",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "c3R9P",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Incline fly, Lateral raise, Triceps, Hammer curl",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
                 }
               ]
             }
@@ -1813,7 +2582,7 @@
       "id": "bOU4P",
       "x": 2440,
       "y": 80,
-      "name": "Training Plan Flow Step 5: AI plan adjustment prompt",
+      "name": "Training Plan Step 10: AI plan adjustment",
       "clip": true,
       "width": 390,
       "height": 844,
@@ -1885,7 +2654,7 @@
               "fill": "$text-secondary",
               "textGrowth": "fixed-width",
               "width": 294,
-              "content": "You missed 2 sessions. Flex can readapt your remaining weeks.",
+              "content": "You missed 2 sessions. Flex can readapt your remaining weeks — or chat with your coach about schedule changes.",
               "lineHeight": 1.4,
               "textAlign": "center",
               "fontFamily": "Inter",
@@ -1930,6 +2699,2079 @@
                   "content": "Keep original",
                   "fontFamily": "Inter",
                   "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qihMX",
+              "width": "fill_container",
+              "height": 48,
+              "fill": "$surface",
+              "cornerRadius": 36,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FjmIs",
+                  "fill": "$text-primary",
+                  "content": "Talk to coach",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "a3Znp",
+      "x": 80,
+      "y": 980,
+      "name": "Training Plan Step 0: Empty state",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "TYAvJ",
+          "width": "fill_container",
+          "fill": "#D8E3FB",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            80,
+            24,
+            32,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "szlZ3",
+              "width": 72,
+              "height": 72,
+              "fill": "$accent-strength",
+              "cornerRadius": 36,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "CcHLH",
+                  "content": "📅",
+                  "fontFamily": "Inter",
+                  "fontSize": 36,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "JuOzH",
+                  "fill": "#FFFFFF",
+                  "content": "F",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "M8JGbb",
+              "fill": "$text-primary",
+              "content": "Build your training plan",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 26,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "LGZig",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": 300,
+              "content": "Flex combines strength programming and running in one adaptive plan — built from your goals, injuries, and equipment.",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "SNaH0",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            0,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "na2AY",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rvDwW",
+                  "width": 8,
+                  "height": 8,
+                  "fill": "$accent-energy",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "frame",
+                  "id": "VOJHf",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "L932v0",
+                      "fill": "$text-primary",
+                      "content": "Strength + running",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "M9SkQ0",
+                      "fill": "$text-secondary",
+                      "content": "One calendar for lift days and runs",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nlyRq",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "fxvNQ",
+                  "width": 8,
+                  "height": 8,
+                  "fill": "$accent-energy",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "frame",
+                  "id": "W1mco",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "eFYLc",
+                      "fill": "$text-primary",
+                      "content": "Injury-aware",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dWDHD",
+                      "fill": "$text-secondary",
+                      "content": "Adapts around managed conditions",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Cij4a",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "s7PN8D",
+                  "width": 8,
+                  "height": 8,
+                  "fill": "$accent-energy",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "frame",
+                  "id": "dcldu",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "R3dmz",
+                      "fill": "$text-primary",
+                      "content": "Equipment-fit",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "YkHaG",
+                      "fill": "$text-secondary",
+                      "content": "Uses your gym profile",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wCH6R",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            16,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "L8L6M5",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "$accent-cta",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cEaK7",
+                  "fill": "#FFFFFF",
+                  "content": "Create plan",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "snDWH",
+              "fill": "$text-secondary",
+              "content": "Use onboarding profile",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "r1GJJ",
+      "x": 670,
+      "y": 980,
+      "name": "Training Plan Step 1: Plan focus options",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "dKbLU",
+          "width": "fill_container",
+          "padding": [
+            0,
+            24,
+            8,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "ijeDg",
+              "fill": "$text-primary",
+              "content": "What are you training for?",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Ey1fQ",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            0,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "mWRjm",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 14,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "U2je3E",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "$background",
+                  "cornerRadius": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ji7Uf",
+                      "content": "🏋️",
+                      "fontFamily": "Inter",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "EM9U5",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Z9Bve",
+                      "fill": "$text-primary",
+                      "content": "Strength block",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "J4Qkv",
+                      "fill": "$text-secondary",
+                      "content": "8–12 week progressive lifting",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "inbGJ",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 14,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "W8kUaP",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "$background",
+                  "cornerRadius": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MGBDP",
+                      "content": "🏃",
+                      "fontFamily": "Inter",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lx1wP",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OK2Rp",
+                      "fill": "$text-primary",
+                      "content": "Running goal",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CtlvX",
+                      "fill": "$text-secondary",
+                      "content": "5K / 10K / half marathon",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ifiho",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 2,
+                "fill": "$accent-strength"
+              },
+              "gap": 14,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "buLUL",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "$background",
+                  "cornerRadius": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cK4ff",
+                      "content": "⚡",
+                      "fontFamily": "Inter",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "i6CBPQ",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZKsok",
+                      "fill": "$text-primary",
+                      "content": "Hybrid",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "swfpV",
+                      "fill": "$text-secondary",
+                      "content": "Lift + run in one calendar",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Cwwz6",
+                      "fill": "$accent-strength",
+                      "cornerRadius": 8,
+                      "padding": [
+                        4,
+                        8
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "CQ8qT",
+                          "fill": "#FFFFFF",
+                          "content": "Recommended",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jnRKe",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 14,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "neSJK",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "$background",
+                  "cornerRadius": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Lat9D",
+                      "content": "🩹",
+                      "fontFamily": "Inter",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "u1QyCL",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "EHJr1",
+                      "fill": "$text-primary",
+                      "content": "Return from injury",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "UpQ3s",
+                      "fill": "$text-secondary",
+                      "content": "Lower volume, physio-safe",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "bN9yF",
+          "width": "fill_container",
+          "padding": [
+            8,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "GgufN",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "$accent-cta",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "B7Ode",
+                  "fill": "#FFFFFF",
+                  "content": "Continue",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "s3f4VD",
+          "width": "fill_container",
+          "gap": 8,
+          "padding": [
+            56,
+            24,
+            8,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "mz1Zm",
+              "fill": "$text-primary",
+              "content": "←",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "dszTL",
+              "width": "fill_container",
+              "height": 4,
+              "fill": "$border",
+              "cornerRadius": 2,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 2,
+                  "id": "aU5ZF",
+                  "fill": "$accent-energy",
+                  "width": 80,
+                  "height": 4
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "CDeTF",
+              "fill": "$text-secondary",
+              "content": "1/4",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "s6Gjia",
+      "x": 1260,
+      "y": 980,
+      "name": "Training Plan Step 2: AI coach chat",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "N9XqZ8",
+          "width": "fill_container",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "$border"
+          },
+          "gap": 12,
+          "padding": [
+            56,
+            24,
+            12,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "E2Ziy",
+              "fill": "$text-primary",
+              "content": "←",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "AgpkC",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 2,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aO4ni",
+                  "fill": "$text-primary",
+                  "content": "Plan coach",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "DaOd6",
+                  "fill": "$accent-energy",
+                  "content": "Active now",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n5sEH",
+              "width": 40,
+              "height": 40,
+              "fill": "$accent-strength",
+              "cornerRadius": 20,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "jpSCy",
+                  "fill": "#FFFFFF",
+                  "content": "F",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "eUt7k",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "MxFvT",
+              "width": 300,
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mVpFP",
+                  "fill": "$text-primary",
+                  "content": "I'll build a 12-week block from your profile. Want 5 lift days and 2 easy runs?",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cvHNv",
+              "width": 280,
+              "fill": "$accent-cta",
+              "cornerRadius": 12,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Boqxb",
+                  "fill": "#FFFFFF",
+                  "content": "Yes — shoulder-friendly pressing and no squat rack. Sub-25 5K by end.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "hpfYE",
+              "width": 300,
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "OZd8y",
+                  "fill": "$text-primary",
+                  "content": "Got it. Zercher squats, partial-ROM flies, strict OHP. Sat/Sun easy runs.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "doV3k",
+              "width": 300,
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "oTP5f",
+                  "fill": "$text-primary",
+                  "content": "How many weeks? I recommend 12 with Foundation → Strength → Peak phases.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "e1YGo",
+          "width": "fill_container",
+          "gap": 8,
+          "padding": [
+            0,
+            16,
+            8,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Pc4Of",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "padding": [
+                8,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aJk3Y",
+                  "fill": "$text-primary",
+                  "content": "12-week split",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "I3VAy",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "padding": [
+                8,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "osDeI",
+                  "fill": "$text-primary",
+                  "content": "2 easy runs",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sZxmW",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "padding": [
+                8,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "DOcAB",
+                  "fill": "$text-primary",
+                  "content": "Shoulder-safe",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "FWk7h",
+          "width": "fill_container",
+          "gap": 8,
+          "padding": [
+            8,
+            16
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "JHeap",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 24,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "padding": [
+                12,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "A70Xq5",
+                  "fill": "$text-secondary",
+                  "content": "Message…",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "q5ZfLY",
+              "width": 44,
+              "height": 44,
+              "fill": "$accent-cta",
+              "cornerRadius": 22,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aApFx",
+                  "fill": "#FFFFFF",
+                  "content": "↑",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ZzIIb",
+          "width": "fill_container",
+          "padding": [
+            0,
+            16,
+            40,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "subhr",
+              "fill": "$accent-strength",
+              "content": "Review inputs →",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "wMv6T",
+      "x": 1850,
+      "y": 980,
+      "name": "Training Plan Step 3: Inputs recap",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "QvENQ",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            56,
+            24,
+            16,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "k1cUZs",
+              "fill": "$text-primary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Your plan is customized based on these details",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "ZQODH",
+              "fill": "$text-secondary",
+              "content": "Review before Flex generates your program.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "JBwrZ",
+          "width": 342,
+          "fill": "$surface",
+          "cornerRadius": 16,
+          "stroke": {
+            "thickness": 1,
+            "fill": "$border"
+          },
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "qncwR",
+              "fill": "$text-primary",
+              "content": "12-Week Foundation → Peak",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "H7Aui",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VNO2v",
+                  "width": "fill_container",
+                  "fill": "$background",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "i6F3mH",
+                      "fill": "$text-primary",
+                      "content": "12",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "l8pjf",
+                      "fill": "$text-secondary",
+                      "content": "Weeks",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "B9XWvQ",
+                  "width": "fill_container",
+                  "fill": "$background",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "z6I8m",
+                      "fill": "$text-primary",
+                      "content": "5",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "AAeOA",
+                      "fill": "$text-secondary",
+                      "content": "Lift days",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Q4hrb",
+                  "width": "fill_container",
+                  "fill": "$background",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LkqCy",
+                      "fill": "$text-primary",
+                      "content": "2",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BQSuG",
+                      "fill": "$text-secondary",
+                      "content": "Runs/wk",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gtLa8",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            16,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "dPMWQ",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "zGi7h",
+                  "fill": "$accent-strength",
+                  "content": "•",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "oAQvS",
+                  "fill": "$text-primary",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Goal: Build strength with joint-friendly volume",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "MLAzM",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "RdA1M",
+                  "fill": "$accent-strength",
+                  "content": "•",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "rEApC",
+                  "fill": "$text-primary",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Shoulder: partial-ROM pressing, no behind-neck work",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "D49ABL",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "STtXD",
+                  "fill": "$accent-strength",
+                  "content": "•",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "qfj1M",
+                  "fill": "$text-primary",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Equipment: Barbell, DBs, pull-up bar — no squat rack (Zercher)",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "C2AlX4",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gUc5d",
+                  "fill": "$accent-strength",
+                  "content": "•",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "K0nLE",
+                  "fill": "$text-primary",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Running: 2×/week easy 5K toward sub-25",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "IjSXI",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qHUk9",
+                  "fill": "$accent-strength",
+                  "content": "•",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "LgEWO",
+                  "fill": "$text-primary",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Schedule: Lift Mon–Fri, run Sat/Sun",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "VVsJq",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            8,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "J8EYDW",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "$accent-cta",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JtvkA",
+                  "fill": "#FFFFFF",
+                  "content": "Generate my plan",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "EW71T",
+              "fill": "$text-secondary",
+              "content": "Back to chat",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "MRiOo",
+      "x": 2440,
+      "y": 980,
+      "name": "Training Plan Step 4: Generating plan",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "gap": 16,
+      "padding": 24,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "eAmWW",
+          "width": "fill_container",
+          "gap": 8,
+          "padding": [
+            0,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "z4i6Le",
+              "width": "fill_container",
+              "height": 6,
+              "fill": "$border",
+              "cornerRadius": 3
+            },
+            {
+              "type": "text",
+              "id": "BAp3q",
+              "fill": "$accent-energy",
+              "content": "68%",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "Om1pj",
+          "fill": "$text-primary",
+          "content": "Building your 12-week plan…",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 22,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "bNs5N",
+          "fill": "$text-secondary",
+          "content": "Applying shoulder constraints",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "ql1t4",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            24,
+            24,
+            0,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "LCCDD",
+              "opacity": 0.7,
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "G7Z7rL",
+                  "fill": "$text-primary",
+                  "content": "Week 1–4 · Foundation",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "fuuZg",
+                  "width": "fill_container",
+                  "height": 8,
+                  "fill": "$border",
+                  "cornerRadius": 4
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "oo2M2",
+              "opacity": 0.7,
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "vwSzD",
+                  "fill": "$text-primary",
+                  "content": "Week 5–8 · Strength",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "MO0H2",
+                  "width": "fill_container",
+                  "height": 8,
+                  "fill": "$border",
+                  "cornerRadius": 4
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "j6rtg",
+              "opacity": 0.7,
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "dVcG7",
+                  "fill": "$text-primary",
+                  "content": "Week 9–12 · Peak",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "enMSk",
+                  "width": "fill_container",
+                  "height": 8,
+                  "fill": "$border",
+                  "cornerRadius": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yfo6x",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 6,
+          "padding": [
+            16,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "RGg76",
+              "fill": "$text-primary",
+              "content": "✓ Profile & injuries loaded",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "S1VY6",
+              "fill": "$text-primary",
+              "content": "✓ Equipment constraints applied",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "G4QrV6",
+              "fill": "$text-secondary",
+              "content": "◐ Scheduling run sessions",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "M92n9i",
+              "fill": "$text-secondary",
+              "content": "○ Setting phase progressions",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Z7foL",
+      "x": 3030,
+      "y": 980,
+      "name": "Training Plan Step 5: Plan introduction",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "HqoT8",
+          "width": "fill_container",
+          "padding": [
+            56,
+            24,
+            12,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "cp5r3",
+              "fill": "$text-primary",
+              "content": "← Plan Introduction",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EpVdS",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            0,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "UVe7v",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Y29rX",
+                  "fill": "$accent-strength",
+                  "content": "Flex Coach",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "IMRD2",
+                  "fill": "$text-primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "This 12-week block builds pressing and pulling strength while keeping your shoulder happy — partial-ROM flies, strict OHP, and no rack squats (Zercher focus). Two easy runs each week support your 5K goal without interfering with leg recovery. Weeks 1–4 prioritize technique at RPE 6–7; we'll add load in phases 2 and 3.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "U3LTLi",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BDvCp",
+                      "width": 44,
+                      "height": 44,
+                      "fill": "$accent-strength",
+                      "cornerRadius": 22,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LYZ7U",
+                          "fill": "#FFFFFF",
+                          "content": "F",
+                          "fontFamily": "Inter",
+                          "fontSize": 18,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "t6K83",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "IVoGe",
+                          "fill": "$text-primary",
+                          "content": "Flex Coach",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "R5u5ZI",
+                          "fill": "$text-secondary",
+                          "content": "Plan introduction",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cqi4Z",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "H29NRp",
+                  "fill": "$accent-strength",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$accent-strength"
+                  },
+                  "padding": [
+                    6,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OwXEw",
+                      "fill": "#FFFFFF",
+                      "content": "Foundation",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fG6Fg",
+                  "fill": "$surface",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$border"
+                  },
+                  "padding": [
+                    6,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cCzrB",
+                      "fill": "$text-primary",
+                      "content": "Strength",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "As9Hg",
+                  "fill": "$surface",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$border"
+                  },
+                  "padding": [
+                    6,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "y1oYh",
+                      "fill": "$text-primary",
+                      "content": "Peak",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kMRHS",
+              "width": "fill_container",
+              "fill": "$background",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "e2UnB",
+                  "fill": "$text-secondary",
+                  "content": "Expected outcomes",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "pYJZ0",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "sJHo0",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "F8SqGq",
+                          "fill": "$text-primary",
+                          "content": "↑ Strength",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "x6wxk8",
+                          "fill": "$text-secondary",
+                          "content": "Press & pull",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UTiHg",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "TvdlV",
+                          "fill": "$text-primary",
+                          "content": "5K ready",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pT64Q",
+                          "fill": "$text-secondary",
+                          "content": "Sub-25 target",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hiqp1",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Ayf3x",
+                          "fill": "$text-primary",
+                          "content": "Joint-safe",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kq36R",
+                          "fill": "$text-secondary",
+                          "content": "Shoulder mgmt",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "mvNwu",
+          "width": "fill_container",
+          "padding": [
+            8,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "TYIgM",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "$accent-cta",
+              "cornerRadius": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "rIdrz",
+                  "fill": "#FFFFFF",
+                  "content": "View full plan",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
                   "fontWeight": "600"
                 }
               ]

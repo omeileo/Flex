@@ -17,6 +17,7 @@ Reuses onboarding patterns for edit flows; changes trigger optional **plan reada
   - **Workout locations** → links `gymLocations` flow · preview: "Home Gym (default) · 3 locations"
 - Section **WELLNESS**
   - **Injuries & conditions** → Screen 3 · preview: "2 active · Shoulder, Lower back"
+  - **Cycle-aware training** → links `cycleAwareTraining` flow Screen 5 · preview: "Off" or "Luteal · Day 22 · On" · visible to **all users**
   - **Excluded exercises** → Screen 7 · preview: "5 exercises"
 - Section **BODY & NUTRITION**
   - **Diet preferences** → Screen 8 · preview: "High protein · 2,200 kcal"
@@ -142,6 +143,7 @@ Reuses onboarding patterns for edit flows; changes trigger optional **plan reada
 - Bottom sheet over previous screen
 - Title: "Update your plan?"
 - Copy: "You changed wellness settings. Flex can readapt the rest of your plan."
+- **Cycle variant:** "You updated cycle settings. Flex can readapt for cycle-aware training." · see `cycleAwareTraining` Screen 10
 - Primary: Readapt plan
 - Secondary: Keep current plan
 

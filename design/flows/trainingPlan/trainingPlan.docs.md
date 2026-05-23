@@ -1,14 +1,25 @@
 # Training Plan Flow
 
-Post-onboarding plan experience — Runna-inspired progression.
+Post-onboarding plan experience — Runna calendar + Fitbod prescriptions + unified strength/running.
 
 ## Steps
 
-1. **Plan reveal** — Multi-week overview, current week bordered, distance/volume stats
-2. **Week overview sheet** — Bottom sheet summary for selected week
-3. **Daily workout (Today)** — Week strip + today's workout cards + Record CTA
-4. **Weekly progression** — Plan Overview with week selector + coach note
-5. **Plan adjustment (optional)** — AI regenerate prompt after missed sessions
+### Plan creation (0–5)
+
+0. **Empty state** — No active plan
+1. **Plan focus** — Strength / Running / Hybrid / Return from injury
+2. **AI coach chat** — Refine goals, injuries, equipment, running target
+3. **Inputs recap** — Bullet list before generate
+4. **Generating** — Loader with status messages
+5. **Plan introduction** — Coach blurb + phase preview
+
+### Plan presentation (6–10)
+
+6. **Plan overview** — Blurb card, phase timeline, week cards
+7. **Week overview sheet** — Phase rules, exercise previews
+8. **Today** — Week strip with strength + run dots
+9. **Weekly progression** — Full exercise lists per day
+10. **Plan adjustment** — Readapt after missed sessions
 
 ## Design File
 
@@ -17,3 +28,7 @@ Post-onboarding plan experience — Runna-inspired progression.
 ## Navigation
 
 Bottom tabs: Today (default), Plan, Coach, Profile
+
+## Research
+
+See `design/docs/planCreationResearch.docs.md`

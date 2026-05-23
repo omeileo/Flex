@@ -39,9 +39,18 @@ Reference for Pencil frames. Mobile: 390×844.
 - Headline: "Tell us about you"
 - Age band picker: 18–24, 25–34, 35–44, 45–54, 55+
 - Fitness level slider: Beginner → Advanced
+- **Sex at birth** segmented: Female · Male · Prefer not to say
 - CTA: Continue
+- **Branch (Female only):** → Step 5b `cycleAwareTraining` opt-in before Step 6
+- Male / Prefer not to say: skip Step 5b; cycle-aware training available later in Profile
 
-## Step 6: Workout locations intro *(new)*
+## Step 5b: Cycle-aware training opt-in _(Female branch)_
+
+- See [`cycleAwareTraining.flow.specification.md`](../cycleAwareTraining/cycleAwareTraining.flow.specification.md) Screen 1
+- Enable → cycle setup (Screens 2–3) → Step 6
+- Not now → Step 6
+
+## Step 6: Workout locations intro _(new)_
 
 - Progress: Step 6 of 8
 - Headline: "Where do you train?"
@@ -50,7 +59,7 @@ Reference for Pencil frames. Mobile: 390×844.
 - Coach note: "You can add more locations anytime in Settings."
 - CTA: Set up my first location
 
-## Step 7: First location name & type *(new)*
+## Step 7: First location name & type _(new)_
 
 - Progress: Step 7 of 8
 - Headline: "Name this location"
@@ -59,7 +68,7 @@ Reference for Pencil frames. Mobile: 390×844.
 - Preset cards (single select): Home gym · Commercial gym · Hotel / travel · Custom
 - CTA: Continue (disabled until name + preset)
 
-## Step 8: Equipment checklist *(new)*
+## Step 8: Equipment checklist _(new)_
 
 - Progress: Step 8 of 8
 - Location name in subheader (e.g. "Home Gym")
@@ -70,14 +79,14 @@ Reference for Pencil frames. Mobile: 390×844.
 - Quick actions: Select common set · Bodyweight only
 - CTA: Save equipment
 
-### Step 8b: Custom equipment modal *(branch)*
+### Step 8b: Custom equipment modal _(branch)_
 
 - Sheet over Step 8
 - Title: "Add custom equipment"
 - Fields: Name (required), Category tag (picker), optional notes
 - CTA: Add to list · Cancel
 
-## Step 9: Add another location & default *(new)*
+## Step 9: Add another location & default _(new)_
 
 - Headline: "Add another spot?"
 - List card: Location just created + equipment count (e.g. "12 items")
@@ -86,13 +95,13 @@ Reference for Pencil frames. Mobile: 390×844.
 - Skip: "Just one location for now"
 - CTA: Continue to plan
 
-## Step 10: Plan generating *(was Step 6)*
+## Step 10: Plan generating _(was Step 6)_
 
 - Centered loader + coach avatar
 - Copy: "Flex is building your 8-week plan…"
 - Bullets animating: Goals → Injuries → **Equipment** → Schedule
 
-## Step 11: Plan reveal handoff *(was Step 7)*
+## Step 11: Plan reveal handoff _(was Step 7)_
 
 - Preview card: "Your plan is ready"
 - Stats: 8 weeks · 3 days/week · Strength + conditioning
@@ -105,24 +114,24 @@ Reference for Pencil frames. Mobile: 390×844.
 
 ### WorkoutLocation
 
-| Field | Type | Notes |
-|-------|------|-------|
-| `id` | string | Client-generated UUID until sync |
-| `name` | string | Required, 1–40 chars |
-| `notes` | string? | Optional free text |
-| `presetType` | enum | `home` \| `commercial` \| `travel` \| `custom` |
-| `isDefault` | boolean | Exactly one default per user |
-| `equipment` | EquipmentItem[] | See below |
-| `createdAt` | ISO string | Audit |
+| Field        | Type            | Notes                                          |
+| ------------ | --------------- | ---------------------------------------------- |
+| `id`         | string          | Client-generated UUID until sync               |
+| `name`       | string          | Required, 1–40 chars                           |
+| `notes`      | string?         | Optional free text                             |
+| `presetType` | enum            | `home` \| `commercial` \| `travel` \| `custom` |
+| `isDefault`  | boolean         | Exactly one default per user                   |
+| `equipment`  | EquipmentItem[] | See below                                      |
+| `createdAt`  | ISO string      | Audit                                          |
 
 ### EquipmentItem
 
-| Field | Type | Notes |
-|-------|------|-------|
-| `predefinedId` | string? | Catalog id when from list |
-| `customLabel` | string? | Required if no `predefinedId` |
+| Field          | Type     | Notes                           |
+| -------------- | -------- | ------------------------------- |
+| `predefinedId` | string?  | Catalog id when from list       |
+| `customLabel`  | string?  | Required if no `predefinedId`   |
 | `categoryTags` | string[] | e.g. `free-weights`, `machines` |
-| `quantity` | number? | Optional (dumbbell pairs, etc.) |
+| `quantity`     | number?  | Optional (dumbbell pairs, etc.) |
 
 **Invariant:** each item has `predefinedId` OR `customLabel`, not both.
 
