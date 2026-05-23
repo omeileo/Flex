@@ -6,7 +6,10 @@
       "id": "a4JijC",
       "x": 80,
       "y": 80,
-      "name": "Profile Settings Step 1: Training profile hub",
+      "name": "Profile Settings Step 1: Training profile hub - Gym Girlie",
+      "theme": {
+        "mode": "pink"
+      },
       "clip": true,
       "width": 390,
       "height": 844,
@@ -109,6 +112,111 @@
                       "fontWeight": "normal"
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "gk3sM",
+              "fill": "$text-secondary",
+              "content": "APP",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "dEOQf",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "j4Syqc",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ld2Gz",
+                      "fill": "$text-primary",
+                      "content": "Appearance",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "L81kpF",
+                      "fill": "$text-secondary",
+                      "content": "Gym Girlie",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LrVTW",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fzKoQ",
+                      "width": 20,
+                      "height": 20,
+                      "fill": "#F7F8FA",
+                      "cornerRadius": 10,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#E5E7EB"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YtPhs",
+                      "width": 20,
+                      "height": 20,
+                      "fill": "#0F1117",
+                      "cornerRadius": 10,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#E5E7EB"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RRtj5",
+                      "width": 20,
+                      "height": 20,
+                      "fill": "#DB2777",
+                      "cornerRadius": 10,
+                      "stroke": {
+                        "thickness": 2,
+                        "fill": "#DB2777"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Rmo99",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -546,7 +654,7 @@
                   "cornerRadius": 20,
                   "stroke": {
                     "thickness": 2,
-                    "fill": "#111827"
+                    "fill": "$accent-cta"
                   },
                   "padding": [
                     10,
@@ -783,7 +891,7 @@
                 {
                   "type": "text",
                   "id": "L2HYR",
-                  "fill": "#FFFFFF",
+                  "fill": "$text-inverse",
                   "content": "Save",
                   "fontFamily": "Inter",
                   "fontSize": 16,
@@ -1068,7 +1176,7 @@
                 {
                   "type": "text",
                   "id": "wdpn5",
-                  "fill": "#FFFFFF",
+                  "fill": "$text-inverse",
                   "content": "Add condition",
                   "fontFamily": "Inter",
                   "fontSize": 16,
@@ -1522,7 +1630,7 @@
                 {
                   "type": "text",
                   "id": "kzCwj",
-                  "fill": "#FFFFFF",
+                  "fill": "$text-inverse",
                   "content": "Save changes",
                   "fontFamily": "Inter",
                   "fontSize": 16,
@@ -2021,7 +2129,7 @@
                   "cornerRadius": 12,
                   "stroke": {
                     "thickness": 2,
-                    "fill": "#111827"
+                    "fill": "$accent-cta"
                   },
                   "padding": [
                     0,
@@ -2274,7 +2382,7 @@
                 {
                   "type": "text",
                   "id": "l6jrdQ",
-                  "fill": "#FFFFFF",
+                  "fill": "$text-inverse",
                   "content": "Continue",
                   "fontFamily": "Inter",
                   "fontSize": 16,
@@ -2368,7 +2476,7 @@
                 {
                   "type": "text",
                   "id": "fS1Tr",
-                  "fill": "#FFFFFF",
+                  "fill": "$text-inverse",
                   "content": "Readapt plan",
                   "fontFamily": "Inter",
                   "fontSize": 16,
@@ -2389,12 +2497,1681 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "gsbsE",
+      "x": 4090,
+      "y": 80,
+      "name": "Profile Settings Step 8: Appearance",
+      "theme": {
+        "mode": "pink"
+      },
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "GiBEM",
+          "width": "fill_container",
+          "gap": 12,
+          "padding": [
+            56,
+            24,
+            12,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "V7ALAU",
+              "fill": "$text-primary",
+              "content": "←",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "z7rXl",
+              "fill": "$text-primary",
+              "content": "Appearance",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "CEqUv",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            0,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "t0HFy",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Choose how Flex looks. Your theme was set from onboarding and can be changed anytime.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "yCqkC",
+              "fill": "$text-secondary",
+              "content": "THEME",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "DBiZD",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "cTeYc",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "w5PcVF",
+                      "theme": {
+                        "mode": "light"
+                      },
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 120,
+                      "fill": "$background",
+                      "cornerRadius": 12,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$border"
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "l85cEb",
+                          "fill": "$text-primary",
+                          "content": "Aa",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "X90TRy",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "ellipse",
+                              "id": "p6BYC",
+                              "fill": "$accent-energy",
+                              "width": 8,
+                              "height": 8
+                            },
+                            {
+                              "type": "ellipse",
+                              "id": "FEwZQ",
+                              "fill": "#000000",
+                              "width": 8,
+                              "height": 8
+                            },
+                            {
+                              "type": "ellipse",
+                              "id": "t1SLpU",
+                              "fill": "$accent-mobility",
+                              "width": 8,
+                              "height": 8
+                            },
+                            {
+                              "type": "ellipse",
+                              "id": "jQaDW",
+                              "fill": "#000000",
+                              "width": 8,
+                              "height": 8
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "pPFrw",
+                          "width": "fill_container",
+                          "height": 40,
+                          "fill": "$surface",
+                          "cornerRadius": 6,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$border"
+                          },
+                          "layout": "vertical",
+                          "gap": 4,
+                          "padding": 6,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "e55g0",
+                              "width": "fill_container",
+                              "height": 6,
+                              "fill": "$accent-cta",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ucabr",
+                              "width": 80,
+                              "height": 4,
+                              "fill": "$text-secondary",
+                              "cornerRadius": 2
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "K9Pc2B",
+                      "fill": "$text-primary",
+                      "content": "Light",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DulsQ",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "I7KdA5",
+                      "theme": {
+                        "mode": "dark"
+                      },
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 120,
+                      "fill": "$background",
+                      "cornerRadius": 12,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$border"
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mP1LL",
+                          "fill": "$text-primary",
+                          "content": "Aa",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "lTuVP",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "ellipse",
+                              "id": "T5Hx8i",
+                              "fill": "$accent-energy",
+                              "width": 8,
+                              "height": 8
+                            },
+                            {
+                              "type": "ellipse",
+                              "id": "iwjpi",
+                              "fill": "#000000",
+                              "width": 8,
+                              "height": 8
+                            },
+                            {
+                              "type": "ellipse",
+                              "id": "fqCP1",
+                              "fill": "$accent-mobility",
+                              "width": 8,
+                              "height": 8
+                            },
+                            {
+                              "type": "ellipse",
+                              "id": "q3Dok7",
+                              "fill": "#000000",
+                              "width": 8,
+                              "height": 8
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "NzKwx",
+                          "width": "fill_container",
+                          "height": 40,
+                          "fill": "$surface",
+                          "cornerRadius": 6,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$border"
+                          },
+                          "layout": "vertical",
+                          "gap": 4,
+                          "padding": 6,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "kwiYT",
+                              "width": "fill_container",
+                              "height": 6,
+                              "fill": "$accent-cta",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Qh998",
+                              "width": 80,
+                              "height": 4,
+                              "fill": "$text-secondary",
+                              "cornerRadius": 2
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "t4Vg2",
+                      "fill": "$text-primary",
+                      "content": "Dark",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gyNW5",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "j0i8jV",
+                      "theme": {
+                        "mode": "pink"
+                      },
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 120,
+                      "fill": "$background",
+                      "cornerRadius": 12,
+                      "stroke": {
+                        "thickness": 2,
+                        "fill": "$accent-cta"
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "DcCEZ",
+                          "fill": "$text-primary",
+                          "content": "Aa",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "pLRQY",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "ellipse",
+                              "id": "zxJra",
+                              "fill": "$accent-energy",
+                              "width": 8,
+                              "height": 8
+                            },
+                            {
+                              "type": "ellipse",
+                              "id": "b0Crqk",
+                              "fill": "#000000",
+                              "width": 8,
+                              "height": 8
+                            },
+                            {
+                              "type": "ellipse",
+                              "id": "ciVgR",
+                              "fill": "$accent-mobility",
+                              "width": 8,
+                              "height": 8
+                            },
+                            {
+                              "type": "ellipse",
+                              "id": "pep4i",
+                              "fill": "#000000",
+                              "width": 8,
+                              "height": 8
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "DJCRA",
+                          "width": "fill_container",
+                          "height": 40,
+                          "fill": "$surface",
+                          "cornerRadius": 6,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$border"
+                          },
+                          "layout": "vertical",
+                          "gap": 4,
+                          "padding": 6,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "EVyJf",
+                              "width": "fill_container",
+                              "height": 6,
+                              "fill": "$accent-cta",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "frame",
+                              "id": "K1pqRS",
+                              "width": 80,
+                              "height": 4,
+                              "fill": "$text-secondary",
+                              "cornerRadius": 2
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "PHnNN",
+                      "fill": "$accent-cta",
+                      "content": "Gym Girlie",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "i9Rbq",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ENroM",
+                  "fill": "$text-secondary",
+                  "content": "YOUR DEFAULT",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "s9odj6",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$border"
+                  },
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n003yr",
+                      "fill": "$text-primary",
+                      "content": "Gym Girlie",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Fjdl6",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Set from onboarding (Female). You can switch themes above without affecting your training plan.",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "poQiW",
+      "x": 80,
+      "y": 1928,
+      "name": "Profile Settings Step 1: Training profile hub - Light",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "hYs7V",
+          "width": "fill_container",
+          "padding": [
+            56,
+            24,
+            12,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "fH2It",
+              "fill": "$text-primary",
+              "content": "Training profile",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "zVXSo",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            0,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "T5naZf",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 16,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "KZdgZ",
+                  "width": 56,
+                  "height": 56,
+                  "fill": "$accent-muted",
+                  "cornerRadius": 28,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "urfvh",
+                      "fill": "$text-primary",
+                      "content": "OM",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "F2DYpo",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XIlTR",
+                      "fill": "$text-primary",
+                      "content": "Omar M.",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "s5AB3Y",
+                      "fill": "$text-secondary",
+                      "content": "Member since 2026",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "npP5n",
+              "fill": "$text-secondary",
+              "content": "APP",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "b9X6ug",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wtvZL",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Hm2dp",
+                      "fill": "$text-primary",
+                      "content": "Appearance",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "tZuDw",
+                      "fill": "$text-secondary",
+                      "content": "Light",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "C10JLP",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "XKnwS",
+                      "width": 20,
+                      "height": 20,
+                      "fill": "#F7F8FA",
+                      "cornerRadius": 10,
+                      "stroke": {
+                        "thickness": 2,
+                        "fill": "#111827"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "V149Xq",
+                      "width": 20,
+                      "height": 20,
+                      "fill": "#0F1117",
+                      "cornerRadius": 10,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#E5E7EB"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dmsdQ",
+                      "width": 20,
+                      "height": 20,
+                      "fill": "#DB2777",
+                      "cornerRadius": 10,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#E5E7EB"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "X1FGq",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "GYiyH",
+              "fill": "$text-secondary",
+              "content": "TRAINING",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "z4zu0",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "R69tZ",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wEEgI",
+                      "fill": "$text-primary",
+                      "content": "Goals & schedule",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xdN6U",
+                      "fill": "$text-secondary",
+                      "content": "Build muscle · 3 days/week",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "wipRS",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bXOvF",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Es6UV",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mRu48",
+                      "fill": "$text-primary",
+                      "content": "Workout locations",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "pqFIK",
+                      "fill": "$text-secondary",
+                      "content": "Home Gym (default) · 3 locations",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "iS75T",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "ijNb8",
+              "fill": "$text-secondary",
+              "content": "WELLNESS",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "y3hcjG",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wW0NL",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "qu3Nq",
+                      "fill": "$text-primary",
+                      "content": "Injuries & conditions",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "alMZ5",
+                      "fill": "$text-secondary",
+                      "content": "2 active · Shoulder, Lower back",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "k4S7T",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "x9Rkf",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "LSgUF",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "e5ZexL",
+                      "fill": "$text-primary",
+                      "content": "Excluded exercises",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wmkCm",
+                      "fill": "$text-secondary",
+                      "content": "5 exercises",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "OBsdQ",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "b4els",
+              "fill": "$text-secondary",
+              "content": "BODY & NUTRITION",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "ytTf0",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "LdPsE",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "QYCy3",
+                      "fill": "$text-primary",
+                      "content": "Diet preferences",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "l1R7u",
+                      "fill": "$text-secondary",
+                      "content": "High protein · 2,200 kcal",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "I4bkX",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "w7wtX",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "z8ZKbk",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kB304",
+                      "fill": "$text-primary",
+                      "content": "Age & fitness level",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rWH7X",
+                      "fill": "$text-secondary",
+                      "content": "35–44 · Intermediate",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "T19MK",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "oj4P0",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Changes to wellness or goals may update your plan.",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "kk55O",
+      "x": 1020,
+      "y": 1004,
+      "name": "Profile Settings Step 1: Training profile hub - Dark",
+      "theme": {
+        "mode": "dark"
+      },
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "r3IHE",
+          "width": "fill_container",
+          "padding": [
+            56,
+            24,
+            12,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "qRMI9",
+              "fill": "$text-primary",
+              "content": "Training profile",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EKQXC",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            0,
+            24,
+            40,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "BQQnf",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 16,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "YWXzn",
+                  "width": 56,
+                  "height": 56,
+                  "fill": "$accent-muted",
+                  "cornerRadius": 28,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "po6dU",
+                      "fill": "$text-primary",
+                      "content": "OM",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "sVrae",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MOQVO",
+                      "fill": "$text-primary",
+                      "content": "Omar M.",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "GAnIL",
+                      "fill": "$text-secondary",
+                      "content": "Member since 2026",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "FvPER",
+              "fill": "$text-secondary",
+              "content": "APP",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "f3359i",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "aR9BO",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Qz6ae",
+                      "fill": "$text-primary",
+                      "content": "Appearance",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "hrUdl",
+                      "fill": "$text-secondary",
+                      "content": "Dark",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XxA6n",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "f04Ll6",
+                      "width": 20,
+                      "height": 20,
+                      "fill": "#F7F8FA",
+                      "cornerRadius": 10,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#E5E7EB"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "CTd5s",
+                      "width": 20,
+                      "height": 20,
+                      "fill": "#0F1117",
+                      "cornerRadius": 10,
+                      "stroke": {
+                        "thickness": 2,
+                        "fill": "#F9FAFB"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tVYps",
+                      "width": 20,
+                      "height": 20,
+                      "fill": "#DB2777",
+                      "cornerRadius": 10,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#374151"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "eOCBk",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "O8uDM",
+              "fill": "$text-secondary",
+              "content": "TRAINING",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "PaRs3",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "M3gJP",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "CvUVf",
+                      "fill": "$text-primary",
+                      "content": "Goals & schedule",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "s99aa5",
+                      "fill": "$text-secondary",
+                      "content": "Build muscle · 3 days/week",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "e90Wd",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "DUiQU",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "bnByN",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SIFNp",
+                      "fill": "$text-primary",
+                      "content": "Workout locations",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "R2YKy",
+                      "fill": "$text-secondary",
+                      "content": "Home Gym (default) · 3 locations",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "gvvKB",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "fWLja",
+              "fill": "$text-secondary",
+              "content": "WELLNESS",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "ofh0u",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Vxunc",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I82yW",
+                      "fill": "$text-primary",
+                      "content": "Injuries & conditions",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "iG5xG",
+                      "fill": "$text-secondary",
+                      "content": "2 active · Shoulder, Lower back",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "IW60h",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "wHVqR",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JYzK3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lIvvX",
+                      "fill": "$text-primary",
+                      "content": "Excluded exercises",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "NMzrx",
+                      "fill": "$text-secondary",
+                      "content": "5 exercises",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "nCEEu",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "bwvdG",
+              "fill": "$text-secondary",
+              "content": "BODY & NUTRITION",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "JFBhj",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "p9hteV",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MKrfi",
+                      "fill": "$text-primary",
+                      "content": "Diet preferences",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "NevKo",
+                      "fill": "$text-secondary",
+                      "content": "High protein · 2,200 kcal",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "wCeyG",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PPx6V",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$border"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xuvb3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I4Kb5x",
+                      "fill": "$text-primary",
+                      "content": "Age & fitness level",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dwe4S",
+                      "fill": "$text-secondary",
+                      "content": "35–44 · Intermediate",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "oJ297",
+                  "fill": "$text-secondary",
+                  "content": "›",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "h0KJS",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Changes to wellness or goals may update your plan.",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
     }
   ],
+  "themes": {
+    "mode": [
+      "light",
+      "dark",
+      "pink"
+    ]
+  },
   "variables": {
     "accent-cta": {
       "type": "color",
-      "value": "#111827"
+      "value": [
+        {
+          "value": "#111827",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F9FAFB",
+          "theme": {
+            "mode": "dark"
+          }
+        },
+        {
+          "value": "#DB2777",
+          "theme": {
+            "mode": "pink"
+          }
+        }
+      ]
     },
     "accent-energy": {
       "type": "color",
@@ -2410,27 +4187,164 @@
     },
     "accent-muted": {
       "type": "color",
-      "value": "#D8E3FB"
+      "value": [
+        {
+          "value": "#D8E3FB",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#2D3748",
+          "theme": {
+            "mode": "dark"
+          }
+        },
+        {
+          "value": "#FFD6E8",
+          "theme": {
+            "mode": "pink"
+          }
+        }
+      ]
     },
     "background": {
       "type": "color",
-      "value": "#F7F8FA"
+      "value": [
+        {
+          "value": "#F7F8FA",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0F1117",
+          "theme": {
+            "mode": "dark"
+          }
+        },
+        {
+          "value": "#FFF0F5",
+          "theme": {
+            "mode": "pink"
+          }
+        }
+      ]
     },
     "border": {
       "type": "color",
-      "value": "#E5E7EB"
+      "value": [
+        {
+          "value": "#E5E7EB",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#374151",
+          "theme": {
+            "mode": "dark"
+          }
+        },
+        {
+          "value": "#F5C6DE",
+          "theme": {
+            "mode": "pink"
+          }
+        }
+      ]
     },
     "surface": {
       "type": "color",
-      "value": "#FFFFFF"
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#1A1F2E",
+          "theme": {
+            "mode": "dark"
+          }
+        },
+        {
+          "value": "#FFFBFC",
+          "theme": {
+            "mode": "pink"
+          }
+        }
+      ]
     },
     "text-primary": {
       "type": "color",
-      "value": "#111827"
+      "value": [
+        {
+          "value": "#111827",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F9FAFB",
+          "theme": {
+            "mode": "dark"
+          }
+        },
+        {
+          "value": "#3B1229",
+          "theme": {
+            "mode": "pink"
+          }
+        }
+      ]
     },
     "text-secondary": {
       "type": "color",
-      "value": "#6B7280"
+      "value": [
+        {
+          "value": "#6B7280",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#9CA3AF",
+          "theme": {
+            "mode": "dark"
+          }
+        },
+        {
+          "value": "#9D6280",
+          "theme": {
+            "mode": "pink"
+          }
+        }
+      ]
+    },
+    "text-inverse": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#111827",
+          "theme": {
+            "mode": "dark"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "pink"
+          }
+        }
+      ]
     }
   }
 }

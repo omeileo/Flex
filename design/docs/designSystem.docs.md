@@ -18,12 +18,12 @@ Tokens → Patterns → Components → Templates → Flows
 
 Inspired by Runna (plan progression, Today-first), Fitbod (adaptive strength), Tonal (goal cards), and Alan (injury intake).
 
-| Principle | Application |
-|-----------|-------------|
-| Minimal chrome | White/off-white surfaces, generous whitespace |
-| Strong hierarchy | Bold titles, muted metadata, one primary CTA per screen |
-| Color punches | Left-edge gradient bars on workout cards by modality |
-| Coach presence | Small avatar + short contextual message on plan screens |
+| Principle        | Application                                                 |
+| ---------------- | ----------------------------------------------------------- |
+| Minimal chrome   | White/off-white surfaces, generous whitespace               |
+| Strong hierarchy | Bold titles, muted metadata, one primary CTA per screen     |
+| Color punches    | Left-edge gradient bars on workout cards by modality        |
+| Coach presence   | Small avatar + short contextual message on plan screens     |
 | Progress clarity | Week X/Y selector, segmented week progress, today highlight |
 
 ## File Naming
@@ -45,7 +45,17 @@ Examples:
 
 ## Theme Integration
 
-All designs reference tokens from `StyleConstants.ts` (see [themeTokens.docs.md](themeTokens.docs.md)).
+Flex ships three theme modes: **Light**, **Dark**, and **Gym Girlie** (internal id: `pink`).
+
+| Mode    | UI label   | Default for             |
+| ------- | ---------- | ----------------------- |
+| `light` | Light      | Manual override         |
+| `dark`  | Dark       | Male (onboarding sex)   |
+| `pink`  | Gym Girlie | Female (onboarding sex) |
+
+All designs reference themed tokens from `StyleConstants.ts` (see [themeTokens.docs.md](themeTokens.docs.md)). Token swatches and the Appearance picker live in `design/system/tokens/color.tokens.design.pen`.
+
+Pencil files use the `mode` theme axis on frames and `$variable` bindings for theme-aware fills.
 
 ## Agent Workflow
 

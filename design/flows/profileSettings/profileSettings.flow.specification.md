@@ -10,6 +10,8 @@ Reuses onboarding patterns for edit flows; changes trigger optional **plan reada
 
 - Nav: title "Training profile" · optional gear for account settings (out of scope)
 - Hero card: avatar initials · name · member since
+- Section **APP**
+  - **Appearance** → Screen 8 · preview: current theme label (Light / Dark / Gym Girlie) + mini swatches
 - Section **TRAINING**
   - **Goals & schedule** → Screen 2 · preview: "Build muscle · 3 days/week"
   - **Workout locations** → links `gymLocations` flow · preview: "Home Gym (default) · 3 locations"
@@ -105,21 +107,37 @@ Reuses onboarding patterns for edit flows; changes trigger optional **plan reada
 
 ---
 
-## Screen 8: Diet preferences
+## Screen 8: Appearance
+
+- Nav: Back · "Appearance"
+- Subcopy: "Choose how Flex looks. Your theme was set from onboarding and can be changed anytime."
+- **Theme picker** (MacroFactor-style preview cards):
+  - **Light** — manual override
+  - **Dark** — male onboarding default
+  - **Gym Girlie** — female onboarding default (internal id: `pink`)
+- Selected card: 2px border in `$accent-cta`, label in accent color
+- Each preview card shows mini UI: "Aa", modality dots, sample CTA bar
+- **Your default** info card: explains onboarding-assigned default (e.g. "Gym Girlie · Set from onboarding (Female)")
+- Theme change applies immediately — no plan readapt prompt
+- Design also includes hub variants in Light, Dark, and Gym Girlie for token validation
+
+---
+
+## Screen 9: Diet preferences
 
 - Same as onboarding step 4: diet chips + optional calorie target
 - Save → readapt prompt if macro-sensitive goals
 
 ---
 
-## Screen 9: Age & fitness
+## Screen 10: Age & fitness
 
 - Age band picker + fitness slider (onboarding step 5)
 - Save
 
 ---
 
-## Screen 10: Plan readapt prompt *(branch)*
+## Screen 11: Plan readapt prompt _(branch)_
 
 - Bottom sheet over previous screen
 - Title: "Update your plan?"
@@ -133,24 +151,24 @@ Reuses onboarding patterns for edit flows; changes trigger optional **plan reada
 
 ### WellnessCondition
 
-| Field | Type | Notes |
-|-------|------|-------|
-| `id` | string | UUID |
-| `bodyArea` | enum | shoulder, knee, lowerBack, hip, ankle, wrist, neck, other |
-| `label` | string? | "Left shoulder" |
-| `status` | enum | recovered, managing, flareUp |
-| `lastFlareUpAt` | ISO? | When status = flareUp or history |
-| `movementRestrictions` | string[] | Tag ids |
-| `aggravatingExercises` | ExerciseRef[] | predefinedId or customLabel |
-| `notes` | string? | Free text |
-| `createdAt` | ISO | |
+| Field                  | Type          | Notes                                                     |
+| ---------------------- | ------------- | --------------------------------------------------------- |
+| `id`                   | string        | UUID                                                      |
+| `bodyArea`             | enum          | shoulder, knee, lowerBack, hip, ankle, wrist, neck, other |
+| `label`                | string?       | "Left shoulder"                                           |
+| `status`               | enum          | recovered, managing, flareUp                              |
+| `lastFlareUpAt`        | ISO?          | When status = flareUp or history                          |
+| `movementRestrictions` | string[]      | Tag ids                                                   |
+| `aggravatingExercises` | ExerciseRef[] | predefinedId or customLabel                               |
+| `notes`                | string?       | Free text                                                 |
+| `createdAt`            | ISO           |                                                           |
 
 ### ExerciseRef
 
-| Field | Type |
-|-------|------|
+| Field          | Type    |
+| -------------- | ------- |
 | `predefinedId` | string? |
-| `customLabel` | string? |
+| `customLabel`  | string? |
 
 ### GlobalExcludeList
 
@@ -167,6 +185,8 @@ Separate from per-condition aggravators — union of all excluded exercise ids f
 ## Components
 
 - **ProfileSectionRow** — icon, title, preview, chevron
+- **ThemePicker** — three preview cards (Light, Dark, Gym Girlie) with selected border state
+- **ThemeSwatchRow** — inline mini swatches on hub Appearance row
 - **ConditionCard** — status badge, accent bar
 - **StatusSegment** — Recovered / Managing / Flare-up
 - **MovementRestrictionChip** — multi-select
