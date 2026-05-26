@@ -4,10 +4,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useTranslation } from 'react-i18next'
 
 import Appearance from '@screens/Appearance/Appearance.container'
+import AgeFitness from '@screens/AgeFitness/AgeFitness.container'
 import ConditionDetail from '@screens/ConditionDetail/ConditionDetail.container'
 import CustomizeSymptoms from '@screens/CustomizeSymptoms/CustomizeSymptoms.container'
 import CycleAwareSettings from '@screens/CycleAwareSettings/CycleAwareSettings.container'
 import CycleSetup from '@screens/CycleSetup/CycleSetup.container'
+import DietPreferences from '@screens/DietPreferences/DietPreferences.container'
 import ExcludedExercises from '@screens/ExcludedExercises/ExcludedExercises.container'
 import GoalsAndSchedule from '@screens/GoalsAndSchedule/GoalsAndSchedule.container'
 import GymLocationDetail from '@screens/GymLocationDetail/GymLocationDetail.container'
@@ -81,6 +83,12 @@ const ProfileStackNavigator = () => {
         component={CustomizeSymptoms}
         options={{ title: t('cycleAware.symptomsTitle') }}
       />
+      <Stack.Screen
+        name="DietPreferences"
+        component={DietPreferences}
+        options={{ title: t('profileSettings.dietTitle') }}
+      />
+      <Stack.Screen name="AgeFitness" component={AgeFitness} options={{ title: t('profileSettings.ageTitle') }} />
     </Stack.Navigator>
   )
 }

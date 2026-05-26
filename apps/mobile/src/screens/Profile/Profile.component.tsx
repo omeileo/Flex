@@ -35,7 +35,9 @@ const ProfileComponent = ({
   onNavigateWellness,
   onNavigateCycle,
   onNavigateExcluded,
-  onNavigateAppearance
+  onNavigateAppearance,
+  onNavigateDiet,
+  onNavigateAge
 }: ProfileComponentProps) => {
   const styles = useThemedStyles(createProfileStyles)
   const { t } = useTranslation()
@@ -108,8 +110,18 @@ const ProfileComponent = ({
       />
 
       <Text style={styles.sectionLabel}>{t('profileSettings.bodySection')}</Text>
-      <ProfileSectionRow title={t('profileSettings.dietRow')} preview={dietPreview} onPress={() => undefined} />
-      <ProfileSectionRow title={t('profileSettings.ageRow')} preview={agePreview} onPress={() => undefined} />
+      <ProfileSectionRow
+        title={t('profileSettings.dietRow')}
+        preview={dietPreview}
+        onPress={onNavigateDiet}
+        testID="profile-row-diet"
+      />
+      <ProfileSectionRow
+        title={t('profileSettings.ageRow')}
+        preview={agePreview}
+        onPress={onNavigateAge}
+        testID="profile-row-age"
+      />
 
       <Text style={styles.footerNote}>{t('profileSettings.footerNote')}</Text>
     </ScrollView>

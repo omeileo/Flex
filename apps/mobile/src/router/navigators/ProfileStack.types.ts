@@ -13,6 +13,8 @@ export type ProfileStackParamList = {
   CycleAwareSettings: undefined
   CycleSetup: undefined
   CustomizeSymptoms: undefined
+  DietPreferences: undefined
+  AgeFitness: undefined
 }
 
 export type ProfileNavigation = NativeStackNavigationProp<ProfileStackParamList>

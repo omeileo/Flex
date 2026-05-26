@@ -70,6 +70,38 @@ const ProfileContainer = () => {
 
   const themePreview = useMemo(() => t(`components.theme.${themeMode}`), [themeMode, t])
 
+  const dietPreview = useMemo(() => {
+    const preferences = (success?.preferences ?? {}) as { diet?: string | null; calorieTarget?: string }
+    const diet = preferences.diet
+    const calories = preferences.calorieTarget
+
+    if (!diet) {
+      return t('profileSettings.dietPreview')
+    }
+
+    if (calories) {
+      return `${diet} · ${calories} kcal`
+    }
+
+    return diet
+  }, [success?.preferences, t])
+
+  const agePreview = useMemo(() => {
+    const preferences = (success?.preferences ?? {}) as { ageBand?: string | null; fitnessLevel?: number }
+    const ageBand = preferences.ageBand
+    const levelKey =
+      typeof preferences.fitnessLevel === 'number'
+        ? (['beginner', 'intermediate', 'advanced'][preferences.fitnessLevel] ?? success?.experienceLevel)
+        : success?.experienceLevel
+    const levelLabel = levelKey ? t(`profileOnboarding.experienceLevels.${levelKey}`) : t('profileSettings.agePreview')
+
+    if (!ageBand) {
+      return t('profileSettings.agePreview')
+    }
+
+    return `${ageBand} · ${levelLabel}`
+  }, [success?.experienceLevel, success?.preferences, t])
+
   return (
     <ProfileComponent
       displayName={t('profileSettings.displayName')}
@@ -80,8 +112,8 @@ const ProfileContainer = () => {
       wellnessPreview={wellnessPreview}
       cyclePreview={cyclePreview}
       excludedPreview={excludedPreview}
-      dietPreview={t('profileSettings.dietPreview')}
-      agePreview={t('profileSettings.agePreview')}
+      dietPreview={dietPreview}
+      agePreview={agePreview}
       themePreview={themePreview}
       themeMode={themeMode}
       isLoading={loading}
@@ -94,6 +126,8 @@ const ProfileContainer = () => {
       onNavigateCycle={() => navigation.navigate('CycleAwareSettings')}
       onNavigateExcluded={() => navigation.navigate('ExcludedExercises')}
       onNavigateAppearance={() => navigation.navigate('Appearance')}
+      onNavigateDiet={() => navigation.navigate('DietPreferences')}
+      onNavigateAge={() => navigation.navigate('AgeFitness')}
     />
   )
 }

@@ -5,7 +5,26 @@ appId: com.flex.app
 
 - launchApp
 - runFlow:
-    file: ../auth/loginWithTestCredentials.subflow.maestro.yaml
+    when:
+      visible:
+        id: 'today-screen'
+    commands:
+      - assertVisible:
+          id: 'today-screen'
+- runFlow:
+    when:
+      visible:
+        id: 'landing-screen'
+    commands:
+      - runFlow:
+          file: ../auth/loginWithTestCredentials.subflow.maestro.yaml
+- runFlow:
+    when:
+      visible:
+        id: 'login-screen'
+    commands:
+      - runFlow:
+          file: ../auth/loginWithTestCredentials.subflow.maestro.yaml
 - tapOn:
     text: 'Profile'
 - assertVisible:
@@ -25,3 +44,13 @@ appId: com.flex.app
     id: 'profile-row-gym-locations'
 - assertVisible:
     id: 'gym-locations-list-screen'
+- back
+- tapOn:
+    id: 'profile-row-wellness'
+- assertVisible:
+    id: 'wellness-overview-screen'
+- back
+- tapOn:
+    id: 'profile-row-goals'
+- assertVisible:
+    id: 'goals-and-schedule-screen'

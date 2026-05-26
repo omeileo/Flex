@@ -1,0 +1,13 @@
+{
+  "flow": "profileSettings",
+  "screen": "trainingProfile",
+  "sessionId": "session_20260526002256",
+  "iterations": 1,
+  "parityAchieved": false,
+  "blockers": [
+    "Maestro iOS run failed: XCTest driver connection refused during profileSettingsNavigation flow (simulator infra, not navigation logic)"
+  ],
+  "initialAudit": "initialAudit/trainingProfile_20260526002256/trainingProfile.container.audit.md",
+  "finalAudit": null,
+  "changesSummary": "Wired ProfileStackNavigator into MainTabs Profile tab; added DietPreferences and AgeFitness screens to ProfileStack"
+}

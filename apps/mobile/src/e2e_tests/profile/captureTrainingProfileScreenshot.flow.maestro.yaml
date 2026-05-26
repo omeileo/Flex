@@ -1,7 +1,11 @@
 appId: com.flex.app
 ---
-# Flow test: Profile settings navigation (authenticated)
-# Run: maestro test apps/mobile/src/e2e_tests/profile/viewTrainingProfile.flow.maestro.yaml
+# Flow: Profile settings — training profile hub screenshot for design audit
+# Run from repo root:
+#   maestro test -p ios apps/mobile/src/e2e_tests/profile/captureTrainingProfileScreenshot.flow.maestro.yaml
+#   maestro test -p android apps/mobile/src/e2e_tests/profile/captureTrainingProfileScreenshot.flow.maestro.yaml
+# Copy Maestro output (training_profile_1.png) after each platform run:
+#   design/implementationValidation/profileSettings/trainingProfile/session_{SESSION_TS}/finalAudit/trainingProfile_{AUDIT_TS}/training_profile_1_{ios|android}.png
 
 - launchApp
 - runFlow:
@@ -31,16 +35,4 @@ appId: com.flex.app
     id: 'training-profile-screen'
 - assertVisible:
     id: 'training-profile-title'
-- assertVisible:
-    id: 'profile-row-goals'
-- assertVisible:
-    id: 'profile-row-gym-locations'
-- tapOn:
-    id: 'profile-row-appearance'
-- assertVisible:
-    id: 'appearance-screen'
-- back
-- tapOn:
-    id: 'profile-row-gym-locations'
-- assertVisible:
-    id: 'gym-locations-list-screen'
+- takeScreenshot: training_profile_1

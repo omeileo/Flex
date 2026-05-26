@@ -26,7 +26,9 @@ const baseProps = {
   onNavigateWellness: jest.fn(),
   onNavigateCycle: jest.fn(),
   onNavigateExcluded: jest.fn(),
-  onNavigateAppearance: jest.fn()
+  onNavigateAppearance: jest.fn(),
+  onNavigateDiet: jest.fn(),
+  onNavigateAge: jest.fn()
 }
 
 describe('ProfileComponent', () => {

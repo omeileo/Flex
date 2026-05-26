@@ -27,4 +27,6 @@ export type ProfileComponentProps = {
   onNavigateCycle: () => void
   onNavigateExcluded: () => void
   onNavigateAppearance: () => void
+  onNavigateDiet: () => void
+  onNavigateAge: () => void
 }
