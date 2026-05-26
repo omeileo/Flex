@@ -2,7 +2,9 @@ import React from 'react'
 
 import { Modal, Pressable, View } from 'react-native'
 
-import styles from './BottomSheet.styles'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
+
+import { createBottomSheetStyles } from './BottomSheet.styles'
 import { BottomSheetProps } from './BottomSheet.types'
 
 const BottomSheet = ({
@@ -14,6 +16,7 @@ const BottomSheet = ({
   contentStyle,
   testID
 }: BottomSheetProps) => {
+  const styles = useThemedStyles(createBottomSheetStyles)
   const isSheet = variant === 'sheet'
 
   return (

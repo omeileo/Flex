@@ -2,14 +2,21 @@ import React from 'react'
 
 import { Text, View } from 'react-native'
 
-import styles from './StatCard.styles'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
+
+import { createStatCardStyles } from './StatCard.styles'
 import { StatCardProps } from './StatCard.types'
 
-const StatCard = ({ label, value, style }: StatCardProps) => (
-  <View style={[styles.card, style]}>
-    <Text style={styles.value}>{value}</Text>
-    <Text style={styles.label}>{label}</Text>
-  </View>
-)
+const StatCard = ({ label, value, hint, style, testID }: StatCardProps) => {
+  const styles = useThemedStyles(createStatCardStyles)
+
+  return (
+    <View style={[styles.card, style]} testID={testID}>
+      <Text style={styles.label}>{label}</Text>
+      <Text style={styles.value}>{value}</Text>
+      {hint ? <Text style={styles.hint}>{hint}</Text> : null}
+    </View>
+  )
+}
 
 export default StatCard

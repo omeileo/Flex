@@ -1,58 +1,38 @@
 import { StyleSheet } from 'react-native'
 
-import { colors, radii, spacing, typography } from '@shared/styles/StyleConstants'
+import { ThemeColors } from '@shared/context/ThemeProvider/ThemeProvider.types'
+import { fontWeights, getElevation, radii, spacing, typography } from '@shared/styles/StyleConstants'
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-    paddingHorizontal: spacing.lg,
-    justifyContent: 'center'
-  },
-  brand: {
-    fontSize: typography.display,
-    fontWeight: '700',
-    color: colors.textPrimary,
-    marginBottom: spacing.sm
-  },
-  tagline: {
-    fontSize: typography.bodyLarge,
-    color: colors.textSecondary,
-    marginBottom: spacing.xxl,
-    lineHeight: 24
-  },
-  primaryButton: {
-    backgroundColor: colors.accent,
-    borderRadius: radii.md,
-    paddingVertical: spacing.md,
-    alignItems: 'center',
-    marginBottom: spacing.md
-  },
-  primaryButtonText: {
-    color: colors.textInverse,
-    fontSize: typography.bodyLarge,
-    fontWeight: '600'
-  },
-  secondaryButton: {
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.accent,
-    borderRadius: radii.md,
-    paddingVertical: spacing.md,
-    alignItems: 'center'
-  },
-  secondaryButtonText: {
-    color: colors.accent,
-    fontSize: typography.bodyLarge,
-    fontWeight: '600'
-  },
-  devButton: {
-    marginTop: spacing.xl,
-    alignItems: 'center',
-    paddingVertical: spacing.sm
-  },
-  devButtonText: {
-    color: colors.textSecondary,
-    fontSize: typography.caption,
-    textDecorationLine: 'underline'
-  }
-})
+export const createLandingStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    hero: {
+      marginBottom: spacing.xxl
+    },
+    primaryButton: {
+      marginBottom: spacing.md
+    },
+    secondaryButton: {
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: colors.border,
+      borderRadius: radii.pill,
+      paddingVertical: spacing.md + 2,
+      alignItems: 'center',
+      backgroundColor: colors.surface,
+      ...getElevation(colors.shadowColor).subtle
+    },
+    secondaryButtonText: {
+      color: colors.textPrimary,
+      fontSize: typography.bodyLarge,
+      fontWeight: fontWeights.semibold
+    },
+    devButton: {
+      marginTop: spacing.xl,
+      alignItems: 'center',
+      paddingVertical: spacing.sm
+    },
+    devButtonText: {
+      color: colors.textSecondary,
+      fontSize: typography.caption,
+      textDecorationLine: 'underline'
+    }
+  })

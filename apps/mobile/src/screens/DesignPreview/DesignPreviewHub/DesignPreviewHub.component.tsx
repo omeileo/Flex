@@ -2,11 +2,12 @@ import React from 'react'
 
 import { ScrollView, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
 import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
 
-import styles from './DesignPreviewHub.styles'
+import { createDesignPreviewHubStyles } from './DesignPreviewHub.styles'
 import { DesignPreviewHubComponentProps } from './DesignPreviewHub.types'
 
 const contentPaddingBottom = 48
@@ -20,6 +21,7 @@ const DesignPreviewHubComponent = ({
   onOpenAuth,
   onOpenProfileSettings
 }: DesignPreviewHubComponentProps) => {
+  const styles = useThemedStyles(createDesignPreviewHubStyles)
   const { t } = useTranslation()
 
   return (

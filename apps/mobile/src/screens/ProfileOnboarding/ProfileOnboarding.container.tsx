@@ -9,17 +9,18 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import ProfileOnboardingComponent from './ProfileOnboarding.component'
 
-import { ProfileOnboardingFormValues } from './ProfileOnboarding.types'
+import { mapOnboardingDraftToProfile } from './ProfileOnboarding.mapDraft'
+import { ProfileOnboardingDraft } from './ProfileOnboarding.types'
 
 const ProfileOnboardingContainer = () => {
   const dispatch = useDispatch<AppDispatch>()
   const navigation = useNavigation<RootStackNavigationProp>()
   const { loading, error } = useSelector((state: RootState) => state.saveProfile)
 
-  const handleSubmit = useCallback(
-    async (values: ProfileOnboardingFormValues) => {
+  const handleComplete = useCallback(
+    async (draft: ProfileOnboardingDraft) => {
       try {
-        await dispatch(saveProfile(values)).unwrap()
+        await dispatch(saveProfile(mapOnboardingDraftToProfile(draft))).unwrap()
         await dispatch(generatePlan()).unwrap()
         navigation.reset({ index: 0, routes: [{ name: 'MainTabs' }] })
       } catch {
@@ -29,7 +30,7 @@ const ProfileOnboardingContainer = () => {
     [dispatch, navigation]
   )
 
-  return <ProfileOnboardingComponent isSubmitting={loading} error={error} onSubmit={handleSubmit} />
+  return <ProfileOnboardingComponent isSubmitting={loading} error={error} onComplete={handleComplete} />
 }
 
 export default ProfileOnboardingContainer

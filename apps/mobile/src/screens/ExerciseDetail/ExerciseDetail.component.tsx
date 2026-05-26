@@ -2,14 +2,16 @@ import React from 'react'
 
 import { ScrollView, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
 import LoadingView from '@shared/components/LoadingView/LoadingView.component'
 
-import styles from './ExerciseDetail.styles'
+import { createExerciseDetailStyles } from './ExerciseDetail.styles'
 import { ExerciseDetailComponentProps } from './ExerciseDetail.types'
 
 const ExerciseDetailComponent = ({ exercise, isLoading, error }: ExerciseDetailComponentProps) => {
+  const styles = useThemedStyles(createExerciseDetailStyles)
   const { t } = useTranslation()
 
   if (isLoading && !exercise) {

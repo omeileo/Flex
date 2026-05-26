@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 
 import { Pressable, ScrollView, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
 import AuthBrandHeader from '@shared/components/AuthBrandHeader/AuthBrandHeader.component'
@@ -9,10 +10,11 @@ import FormTextField from '@shared/components/FormTextField/FormTextField.compon
 import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
 import VerificationCodeInput from '@shared/components/VerificationCodeInput/VerificationCodeInput.component'
 
-import styles from './AuthFlowPreview.styles'
+import { createAuthFlowPreviewStyles } from './AuthFlowPreview.styles'
 import { AuthFlowPreviewComponentProps, AuthFlowView } from './AuthFlowPreview.types'
 
 const AuthFlowPreviewComponent = (_props: AuthFlowPreviewComponentProps) => {
+  const styles = useThemedStyles(createAuthFlowPreviewStyles)
   const { t } = useTranslation()
   const [view, setView] = useState<AuthFlowView>('signIn')
   const [email, setEmail] = useState('you@example.com')

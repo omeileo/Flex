@@ -1,15 +1,9 @@
 import { StyleSheet } from 'react-native'
 
+import { ThemeColors } from '@shared/context/ThemeProvider/ThemeProvider.types'
 import { radii, spacing, typography } from '@shared/styles/StyleConstants'
 
-export const createSnackbarStyles = (colors: {
-  error: string
-  warning: string
-  success: string
-  textInverse: string
-  textPrimary: string
-  surface: string
-}) =>
+export const createSnackbarStyles = (colors: ThemeColors) =>
   StyleSheet.create({
     host: {
       position: 'absolute',
@@ -24,7 +18,7 @@ export const createSnackbarStyles = (colors: {
       paddingVertical: spacing.sm,
       flexDirection: 'row',
       alignItems: 'center',
-      shadowColor: '#000',
+      shadowColor: colors.shadowColor,
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.2,
       shadowRadius: 4,

@@ -2,10 +2,13 @@ import React, { useCallback, useRef } from 'react'
 
 import { NativeSyntheticEvent, Pressable, Text, TextInput, TextInputKeyPressEventData, View } from 'react-native'
 
-import styles from './VerificationCodeInput.styles'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
+
+import { createVerificationCodeInputStyles } from './VerificationCodeInput.styles'
 import { VerificationCodeInputProps } from './VerificationCodeInput.types'
 
 const VerificationCodeInput = ({ value, onChange, length = 6, error }: VerificationCodeInputProps) => {
+  const styles = useThemedStyles(createVerificationCodeInputStyles)
   const inputRef = useRef<TextInput>(null)
   const chars = value.toUpperCase().split('').slice(0, length)
   const boxes = Array.from({ length }, (_, index) => chars[index] ?? '')

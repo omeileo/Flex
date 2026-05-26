@@ -2,10 +2,11 @@ import React from 'react'
 
 import { Pressable, Text, View } from 'react-native'
 
-import { colors } from '@shared/styles/StyleConstants'
+import { useThemeColors } from '@shared/hooks/useThemeColors/useThemeColors.hooks'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { workoutModalityColors } from '@shared/types/workoutModality.types'
 
-import styles from './WorkoutCard.styles'
+import { createWorkoutCardStyles } from './WorkoutCard.styles'
 import { WorkoutCardProps } from './WorkoutCard.types'
 
 const WorkoutCard = ({
@@ -18,6 +19,8 @@ const WorkoutCard = ({
   onToggleComplete,
   style
 }: WorkoutCardProps) => {
+  const colors = useThemeColors()
+  const styles = useThemedStyles(createWorkoutCardStyles)
   const modalityColor = workoutModalityColors[modality]
 
   return (

@@ -1,77 +1,57 @@
 import { StyleSheet } from 'react-native'
 
-import { colors, radii, spacing, typography } from '@shared/styles/StyleConstants'
+import { ThemeColors } from '@shared/context/ThemeProvider/ThemeProvider.types'
+import { fontWeights, fonts, letterSpacing, typography } from '@shared/styles/StyleConstants'
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-    padding: spacing.lg
-  },
-  title: {
-    fontSize: typography.heading,
-    fontWeight: '700',
-    color: colors.textPrimary,
-    marginBottom: spacing.sm
-  },
-  subtitle: {
-    fontSize: typography.body,
-    color: colors.textSecondary,
-    marginBottom: spacing.lg
-  },
-  label: {
-    fontSize: typography.body,
-    color: colors.textSecondary,
-    marginBottom: spacing.xs,
-    marginTop: spacing.md
-  },
-  input: {
-    backgroundColor: colors.surface,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.border,
-    borderRadius: radii.md,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    fontSize: typography.bodyLarge,
-    color: colors.textPrimary
-  },
-  codeInput: {
-    letterSpacing: 4,
-    textTransform: 'uppercase',
-    fontWeight: '700'
-  },
-  inputReadOnly: {
-    opacity: 0.85
-  },
-  error: {
-    color: colors.error,
-    marginTop: spacing.sm
-  },
-  info: {
-    color: colors.success,
-    marginTop: spacing.sm
-  },
-  button: {
-    marginTop: spacing.xl,
-    backgroundColor: colors.accent,
-    borderRadius: radii.md,
-    paddingVertical: spacing.md,
-    alignItems: 'center'
-  },
-  buttonText: {
-    color: colors.textInverse,
-    fontSize: typography.bodyLarge,
-    fontWeight: '600'
-  },
-  link: {
-    marginTop: spacing.lg,
-    alignItems: 'center'
-  },
-  linkText: {
-    color: colors.accent,
-    fontSize: typography.body
-  },
-  scrollContent: {
-    paddingBottom: 48
-  }
-})
+export const createVerifyEmailStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    title: {
+      fontSize: typography.heading,
+      fontFamily: fonts.display,
+      fontWeight: fontWeights.bold,
+      letterSpacing: letterSpacing.headline,
+      color: colors.textPrimary,
+      marginBottom: 8
+    },
+    subtitle: {
+      fontSize: typography.body,
+      color: colors.textSecondary,
+      lineHeight: 20,
+      marginBottom: 24
+    },
+    fieldLabel: {
+      fontSize: typography.body,
+      fontWeight: fontWeights.semibold,
+      color: colors.textPrimary,
+      marginBottom: 8
+    },
+    error: {
+      color: colors.error,
+      fontSize: typography.caption,
+      marginTop: 8,
+      marginBottom: 16
+    },
+    info: {
+      fontSize: typography.caption,
+      color: colors.textSecondary,
+      textAlign: 'center',
+      marginBottom: 16
+    },
+    primaryButton: {
+      marginTop: 16
+    },
+    footer: {
+      marginTop: 24,
+      gap: 16,
+      alignItems: 'center'
+    },
+    linkText: {
+      fontSize: typography.body,
+      color: colors.textSecondary,
+      textAlign: 'center'
+    },
+    linkEmphasis: {
+      color: colors.textPrimary,
+      fontWeight: fontWeights.semibold
+    }
+  })

@@ -2,11 +2,12 @@ import React, { useMemo } from 'react'
 
 import { Pressable, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
 import EquipmentChip from '@shared/components/EquipmentChip/EquipmentChip.component'
 
-import styles from './EquipmentPickerSheet.styles'
+import { createEquipmentPickerSheetStyles } from './EquipmentPickerSheet.styles'
 import { EquipmentPickerSheetProps } from './EquipmentPickerSheet.types'
 
 const EquipmentPickerSheet = ({
@@ -22,6 +23,7 @@ const EquipmentPickerSheet = ({
   onSelectCommon,
   onBodyweightOnly
 }: EquipmentPickerSheetProps) => {
+  const styles = useThemedStyles(createEquipmentPickerSheetStyles)
   const { t } = useTranslation()
 
   const filteredEquipment = useMemo(() => {

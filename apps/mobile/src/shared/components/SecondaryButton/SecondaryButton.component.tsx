@@ -2,10 +2,13 @@ import React from 'react'
 
 import { Pressable, Text } from 'react-native'
 
-import styles from './SecondaryButton.styles'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
+
+import { createSecondaryButtonStyles } from './SecondaryButton.styles'
 import { SecondaryButtonProps } from './SecondaryButton.types'
 
 const SecondaryButton = ({ label, onPress, disabled = false, variant = 'secondary', style }: SecondaryButtonProps) => {
+  const styles = useThemedStyles(createSecondaryButtonStyles)
   const isDestructive = variant === 'destructive'
 
   return (

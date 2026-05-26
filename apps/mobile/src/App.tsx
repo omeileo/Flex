@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 
 import { StatusBar, View } from 'react-native'
 
+import { hydrateCycleProfile } from '@redux/states/profile/cycleProfile/cycleProfile.slice'
+import { hydrateWellness } from '@redux/states/profile/wellness/wellness.slice'
+import { hydrateWorkoutLocations } from '@redux/states/profile/workoutLocations/workoutLocations.slice'
 import { hydrateTheme } from '@redux/states/settings/theme/theme.slice'
 import store from '@redux/store/store'
 import ROUTES from '@router/router'
@@ -20,6 +23,9 @@ const AppBootstrap = () => {
 
   useEffect(() => {
     dispatch(hydrateTheme())
+    dispatch(hydrateWorkoutLocations())
+    dispatch(hydrateWellness())
+    dispatch(hydrateCycleProfile())
   }, [dispatch])
 
   return (

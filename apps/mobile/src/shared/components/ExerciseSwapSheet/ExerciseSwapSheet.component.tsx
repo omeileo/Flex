@@ -2,12 +2,14 @@ import React from 'react'
 
 import { Pressable, ScrollView, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
-import styles from './ExerciseSwapSheet.styles'
+import { createExerciseSwapSheetStyles } from './ExerciseSwapSheet.styles'
 import { ExerciseSwapSheetProps } from './ExerciseSwapSheet.types'
 
 const ExerciseSwapSheet = ({ options, filterChips, onSelect, onCancel }: ExerciseSwapSheetProps) => {
+  const styles = useThemedStyles(createExerciseSwapSheetStyles)
   const { t } = useTranslation()
 
   return (

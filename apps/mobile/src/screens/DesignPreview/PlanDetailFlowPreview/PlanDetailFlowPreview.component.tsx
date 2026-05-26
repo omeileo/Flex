@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 
 import { Pressable, ScrollView, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { workoutModalityColors } from '@shared/types/workoutModality.types'
 import { useTranslation } from 'react-i18next'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -17,7 +18,7 @@ import {
   planProgramTitle,
   planWeekDays
 } from '../designPreviewMock.data'
-import styles from './PlanDetailFlowPreview.styles'
+import { createPlanDetailFlowPreviewStyles } from './PlanDetailFlowPreview.styles'
 import { PlanDetailFlowPreviewComponentProps, PlanDetailView } from './PlanDetailFlowPreview.types'
 
 const previewViews: Array<{ key: PlanDetailView; label: string }> = [
@@ -29,6 +30,7 @@ const previewViews: Array<{ key: PlanDetailView; label: string }> = [
 ]
 
 const PlanDetailFlowPreviewComponent = ({ initialView = 'program' }: PlanDetailFlowPreviewComponentProps) => {
+  const styles = useThemedStyles(createPlanDetailFlowPreviewStyles)
   const { t } = useTranslation()
   const insets = useSafeAreaInsets()
   const [activeView, setActiveView] = useState<PlanDetailView>(initialView)

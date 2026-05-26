@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 
 import { Pressable, ScrollView, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
 import ConditionCard from '@shared/components/ConditionCard/ConditionCard.component'
@@ -10,7 +11,7 @@ import ProfileSectionRow from '@shared/components/ProfileSectionRow/ProfileSecti
 import SelectionCard from '@shared/components/SelectionCard/SelectionCard.component'
 import StatusSegment from '@shared/components/StatusSegment/StatusSegment.component'
 
-import styles from './ProfileSettingsFlowPreview.styles'
+import { createProfileSettingsFlowPreviewStyles } from './ProfileSettingsFlowPreview.styles'
 import {
   MockCondition,
   ProfileSettingsFlowPreviewComponentProps,
@@ -37,6 +38,7 @@ const aggravatingExercises = ['Overhead press', 'Arnold press', 'Upright row']
 const excludedExercises = ['Barbell back squat', 'Upright row', 'Box jumps']
 
 const ProfileSettingsFlowPreviewComponent = (_props: ProfileSettingsFlowPreviewComponentProps) => {
+  const styles = useThemedStyles(createProfileSettingsFlowPreviewStyles)
   const { t } = useTranslation()
   const [view, setView] = useState<ProfileSettingsView>('hub')
   const [selectedGoals, setSelectedGoals] = useState<string[]>(['Build muscle'])

@@ -2,7 +2,9 @@ import React from 'react'
 
 import { Pressable, Text, View } from 'react-native'
 
-import styles from './SetRow.styles'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
+
+import { createSetRowStyles } from './SetRow.styles'
 import { SetRowProps } from './SetRow.types'
 
 const statusIcon = (status: SetRowProps['status']) => {
@@ -22,6 +24,7 @@ const statusIcon = (status: SetRowProps['status']) => {
 }
 
 const SetRow = ({ setNumber, previousLabel, reps, weightKg, status, onPress }: SetRowProps) => {
+  const styles = useThemedStyles(createSetRowStyles)
   const isActive = status === 'active'
   const isCompleted = status === 'completed'
 

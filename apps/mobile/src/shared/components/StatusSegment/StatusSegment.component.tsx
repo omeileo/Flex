@@ -2,14 +2,16 @@ import React, { useCallback } from 'react'
 
 import { Pressable, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
-import styles from './StatusSegment.styles'
+import { createStatusSegmentStyles } from './StatusSegment.styles'
 import { StatusSegmentProps, WellnessStatus } from './StatusSegment.types'
 
 const statusOptions: WellnessStatus[] = ['recovered', 'managing', 'flareUp']
 
 const StatusSegment = ({ value, onChange }: StatusSegmentProps) => {
+  const styles = useThemedStyles(createStatusSegmentStyles)
   const { t } = useTranslation()
 
   const renderSegment = useCallback(

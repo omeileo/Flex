@@ -2,10 +2,13 @@ import React from 'react'
 
 import { Text, View } from 'react-native'
 
-import styles from './ProgressHeader.styles'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
+
+import { createProgressHeaderStyles } from './ProgressHeader.styles'
 import { ProgressHeaderProps } from './ProgressHeader.types'
 
 const ProgressHeader = ({ currentStep, totalSteps, stepLabel }: ProgressHeaderProps) => {
+  const styles = useThemedStyles(createProgressHeaderStyles)
   const progress = Math.min(Math.max(currentStep / totalSteps, 0), 1)
 
   return (

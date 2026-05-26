@@ -8,7 +8,8 @@ import {
   locationPresetOptions,
   predefinedEquipmentCatalog
 } from '@shared/dictionary/equipmentCatalog.dictionary'
-import { colors } from '@shared/styles/StyleConstants'
+import { useThemeColors } from '@shared/hooks/useThemeColors/useThemeColors.hooks'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { EquipmentPresetType, WorkoutLocation } from '@shared/types/workoutEquipment.types'
 import { useTranslation } from 'react-i18next'
 
@@ -28,7 +29,7 @@ import {
   onboardingGoals,
   restrictionMovements
 } from '../designPreviewMock.data'
-import styles from './OnboardingFlowPreview.styles'
+import { createOnboardingFlowPreviewStyles } from './OnboardingFlowPreview.styles'
 import { InjuryStateId, OnboardingFlowPreviewComponentProps } from './OnboardingFlowPreview.types'
 
 const TOTAL_STEPS = 11
@@ -37,6 +38,8 @@ const FITNESS_LEVELS = ['Beginner', 'Intermediate', 'Advanced']
 const LOADER_STEP = 10
 
 const OnboardingFlowPreviewComponent = ({ onComplete, onViewPlan }: OnboardingFlowPreviewComponentProps) => {
+  const colors = useThemeColors()
+  const styles = useThemedStyles(createOnboardingFlowPreviewStyles)
   const { t } = useTranslation()
   const [step, setStep] = useState(1)
   const [selectedGoals, setSelectedGoals] = useState<string[]>([])

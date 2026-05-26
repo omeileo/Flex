@@ -2,9 +2,10 @@ import React from 'react'
 
 import { Pressable, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { workoutModalityColors } from '@shared/types/workoutModality.types'
 
-import styles from './WeekSummaryCard.styles'
+import { createWeekSummaryCardStyles } from './WeekSummaryCard.styles'
 import { WeekSummaryCardProps } from './WeekSummaryCard.types'
 
 const WeekSummaryCard = ({
@@ -15,26 +16,30 @@ const WeekSummaryCard = ({
   workouts,
   isCurrent = false,
   onPress
-}: WeekSummaryCardProps) => (
-  <Pressable style={[styles.card, isCurrent && styles.cardCurrent]} onPress={onPress} disabled={!onPress}>
-    <View style={styles.header}>
-      <View>
-        <Text style={styles.weekTitle}>Week {weekNumber}</Text>
-        <Text style={styles.dateRange}>{dateRange}</Text>
-      </View>
-    </View>
+}: WeekSummaryCardProps) => {
+  const styles = useThemedStyles(createWeekSummaryCardStyles)
 
-    <Text style={styles.stats}>
-      {workoutCount} workouts · {totalVolume}
-    </Text>
-
-    {workouts.map((workout) => (
-      <View key={workout.id} style={styles.workoutRow}>
-        <View style={[styles.modalityDot, { backgroundColor: workoutModalityColors[workout.modality] }]} />
-        <Text style={styles.workoutTitle}>{workout.title}</Text>
+  return (
+    <Pressable style={[styles.card, isCurrent && styles.cardCurrent]} onPress={onPress} disabled={!onPress}>
+      <View style={styles.header}>
+        <View>
+          <Text style={styles.weekTitle}>Week {weekNumber}</Text>
+          <Text style={styles.dateRange}>{dateRange}</Text>
+        </View>
       </View>
-    ))}
-  </Pressable>
-)
+
+      <Text style={styles.stats}>
+        {workoutCount} workouts · {totalVolume}
+      </Text>
+
+      {workouts.map((workout) => (
+        <View key={workout.id} style={styles.workoutRow}>
+          <View style={[styles.modalityDot, { backgroundColor: workoutModalityColors[workout.modality] }]} />
+          <Text style={styles.workoutTitle}>{workout.title}</Text>
+        </View>
+      ))}
+    </Pressable>
+  )
+}
 
 export default WeekSummaryCard

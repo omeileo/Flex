@@ -2,10 +2,13 @@ import React from 'react'
 
 import { Text, View } from 'react-native'
 
-import styles from './ChatBubble.styles'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
+
+import { createChatBubbleStyles } from './ChatBubble.styles'
 import { ChatBubbleProps } from './ChatBubble.types'
 
 const ChatBubble = ({ message, role, coachName = 'Flex Coach' }: ChatBubbleProps) => {
+  const styles = useThemedStyles(createChatBubbleStyles)
   if (role === 'user') {
     return (
       <View style={styles.userBubble}>

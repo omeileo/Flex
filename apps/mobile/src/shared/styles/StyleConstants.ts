@@ -2,6 +2,30 @@ import { Platform } from 'react-native'
 
 export type ThemeMode = 'light' | 'dark' | 'pink'
 
+export type ThemeIdentity = {
+  label: string
+  tagline: string
+  ctaIntent: string
+}
+
+export const themeIdentity: Record<ThemeMode, ThemeIdentity> = {
+  light: {
+    label: 'Light',
+    tagline: 'Cool studio canvas with ink CTAs',
+    ctaIntent: 'High-contrast monochrome actions on airy surfaces'
+  },
+  dark: {
+    label: 'Dark',
+    tagline: 'Charcoal gym floor with white punch',
+    ctaIntent: 'Premium night-mode contrast inspired by training apps'
+  },
+  pink: {
+    label: 'Gym Girlie',
+    tagline: 'Rose warmth with magenta accent',
+    ctaIntent: 'Feminine energy without washed-out pastels'
+  }
+}
+
 const sharedSemanticColors = {
   accentEnergy: '#22C55E',
   accentStrength: '#6366F1',
@@ -13,7 +37,9 @@ const sharedSemanticColors = {
   accentCycleSoft: '#FDF2F8',
   error: '#DC2626',
   warning: '#F59E0B',
-  success: '#16A34A'
+  success: '#16A34A',
+  successSoft: '#F0FDF4',
+  successMuted: '#DCFCE7'
 } as const
 
 export const themePalettes: Record<
@@ -27,6 +53,7 @@ export const themePalettes: Record<
     accent: string
     accentMuted: string
     border: string
+    shadowColor: string
   }
 > = {
   light: {
@@ -37,7 +64,8 @@ export const themePalettes: Record<
     textInverse: '#FFFFFF',
     accent: '#111827',
     accentMuted: '#D8E3FB',
-    border: '#E5E7EB'
+    border: '#E5E7EB',
+    shadowColor: '#111827'
   },
   dark: {
     background: '#0F1117',
@@ -47,7 +75,8 @@ export const themePalettes: Record<
     textInverse: '#111827',
     accent: '#F9FAFB',
     accentMuted: '#2D3748',
-    border: '#374151'
+    border: '#374151',
+    shadowColor: '#000000'
   },
   pink: {
     background: '#FFF0F5',
@@ -57,7 +86,8 @@ export const themePalettes: Record<
     textInverse: '#FFFFFF',
     accent: '#DB2777',
     accentMuted: '#FFD6E8',
-    border: '#F5C6DE'
+    border: '#F5C6DE',
+    shadowColor: '#3B1229'
   }
 }
 
@@ -80,6 +110,14 @@ export const spacing = {
   xxl: 48
 }
 
+export const composition = {
+  screenPadding: spacing.lg,
+  sectionGap: spacing.lg,
+  cardPadding: spacing.md,
+  heroInset: spacing.xl,
+  inlineGap: spacing.sm
+}
+
 export const typography = {
   caption: 12,
   body: 14,
@@ -96,6 +134,30 @@ export const fontWeights = {
   bold: '700' as const
 }
 
+export const fonts = {
+  brand: Platform.select({
+    ios: 'AvenirNext-Heavy',
+    android: 'sans-serif-black',
+    default: undefined
+  }),
+  display: Platform.select({
+    ios: 'AvenirNext-DemiBold',
+    android: 'sans-serif-condensed',
+    default: undefined
+  }),
+  body: Platform.select({
+    ios: 'AvenirNext-Regular',
+    android: 'sans-serif',
+    default: undefined
+  })
+}
+
+export const letterSpacing = {
+  brand: 3,
+  headline: -0.4,
+  caps: 1.1
+}
+
 export const radii = {
   sm: 4,
   md: 8,
@@ -103,10 +165,10 @@ export const radii = {
   pill: 36
 }
 
-export const elevation = {
+export const getElevation = (shadowColor: string) => ({
   subtle: Platform.select({
     ios: {
-      shadowColor: '#111827',
+      shadowColor,
       shadowOffset: { width: 0, height: 1 },
       shadowOpacity: 0.06,
       shadowRadius: 3
@@ -116,7 +178,7 @@ export const elevation = {
   }),
   card: Platform.select({
     ios: {
-      shadowColor: '#111827',
+      shadowColor,
       shadowOffset: { width: 0, height: 4 },
       shadowOpacity: 0.08,
       shadowRadius: 12
@@ -126,7 +188,7 @@ export const elevation = {
   }),
   floating: Platform.select({
     ios: {
-      shadowColor: '#111827',
+      shadowColor,
       shadowOffset: { width: 0, height: 8 },
       shadowOpacity: 0.12,
       shadowRadius: 24
@@ -134,7 +196,9 @@ export const elevation = {
     android: { elevation: 8 },
     default: {}
   })
-}
+})
+
+export const elevation = getElevation(themePalettes.light.shadowColor)
 
 export const ACTIVE_OPACITY = 0.7
 export const HITSLOP = { top: 10, bottom: 10, left: 10, right: 10 }

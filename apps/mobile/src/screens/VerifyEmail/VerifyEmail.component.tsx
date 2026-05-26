@@ -1,10 +1,17 @@
 import React from 'react'
 
-import { Pressable, ScrollView, Text, TextInput } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
-import styles from './VerifyEmail.styles'
+import AuthBrandHeader from '@shared/components/AuthBrandHeader/AuthBrandHeader.component'
+import AuthScreenShell from '@shared/components/AuthScreenShell/AuthScreenShell.component'
+import FormTextField from '@shared/components/FormTextField/FormTextField.component'
+import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
+import VerificationCodeInput from '@shared/components/VerificationCodeInput/VerificationCodeInput.component'
+
+import { createVerifyEmailStyles } from './VerifyEmail.styles'
 import { VerifyEmailComponentProps } from './VerifyEmail.types'
 
 const VerifyEmailComponent = ({
@@ -21,54 +28,55 @@ const VerifyEmailComponent = ({
   onResendPress,
   onLoginPress
 }: VerifyEmailComponentProps) => {
+  const styles = useThemedStyles(createVerifyEmailStyles)
   const { t } = useTranslation()
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
-      <Text style={styles.title}>{t('auth.verifyEmail.title')}</Text>
-      <Text style={styles.subtitle}>{t('auth.verifyEmail.subtitle')}</Text>
+    <AuthScreenShell testID="verify-email-screen">
+      <AuthBrandHeader />
 
-      <Text style={styles.label}>{t('auth.verifyEmail.email')}</Text>
-      <TextInput
-        style={[styles.input, emailReadOnly ? styles.inputReadOnly : null]}
+      <Text style={styles.title} testID="verify-email-title">
+        {t('auth.verifyEmail.title')}
+      </Text>
+
+      <Text style={styles.subtitle}>
+        {email ? t('auth.verifyEmail.subtitleWithEmail', { email }) : t('auth.verifyEmail.subtitle')}
+      </Text>
+
+      <FormTextField
+        label={t('auth.verifyEmail.email')}
         value={email}
         onChangeText={onEmailChange}
         editable={!emailReadOnly}
-        autoCapitalize="none"
         keyboardType="email-address"
         autoComplete="email"
       />
 
-      <Text style={styles.label}>{t('auth.verifyEmail.code')}</Text>
-      <TextInput
-        style={[styles.input, styles.codeInput]}
-        value={code}
-        onChangeText={onCodeChange}
-        autoCapitalize="characters"
-        maxLength={6}
-        autoComplete="one-time-code"
-        textContentType="oneTimeCode"
-      />
+      <Text style={styles.fieldLabel}>{t('auth.verifyEmail.code')}</Text>
+      <VerificationCodeInput value={code} onChange={onCodeChange} />
 
       {error ? <Text style={styles.error}>{error}</Text> : null}
       {resendMessage ? <Text style={styles.info}>{resendMessage}</Text> : null}
 
-      <Pressable style={styles.button} disabled={isSubmitting} onPress={onSubmit}>
-        <Text style={styles.buttonText}>
-          {isSubmitting ? t('auth.verifyEmail.submitting') : t('auth.verifyEmail.submit')}
-        </Text>
-      </Pressable>
+      <PrimaryButton
+        label={t('auth.verifyEmail.submit')}
+        onPress={onSubmit}
+        loading={isSubmitting}
+        style={styles.primaryButton}
+      />
 
-      <Pressable style={styles.link} disabled={isResending} onPress={onResendPress}>
-        <Text style={styles.linkText}>
-          {isResending ? t('auth.verifyEmail.resending') : t('auth.verifyEmail.resend')}
-        </Text>
-      </Pressable>
+      <View style={styles.footer}>
+        <Pressable disabled={isResending} onPress={onResendPress}>
+          <Text style={[styles.linkText, styles.linkEmphasis]}>
+            {isResending ? t('auth.verifyEmail.resending') : t('auth.verifyEmail.resend')}
+          </Text>
+        </Pressable>
 
-      <Pressable style={styles.link} onPress={onLoginPress}>
-        <Text style={styles.linkText}>{t('auth.verifyEmail.goToLogin')}</Text>
-      </Pressable>
-    </ScrollView>
+        <Pressable onPress={onLoginPress}>
+          <Text style={styles.linkText}>{t('auth.verifyEmail.goToLogin')}</Text>
+        </Pressable>
+      </View>
+    </AuthScreenShell>
   )
 }
 

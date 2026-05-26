@@ -1,14 +1,18 @@
 import React from 'react'
 
-import { Pressable, ScrollView, Text, TextInput } from 'react-native'
+import { Pressable, Text } from 'react-native'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
-import PasswordTextInput from '@shared/components/PasswordTextInput/PasswordTextInput.component'
+import AuthBrandHeader from '@shared/components/AuthBrandHeader/AuthBrandHeader.component'
+import AuthScreenShell from '@shared/components/AuthScreenShell/AuthScreenShell.component'
+import FormTextField from '@shared/components/FormTextField/FormTextField.component'
+import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
 
-import styles from './Login.styles'
+import { createLoginStyles } from './Login.styles'
 import { LoginComponentProps, LoginFormValues } from './Login.types'
 import { loginSchema } from './Login.validation'
 
@@ -25,6 +29,7 @@ const LoginComponent = ({
   onSignUpPress,
   onForgotPasswordPress
 }: LoginComponentProps) => {
+  const styles = useThemedStyles(createLoginStyles)
   const { t } = useTranslation()
   const {
     control,
@@ -39,42 +44,44 @@ const LoginComponent = ({
   const emailValue = watch('email')
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
-      <Text style={styles.title}>{t('auth.login.title')}</Text>
+    <AuthScreenShell testID="login-screen">
+      <AuthBrandHeader tagline={t('auth.login.tagline')} />
 
-      <Text style={styles.label}>{t('auth.login.email')}</Text>
+      <Text style={styles.title} testID="login-title">
+        {t('auth.login.title')}
+      </Text>
+
       <Controller
         control={control}
         name="email"
         render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
+          <FormTextField
+            label={t('auth.login.email')}
             value={value}
             onChangeText={onChange}
-            autoCapitalize="none"
+            placeholder={t('auth.login.emailPlaceholder')}
             keyboardType="email-address"
             autoComplete="email"
-            placeholder={t('auth.login.emailPlaceholder')}
+            error={errors.email ? t(String(errors.email.message)) : undefined}
           />
         )}
       />
-      {errors.email ? <Text style={styles.error}>{t(String(errors.email.message))}</Text> : null}
 
-      <Text style={styles.label}>{t('auth.login.password')}</Text>
       <Controller
         control={control}
         name="password"
         render={({ field: { onChange, value } }) => (
-          <PasswordTextInput
-            style={styles.input}
+          <FormTextField
+            label={t('auth.login.password')}
             value={value}
             onChangeText={onChange}
-            autoComplete="password"
             placeholder={t('auth.login.passwordPlaceholder')}
+            secureTextEntry
+            autoComplete="password"
+            error={errors.password ? t(String(errors.password.message)) : undefined}
           />
         )}
       />
-      {errors.password ? <Text style={styles.error}>{t(String(errors.password.message))}</Text> : null}
 
       <Pressable style={styles.forgotPasswordLink} onPress={() => onForgotPasswordPress(emailValue)}>
         <Text style={styles.forgotPasswordText}>{t('auth.login.forgotPassword')}</Text>
@@ -83,14 +90,20 @@ const LoginComponent = ({
       {error ? <Text style={styles.error}>{error}</Text> : null}
       {successMessage ? <Text style={styles.success}>{successMessage}</Text> : null}
 
-      <Pressable style={styles.button} disabled={isSubmitting} onPress={handleSubmit(onSubmit)}>
-        <Text style={styles.buttonText}>{isSubmitting ? t('auth.login.submitting') : t('auth.login.submit')}</Text>
-      </Pressable>
+      <PrimaryButton
+        label={t('auth.login.submit')}
+        onPress={handleSubmit(onSubmit)}
+        loading={isSubmitting}
+        style={styles.primaryButton}
+      />
 
-      <Pressable style={styles.link} onPress={onSignUpPress}>
-        <Text style={styles.linkText}>{t('auth.login.goToSignUp')}</Text>
+      <Pressable style={styles.linkRow} onPress={onSignUpPress}>
+        <Text style={styles.linkText}>
+          {t('auth.login.needAccount')}
+          <Text style={styles.linkEmphasis}>{t('auth.login.signUpLink')}</Text>
+        </Text>
       </Pressable>
-    </ScrollView>
+    </AuthScreenShell>
   )
 }
 

@@ -2,12 +2,14 @@ import React from 'react'
 
 import { Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
-import styles from './AuthBrandHeader.styles'
+import { createAuthBrandHeaderStyles } from './AuthBrandHeader.styles'
 import { AuthBrandHeaderProps } from './AuthBrandHeader.types'
 
 const AuthBrandHeader = ({ tagline }: AuthBrandHeaderProps) => {
+  const styles = useThemedStyles(createAuthBrandHeaderStyles)
   const { t } = useTranslation()
 
   return (

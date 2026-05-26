@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native'
 
-import { colors } from '@shared/styles/StyleConstants'
+import { ThemeColors } from '@shared/context/ThemeProvider/ThemeProvider.types'
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
+export const createFlexBootstrapStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background,
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  })

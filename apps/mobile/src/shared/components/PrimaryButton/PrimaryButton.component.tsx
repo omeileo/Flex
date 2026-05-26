@@ -2,12 +2,15 @@ import React from 'react'
 
 import { ActivityIndicator, Pressable, Text } from 'react-native'
 
-import { colors } from '@shared/styles/StyleConstants'
+import { useThemeColors } from '@shared/hooks/useThemeColors/useThemeColors.hooks'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 
-import styles from './PrimaryButton.styles'
+import { createPrimaryButtonStyles } from './PrimaryButton.styles'
 import { PrimaryButtonProps } from './PrimaryButton.types'
 
 const PrimaryButton = ({ label, onPress, disabled = false, loading = false, style }: PrimaryButtonProps) => {
+  const colors = useThemeColors()
+  const styles = useThemedStyles(createPrimaryButtonStyles)
   const isDisabled = disabled || loading
 
   return (

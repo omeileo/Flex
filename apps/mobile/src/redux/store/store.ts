@@ -4,8 +4,11 @@ import forgetPasswordReducer from '../states/auth/forgetPassword/forgetPassword.
 import loginReducer from '../states/auth/login/login.slice'
 import signUpReducer from '../states/auth/signUp/signUp.slice'
 import verifyEmailReducer from '../states/auth/verifyEmail/verifyEmail.slice'
+import cycleProfileReducer from '../states/profile/cycleProfile/cycleProfile.slice'
 import getProfileReducer from '../states/profile/getProfile/getProfile.slice'
 import saveProfileReducer from '../states/profile/saveProfile/saveProfile.slice'
+import wellnessReducer from '../states/profile/wellness/wellness.slice'
+import workoutLocationsReducer from '../states/profile/workoutLocations/workoutLocations.slice'
 import themeReducer from '../states/settings/theme/theme.slice'
 import generatePlanReducer from '../states/trainingPlan/generatePlan/generatePlan.slice'
 import getActivePlanReducer from '../states/trainingPlan/getActivePlan/getActivePlan.slice'
@@ -20,6 +23,9 @@ const appReducer = combineReducers({
   verifyEmail: verifyEmailReducer,
   getProfile: getProfileReducer,
   saveProfile: saveProfileReducer,
+  workoutLocations: workoutLocationsReducer,
+  wellness: wellnessReducer,
+  cycleProfile: cycleProfileReducer,
   generatePlan: generatePlanReducer,
   getActivePlan: getActivePlanReducer,
   getPlanChanges: getPlanChangesReducer,

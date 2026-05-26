@@ -2,10 +2,11 @@ import React from 'react'
 
 import { Pressable, Text, TextInput, View } from 'react-native'
 
-import { colors } from '@shared/styles/StyleConstants'
+import { useThemeColors } from '@shared/hooks/useThemeColors/useThemeColors.hooks'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
-import styles from './ChatComposer.styles'
+import { createChatComposerStyles } from './ChatComposer.styles'
 import { ChatComposerProps } from './ChatComposer.types'
 
 const ChatComposer = ({
@@ -18,6 +19,8 @@ const ChatComposer = ({
   sendLabel,
   disabled = false
 }: ChatComposerProps) => {
+  const colors = useThemeColors()
+  const styles = useThemedStyles(createChatComposerStyles)
   const { t } = useTranslation()
   const canSend = !disabled && value.trim().length > 0
 

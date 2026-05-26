@@ -1,72 +1,51 @@
 import { StyleSheet } from 'react-native'
 
-import { colors, radii, spacing, typography } from '@shared/styles/StyleConstants'
+import { ThemeColors } from '@shared/context/ThemeProvider/ThemeProvider.types'
+import { fontWeights, fonts, letterSpacing, typography } from '@shared/styles/StyleConstants'
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-    padding: spacing.lg
-  },
-  title: {
-    fontSize: typography.heading,
-    fontWeight: '700',
-    color: colors.textPrimary,
-    marginBottom: spacing.lg
-  },
-  label: {
-    fontSize: typography.body,
-    color: colors.textSecondary,
-    marginBottom: spacing.xs,
-    marginTop: spacing.md
-  },
-  input: {
-    backgroundColor: colors.surface,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.border,
-    borderRadius: radii.md,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    fontSize: typography.bodyLarge,
-    color: colors.textPrimary
-  },
-  error: {
-    color: colors.error,
-    marginTop: spacing.sm
-  },
-  success: {
-    color: colors.success,
-    marginTop: spacing.sm
-  },
-  button: {
-    marginTop: spacing.xl,
-    backgroundColor: colors.accent,
-    borderRadius: radii.md,
-    paddingVertical: spacing.md,
-    alignItems: 'center'
-  },
-  buttonText: {
-    color: colors.textInverse,
-    fontSize: typography.bodyLarge,
-    fontWeight: '600'
-  },
-  link: {
-    marginTop: spacing.lg,
-    alignItems: 'center'
-  },
-  linkText: {
-    color: colors.accent,
-    fontSize: typography.body
-  },
-  forgotPasswordLink: {
-    marginTop: spacing.sm,
-    alignSelf: 'flex-end'
-  },
-  forgotPasswordText: {
-    color: colors.accent,
-    fontSize: typography.body
-  },
-  scrollContent: {
-    paddingBottom: 48
-  }
-})
+export const createLoginStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    title: {
+      fontSize: typography.heading,
+      fontFamily: fonts.display,
+      fontWeight: fontWeights.bold,
+      letterSpacing: letterSpacing.headline,
+      color: colors.textPrimary,
+      marginBottom: 24
+    },
+    forgotPasswordLink: {
+      alignSelf: 'flex-end',
+      marginBottom: 16
+    },
+    forgotPasswordText: {
+      color: colors.textPrimary,
+      fontSize: typography.body,
+      fontWeight: fontWeights.semibold
+    },
+    error: {
+      color: colors.error,
+      fontSize: typography.caption,
+      marginBottom: 16
+    },
+    success: {
+      color: colors.success,
+      fontSize: typography.caption,
+      marginBottom: 16
+    },
+    primaryButton: {
+      marginTop: 8
+    },
+    linkRow: {
+      marginTop: 24,
+      alignItems: 'center'
+    },
+    linkText: {
+      fontSize: typography.body,
+      color: colors.textSecondary,
+      textAlign: 'center'
+    },
+    linkEmphasis: {
+      color: colors.textPrimary,
+      fontWeight: fontWeights.semibold
+    }
+  })

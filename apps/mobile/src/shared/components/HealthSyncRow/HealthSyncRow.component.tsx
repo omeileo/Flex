@@ -2,12 +2,14 @@ import React from 'react'
 
 import { Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
-import styles from './HealthSyncRow.styles'
+import { createHealthSyncRowStyles } from './HealthSyncRow.styles'
 import { HealthSyncRowProps } from './HealthSyncRow.types'
 
 const HealthSyncRow = ({ provider }: HealthSyncRowProps) => {
+  const styles = useThemedStyles(createHealthSyncRowStyles)
   const { t } = useTranslation()
 
   const titleKey =

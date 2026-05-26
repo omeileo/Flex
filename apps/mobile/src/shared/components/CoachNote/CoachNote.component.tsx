@@ -2,10 +2,13 @@ import React from 'react'
 
 import { Text, View } from 'react-native'
 
-import styles from './CoachNote.styles'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
+
+import { createCoachNoteStyles } from './CoachNote.styles'
 import { CoachNoteProps } from './CoachNote.types'
 
 const CoachNote = ({ message, coachName = 'Flex Coach' }: CoachNoteProps) => {
+  const styles = useThemedStyles(createCoachNoteStyles)
   const initials = coachName
     .split(' ')
     .map((part) => part[0])

@@ -1,14 +1,18 @@
 import React from 'react'
 
-import { Pressable, ScrollView, Text, TextInput } from 'react-native'
+import { Pressable, Text } from 'react-native'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
-import PasswordTextInput from '@shared/components/PasswordTextInput/PasswordTextInput.component'
+import AuthBrandHeader from '@shared/components/AuthBrandHeader/AuthBrandHeader.component'
+import AuthScreenShell from '@shared/components/AuthScreenShell/AuthScreenShell.component'
+import FormTextField from '@shared/components/FormTextField/FormTextField.component'
+import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
 
-import styles from './SignUp.styles'
+import { createSignUpStyles } from './SignUp.styles'
 import { SignUpComponentProps, SignUpFormValues } from './SignUp.types'
 import { signUpSchema } from './SignUp.validation'
 
@@ -20,6 +24,7 @@ const defaultValues: SignUpFormValues = {
 }
 
 const SignUpComponent = ({ isSubmitting, error, successMessage, onSubmit, onLoginPress }: SignUpComponentProps) => {
+  const styles = useThemedStyles(createSignUpStyles)
   const { t } = useTranslation()
   const {
     control,
@@ -31,67 +36,91 @@ const SignUpComponent = ({ isSubmitting, error, successMessage, onSubmit, onLogi
   })
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
-      <Text style={styles.title}>{t('auth.signUp.title')}</Text>
+    <AuthScreenShell testID="signup-screen">
+      <AuthBrandHeader tagline={t('auth.signUp.tagline')} />
 
-      <Text style={styles.label}>{t('auth.signUp.firstName')}</Text>
+      <Text style={styles.title} testID="signup-title">
+        {t('auth.signUp.title')}
+      </Text>
+
       <Controller
         control={control}
         name="firstName"
         render={({ field: { onChange, value } }) => (
-          <TextInput style={styles.input} value={value} onChangeText={onChange} autoComplete="given-name" />
+          <FormTextField
+            label={t('auth.signUp.firstName')}
+            value={value}
+            onChangeText={onChange}
+            autoCapitalize="words"
+            autoComplete="given-name"
+            error={errors.firstName ? t(String(errors.firstName.message)) : undefined}
+          />
         )}
       />
-      {errors.firstName ? <Text style={styles.error}>{t(String(errors.firstName.message))}</Text> : null}
 
-      <Text style={styles.label}>{t('auth.signUp.lastName')}</Text>
       <Controller
         control={control}
         name="lastName"
         render={({ field: { onChange, value } }) => (
-          <TextInput style={styles.input} value={value} onChangeText={onChange} autoComplete="family-name" />
+          <FormTextField
+            label={t('auth.signUp.lastName')}
+            value={value}
+            onChangeText={onChange}
+            autoCapitalize="words"
+            autoComplete="family-name"
+            error={errors.lastName ? t(String(errors.lastName.message)) : undefined}
+          />
         )}
       />
-      {errors.lastName ? <Text style={styles.error}>{t(String(errors.lastName.message))}</Text> : null}
 
-      <Text style={styles.label}>{t('auth.signUp.email')}</Text>
       <Controller
         control={control}
         name="email"
         render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
+          <FormTextField
+            label={t('auth.signUp.email')}
             value={value}
             onChangeText={onChange}
-            autoCapitalize="none"
             keyboardType="email-address"
             autoComplete="email"
+            error={errors.email ? t(String(errors.email.message)) : undefined}
           />
         )}
       />
-      {errors.email ? <Text style={styles.error}>{t(String(errors.email.message))}</Text> : null}
 
-      <Text style={styles.label}>{t('auth.signUp.password')}</Text>
       <Controller
         control={control}
         name="password"
         render={({ field: { onChange, value } }) => (
-          <PasswordTextInput style={styles.input} value={value} onChangeText={onChange} autoComplete="new-password" />
+          <FormTextField
+            label={t('auth.signUp.password')}
+            value={value}
+            onChangeText={onChange}
+            placeholder={t('auth.signUp.passwordHint')}
+            secureTextEntry
+            autoComplete="new-password"
+            error={errors.password ? t(String(errors.password.message)) : undefined}
+          />
         )}
       />
-      {errors.password ? <Text style={styles.error}>{t(String(errors.password.message))}</Text> : null}
 
       {error ? <Text style={styles.error}>{error}</Text> : null}
       {successMessage ? <Text style={styles.success}>{successMessage}</Text> : null}
 
-      <Pressable style={styles.button} disabled={isSubmitting} onPress={handleSubmit(onSubmit)}>
-        <Text style={styles.buttonText}>{isSubmitting ? t('auth.signUp.submitting') : t('auth.signUp.submit')}</Text>
-      </Pressable>
+      <PrimaryButton
+        label={t('auth.signUp.submit')}
+        onPress={handleSubmit(onSubmit)}
+        loading={isSubmitting}
+        style={styles.primaryButton}
+      />
 
-      <Pressable style={styles.link} onPress={onLoginPress}>
-        <Text style={styles.linkText}>{t('auth.signUp.goToLogin')}</Text>
+      <Pressable style={styles.linkRow} onPress={onLoginPress}>
+        <Text style={styles.linkText}>
+          {t('auth.signUp.haveAccount')}
+          <Text style={styles.linkEmphasis}>{t('auth.signUp.signInLink')}</Text>
+        </Text>
       </Pressable>
-    </ScrollView>
+    </AuthScreenShell>
   )
 }
 

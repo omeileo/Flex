@@ -7,7 +7,8 @@ import {
   equipmentPickerCategories,
   predefinedEquipmentCatalog
 } from '@shared/dictionary/equipmentCatalog.dictionary'
-import { colors } from '@shared/styles/StyleConstants'
+import { useThemeColors } from '@shared/hooks/useThemeColors/useThemeColors.hooks'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { WorkoutLocation } from '@shared/types/workoutEquipment.types'
 import { useTranslation } from 'react-i18next'
 
@@ -17,7 +18,7 @@ import LocationCard from '@shared/components/LocationCard/LocationCard.component
 import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
 
 import { mockWorkoutLocations } from '../designPreviewMock.data'
-import styles from './GymLocationsSettingsPreview.styles'
+import { createGymLocationsSettingsPreviewStyles } from './GymLocationsSettingsPreview.styles'
 import { GymLocationsSettingsPreviewComponentProps, GymLocationsView } from './GymLocationsSettingsPreview.types'
 
 const buildLocationFromMock = (): WorkoutLocation[] =>
@@ -33,6 +34,8 @@ const buildLocationFromMock = (): WorkoutLocation[] =>
   }))
 
 const GymLocationsSettingsPreviewComponent = (_props: GymLocationsSettingsPreviewComponentProps) => {
+  const colors = useThemeColors()
+  const styles = useThemedStyles(createGymLocationsSettingsPreviewStyles)
   const { t } = useTranslation()
   const [view, setView] = useState<GymLocationsView>('list')
   const [locations, setLocations] = useState<WorkoutLocation[]>(buildLocationFromMock)

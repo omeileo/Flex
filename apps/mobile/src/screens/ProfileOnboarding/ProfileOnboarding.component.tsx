@@ -3,10 +3,11 @@ import React from 'react'
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
-import styles from './ProfileOnboarding.styles'
+import { createProfileOnboardingStyles } from './ProfileOnboarding.styles'
 import { ProfileOnboardingComponentProps, ProfileOnboardingFormValues } from './ProfileOnboarding.types'
 import { profileOnboardingSchema } from './ProfileOnboarding.validation'
 
@@ -20,6 +21,7 @@ const defaultValues: ProfileOnboardingFormValues = {
 }
 
 const ProfileOnboardingComponent = ({ isSubmitting, error, onSubmit }: ProfileOnboardingComponentProps) => {
+  const styles = useThemedStyles(createProfileOnboardingStyles)
   const { t } = useTranslation()
   const {
     control,

@@ -1,12 +1,18 @@
 import React from 'react'
 
-import { Pressable, ScrollView, Text, TextInput } from 'react-native'
+import { Pressable, Text } from 'react-native'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
-import styles from './ForgetPassword.styles'
+import AuthBrandHeader from '@shared/components/AuthBrandHeader/AuthBrandHeader.component'
+import AuthScreenShell from '@shared/components/AuthScreenShell/AuthScreenShell.component'
+import FormTextField from '@shared/components/FormTextField/FormTextField.component'
+import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
+
+import { createForgetPasswordStyles } from './ForgetPassword.styles'
 import { ForgetPasswordComponentProps, ForgetPasswordFormValues } from './ForgetPassword.types'
 import { forgetPasswordSchema } from './ForgetPassword.validation'
 
@@ -18,6 +24,7 @@ const ForgetPasswordComponent = ({
   onSubmit,
   onLoginPress
 }: ForgetPasswordComponentProps) => {
+  const styles = useThemedStyles(createForgetPasswordStyles)
   const { t } = useTranslation()
   const {
     control,
@@ -31,41 +38,45 @@ const ForgetPasswordComponent = ({
   })
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
-      <Text style={styles.title}>{t('auth.forgetPassword.title')}</Text>
+    <AuthScreenShell testID="forget-password-screen">
+      <AuthBrandHeader tagline={t('auth.forgetPassword.tagline')} />
+
+      <Text style={styles.title} testID="forget-password-title">
+        {t('auth.forgetPassword.title')}
+      </Text>
+
       <Text style={styles.subtitle}>{t('auth.forgetPassword.subtitle')}</Text>
 
-      <Text style={styles.label}>{t('auth.forgetPassword.email')}</Text>
       <Controller
         control={control}
         name="email"
         render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
+          <FormTextField
+            label={t('auth.forgetPassword.email')}
             value={value}
             onChangeText={onChange}
-            autoCapitalize="none"
+            placeholder={t('auth.forgetPassword.emailPlaceholder')}
             keyboardType="email-address"
             autoComplete="email"
-            placeholder={t('auth.forgetPassword.emailPlaceholder')}
+            error={errors.email ? t(String(errors.email.message)) : undefined}
           />
         )}
       />
-      {errors.email ? <Text style={styles.error}>{t(String(errors.email.message))}</Text> : null}
 
       {error ? <Text style={styles.error}>{error}</Text> : null}
       {successMessage ? <Text style={styles.success}>{successMessage}</Text> : null}
 
-      <Pressable style={styles.button} disabled={isSubmitting} onPress={handleSubmit(onSubmit)}>
-        <Text style={styles.buttonText}>
-          {isSubmitting ? t('auth.forgetPassword.submitting') : t('auth.forgetPassword.submit')}
-        </Text>
-      </Pressable>
+      <PrimaryButton
+        label={t('auth.forgetPassword.submit')}
+        onPress={handleSubmit(onSubmit)}
+        loading={isSubmitting}
+        style={styles.primaryButton}
+      />
 
-      <Pressable style={styles.link} onPress={onLoginPress}>
+      <Pressable style={styles.linkRow} onPress={onLoginPress}>
         <Text style={styles.linkText}>{t('auth.forgetPassword.goToLogin')}</Text>
       </Pressable>
-    </ScrollView>
+    </AuthScreenShell>
   )
 }
 

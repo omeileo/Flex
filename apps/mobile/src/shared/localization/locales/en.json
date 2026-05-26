@@ -12,6 +12,7 @@
   "auth": {
     "login": {
       "title": "Welcome back",
+      "tagline": "Pick up your plan where you left off.",
       "email": "Email",
       "emailPlaceholder": "you@example.com",
       "password": "Password",
@@ -19,10 +20,13 @@
       "submit": "Log in",
       "submitting": "Logging in…",
       "forgotPassword": "Forgot password?",
+      "needAccount": "Need an account? ",
+      "signUpLink": "Sign up",
       "goToSignUp": "Need an account? Sign up"
     },
     "forgetPassword": {
       "title": "Reset your password",
+      "tagline": "We'll email you a link to get back in.",
       "subtitle": "Enter the email for your account and we will send you a reset link.",
       "email": "Email",
       "emailPlaceholder": "you@example.com",
@@ -32,17 +36,22 @@
     },
     "signUp": {
       "title": "Create your account",
+      "tagline": "Build a plan tailored to your goals and equipment.",
       "firstName": "First name",
       "lastName": "Last name",
       "email": "Email",
       "password": "Password",
+      "passwordHint": "At least 8 characters",
       "submit": "Sign up",
       "submitting": "Creating account…",
+      "haveAccount": "Already have an account? ",
+      "signInLink": "Log in",
       "goToLogin": "Already have an account? Log in"
     },
     "verifyEmail": {
       "title": "Verify your email",
       "subtitle": "Enter the 6-character code we sent to your inbox.",
+      "subtitleWithEmail": "Enter the 6-character code we sent to {{email}}.",
       "email": "Email",
       "code": "Verification code",
       "submit": "Verify email",
@@ -72,6 +81,7 @@
     "retry": "Try again"
   },
   "tabs": {
+    "today": "Today",
     "plan": "Plan",
     "progress": "Progress",
     "coach": "Coach",
@@ -100,42 +110,150 @@
     }
   },
   "profileOnboarding": {
-    "title": "Tell us about your training",
-    "goal": "Primary goal",
-    "goalPlaceholder": "Build strength, lose weight, run a 5K…",
-    "experience": "Experience level",
-    "experienceLevels": {
-      "beginner": "Beginner",
-      "intermediate": "Intermediate",
-      "advanced": "Advanced"
+    "goalHeadline": "What's your main goal?",
+    "goalSubcopy": "Select all that apply — we'll balance your plan.",
+    "injuryHeadline": "Any past injuries?",
+    "flareUpLabel": "When did it last flare up?",
+    "flareUpPlaceholder": "Optional — e.g. March 2025",
+    "skipInjury": "No injury history",
+    "stateHeadline": "How are you feeling now?",
+    "restrictionsLabel": "Movements to avoid",
+    "dietHeadline": "Nutrition context",
+    "calorieLabel": "Daily calorie target (optional)",
+    "caloriePlaceholder": "e.g. 2200",
+    "profileHeadline": "Tell us about you",
+    "ageLabel": "Age band",
+    "fitnessLabel": "Fitness level",
+    "sexLabel": "Sex at birth",
+    "sexOptions": {
+      "female": "Female",
+      "male": "Male",
+      "preferNotToSay": "Prefer not to say"
     },
-    "daysPerWeek": "Training days per week",
-    "sessionMinutes": "Session length (minutes)",
-    "submit": "Save profile & build plan",
-    "saving": "Saving…",
-    "validation": {
-      "goalRequired": "Enter your primary goal",
-      "experienceRequired": "Select an experience level",
-      "daysRequired": "Enter training days per week",
-      "minutesRequired": "Enter session length"
+    "continue": "Continue",
+    "generatingCoach": "Analyzing your profile to build the right plan.",
+    "generatingTitle": "Flex is building your 8-week plan…",
+    "generatingGoals": "Balancing goals",
+    "generatingInjuries": "Respecting injury history",
+    "generatingEquipment": "Matching your equipment",
+    "generatingSchedule": "Optimizing weekly schedule",
+    "locationsIntroHeadline": "Where do you train?",
+    "locationsIntroSubcopy": "Flex tailors exercises to what's available at each spot — home, gym, or travel.",
+    "locationsIntroCoach": "Add more locations anytime in Settings.",
+    "setupFirstLocation": "Set up my first location",
+    "locationNameHeadline": "Name this location",
+    "locationNamePlaceholder": "e.g. Home Gym, LA Fitness",
+    "locationPresetLabel": "Location type",
+    "equipmentHeadline": "Equipment at this location",
+    "locationFallback": "This location",
+    "multiLocationHeadline": "Add another spot?",
+    "multiLocationSubcopy": "Choose your default training location.",
+    "addAnotherLocation": "Add another location",
+    "continueToPlan": "Continue to plan",
+    "saveEquipment": "Save equipment",
+    "revealTitle": "Your plan is ready",
+    "revealStats": "8 weeks · 3 days/week · Strength + conditioning",
+    "revealLocation": "Built for {{name}}",
+    "revealCoach": "Tap below to see your first week.",
+    "viewPlan": "View my plan",
+    "saving": "Building your plan…",
+    "injuryStates": {
+      "recovered": {
+        "label": "Fully recovered",
+        "description": "No restrictions"
+      },
+      "managing": {
+        "label": "Managing",
+        "description": "Some movements to avoid"
+      },
+      "acute": {
+        "label": "Acute",
+        "description": "Need modified plan"
+      }
+    }
+  },
+  "today": {
+    "loading": "Loading today's session…",
+    "eyebrow": "Training block",
+    "weekProgress": "Week {{current}} of {{total}}",
+    "progressRing": "{{percent}}%",
+    "todaysWorkouts": "Today's workouts",
+    "coachNote": "Focus on form today — we'll add load next week.",
+    "startWorkout": "Start workout",
+    "empty": "No workouts scheduled for today.",
+    "defaultProgramTitle": "12-Week Strength + 5K",
+    "defaultBlurb": "This block builds pressing and pulling strength while keeping your shoulder happy.",
+    "defaultDateRange": "Current week",
+    "phases": {
+      "foundation": "Foundation",
+      "foundationWeeks": "Weeks 1–4",
+      "strength": "Strength",
+      "strengthWeeks": "Weeks 5–8",
+      "peak": "Peak",
+      "peakWeeks": "Weeks 9–12"
     }
   },
   "planHome": {
     "title": "Your plan",
     "loading": "Loading your plan…",
     "empty": "No workouts in your plan yet.",
-    "exerciseCount": "{{count}} exercises"
+    "emptyTitle": "Build your training plan",
+    "emptyCopy": "Flex combines strength programming and running in one adaptive plan.",
+    "createPlan": "Create plan",
+    "generatingTitle": "Building your plan…",
+    "generatingCopy": "Applying shoulder constraints · Scheduling run sessions · Setting phase progressions",
+    "exerciseCount": "{{count}} exercises",
+    "defaultProgramTitle": "12-Week Strength + 5K",
+    "defaultBlurb": "This block builds pressing and pulling strength while keeping your shoulder happy — partial-ROM flies, strict OHP, and no rack squats.",
+    "defaultDateRange": "Current week",
+    "weekSheetTitle": "Week {{week}}",
+    "workoutsLabel": "workouts",
+    "viewFullWeek": "View full week",
+    "adjustTitle": "Adjust your plan?",
+    "adjustCopy": "Missed sessions, injury flare, or schedule change — Flex can readapt your block.",
+    "readaptPlan": "Readapt plan",
+    "keepOriginal": "Keep original",
+    "phases": {
+      "foundation": "Foundation",
+      "foundationWeeks": "Weeks 1–4",
+      "strength": "Strength",
+      "strengthWeeks": "Weeks 5–8",
+      "peak": "Peak",
+      "peakWeeks": "Weeks 9–12"
+    }
   },
   "planDetail": {
     "title": "Workout",
     "loading": "Loading workout…",
     "setsCount": "{{count}} sets",
-    "startWorkout": "Start workout"
+    "startWorkout": "Start workout",
+    "dayMeta": "{{count}} exercises · ~55 min",
+    "warmUpLabel": "Warm-up",
+    "mainWorkLabel": "Main work",
+    "coachNote": "Session focus: strict tempo on compounds, leave 2–3 reps in reserve.",
+    "warmUp": {
+      "one": "Band external rotations",
+      "two": "Scapular push-ups",
+      "three": "Light DB presses (low incline)"
+    }
   },
   "workoutSession": {
     "instructions": "Complete your sets, then finish the session to log progress.",
     "complete": "Complete workout",
-    "completing": "Saving session…"
+    "completing": "Saving session…",
+    "beginWorkout": "Begin workout",
+    "notNow": "Not now",
+    "preStartMeta": "{{count}} exercises · ~{{minutes}} min",
+    "finish": "Finish",
+    "exerciseProgress": "Exercise {{current}} of {{total}}",
+    "nextSetPreview": "Next set ready",
+    "saveTitle": "Save workout",
+    "saveWorkout": "Save workout",
+    "duration": "Duration",
+    "sets": "Sets",
+    "savedTitle": "Workout saved",
+    "savedMeta": "Logged to your plan — keep the streak going.",
+    "done": "Done"
   },
   "exerciseDetail": {
     "loading": "Loading exercise…",
@@ -143,11 +261,57 @@
   },
   "progress": {
     "title": "Progress",
-    "comingSoon": "Progress tracking is coming soon."
+    "subtitle": "Light metrics for MVP — deeper analytics coming soon.",
+    "heroEyebrow": "Performance pulse",
+    "comingSoon": "Progress tracking is coming soon.",
+    "stats": {
+      "workouts": {
+        "label": "Workouts",
+        "value": "12",
+        "hint": "This month"
+      },
+      "volume": {
+        "label": "Volume",
+        "value": "48.2k",
+        "hint": "kg logged"
+      },
+      "streak": {
+        "label": "Streak",
+        "value": "3",
+        "hint": "days"
+      },
+      "prs": {
+        "label": "PRs",
+        "value": "2",
+        "hint": "all time"
+      }
+    },
+    "weekly": {
+      "title": "Weekly volume",
+      "badge": "This week",
+      "footnote": "Coming soon: strength score by muscle group",
+      "days": {
+        "mon": "M",
+        "tue": "T",
+        "wed": "W",
+        "thu": "T",
+        "fri": "F",
+        "sat": "S",
+        "sun": "S"
+      }
+    }
   },
   "coach": {
-    "title": "Coach",
-    "comingSoon": "AI coaching is coming soon."
+    "title": "Plan coach",
+    "comingSoon": "AI coaching is coming soon.",
+    "statusActive": "Active",
+    "introMessage": "Tell me what you're training for — I'll shape your block around goals, injuries, and equipment.",
+    "replyStub": "Got it. I'll factor that into your next plan adjustment.",
+    "prompts": {
+      "split": "12-week upper/lower split",
+      "runs": "Add 2 easy runs per week",
+      "shoulder": "Shoulder-friendly pressing"
+    }
   },
   "profile": {
     "title": "Profile",
@@ -156,6 +320,120 @@
     "experience": "Experience",
     "schedule": "Schedule",
     "scheduleValue": "{{days}} days · {{minutes}} min sessions"
+  },
+  "profileSettings": {
+    "loading": "Loading profile…",
+    "hubTitle": "Training profile",
+    "displayName": "Omar M.",
+    "initials": "OM",
+    "memberSince": "Member since 2026",
+    "appSection": "APP",
+    "trainingSection": "TRAINING",
+    "wellnessSection": "WELLNESS",
+    "bodySection": "BODY & NUTRITION",
+    "appearanceRow": "Appearance",
+    "appearanceTitle": "Appearance",
+    "appearanceSubtitle": "Choose how Flex looks. Your theme was set from onboarding and can be changed anytime.",
+    "appearanceDefaultTitle": "Your default",
+    "appearanceDefaultCopy": "Gym Girlie was set from onboarding. Light and Dark are always available as overrides.",
+    "goalsRow": "Goals & schedule",
+    "goalsTitle": "Goals & schedule",
+    "goalsLabel": "Goals",
+    "goalsPreviewFallback": "Build muscle · 3 days/week",
+    "goalsPreviewValue": "{{goal}} · {{days}} days/week",
+    "experienceLabel": "Experience",
+    "daysLabel": "Days per week",
+    "sessionLabel": "Session length",
+    "schedulePreview": "{{days}} days/week · {{minutes}} min sessions",
+    "gymRow": "Workout locations",
+    "gymPreviewFallback": "No locations yet",
+    "wellnessRow": "Injuries & conditions",
+    "wellnessTitle": "Injuries & conditions",
+    "wellnessSubtitle": "Flex adapts your plan around what you're managing — including exercises you know cause pain.",
+    "wellnessPreviewEmpty": "No conditions tracked",
+    "conditionSubtitle": "{{count}} aggravating exercises",
+    "conditionTitle": "Condition detail",
+    "cycleRow": "Cycle-aware training",
+    "excludedRow": "Excluded exercises",
+    "excludedTitle": "Excluded exercises",
+    "excludedSubtitle": "Never recommended in any plan — even without a linked condition.",
+    "excludedPreviewEmpty": "None excluded",
+    "excludedLink": "Manage per-condition aggravators in Injuries & conditions",
+    "dietRow": "Diet preferences",
+    "dietPreview": "High protein · 2,200 kcal",
+    "ageRow": "Age & fitness level",
+    "agePreview": "35–44 · Intermediate",
+    "footerNote": "Changes to wellness or goals may update your plan.",
+    "save": "Save",
+    "saveChanges": "Save changes",
+    "addCondition": "Add condition",
+    "statusLabel": "Status",
+    "aggravatorsLabel": "Aggravating exercises",
+    "aggravatorsSubtitle": "Exercises you know make this worse. Flex won't recommend them while active.",
+    "coachLabel": "Coach insight",
+    "coachInsight": "We'll favor landmine presses and neutral-grip work for upper body.",
+    "readaptTitle": "Update your plan?",
+    "readaptSubtitle": "You changed wellness settings. Flex can readapt the rest of your plan.",
+    "readaptCta": "Readapt plan",
+    "readaptSkip": "Keep current plan"
+  },
+  "gymLocations": {
+    "listTitle": "Workout locations",
+    "listSubtitle": "Plans and Today use your default location's equipment.",
+    "detailTitle": "Location",
+    "addLocation": "Add location",
+    "locationNamePlaceholder": "e.g. Hotel gym",
+    "equipmentRow": "Available equipment",
+    "selected": "selected",
+    "setDefault": "Default location",
+    "backToList": "Back to list",
+    "equipmentTitle": "Equipment",
+    "saveEquipment": "Save equipment"
+  },
+  "cycleAware": {
+    "off": "Off",
+    "settingsTitle": "Cycle-aware training",
+    "masterToggle": "Cycle-aware training",
+    "masterToggleCopy": "Flex adjusts your plan based on cycle phase and daily check-ins.",
+    "yourCycleSection": "YOUR CYCLE",
+    "dataSourcesSection": "DATA SOURCES",
+    "manualLogging": "Manual logging",
+    "customizeSymptoms": "Customize symptoms",
+    "lastPeriod": "Last period start",
+    "cycleLength": "Average cycle length",
+    "periodLength": "Period length",
+    "days": "days",
+    "notSet": "Not set",
+    "currentDay": "Cycle day {{day}}",
+    "deleteData": "Delete cycle data",
+    "disableTitle": "Turn off cycle-aware training?",
+    "disableCopy": "Predictions pause and cycle info hides from Today. Your logged data is kept.",
+    "disableConfirm": "Turn off",
+    "readaptTitle": "Update your plan?",
+    "readaptSubtitle": "Flex can readapt your remaining weeks for cycle-aware training.",
+    "setupTitle": "Cycle setup",
+    "setupPeriodSubtitle": "We'll estimate your current phase from this.",
+    "setupLengthsSubtitle": "Predictions improve as you log each period.",
+    "lastPeriodHeadline": "When did your last period start?",
+    "setupFootnote": "Predictions improve as you log each period.",
+    "continue": "Continue",
+    "symptomsTitle": "Customize symptoms",
+    "symptomsSubtitle": "Choose what appears in your daily check-in.",
+    "phases": {
+      "menstruation": "Period",
+      "follicular": "Follicular",
+      "ovulation": "Ovulation",
+      "luteal": "Luteal"
+    },
+    "symptoms": {
+      "energy": "Energy",
+      "cramps": "Cramps",
+      "flow": "Flow intensity",
+      "mood": "Mood",
+      "bloating": "Bloating",
+      "headache": "Headache",
+      "breastTenderness": "Breast tenderness"
+    }
   },
   "errors": {
     "generic": "Something went wrong. Please try again.",

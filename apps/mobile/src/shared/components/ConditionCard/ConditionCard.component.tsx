@@ -2,14 +2,18 @@ import React, { useMemo } from 'react'
 
 import { Pressable, Text, View } from 'react-native'
 
+import { useThemeColors } from '@shared/hooks/useThemeColors/useThemeColors.hooks'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
-import styles, { accentBarByStatus } from './ConditionCard.styles'
+import { createConditionCardStyles, getAccentBarByStatus } from './ConditionCard.styles'
 import { ConditionCardProps } from './ConditionCard.types'
 
 const ConditionCard = ({ title, status, subtitle, onPress }: ConditionCardProps) => {
+  const colors = useThemeColors()
+  const styles = useThemedStyles(createConditionCardStyles)
   const { t } = useTranslation()
-  const accentColor = useMemo(() => accentBarByStatus[status], [status])
+  const accentColor = useMemo(() => getAccentBarByStatus(colors)[status], [colors, status])
 
   return (
     <Pressable style={styles.card} onPress={onPress} accessibilityRole="button">

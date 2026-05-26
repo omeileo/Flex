@@ -3,16 +3,19 @@ import React, { useCallback, useState } from 'react'
 import { Modal, Pressable, Text, TextInput, View } from 'react-native'
 
 import { equipmentCategoryTags } from '@shared/dictionary/equipmentCatalog.dictionary'
-import { colors } from '@shared/styles/StyleConstants'
+import { useThemeColors } from '@shared/hooks/useThemeColors/useThemeColors.hooks'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
 import EquipmentChip from '@shared/components/EquipmentChip/EquipmentChip.component'
 import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
 
-import styles from './CustomEquipmentInput.styles'
+import { createCustomEquipmentInputStyles } from './CustomEquipmentInput.styles'
 import { CustomEquipmentInputProps } from './CustomEquipmentInput.types'
 
 const CustomEquipmentInput = ({ visible, onAdd, onClose }: CustomEquipmentInputProps) => {
+  const colors = useThemeColors()
+  const styles = useThemedStyles(createCustomEquipmentInputStyles)
   const { t } = useTranslation()
   const [name, setName] = useState('')
   const [selectedTags, setSelectedTags] = useState<string[]>([])

@@ -7,8 +7,11 @@ export interface PlanDetailRouteParams {
 
 export interface PlanDetailComponentProps {
   workout: PlannedWorkout | null
+  coachNote: string
+  warmUpItems: string[]
   isLoading: boolean
   error: string | null
   onExercisePress: (exercise: PlannedExercise) => void
   onStartWorkout: () => void
+  onRetry: () => void
 }

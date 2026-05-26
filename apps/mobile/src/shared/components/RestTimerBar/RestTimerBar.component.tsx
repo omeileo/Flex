@@ -2,9 +2,10 @@ import React from 'react'
 
 import { Pressable, Text, View } from 'react-native'
 
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
-import styles from './RestTimerBar.styles'
+import { createRestTimerBarStyles } from './RestTimerBar.styles'
 import { RestTimerBarProps } from './RestTimerBar.types'
 
 const formatRest = (totalSeconds: number) => {
@@ -15,6 +16,7 @@ const formatRest = (totalSeconds: number) => {
 }
 
 const RestTimerBar = ({ secondsRemaining, nextSetLabel, onSkip, onAdjust }: RestTimerBarProps) => {
+  const styles = useThemedStyles(createRestTimerBarStyles)
   const { t } = useTranslation()
 
   return (

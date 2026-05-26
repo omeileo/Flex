@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 
 import { Pressable, TextInput, View } from 'react-native'
 
-import { colors } from '@shared/styles/StyleConstants'
+import { useThemeColors } from '@shared/hooks/useThemeColors/useThemeColors.hooks'
+import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
 import { useTranslation } from 'react-i18next'
 
 import PasswordVisibilityIcon from './PasswordVisibilityIcon.component'
 
-import styles from './PasswordTextInput.styles'
+import { createPasswordTextInputStyles } from './PasswordTextInput.styles'
 import { PasswordTextInputProps } from './PasswordTextInput.types'
 
 const PasswordTextInput = ({
@@ -18,6 +19,8 @@ const PasswordTextInput = ({
   autoComplete = 'password',
   editable = true
 }: PasswordTextInputProps) => {
+  const colors = useThemeColors()
+  const styles = useThemedStyles(createPasswordTextInputStyles)
   const { t } = useTranslation()
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 

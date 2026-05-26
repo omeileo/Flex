@@ -1,34 +1,47 @@
 import { StyleSheet } from 'react-native'
 
-import { colors, radii, spacing, typography } from '@shared/styles/StyleConstants'
+import { ThemeColors } from '@shared/context/ThemeProvider/ThemeProvider.types'
+import { fontWeights, getElevation, radii, spacing, typography } from '@shared/styles/StyleConstants'
+import { createProfileFlowStyles } from '@shared/styles/profileFlow.styles'
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-    padding: spacing.lg
-  },
-  title: {
-    fontSize: typography.heading,
-    fontWeight: '700',
-    color: colors.textPrimary,
-    marginBottom: spacing.lg
-  },
-  card: {
-    backgroundColor: colors.surface,
-    borderRadius: radii.md,
-    padding: spacing.md,
-    marginBottom: spacing.sm,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.border
-  },
-  label: {
-    fontSize: typography.caption,
-    color: colors.textSecondary,
-    marginBottom: spacing.xs
-  },
-  value: {
-    fontSize: typography.bodyLarge,
-    color: colors.textPrimary
-  }
-})
+export const createProfileStyles = (colors: ThemeColors) => {
+  const flow = createProfileFlowStyles(colors)
+  const elevation = getElevation(colors.shadowColor)
+
+  return StyleSheet.create({
+    ...flow,
+    container: flow.screen,
+    scrollContent: {
+      ...flow.content,
+      paddingTop: spacing.sm
+    },
+    title: {
+      ...flow.title,
+      letterSpacing: -0.5,
+      marginBottom: spacing.md
+    },
+    hero: {
+      ...flow.hero,
+      overflow: 'hidden',
+      borderLeftWidth: 4,
+      borderLeftColor: colors.accentStrength,
+      ...elevation.card
+    },
+    avatar: {
+      ...flow.avatar,
+      borderWidth: 2,
+      borderColor: colors.surface
+    },
+    sectionLabel: {
+      ...flow.sectionLabel,
+      textTransform: 'uppercase',
+      letterSpacing: 1.2,
+      fontSize: 11
+    },
+    footerNote: {
+      ...flow.footerNote,
+      paddingHorizontal: spacing.xs,
+      fontStyle: 'italic'
+    }
+  })
+}
