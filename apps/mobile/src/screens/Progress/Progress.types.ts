@@ -17,4 +17,7 @@ export type ProgressComponentProps = {
   stats: ProgressStat[]
   weeklyVolume: ProgressBarChartDatum[]
   chartFootnote: string
+  isLoading?: boolean
+  error?: string | null
+  onRefresh?: () => void
 }

@@ -1,0 +1,12 @@
+appId: com.flex.app
+---
+# Single-screen test: Today tab hero and start CTA
+# Run: maestro test apps/mobile/src/screens/Today/Today.maestro.yaml
+
+- launchApp
+- tapOn:
+    text: 'Today'
+- assertVisible:
+    id: 'today-screen'
+- assertVisible:
+    id: 'today-week-hero'

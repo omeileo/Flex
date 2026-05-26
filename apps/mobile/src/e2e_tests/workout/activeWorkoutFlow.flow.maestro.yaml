@@ -1,0 +1,32 @@
+appId: com.flex.app
+---
+# Flow test: active workout pre-start through pause and finish sheet
+# Run: maestro test apps/mobile/src/e2e_tests/workout/activeWorkoutFlow.flow.maestro.yaml
+
+- launchApp
+- runFlow:
+    file: ../auth/loginWithTestCredentials.subflow.maestro.yaml
+- tapOn:
+    text: 'Today'
+- assertVisible:
+    id: 'today-screen'
+- tapOn:
+    text: 'Start workout'
+- assertVisible:
+    id: 'workout-session-prestart'
+- tapOn:
+    text: 'Begin workout'
+- assertVisible:
+    id: 'workout-session-active'
+- tapOn:
+    id: 'workout-session-pause'
+- assertVisible:
+    id: 'workout-session-paused'
+- tapOn:
+    text: 'Resume'
+- assertVisible:
+    id: 'workout-session-active'
+- tapOn:
+    id: 'workout-session-finish'
+- assertVisible:
+    id: 'workout-session-finish-sheet'

@@ -34,6 +34,11 @@ export const createVerificationCodeInputStyles = (colors: ThemeColors) =>
       color: colors.textPrimary,
       textTransform: 'uppercase'
     },
+    error: {
+      fontSize: typography.caption,
+      color: colors.error,
+      marginTop: spacing.sm
+    },
     hiddenInput: {
       height: 0,
       width: 0,

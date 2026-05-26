@@ -1,0 +1,23 @@
+appId: com.flex.app
+---
+# Single-screen test: Sign up form renders
+# Run: maestro test apps/mobile/src/screens/SignUp/SignUp.maestro.yaml
+
+- launchApp
+- tapOn:
+    text: 'Create account'
+- assertVisible:
+    id: 'signup-screen'
+- assertVisible:
+    id: 'signup-title'
+- assertVisible:
+    text: 'First name'
+- assertVisible:
+    text: 'Last name'
+- assertVisible:
+    text: 'Email'
+- assertVisible:
+    text: 'Password'
+- assertVisible:
+    text: 'Sign up'
+- takeScreenshot: signup-screen-smoke

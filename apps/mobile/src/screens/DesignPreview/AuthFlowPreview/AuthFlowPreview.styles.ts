@@ -43,7 +43,8 @@ export const createAuthFlowPreviewStyles = (colors: ThemeColors) =>
       fontSize: typography.heading,
       fontWeight: fontWeights.bold,
       color: colors.textPrimary,
-      marginBottom: spacing.sm
+      marginBottom: spacing.sm,
+      textAlign: 'center'
     },
     subtitle: {
       fontSize: typography.body,
@@ -56,6 +57,16 @@ export const createAuthFlowPreviewStyles = (colors: ThemeColors) =>
       fontWeight: fontWeights.semibold,
       color: colors.textPrimary,
       marginBottom: spacing.sm
+    },
+    forgotPasswordLink: {
+      alignSelf: 'flex-end',
+      marginTop: 8,
+      marginBottom: spacing.md
+    },
+    forgotPasswordText: {
+      color: colors.textSecondary,
+      fontSize: typography.body,
+      fontWeight: fontWeights.semibold
     },
     linkRow: {
       marginTop: spacing.lg,

@@ -1,0 +1,22 @@
+appId: com.flex.app
+---
+# Training plan creation flow — empty state through focus selection
+# Run: maestro test apps/mobile/src/e2e_tests/training/createTrainingPlan.flow.maestro.yaml
+
+- launchApp
+- runFlow:
+    file: ../auth/loginWithTestCredentials.subflow.maestro.yaml
+- tapOn:
+    text: 'Plan'
+- assertVisible:
+    id: 'plan-home-empty'
+- tapOn:
+    text: 'Create plan'
+- assertVisible:
+    id: 'plan-home-focus'
+- tapOn:
+    id: 'plan-focus-hybrid'
+- tapOn:
+    text: 'Continue'
+- assertVisible:
+    id: 'plan-home-chat'

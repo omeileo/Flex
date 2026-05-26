@@ -11,10 +11,13 @@ import FlexBootstrap from '../screens/FlexBootstrap/FlexBootstrap.container'
 import ForgetPassword from '../screens/ForgetPassword/ForgetPassword.container'
 import Landing from '../screens/Landing/Landing.container'
 import Login from '../screens/Login/Login.container'
+import PhaseDetail from '../screens/PhaseDetail/PhaseDetail.container'
 import PlanDetail from '../screens/PlanDetail/PlanDetail.container'
 import ProfileOnboarding from '../screens/ProfileOnboarding/ProfileOnboarding.container'
+import ProgramOverview from '../screens/ProgramOverview/ProgramOverview.container'
 import SignUp from '../screens/SignUp/SignUp.container'
 import VerifyEmail from '../screens/VerifyEmail/VerifyEmail.container'
+import WeekSchedule from '../screens/WeekSchedule/WeekSchedule.container'
 import WorkoutSession from '../screens/WorkoutSession/WorkoutSession.container'
 
 import MainTabsNavigator from './navigators/MainTabs.navigator'
@@ -36,7 +39,7 @@ const routes = {
     isAuthenticationRequired: false,
     component: Login,
     options: {
-      headerShown: true,
+      headerShown: false,
       title: 'Log in'
     }
   },
@@ -46,7 +49,7 @@ const routes = {
     isAuthenticationRequired: false,
     component: SignUp,
     options: {
-      headerShown: true,
+      headerShown: false,
       title: 'Sign up'
     }
   },
@@ -56,7 +59,7 @@ const routes = {
     isAuthenticationRequired: false,
     component: VerifyEmail,
     options: {
-      headerShown: true,
+      headerShown: false,
       title: 'Verify email'
     }
   },
@@ -66,7 +69,7 @@ const routes = {
     isAuthenticationRequired: false,
     component: ForgetPassword,
     options: {
-      headerShown: true,
+      headerShown: false,
       title: 'Reset password'
     }
   },
@@ -97,7 +100,7 @@ const routes = {
     isAuthenticationRequired: true,
     component: ProfileOnboarding,
     options: {
-      headerShown: true,
+      headerShown: false,
       title: 'Profile'
     }
   },
@@ -110,6 +113,39 @@ const routes = {
     options: {
       headerShown: true,
       title: 'Workout'
+    }
+  },
+  programOverview: {
+    name: 'ProgramOverview',
+    path: 'ProgramOverview',
+    isAuthenticationRequired: true,
+    requiresFlexSetup: true,
+    component: ProgramOverview,
+    options: {
+      headerShown: true,
+      title: 'Program'
+    }
+  },
+  phaseDetail: {
+    name: 'PhaseDetail',
+    path: 'PhaseDetail',
+    isAuthenticationRequired: true,
+    requiresFlexSetup: true,
+    component: PhaseDetail,
+    options: {
+      headerShown: true,
+      title: 'Phase'
+    }
+  },
+  weekSchedule: {
+    name: 'WeekSchedule',
+    path: 'WeekSchedule',
+    isAuthenticationRequired: true,
+    requiresFlexSetup: true,
+    component: WeekSchedule,
+    options: {
+      headerShown: true,
+      title: 'Week'
     }
   },
   workoutSession: {

@@ -36,8 +36,13 @@ export const createPlanHomeStyles = (colors: ThemeColors) => {
       fontSize: typography.title,
       fontWeight: fontWeights.semibold,
       color: colors.textPrimary,
-      marginBottom: spacing.sm,
       marginTop: spacing.sm
+    },
+    viewProgramLink: {
+      fontSize: typography.body,
+      color: colors.accent,
+      fontWeight: fontWeights.semibold,
+      marginBottom: spacing.sm
     },
     phaseRow: {
       flexDirection: 'row',
@@ -186,6 +191,143 @@ export const createPlanHomeStyles = (colors: ThemeColors) => {
     },
     coachNoteSpacing: {
       marginBottom: spacing.md
+    },
+    focusCard: {
+      marginBottom: spacing.sm,
+      padding: spacing.md,
+      borderRadius: radii.md,
+      backgroundColor: colors.surface,
+      borderWidth: 1,
+      borderColor: colors.border
+    },
+    focusCardActive: {
+      backgroundColor: colors.accentMuted,
+      borderColor: colors.accent
+    },
+    focusCardTitle: {
+      fontSize: typography.title,
+      fontWeight: fontWeights.semibold,
+      color: colors.textPrimary,
+      marginBottom: spacing.xs
+    },
+    focusCardSubtitle: {
+      fontSize: typography.body,
+      color: colors.textSecondary
+    },
+    chatHeader: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: spacing.md
+    },
+    chatAvatar: {
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      backgroundColor: colors.accentMuted,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginRight: spacing.sm
+    },
+    chatAvatarText: {
+      fontSize: typography.caption,
+      fontWeight: fontWeights.bold,
+      color: colors.textPrimary
+    },
+    chatHeaderTitle: {
+      fontSize: typography.title,
+      fontWeight: fontWeights.semibold,
+      color: colors.textPrimary
+    },
+    chatStatusPill: {
+      marginTop: spacing.xs,
+      alignSelf: 'flex-start',
+      paddingHorizontal: spacing.sm,
+      paddingVertical: spacing.xs,
+      borderRadius: radii.pill,
+      backgroundColor: colors.successMuted
+    },
+    chatStatusText: {
+      fontSize: typography.caption,
+      color: colors.success,
+      fontWeight: fontWeights.medium
+    },
+    chatMessageList: {
+      marginBottom: spacing.md
+    },
+    promptRow: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      gap: spacing.sm,
+      marginBottom: spacing.md
+    },
+    promptChip: {
+      paddingVertical: spacing.xs,
+      paddingHorizontal: spacing.sm,
+      borderRadius: radii.pill,
+      backgroundColor: colors.surface,
+      borderWidth: 1,
+      borderColor: colors.border
+    },
+    promptChipText: {
+      fontSize: typography.caption,
+      color: colors.textSecondary,
+      fontWeight: fontWeights.medium
+    },
+    composerWrap: {
+      marginTop: spacing.sm
+    },
+    recapBullet: {
+      fontSize: typography.body,
+      color: colors.textSecondary,
+      marginTop: spacing.sm,
+      lineHeight: 22
+    },
+    recapStats: {
+      fontSize: typography.body,
+      color: colors.textSecondary,
+      marginBottom: spacing.md
+    },
+    secondaryLink: {
+      marginTop: spacing.md,
+      alignItems: 'center'
+    },
+    secondaryLinkText: {
+      fontSize: typography.bodyLarge,
+      color: colors.textSecondary,
+      fontWeight: fontWeights.medium
+    },
+    weekNav: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: spacing.md
+    },
+    weekNavButton: {
+      padding: spacing.sm
+    },
+    weekNavLabel: {
+      fontSize: typography.title,
+      fontWeight: fontWeights.semibold,
+      color: colors.textPrimary
+    },
+    progressTrack: {
+      height: 8,
+      backgroundColor: colors.border,
+      borderRadius: radii.sm,
+      overflow: 'hidden',
+      marginBottom: spacing.lg
+    },
+    progressFill: {
+      height: '100%',
+      backgroundColor: colors.accentEnergy
+    },
+    phaseRulesRow: {
+      fontSize: typography.caption,
+      color: colors.textSecondary,
+      marginBottom: spacing.md
+    },
+    footerButton: {
+      marginTop: spacing.md
     }
   })
 }

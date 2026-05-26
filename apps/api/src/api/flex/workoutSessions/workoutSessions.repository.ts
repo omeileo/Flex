@@ -113,5 +113,22 @@ export const workoutSessionsRepository = {
         where: { id: input.sessionId }
       })
     })
+  },
+
+  findCompletedSessionsForUser: async (userId: string) => {
+    return prisma.workout_sessions.findMany({
+      where: {
+        user_id: userId,
+        completed_at: {
+          not: null
+        }
+      },
+      include: {
+        session_sets: true
+      },
+      orderBy: {
+        completed_at: 'asc'
+      }
+    })
   }
 }

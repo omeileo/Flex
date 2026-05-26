@@ -1,0 +1,14 @@
+appId: com.flex.app
+---
+# Single-screen test: Login form renders
+# Run: maestro test apps/mobile/src/screens/Login/Login.maestro.yaml
+
+- launchApp
+- tapOn:
+    text: 'Log in'
+- assertVisible:
+    text: 'Log in'
+- assertVisible:
+    text: 'Email'
+- assertVisible:
+    text: 'Password'

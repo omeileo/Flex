@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { getProfile } from '../getProfile.slice'
 import getProfileReducer from '../getProfile.slice'
 
 jest.mock('../getProfile.api', () => ({
@@ -15,8 +14,6 @@ jest.mock('../../../../../shared/functions/ErrorHandler/errorHandler.functions',
     isErrorCode: jest.fn()
   }
 }))
-
-const { getProfileApi } = jest.requireMock('../getProfile.api')
 
 const buildStore = () => configureStore({ reducer: { getProfile: getProfileReducer } })
 

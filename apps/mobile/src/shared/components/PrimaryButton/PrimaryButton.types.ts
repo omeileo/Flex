@@ -6,4 +6,5 @@ export type PrimaryButtonProps = {
   disabled?: boolean
   loading?: boolean
   style?: StyleProp<ViewStyle>
+  testID?: string
 }

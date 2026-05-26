@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 import { ThemeColors } from '@shared/context/ThemeProvider/ThemeProvider.types'
-import { fontWeights, fonts, letterSpacing, typography } from '@shared/styles/StyleConstants'
+import { fontWeights, fonts, letterSpacing, spacing, typography } from '@shared/styles/StyleConstants'
 
 export const createLoginStyles = (colors: ThemeColors) =>
   StyleSheet.create({
@@ -11,14 +11,22 @@ export const createLoginStyles = (colors: ThemeColors) =>
       fontWeight: fontWeights.bold,
       letterSpacing: letterSpacing.headline,
       color: colors.textPrimary,
-      marginBottom: 24
+      textAlign: 'center'
+    },
+    tagline: {
+      fontSize: typography.body,
+      color: colors.textSecondary,
+      lineHeight: 20,
+      marginTop: spacing.lg,
+      marginBottom: spacing.lg
     },
     forgotPasswordLink: {
       alignSelf: 'flex-end',
+      marginTop: 8,
       marginBottom: 16
     },
     forgotPasswordText: {
-      color: colors.textPrimary,
+      color: colors.textSecondary,
       fontSize: typography.body,
       fontWeight: fontWeights.semibold
     },
@@ -45,7 +53,7 @@ export const createLoginStyles = (colors: ThemeColors) =>
       textAlign: 'center'
     },
     linkEmphasis: {
-      color: colors.textPrimary,
-      fontWeight: fontWeights.semibold
+      color: colors.textSecondary,
+      fontWeight: fontWeights.regular
     }
   })

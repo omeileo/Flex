@@ -1,0 +1,24 @@
+appId: com.flex.app
+---
+# Single-screen test: Progress tab metrics stub
+# Run: maestro test apps/mobile/src/screens/Progress/Progress.maestro.yaml
+
+- launchApp
+- tapOn:
+    text: 'Progress'
+- assertVisible:
+    id: 'progress-screen'
+- assertVisible:
+    id: 'progress-title'
+- assertVisible:
+    id: 'progress-stat-workouts'
+- assertVisible:
+    id: 'progress-stat-volume'
+- assertVisible:
+    id: 'progress-stat-streak'
+- assertVisible:
+    id: 'progress-stat-prs'
+- assertVisible:
+    id: 'progress-weekly-chart'
+- assertVisible:
+    text: 'Coming soon: strength score by muscle group'

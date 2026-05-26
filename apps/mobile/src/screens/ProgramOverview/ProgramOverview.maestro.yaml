@@ -1,0 +1,14 @@
+appId: com.flex.app
+---
+# Single-screen test: Program overview hierarchy entry
+# Run: maestro test apps/mobile/src/screens/ProgramOverview/ProgramOverview.maestro.yaml
+
+- launchApp
+- tapOn:
+    text: 'Plan'
+- tapOn:
+    id: 'plan-home-view-program'
+- assertVisible:
+    id: 'program-overview-screen'
+- assertVisible:
+    id: 'program-overview-phase-foundation'

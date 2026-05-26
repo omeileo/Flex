@@ -1,55 +1,56 @@
-import React, { useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 
+import { getProgressMetrics } from '@redux/states/workoutSession/getProgressMetrics/getProgressMetrics.slice'
+import { AppDispatch, RootState } from '@redux/store/store.types'
+import { buildProgressPresentation } from '@shared/functions/Progress/progressPresentation.functions'
 import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
 
 import ProgressComponent from './Progress.component'
 
-import { ProgressStat } from './Progress.types'
-
 const ProgressContainer = () => {
+  const dispatch = useDispatch<AppDispatch>()
   const { t } = useTranslation()
+  const { loading, success, error } = useSelector((state: RootState) => state.getProgressMetrics)
 
-  const stats = useMemo<ProgressStat[]>(
-    () => [
-      {
-        id: 'workouts',
-        label: t('progress.stats.workouts.label'),
-        value: t('progress.stats.workouts.value'),
-        hint: t('progress.stats.workouts.hint')
-      },
-      {
-        id: 'volume',
-        label: t('progress.stats.volume.label'),
-        value: t('progress.stats.volume.value'),
-        hint: t('progress.stats.volume.hint')
-      },
-      {
-        id: 'streak',
-        label: t('progress.stats.streak.label'),
-        value: t('progress.stats.streak.value'),
-        hint: t('progress.stats.streak.hint')
-      },
-      {
-        id: 'prs',
-        label: t('progress.stats.prs.label'),
-        value: t('progress.stats.prs.value'),
-        hint: t('progress.stats.prs.hint')
-      }
-    ],
-    [t]
+  const loadMetrics = useCallback(() => {
+    dispatch(getProgressMetrics())
+  }, [dispatch])
+
+  useEffect(() => {
+    loadMetrics()
+  }, [loadMetrics])
+
+  const presentation = useMemo(
+    () =>
+      buildProgressPresentation({
+        metrics: success,
+        labels: {
+          workouts: t('progress.stats.workouts.label'),
+          volume: t('progress.stats.volume.label'),
+          streak: t('progress.stats.streak.label'),
+          prs: t('progress.stats.prs.label'),
+          workoutsHint: t('progress.stats.workouts.hint'),
+          volumeHint: t('progress.stats.volume.hint'),
+          streakHint: t('progress.stats.streak.hint'),
+          prsHint: t('progress.stats.prs.hint'),
+          weeklyDays: {
+            mon: t('progress.weekly.days.mon'),
+            tue: t('progress.weekly.days.tue'),
+            wed: t('progress.weekly.days.wed'),
+            thu: t('progress.weekly.days.thu'),
+            fri: t('progress.weekly.days.fri'),
+            sat: t('progress.weekly.days.sat'),
+            sun: t('progress.weekly.days.sun')
+          }
+        }
+      }),
+    [success, t]
   )
 
-  const weeklyVolume = useMemo(
-    () => [
-      { id: 'mon', label: t('progress.weekly.days.mon'), value: 40 },
-      { id: 'tue', label: t('progress.weekly.days.tue'), value: 55 },
-      { id: 'wed', label: t('progress.weekly.days.wed'), value: 30 },
-      { id: 'thu', label: t('progress.weekly.days.thu'), value: 70 },
-      { id: 'fri', label: t('progress.weekly.days.fri'), value: 45 },
-      { id: 'sat', label: t('progress.weekly.days.sat'), value: 80 },
-      { id: 'sun', label: t('progress.weekly.days.sun'), value: 60 }
-    ],
-    [t]
+  const featuredStat = useMemo(
+    () => presentation.stats.find((stat) => stat.id === presentation.featuredStatId) ?? presentation.stats[2],
+    [presentation]
   )
 
   return (
@@ -57,12 +58,15 @@ const ProgressContainer = () => {
       title={t('progress.title')}
       subtitle={t('progress.subtitle')}
       heroEyebrow={t('progress.heroEyebrow')}
-      featuredStat={stats.find((stat) => stat.id === 'streak') ?? stats[2]}
+      featuredStat={featuredStat}
       chartTitle={t('progress.weekly.title')}
       chartBadge={t('progress.weekly.badge')}
-      stats={stats}
-      weeklyVolume={weeklyVolume}
+      stats={presentation.stats}
+      weeklyVolume={presentation.weeklyVolume}
       chartFootnote={t('progress.weekly.footnote')}
+      isLoading={loading && !success}
+      error={error}
+      onRefresh={loadMetrics}
     />
   )
 }

@@ -1,0 +1,12 @@
+appId: com.flex.app
+---
+# Flow test: Auth — login and reach Main Tabs (Today)
+# Run: maestro test apps/mobile/src/e2e_tests/auth/authenticatedBootstrap.flow.maestro.yaml
+
+- launchApp
+- runFlow:
+    file: loginWithTestCredentials.subflow.maestro.yaml
+- assertVisible:
+    id: 'today-screen'
+- assertVisible:
+    id: 'today-week-hero'

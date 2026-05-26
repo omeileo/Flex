@@ -1,4 +1,4 @@
-import type { PlannedExercise, PlannedSet } from '../../types/trainingPlan/trainingPlan.schemas'
+import type { PlannedExercise } from '../../types/trainingPlan/trainingPlan.schemas'
 
 export type ProgressionInput = {
   exercises: PlannedExercise[]

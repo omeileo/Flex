@@ -1,0 +1,14 @@
+appId: com.flex.app
+---
+# Single-screen test: Workout session pre-start brief
+# Run: maestro test apps/mobile/src/screens/WorkoutSession/WorkoutSession.maestro.yaml
+
+- launchApp
+- tapOn:
+    text: 'Today'
+- assertVisible:
+    id: 'today-screen'
+- tapOn:
+    text: 'Start workout'
+- assertVisible:
+    id: 'workout-session-prestart'

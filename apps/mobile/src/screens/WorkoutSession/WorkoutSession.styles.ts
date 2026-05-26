@@ -106,12 +106,6 @@ export const createWorkoutSessionStyles = (colors: ThemeColors) => {
       color: colors.textSecondary,
       marginBottom: spacing.md
     },
-    prescriptionCentered: {
-      fontSize: typography.bodyLarge,
-      color: colors.textSecondary,
-      marginBottom: spacing.md,
-      textAlign: 'center'
-    },
     exerciseRow: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -139,19 +133,6 @@ export const createWorkoutSessionStyles = (colors: ThemeColors) => {
       fontSize: typography.body,
       color: colors.textSecondary,
       marginTop: 2
-    },
-    tableHeader: {
-      flexDirection: 'row',
-      paddingVertical: spacing.xs,
-      paddingHorizontal: spacing.sm,
-      marginBottom: spacing.xs
-    },
-    tableHeaderCell: {
-      flex: 1,
-      fontSize: typography.caption,
-      fontWeight: fontWeights.semibold,
-      color: colors.textSecondary,
-      textTransform: 'uppercase'
     },
     footer: {
       padding: spacing.md,
@@ -227,6 +208,263 @@ export const createWorkoutSessionStyles = (colors: ThemeColors) => {
       color: colors.error,
       marginBottom: spacing.md,
       paddingHorizontal: spacing.md
+    },
+    notNow: {
+      textAlign: 'center'
+    },
+    headerMeta: {
+      fontSize: typography.body,
+      color: colors.textSecondary
+    },
+    headerMetaCenter: {
+      textAlign: 'center'
+    },
+    headerActionsRow: {
+      flexDirection: 'row',
+      gap: spacing.sm
+    },
+    videoPlaceholder: {
+      height: 120,
+      borderRadius: radii.lg,
+      backgroundColor: colors.surface,
+      borderWidth: 1,
+      borderColor: colors.border,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: spacing.md
+    },
+    tableHeader: {
+      flexDirection: 'row',
+      marginBottom: spacing.xs,
+      paddingHorizontal: spacing.sm
+    },
+    tableHeaderCell: {
+      flex: 1,
+      fontSize: typography.caption,
+      color: colors.textSecondary,
+      textAlign: 'center'
+    },
+    logSetButton: {
+      marginTop: spacing.sm,
+      marginBottom: spacing.md
+    },
+    navRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: spacing.xl
+    },
+    overlayCenter: {
+      ...StyleSheet.absoluteFillObject,
+      backgroundColor: 'rgba(17,24,39,0.45)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.lg
+    },
+    pauseCard: {
+      width: '100%',
+      maxWidth: 310,
+      backgroundColor: colors.surface,
+      borderRadius: radii.lg,
+      padding: spacing.lg,
+      gap: spacing.md,
+      ...elevation.floating
+    },
+    pauseTitle: {
+      fontSize: typography.heading,
+      fontWeight: fontWeights.bold,
+      color: colors.textPrimary,
+      textAlign: 'center'
+    },
+    pauseMeta: {
+      fontSize: typography.body,
+      color: colors.textSecondary,
+      textAlign: 'center'
+    },
+    destructiveText: {
+      fontSize: typography.body,
+      color: colors.error,
+      textAlign: 'center',
+      paddingVertical: spacing.sm
+    },
+    menuItem: {
+      paddingVertical: spacing.md,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border
+    },
+    menuItemText: {
+      fontSize: typography.bodyLarge,
+      color: colors.textPrimary
+    },
+    sheet: {
+      backgroundColor: colors.surface,
+      borderTopLeftRadius: radii.lg,
+      borderTopRightRadius: radii.lg,
+      padding: spacing.lg,
+      ...elevation.floating
+    },
+    sheetTitle: {
+      fontSize: typography.heading,
+      fontWeight: fontWeights.bold,
+      color: colors.textPrimary,
+      marginBottom: spacing.sm
+    },
+    statsRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      marginBottom: spacing.md
+    },
+    saveExerciseName: {
+      fontSize: typography.bodyLarge,
+      fontWeight: fontWeights.semibold,
+      color: colors.textPrimary
+    },
+    saveExerciseData: {
+      fontSize: typography.body,
+      color: colors.textSecondary,
+      marginBottom: spacing.sm
+    },
+    notesBox: {
+      minHeight: 80,
+      borderRadius: radii.lg,
+      backgroundColor: colors.surface,
+      borderWidth: 1,
+      borderColor: colors.border,
+      padding: spacing.md,
+      marginVertical: spacing.md
+    },
+    notesInput: {
+      fontSize: typography.body,
+      color: colors.textPrimary,
+      minHeight: 64,
+      textAlignVertical: 'top'
+    },
+    notesPlaceholder: {
+      fontSize: typography.body,
+      color: colors.textSecondary
+    },
+    secondaryOutline: {
+      borderWidth: 1,
+      borderColor: colors.error,
+      backgroundColor: colors.surface,
+      borderRadius: radii.pill,
+      minHeight: 48,
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: spacing.md
+    },
+    secondaryOutlineLabel: {
+      fontSize: typography.bodyLarge,
+      fontWeight: fontWeights.semibold,
+      color: colors.error
+    },
+    saveHeader: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingVertical: spacing.md
+    },
+    saveHeaderTitle: {
+      fontSize: typography.title,
+      fontWeight: fontWeights.bold,
+      color: colors.textPrimary
+    },
+    workoutNameInput: {
+      fontSize: typography.title,
+      fontWeight: fontWeights.bold,
+      color: colors.textPrimary,
+      marginBottom: spacing.sm
+    },
+    statLabelSpaced: {
+      marginBottom: spacing.sm,
+      textTransform: 'uppercase',
+      letterSpacing: 0.6
+    },
+    headerPillRow: {
+      flexDirection: 'row',
+      gap: spacing.sm
+    },
+    headerPillFlex: {
+      flex: 1,
+      height: 52,
+      justifyContent: 'center'
+    },
+    headerPillTextCenter: {
+      textAlign: 'center'
+    },
+    flexOne: {
+      flex: 1
+    },
+    alertCard: {
+      width: '100%',
+      maxWidth: 300,
+      backgroundColor: colors.surface,
+      borderRadius: radii.lg,
+      overflow: 'hidden',
+      ...elevation.floating
+    },
+    alertBody: {
+      padding: spacing.lg,
+      gap: spacing.sm
+    },
+    alertTitle: {
+      fontSize: typography.title,
+      fontWeight: fontWeights.bold,
+      color: colors.textPrimary,
+      textAlign: 'center'
+    },
+    alertCopy: {
+      fontSize: typography.body,
+      color: colors.textSecondary,
+      textAlign: 'center',
+      lineHeight: 22
+    },
+    alertActions: {
+      flexDirection: 'row',
+      borderTopWidth: 1,
+      borderTopColor: colors.border
+    },
+    alertAction: {
+      flex: 1,
+      paddingVertical: spacing.md,
+      alignItems: 'center',
+      borderRightWidth: 1,
+      borderRightColor: colors.border
+    },
+    alertActionLast: {
+      borderRightWidth: 0
+    },
+    alertActionText: {
+      fontSize: typography.bodyLarge,
+      fontWeight: fontWeights.semibold,
+      color: colors.textPrimary
+    },
+    alertDestructive: {
+      color: colors.error
+    },
+    outcomeLayout: {
+      flex: 1,
+      justifyContent: 'space-between',
+      padding: spacing.lg
+    },
+    outcomeContent: {
+      flex: 1,
+      justifyContent: 'center'
+    },
+    discardedContentTop: {
+      marginTop: spacing.xxl
+    },
+    menuHeader: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingVertical: spacing.md
+    },
+    menuNoteHint: {
+      marginVertical: spacing.md
+    },
+    exerciseMenuButton: {
+      padding: spacing.xs
     }
   })
 }

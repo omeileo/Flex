@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 import { ThemeColors } from '@shared/context/ThemeProvider/ThemeProvider.types'
-import { fontWeights, radii, spacing, typography } from '@shared/styles/StyleConstants'
+import { fontWeights, spacing, typography } from '@shared/styles/StyleConstants'
 
 export const createWeekStripStyles = (colors: ThemeColors) =>
   StyleSheet.create({
@@ -37,6 +37,12 @@ export const createWeekStripStyles = (colors: ThemeColors) =>
     },
     dayLabelToday: {
       color: colors.textInverse
+    },
+    dot: {
+      width: 6,
+      height: 6,
+      borderRadius: 3,
+      marginTop: spacing.xs
     },
     dotPlaceholder: {
       height: 6,

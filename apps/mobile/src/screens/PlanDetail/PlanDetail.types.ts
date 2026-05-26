@@ -2,11 +2,13 @@ import { PlannedExercise, PlannedWorkout } from '@flex/shared/types/trainingPlan
 
 export interface PlanDetailRouteParams {
   dayIndex: number
+  weekNumber?: number
   workoutName: string
 }
 
 export interface PlanDetailComponentProps {
   workout: PlannedWorkout | null
+  sessionMeta: string
   coachNote: string
   warmUpItems: string[]
   isLoading: boolean

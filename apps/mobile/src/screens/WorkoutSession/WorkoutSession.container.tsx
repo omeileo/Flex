@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { RepsScheme } from '@flex/shared/enums/repsScheme.enum'
 import { useNavigation } from '@react-navigation/native'
 import { completeWorkoutSession } from '@redux/states/workoutSession/completeWorkoutSession/completeWorkoutSession.slice'
 import { createWorkoutSession } from '@redux/states/workoutSession/createWorkoutSession/createWorkoutSession.slice'
@@ -11,6 +12,13 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import WorkoutSessionComponent from './WorkoutSession.component'
 
+import {
+  ExerciseMenuAction,
+  exerciseMenuActions,
+  workoutSessionSwapChips,
+  workoutSessionSwapOptions
+} from './WorkoutSession.dictionary'
+import { calculateSessionVolumeKg, countCompletedSets, formatVolumeLabel } from './WorkoutSession.functions'
 import { SessionExercise, WorkoutSessionPhase } from './WorkoutSession.types'
 
 const formatElapsed = (seconds: number) => {
@@ -34,7 +42,7 @@ const buildSessionExercises = (workout: {
   workout.exercises.map((exercise) => ({
     exerciseId: exercise.exerciseId,
     exerciseName: exercise.exerciseName,
-    prescription: formatExercisePrescription(exercise.sets),
+    prescription: formatExercisePrescription(exercise.sets.map((set) => ({ ...set, repsScheme: RepsScheme.STRAIGHT }))),
     sets: exercise.sets.map((set, index) => ({
       setNumber: set.setNumber,
       reps: set.targetReps ?? 8,
@@ -43,9 +51,6 @@ const buildSessionExercises = (workout: {
       status: index === 0 ? 'active' : 'pending'
     }))
   }))
-
-const selectWorkout = (plan: RootState['getActivePlan']['success'], dayIndex: number) =>
-  plan?.workouts.find((entry) => entry.dayIndex === dayIndex) ?? null
 
 const WorkoutSessionContainer = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -56,12 +61,16 @@ const WorkoutSessionContainer = () => {
   const { loading: creating, error: createError } = useSelector((state: RootState) => state.createWorkoutSession)
   const { loading: completing, error: completeError } = useSelector((state: RootState) => state.completeWorkoutSession)
 
-  const workout = useMemo(() => selectWorkout(plan, dayIndex), [plan, dayIndex])
+  const workout = useMemo(() => plan?.workouts.find((entry) => entry.dayIndex === dayIndex), [plan, dayIndex])
   const [phase, setPhase] = useState<WorkoutSessionPhase>('preStart')
   const [exercises, setExercises] = useState<SessionExercise[]>([])
   const [activeExerciseIndex, setActiveExerciseIndex] = useState(0)
   const [elapsedSeconds, setElapsedSeconds] = useState(0)
   const [restSeconds, setRestSeconds] = useState(90)
+  const [sessionId, setSessionId] = useState<string | null>(null)
+  const [editableWorkoutName, setEditableWorkoutName] = useState(workoutName)
+  const [privateNotes, setPrivateNotes] = useState('')
+  const [discardConfirmOpen, setDiscardConfirmOpen] = useState(false)
 
   useEffect(() => {
     if (workout) {
@@ -70,7 +79,11 @@ const WorkoutSessionContainer = () => {
   }, [workout])
 
   useEffect(() => {
-    if (phase !== 'active' && phase !== 'rest') {
+    setEditableWorkoutName(workoutName)
+  }, [workoutName])
+
+  useEffect(() => {
+    if (phase !== 'active') {
       return undefined
     }
 
@@ -81,14 +94,158 @@ const WorkoutSessionContainer = () => {
     return () => clearInterval(timer)
   }, [phase])
 
-  const handleBegin = useCallback(() => {
-    setPhase('active')
-    setElapsedSeconds(0)
-  }, [])
+  useEffect(() => {
+    if (phase !== 'rest') {
+      return undefined
+    }
+
+    const timer = setInterval(() => {
+      setRestSeconds((current) => {
+        if (current <= 1) {
+          setPhase('active')
+
+          return 0
+        }
+
+        return current - 1
+      })
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [phase])
+
+  const completedSets = useMemo(() => countCompletedSets(exercises), [exercises])
+  const volumeLabel = useMemo(() => formatVolumeLabel(calculateSessionVolumeKg(exercises)), [exercises])
+
+  const buildSessionPayload = useCallback(
+    () => ({
+      trainingPlanId: plan?.id ?? '',
+      workoutDayIndex: dayIndex,
+      exercises: exercises
+        .map((exercise) => ({
+          exerciseId: exercise.exerciseId,
+          sets: exercise.sets
+            .filter((set) => set.status === 'completed')
+            .map((set) => ({
+              setNumber: set.setNumber,
+              repsCompleted: set.reps,
+              weightKg: set.weightKg,
+              completed: true
+            }))
+        }))
+        .filter((exercise) => exercise.sets.length > 0)
+    }),
+    [plan?.id, dayIndex, exercises]
+  )
+
+  const handleBegin = useCallback(async () => {
+    if (!plan?.id || !workout) {
+      return
+    }
+
+    const payload = buildSessionPayload()
+
+    try {
+      const created = await dispatch(
+        createWorkoutSession({
+          ...payload,
+          exercises: workout.exercises.map((exercise) => ({
+            exerciseId: exercise.exerciseId,
+            sets: exercise.sets.map((set) => ({
+              setNumber: set.setNumber,
+              repsCompleted: set.targetReps,
+              weightKg: set.targetWeightKg,
+              completed: false
+            }))
+          }))
+        })
+      ).unwrap()
+
+      const createdSessionId = (created as { id?: string }).id
+
+      if (createdSessionId) {
+        setSessionId(createdSessionId)
+      }
+
+      setPhase('active')
+      setElapsedSeconds(0)
+    } catch {
+      // errors handled in selectors
+    }
+  }, [plan, workout, dispatch, buildSessionPayload])
 
   const handleNotNow = useCallback(() => {
     navigation.goBack()
   }, [navigation])
+
+  const handlePause = useCallback(() => {
+    setPhase('paused')
+  }, [])
+
+  const handleResume = useCallback(() => {
+    setDiscardConfirmOpen(false)
+    setPhase('active')
+  }, [])
+
+  const handleOpenExerciseMenu = useCallback(() => {
+    setPhase('exerciseMenu')
+  }, [])
+
+  const handleExerciseMenuAction = useCallback(
+    (action: ExerciseMenuAction) => {
+      if (action === 'replace') {
+        setPhase('swap')
+
+        return
+      }
+
+      if (action === 'delete') {
+        setExercises((current) => current.filter((_, index) => index !== activeExerciseIndex))
+        setActiveExerciseIndex((current) => Math.max(0, current - 1))
+        setPhase('active')
+
+        return
+      }
+
+      if (action === 'done' || exerciseMenuActions.includes(action)) {
+        setPhase('active')
+      }
+    },
+    [activeExerciseIndex]
+  )
+
+  const handleSwapSelect = useCallback(
+    (exerciseId: string) => {
+      const swapOption = workoutSessionSwapOptions.find((option) => option.id === exerciseId)
+
+      if (!swapOption) {
+        setPhase('active')
+
+        return
+      }
+
+      setExercises((current) =>
+        current.map((exercise, index) => {
+          if (index !== activeExerciseIndex) {
+            return exercise
+          }
+
+          return {
+            ...exercise,
+            exerciseId: swapOption.id,
+            exerciseName: swapOption.name,
+            prescription: exercise.prescription
+          }
+        })
+      )
+      setPhase('active')
+    },
+    [activeExerciseIndex]
+  )
+
+  const handleSwapCancel = useCallback(() => {
+    setPhase('active')
+  }, [])
 
   const handleLogSet = useCallback((exerciseIndex: number, setIndex: number) => {
     setExercises((current) =>
@@ -125,7 +282,20 @@ const WorkoutSessionContainer = () => {
     setRestSeconds((current) => Math.max(0, current + delta))
   }, [])
 
+  const handlePreviousExercise = useCallback(() => {
+    setActiveExerciseIndex((current) => Math.max(0, current - 1))
+  }, [])
+
+  const handleNextExercise = useCallback(() => {
+    setActiveExerciseIndex((current) => Math.min(exercises.length - 1, current + 1))
+  }, [exercises.length])
+
   const handleFinish = useCallback(() => {
+    setDiscardConfirmOpen(false)
+    setPhase('finishSheet')
+  }, [])
+
+  const handleReviewSave = useCallback(() => {
     setPhase('save')
   }, [])
 
@@ -134,30 +304,24 @@ const WorkoutSessionContainer = () => {
       return
     }
 
+    const sessionPayload = buildSessionPayload()
+
+    if (sessionPayload.exercises.length === 0) {
+      return
+    }
+
     try {
-      const sessionPayload = {
-        trainingPlanId: plan.id,
-        workoutDayIndex: dayIndex,
-        exercises: exercises.map((exercise) => ({
-          exerciseId: exercise.exerciseId,
-          sets: exercise.sets
-            .filter((set) => set.status === 'completed')
-            .map((set) => ({
-              setNumber: set.setNumber,
-              repsCompleted: set.reps,
-              weightKg: set.weightKg,
-              completed: true
-            }))
-        }))
+      let activeSessionId = sessionId
+
+      if (!activeSessionId) {
+        const created = await dispatch(createWorkoutSession(sessionPayload)).unwrap()
+        activeSessionId = (created as { id?: string }).id ?? null
       }
 
-      const created = await dispatch(createWorkoutSession(sessionPayload)).unwrap()
-      const sessionId = (created as { id?: string }).id
-
-      if (sessionId) {
+      if (activeSessionId) {
         await dispatch(
           completeWorkoutSession({
-            sessionId,
+            sessionId: activeSessionId,
             body: {
               exercises: sessionPayload.exercises
             }
@@ -169,30 +333,69 @@ const WorkoutSessionContainer = () => {
     } catch {
       // errors handled in selectors
     }
-  }, [plan, workout, dayIndex, dispatch, exercises])
+  }, [plan, workout, dispatch, buildSessionPayload, sessionId])
+
+  const handleDiscardRequest = useCallback(() => {
+    setDiscardConfirmOpen(true)
+  }, [])
+
+  const handleDiscardConfirm = useCallback(() => {
+    setDiscardConfirmOpen(false)
+    setPhase('discarded')
+  }, [])
+
+  const handleDiscardCancel = useCallback(() => {
+    setDiscardConfirmOpen(false)
+  }, [])
 
   const handleDone = useCallback(() => {
+    navigation.navigate('MainTabs')
+  }, [navigation])
+
+  const handleBackToToday = useCallback(() => {
     navigation.navigate('MainTabs')
   }, [navigation])
 
   return (
     <WorkoutSessionComponent
       workoutName={workoutName}
+      editableWorkoutName={editableWorkoutName}
+      privateNotes={privateNotes}
       exercises={exercises}
       phase={phase}
       activeExerciseIndex={activeExerciseIndex}
       elapsedLabel={formatElapsed(elapsedSeconds)}
       restSeconds={restSeconds}
+      volumeLabel={volumeLabel}
+      completedSets={completedSets}
+      swapOptions={workoutSessionSwapOptions}
+      swapFilterChips={workoutSessionSwapChips}
+      discardConfirmOpen={discardConfirmOpen}
       isSubmitting={creating || completing}
       error={createError ?? completeError}
+      onWorkoutNameChange={setEditableWorkoutName}
+      onPrivateNotesChange={setPrivateNotes}
       onBegin={handleBegin}
       onNotNow={handleNotNow}
+      onPause={handlePause}
+      onResume={handleResume}
+      onOpenExerciseMenu={handleOpenExerciseMenu}
+      onExerciseMenuAction={handleExerciseMenuAction}
+      onSwapSelect={handleSwapSelect}
+      onSwapCancel={handleSwapCancel}
       onLogSet={handleLogSet}
       onSkipRest={handleSkipRest}
       onAdjustRest={handleAdjustRest}
+      onPreviousExercise={handlePreviousExercise}
+      onNextExercise={handleNextExercise}
       onFinish={handleFinish}
+      onReviewSave={handleReviewSave}
       onSave={handleSave}
+      onDiscardRequest={handleDiscardRequest}
+      onDiscardConfirm={handleDiscardConfirm}
+      onDiscardCancel={handleDiscardCancel}
       onDone={handleDone}
+      onBackToToday={handleBackToToday}
     />
   )
 }

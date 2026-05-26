@@ -57,7 +57,8 @@ export const createFlexApiClient = (config: FlexApiClientConfig) => {
     createWorkoutSession: (body: WorkoutSessionCreate) =>
       request(ApiRoutes.workoutSessions, { method: 'POST', body }),
     completeWorkoutSession: (id: string, body: WorkoutSessionComplete) =>
-      request(`${ApiRoutes.workoutSessions}/${id}/complete`, { method: 'POST', body })
+      request(`${ApiRoutes.workoutSessions}/${id}/complete`, { method: 'POST', body }),
+    getWorkoutSessionProgress: () => request(ApiRoutes.workoutSessionProgress)
   }
 }
 

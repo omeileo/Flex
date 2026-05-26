@@ -1,0 +1,28 @@
+appId: com.flex.app
+---
+# Flow test: Plan detail hierarchy — program → phase → week → day
+# Run: maestro test apps/mobile/src/e2e_tests/planDetail/viewPlanHierarchy.flow.maestro.yaml
+
+- launchApp
+- runFlow:
+    file: ../auth/loginWithTestCredentials.subflow.maestro.yaml
+- tapOn:
+    text: 'Plan'
+- tapOn:
+    id: 'plan-home-view-program'
+- assertVisible:
+    id: 'program-overview-screen'
+- assertVisible:
+    id: 'program-overview-phase-foundation'
+- tapOn:
+    id: 'program-overview-phase-foundation'
+- assertVisible:
+    id: 'phase-detail-screen'
+- tapOn:
+    id: 'phase-detail-view-week'
+- assertVisible:
+    id: 'week-schedule-screen'
+- tapOn:
+    id: 'week-schedule-day-mon'
+- assertVisible:
+    id: 'plan-detail-screen'

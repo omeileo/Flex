@@ -10,18 +10,47 @@
     "resolveJsonModule": true,
     "allowJs": true,
     "jsx": "react-native",
-    "lib": ["ES2022", "DOM"],
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@shared/*": ["src/shared/*"],
-      "@redux/*": ["src/redux/*"],
-      "@screens/*": ["src/screens/*"],
-      "@network/*": ["src/networkRequests/*"],
-      "@router/*": ["src/router/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ],
+      "@redux/*": [
+        "src/redux/*"
+      ],
+      "@screens/*": [
+        "src/screens/*"
+      ],
+      "@network/*": [
+        "src/networkRequests/*"
+      ],
+      "@router/*": [
+        "src/router/*"
+      ]
     },
-    "typeRoots": ["../../node_modules/@types", "./node_modules/@types", "./src/shared/types"]
+    "typeRoots": [
+      "../../node_modules/@types",
+      "./node_modules/@types",
+      "./src/shared/types"
+    ]
   },
-  "include": ["src/**/*", "index.js"],
-  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
+  "include": [
+    "src/**/*",
+    "index.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js",
+    "src/shared/scripts/**/*",
+    "src/networkRequests/apiClient/setEnv.scripts.ts"
+  ]
 }

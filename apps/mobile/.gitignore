@@ -58,6 +58,9 @@ yarn-error.log
 # Active env (regenerated per developer)
 src/networkRequests/environmentVariables/env.json
 
+# Maestro E2E credentials (copy from src/e2e_tests/e2e.env.example)
+src/e2e_tests/e2e.env
+
 # Coverage
 coverage/
 

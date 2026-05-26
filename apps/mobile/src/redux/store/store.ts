@@ -15,6 +15,7 @@ import getActivePlanReducer from '../states/trainingPlan/getActivePlan/getActive
 import getPlanChangesReducer from '../states/trainingPlan/getPlanChanges/getPlanChanges.slice'
 import completeWorkoutSessionReducer from '../states/workoutSession/completeWorkoutSession/completeWorkoutSession.slice'
 import createWorkoutSessionReducer from '../states/workoutSession/createWorkoutSession/createWorkoutSession.slice'
+import getProgressMetricsReducer from '../states/workoutSession/getProgressMetrics/getProgressMetrics.slice'
 
 const appReducer = combineReducers({
   login: loginReducer,
@@ -31,6 +32,7 @@ const appReducer = combineReducers({
   getPlanChanges: getPlanChangesReducer,
   createWorkoutSession: createWorkoutSessionReducer,
   completeWorkoutSession: completeWorkoutSessionReducer,
+  getProgressMetrics: getProgressMetricsReducer,
   theme: themeReducer
 })
 

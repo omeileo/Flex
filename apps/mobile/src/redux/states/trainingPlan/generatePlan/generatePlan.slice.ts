@@ -10,7 +10,7 @@ export const generatePlan = createAsyncThunk(
   'trainingPlan/generatePlan',
   async (request: GeneratePlanRequest | void, { rejectWithValue }) => {
     try {
-      const response = await generatePlanApi(request)
+      const response = await generatePlanApi(request ?? undefined)
 
       return response.data
     } catch (error) {

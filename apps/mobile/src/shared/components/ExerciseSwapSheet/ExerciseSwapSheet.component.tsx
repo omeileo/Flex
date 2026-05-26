@@ -16,14 +16,14 @@ const ExerciseSwapSheet = ({ options, filterChips, onSelect, onCancel }: Exercis
     <View style={styles.container}>
       <View style={styles.header}>
         <Pressable onPress={onCancel}>
-          <Text style={styles.cancel}>{t('designPreview.activeWorkout.cancel')}</Text>
+          <Text style={styles.cancel}>{t('workoutSession.cancel')}</Text>
         </Pressable>
-        <Text style={styles.title}>{t('designPreview.activeWorkout.replaceExercise')}</Text>
+        <Text style={styles.title}>{t('workoutSession.replaceExercise')}</Text>
         <View style={styles.headerSpacer} />
       </View>
 
       <View style={styles.search}>
-        <Text style={styles.searchPlaceholder}>{t('designPreview.activeWorkout.searchExercises')}</Text>
+        <Text style={styles.searchPlaceholder}>{t('workoutSession.searchExercises')}</Text>
       </View>
 
       <View style={styles.chips}>

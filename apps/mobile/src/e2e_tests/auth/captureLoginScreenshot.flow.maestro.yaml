@@ -1,0 +1,36 @@
+appId: com.flex.app
+---
+# Flow: Auth — login screen screenshot for design implementation audit
+# Run from repo root:
+#   maestro test -p ios apps/mobile/src/e2e_tests/auth/captureLoginScreenshot.flow.maestro.yaml
+#   maestro test -p android apps/mobile/src/e2e_tests/auth/captureLoginScreenshot.flow.maestro.yaml
+# Copy Maestro output (login_1.png) after each platform run:
+#   Standalone audit:
+#     design/implementationValidation/auth/login/login_{YYYYMMDDHHMMSS}/login_1_{ios|android}.png
+#   Reconcile session:
+#     design/implementationValidation/auth/login/session_{SESSION_TS}/finalAudit/login_{AUDIT_TS}/login_1_{ios|android}.png
+# Worked example (reconcile session 2026-05-25):
+#   design/implementationValidation/auth/login/session_20260525233940/finalAudit/login_20260525234023/
+
+- launchApp
+- runFlow:
+    when:
+      visible:
+        text: 'Flex'
+    commands:
+      - tapOn:
+          text: 'Log in'
+- runFlow:
+    when:
+      visible:
+        id: 'login-screen'
+    commands:
+      - assertVisible:
+          id: 'login-screen'
+      - assertVisible:
+          id: 'login-title'
+      - assertVisible:
+          text: 'Email'
+      - assertVisible:
+          text: 'Password'
+      - takeScreenshot: login_1

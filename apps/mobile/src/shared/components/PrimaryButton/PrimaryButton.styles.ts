@@ -12,7 +12,7 @@ export const createPrimaryButtonStyles = (colors: ThemeColors) =>
       paddingHorizontal: spacing.lg,
       alignItems: 'center',
       justifyContent: 'center',
-      minHeight: 52
+      minHeight: 56
     },
     buttonDisabled: {
       opacity: 0.4

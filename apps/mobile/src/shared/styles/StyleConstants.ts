@@ -115,7 +115,9 @@ export const composition = {
   sectionGap: spacing.lg,
   cardPadding: spacing.md,
   heroInset: spacing.xl,
-  inlineGap: spacing.sm
+  inlineGap: spacing.sm,
+  authTopInset: 56,
+  authBottomInset: 40
 }
 
 export const typography = {
@@ -161,6 +163,7 @@ export const letterSpacing = {
 export const radii = {
   sm: 4,
   md: 8,
+  input: 12,
   lg: 16,
   pill: 36
 }

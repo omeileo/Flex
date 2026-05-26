@@ -1,0 +1,30 @@
+appId: com.flex.app
+---
+# Single-screen test: Plan detail from Today workout card (requires authenticated user with plan)
+# Run: maestro test apps/mobile/src/screens/PlanDetail/PlanDetail.maestro.yaml
+
+- launchApp
+- runFlow:
+    file: ../../e2e_tests/auth/loginWithTestCredentials.subflow.maestro.yaml
+- tapOn:
+    text: 'Today'
+- extendedWaitUntil:
+    visible:
+      id: 'today-screen'
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      text: "Today's workouts"
+    direction: DOWN
+- tapOn:
+    text: '.*min'
+- extendedWaitUntil:
+    visible:
+      id: 'plan-detail-screen'
+    timeout: 20000
+- assertVisible:
+    id: 'plan-detail-screen'
+- assertVisible:
+    text: 'Warm-up'
+- assertVisible:
+    text: 'Start workout'

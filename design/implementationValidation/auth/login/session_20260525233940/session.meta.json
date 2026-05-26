@@ -1,0 +1,11 @@
+{
+  "flow": "auth",
+  "screen": "login",
+  "sessionId": "session_20260525233940",
+  "startedAt": "2026-05-25T23:39:40",
+  "iterations": 1,
+  "parityAchieved": true,
+  "initialAudit": "initialAudit/login_20260525230240",
+  "finalAudit": "finalAudit/login_20260525234023",
+  "legacyAuditFolder": "login_20260525230240"
+}

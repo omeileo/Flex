@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { saveProfile } from '../saveProfile.slice'
 import saveProfileReducer from '../saveProfile.slice'
 
 jest.mock('../saveProfile.api', () => ({
@@ -15,8 +14,6 @@ jest.mock('../../../../../shared/functions/ErrorHandler/errorHandler.functions',
     isErrorCode: jest.fn()
   }
 }))
-
-const { saveProfileApi } = jest.requireMock('../saveProfile.api')
 
 const buildStore = () => configureStore({ reducer: { saveProfile: saveProfileReducer } })
 

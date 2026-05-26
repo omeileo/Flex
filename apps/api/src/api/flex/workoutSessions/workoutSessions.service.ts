@@ -1,5 +1,6 @@
 import { getCurrentLoggedInUserOrThrow } from '@/shared/appContext.context'
 import { globalErrors } from '@/shared/dictionary/errors.dictionary'
+import { computeProgressMetrics } from '@flex/shared/functions/progress/progress.metrics'
 
 import { trainingPlansRepository } from '../trainingPlans/trainingPlans.repository'
 import { workoutSessionsRepository } from './workoutSessions.repository'
@@ -55,5 +56,24 @@ export const workoutSessionsService = {
       startedAt: session.started_at.toISOString(),
       completedAt: session.completed_at?.toISOString()
     }
+  },
+
+  getProgressMetrics: async () => {
+    const currentUser = getCurrentLoggedInUserOrThrow()
+    const sessions = await workoutSessionsRepository.findCompletedSessionsForUser(currentUser.userId)
+
+    return computeProgressMetrics(
+      sessions.map((session) => ({
+        id: session.id,
+        completedAt: session.completed_at?.toISOString() ?? session.started_at.toISOString(),
+        sets: session.session_sets.map((set) => ({
+          exerciseId: set.exercise_id,
+          setNumber: set.set_number,
+          repsCompleted: set.reps_completed,
+          weightKg: set.weight_kg,
+          completed: set.completed
+        }))
+      }))
+    )
   }
 }

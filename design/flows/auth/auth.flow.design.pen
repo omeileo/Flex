@@ -168,20 +168,51 @@
                         0,
                         16
                       ],
+                      "justifyContent": "space_between",
                       "alignItems": "center",
                       "children": [
                         {
                           "type": "text",
                           "id": "dnG8s",
                           "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
                           "content": "Your password",
                           "fontFamily": "Inter",
                           "fontSize": 16,
                           "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "Z7VdR",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "eye",
+                          "iconFontFamily": "lucide",
+                          "fill": "$text-secondary"
                         }
                       ]
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "A4oM6",
+              "name": "Forgot password link",
+              "width": "fill_container",
+              "justifyContent": "end",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wS0ac",
+                  "fill": "$text-secondary",
+                  "content": "Forgot password?",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
                 }
               ]
             },
@@ -460,16 +491,28 @@
                         0,
                         16
                       ],
+                      "justifyContent": "space_between",
                       "alignItems": "center",
                       "children": [
                         {
                           "type": "text",
                           "id": "tJb6r",
                           "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
                           "content": "At least 8 characters",
                           "fontFamily": "Inter",
                           "fontSize": 16,
                           "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "a2uAU",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "eye",
+                          "iconFontFamily": "lucide",
+                          "fill": "#6B7280"
                         }
                       ]
                     }
@@ -803,6 +846,7 @@
       "width": 358,
       "height": 56,
       "fill": "$accent-cta",
+      "cornerRadius": 36,
       "padding": 16,
       "justifyContent": "center",
       "alignItems": "center",
@@ -828,6 +872,7 @@
       "width": 358,
       "height": 56,
       "fill": "$surface",
+      "cornerRadius": 36,
       "stroke": {
         "thickness": 1,
         "fill": "$border"

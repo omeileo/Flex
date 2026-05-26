@@ -11,6 +11,13 @@ export const createSignUpStyles = (colors: ThemeColors) =>
       fontWeight: fontWeights.bold,
       letterSpacing: letterSpacing.headline,
       color: colors.textPrimary,
+      textAlign: 'center'
+    },
+    tagline: {
+      fontSize: typography.body,
+      color: colors.textSecondary,
+      lineHeight: 20,
+      marginTop: 8,
       marginBottom: 24
     },
     error: {

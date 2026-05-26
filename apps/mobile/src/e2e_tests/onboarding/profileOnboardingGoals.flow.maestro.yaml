@@ -1,0 +1,29 @@
+appId: com.flex.app
+---
+# Flow test: Profile onboarding — goals and injury steps (onboarding test account)
+# Run: maestro test apps/mobile/src/e2e_tests/onboarding/profileOnboardingGoals.flow.maestro.yaml
+
+- launchApp
+- runFlow:
+    file: ../auth/loginWithTestCredentials.subflow.maestro.yaml
+    env:
+      E2E_EMAIL: ${MAESTRO_E2E_ONBOARDING_EMAIL || E2E_ONBOARDING_EMAIL || MAESTRO_E2E_EMAIL || E2E_TEST_EMAIL || E2E_EMAIL}
+      E2E_PASSWORD: ${MAESTRO_E2E_ONBOARDING_PASSWORD || E2E_ONBOARDING_PASSWORD || MAESTRO_E2E_PASSWORD || E2E_TEST_PASSWORD || E2E_PASSWORD}
+- extendedWaitUntil:
+    visible:
+      id: 'profile-onboarding-screen'
+    timeout: 45000
+- assertVisible:
+    text: "What's your main goal?"
+- tapOn:
+    text: 'Build muscle'
+- tapOn:
+    text: 'Continue'
+- assertVisible:
+    text: 'Any past injuries?'
+- tapOn:
+    text: 'None'
+- tapOn:
+    text: 'Continue'
+- assertVisible:
+    text: 'How are you feeling now?'

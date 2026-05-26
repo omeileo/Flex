@@ -11,13 +11,7 @@ const ProfileSectionRow = ({ title, preview, onPress, trailing, testID }: Profil
   const styles = useThemedStyles(createProfileSectionRowStyles)
 
   return (
-    <Pressable
-      style={styles.row}
-      onPress={onPress}
-      accessibilityRole="button"
-      testID={testID}
-      disabled={!onPress}
-    >
+    <Pressable style={styles.row} onPress={onPress} accessibilityRole="button" testID={testID} disabled={!onPress}>
       <View style={styles.content}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.preview}>{preview}</Text>

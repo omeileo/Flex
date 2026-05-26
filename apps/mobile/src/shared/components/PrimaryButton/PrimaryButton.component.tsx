@@ -8,7 +8,7 @@ import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.h
 import { createPrimaryButtonStyles } from './PrimaryButton.styles'
 import { PrimaryButtonProps } from './PrimaryButton.types'
 
-const PrimaryButton = ({ label, onPress, disabled = false, loading = false, style }: PrimaryButtonProps) => {
+const PrimaryButton = ({ label, onPress, disabled = false, loading = false, style, testID }: PrimaryButtonProps) => {
   const colors = useThemeColors()
   const styles = useThemedStyles(createPrimaryButtonStyles)
   const isDisabled = disabled || loading
@@ -21,6 +21,7 @@ const PrimaryButton = ({ label, onPress, disabled = false, loading = false, styl
       accessibilityRole="button"
       accessibilityState={{ disabled: isDisabled }}
       android_ripple={{ color: 'rgba(255,255,255,0.12)' }}
+      testID={testID}
     >
       {loading ? <ActivityIndicator color={colors.textInverse} /> : <Text style={styles.label}>{label}</Text>}
     </Pressable>

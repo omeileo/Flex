@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 import { ThemeColors } from '@shared/context/ThemeProvider/ThemeProvider.types'
 import { spacing } from '@shared/styles/StyleConstants'
 
-export const createPasswordTextInputStyles = (colors: ThemeColors) =>
+export const createPasswordTextInputStyles = (_colors: ThemeColors) =>
   StyleSheet.create({
     inputWrapper: {
       position: 'relative',

@@ -37,11 +37,13 @@ const SignUpComponent = ({ isSubmitting, error, successMessage, onSubmit, onLogi
 
   return (
     <AuthScreenShell testID="signup-screen">
-      <AuthBrandHeader tagline={t('auth.signUp.tagline')} />
+      <AuthBrandHeader />
 
       <Text style={styles.title} testID="signup-title">
         {t('auth.signUp.title')}
       </Text>
+
+      <Text style={styles.tagline}>{t('auth.signUp.tagline')}</Text>
 
       <Controller
         control={control}
@@ -112,6 +114,7 @@ const SignUpComponent = ({ isSubmitting, error, successMessage, onSubmit, onLogi
         onPress={handleSubmit(onSubmit)}
         loading={isSubmitting}
         style={styles.primaryButton}
+        testID="signup-submit"
       />
 
       <Pressable style={styles.linkRow} onPress={onLoginPress}>

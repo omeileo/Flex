@@ -10,7 +10,7 @@ type PasswordVisibilityIconProps = {
 const PasswordVisibilityIcon = ({ visible }: PasswordVisibilityIconProps) => {
   const iconColor = colors.textSecondary
 
-  if (visible) {
+  if (!visible) {
     return (
       <Svg width={22} height={22} viewBox="0 0 24 24" fill="none">
         <Path

@@ -1,0 +1,28 @@
+appId: com.flex.app
+---
+# Flow test: Auth — landing to sign up screen + screenshot for design validation
+# Run: maestro test -p ios apps/mobile/src/e2e_tests/auth/landingToSignUp.flow.maestro.yaml
+
+- launchApp
+- runFlow:
+    when:
+      visible:
+        text: 'Create account'
+    commands:
+      - tapOn:
+          text: 'Create account'
+- assertVisible:
+    id: 'signup-screen'
+- assertVisible:
+    id: 'signup-title'
+- assertVisible:
+    text: 'First name'
+- assertVisible:
+    text: 'Last name'
+- assertVisible:
+    text: 'Email'
+- assertVisible:
+    text: 'Password'
+- assertVisible:
+    text: 'Sign up'
+- takeScreenshot: signup-screen-validation

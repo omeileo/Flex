@@ -9,6 +9,7 @@ export type ActiveWorkoutView =
   | 'save'
   | 'saved'
   | 'discarded'
+  | 'cancel'
 
 export type ActiveWorkoutFlowPreviewComponentProps = {
   initialView?: ActiveWorkoutView

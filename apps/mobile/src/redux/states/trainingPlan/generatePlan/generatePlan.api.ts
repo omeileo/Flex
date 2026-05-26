@@ -1,4 +1,4 @@
-import type { GeneratePlanRequest, TrainingPlan } from '@flex/shared/types/trainingPlan/trainingPlan.schemas'
+import type { GeneratePlanRequest } from '@flex/shared/types/trainingPlan/trainingPlan.schemas'
 import { configureRequest } from '@network/apiClient/apiClient.functions'
 import urls from '@network/apiClient/endpoints'
 

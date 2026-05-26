@@ -40,6 +40,15 @@ const controller = function () {
     })
   )
 
+  router.get(
+    WorkoutSessionsRoutes.PROGRESS.routerPath,
+    requestHandler(null, async (_req: Request, res: Response) => {
+      const metrics = await workoutSessionsService.getProgressMetrics()
+
+      successResponse(res, StatusCodes.OK, 'Request successful.', metrics, 'Workout progress metrics loaded.')
+    })
+  )
+
   return router
 }
 

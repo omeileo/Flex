@@ -1,31 +1,46 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 
-import { getActivePlan } from '@redux/states/trainingPlan/getActivePlan/getActivePlan.slice'
-import { AppDispatch, RootState } from '@redux/store/store.types'
 import router from '@router/functions/router.functions'
-import { useDispatch, useSelector } from 'react-redux'
+import { formatExercisePrescription } from '@shared/functions/TrainingPlan/trainingPlanPresentation.functions'
+import { useActivePlanPresentation } from '@shared/hooks/useActivePlanPresentation/useActivePlanPresentation.hooks'
+import { useTranslation } from 'react-i18next'
 
 import ExerciseDetailComponent from './ExerciseDetail.component'
 
 const ExerciseDetailContainer = () => {
-  const dispatch = useDispatch<AppDispatch>()
-  const exerciseId = router.getUrlParam<number>('exerciseId')
+  const { t } = useTranslation()
+  const exerciseId = router.getUrlParam<string>('exerciseId')
   const dayIndex = router.getUrlParam<number>('dayIndex')
-  const { loading, success, error } = useSelector((state: RootState) => state.getActivePlan)
+  const { loading, plan, error, retry } = useActivePlanPresentation()
 
   const exercise = useMemo(() => {
-    const workout = success?.workouts.find((entry) => entry.dayIndex === dayIndex)
+    const workout = plan?.workouts.find((entry) => entry.dayIndex === dayIndex)
 
-    return workout?.exercises.find((entry) => entry.exerciseId === exerciseId) ?? null
-  }, [success, dayIndex, exerciseId])
+    return workout?.exercises.find((entry) => String(entry.exerciseId) === String(exerciseId)) ?? null
+  }, [plan, dayIndex, exerciseId])
 
-  useEffect(() => {
-    if (!success) {
-      dispatch(getActivePlan())
+  const prescription = useMemo(() => {
+    if (!exercise) {
+      return ''
     }
-  }, [dispatch, success])
 
-  return <ExerciseDetailComponent exercise={exercise} isLoading={loading} error={error} />
+    return formatExercisePrescription(exercise.sets)
+  }, [exercise])
+
+  const instructions = exercise?.notes ?? t('exerciseDetail.defaultInstructions')
+  const injuryNote = exercise?.notes?.toLowerCase().includes('shoulder') ? exercise.notes : null
+
+  return (
+    <ExerciseDetailComponent
+      exercise={exercise}
+      prescription={prescription}
+      instructions={instructions}
+      injuryNote={injuryNote}
+      isLoading={loading}
+      error={error}
+      onRetry={retry}
+    />
+  )
 }
 
 export default ExerciseDetailContainer

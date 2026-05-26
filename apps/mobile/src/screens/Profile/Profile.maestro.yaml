@@ -1,0 +1,18 @@
+appId: com.flex.app
+---
+# Training profile hub smoke test
+# Run: maestro test apps/mobile/src/screens/Profile/Profile.maestro.yaml
+
+- launchApp
+- tapOn:
+    text: 'Profile'
+- assertVisible:
+    id: 'training-profile-screen'
+- assertVisible:
+    id: 'training-profile-title'
+- assertVisible:
+    id: 'profile-row-goals'
+- assertVisible:
+    id: 'profile-row-gym-locations'
+- assertVisible:
+    id: 'profile-row-cycle'

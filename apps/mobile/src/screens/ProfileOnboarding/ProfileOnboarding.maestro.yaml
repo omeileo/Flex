@@ -1,0 +1,32 @@
+appId: com.flex.app
+---
+# Single-screen test: Profile onboarding key steps (goals + injury skip)
+# Requires MAESTRO_E2E_ONBOARDING_EMAIL / MAESTRO_E2E_ONBOARDING_PASSWORD for an account without a completed profile.
+# Run: maestro test apps/mobile/src/screens/ProfileOnboarding/ProfileOnboarding.maestro.yaml
+
+- launchApp
+- runFlow:
+    file: ../../e2e_tests/auth/loginWithTestCredentials.subflow.maestro.yaml
+    env:
+      E2E_EMAIL: ${MAESTRO_E2E_ONBOARDING_EMAIL || E2E_ONBOARDING_EMAIL || MAESTRO_E2E_EMAIL || E2E_EMAIL}
+      E2E_PASSWORD: ${MAESTRO_E2E_ONBOARDING_PASSWORD || E2E_ONBOARDING_PASSWORD || MAESTRO_E2E_PASSWORD || E2E_PASSWORD}
+- extendedWaitUntil:
+    visible:
+      id: 'profile-onboarding-screen'
+    timeout: 45000
+- assertVisible:
+    id: 'profile-onboarding-screen'
+- assertVisible:
+    text: "What's your main goal?"
+- tapOn:
+    text: 'Build muscle'
+- tapOn:
+    text: 'Continue'
+- assertVisible:
+    text: 'Any past injuries?'
+- tapOn:
+    text: 'None'
+- tapOn:
+    text: 'Continue'
+- assertVisible:
+    text: 'How are you feeling now?'

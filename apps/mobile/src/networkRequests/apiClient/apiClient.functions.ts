@@ -48,6 +48,7 @@ export const executeRequest = async (requestConfig: ApiClientRequestConfig): Pro
   try {
     const response = await axios({
       ...requestConfig,
+      timeout: Number(requestConfig.timeout),
       paramsSerializer: {
         serialize: (params) => {
           return qs.stringify(params, { arrayFormat: 'repeat' })

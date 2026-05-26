@@ -17,7 +17,8 @@ const urls = {
   },
   workoutSession: {
     create: 'workout-sessions',
-    complete: 'workout-sessions/:sessionId/complete'
+    complete: 'workout-sessions/:sessionId/complete',
+    progress: 'workout-sessions/progress'
   }
 }
 

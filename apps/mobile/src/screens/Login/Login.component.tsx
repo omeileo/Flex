@@ -45,11 +45,13 @@ const LoginComponent = ({
 
   return (
     <AuthScreenShell testID="login-screen">
-      <AuthBrandHeader tagline={t('auth.login.tagline')} />
+      <AuthBrandHeader />
 
       <Text style={styles.title} testID="login-title">
         {t('auth.login.title')}
       </Text>
+
+      <Text style={styles.tagline}>{t('auth.login.tagline')}</Text>
 
       <Controller
         control={control}
@@ -83,7 +85,11 @@ const LoginComponent = ({
         )}
       />
 
-      <Pressable style={styles.forgotPasswordLink} onPress={() => onForgotPasswordPress(emailValue)}>
+      <Pressable
+        style={styles.forgotPasswordLink}
+        onPress={() => onForgotPasswordPress(emailValue)}
+        testID="login-forgot-password"
+      >
         <Text style={styles.forgotPasswordText}>{t('auth.login.forgotPassword')}</Text>
       </Pressable>
 
@@ -95,6 +101,7 @@ const LoginComponent = ({
         onPress={handleSubmit(onSubmit)}
         loading={isSubmitting}
         style={styles.primaryButton}
+        testID="login-submit"
       />
 
       <Pressable style={styles.linkRow} onPress={onSignUpPress}>

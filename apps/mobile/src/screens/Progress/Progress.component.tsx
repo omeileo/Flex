@@ -3,7 +3,10 @@ import React from 'react'
 import { ScrollView, Text, View } from 'react-native'
 
 import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
+import { useTranslation } from 'react-i18next'
 
+import ErrorView from '@shared/components/ErrorView/ErrorView.component'
+import LoadingView from '@shared/components/LoadingView/LoadingView.component'
 import ProgressBarChart from '@shared/components/ProgressBarChart/ProgressBarChart.component'
 import StatCard from '@shared/components/StatCard/StatCard.component'
 
@@ -29,9 +32,22 @@ const ProgressComponent = ({
   chartBadge,
   stats,
   weeklyVolume,
-  chartFootnote
+  chartFootnote,
+  isLoading = false,
+  error = null,
+  onRefresh
 }: ProgressComponentProps) => {
   const styles = useThemedStyles(createProgressStyles)
+  const { t } = useTranslation()
+
+  if (isLoading) {
+    return <LoadingView message={t('progress.loading')} />
+  }
+
+  if (error) {
+    return <ErrorView message={error} onRetry={onRefresh} retryLabel={t('actions.retry')} />
+  }
+
   const secondaryStats = stats.filter((stat) => stat.id !== featuredStat.id)
   const statRows = chunkStats(secondaryStats, 2)
 

@@ -13,6 +13,7 @@ const WorkoutCard = ({
   title,
   durationMinutes,
   dateLabel,
+  subtitle,
   modality,
   completed = false,
   onPress,
@@ -34,6 +35,7 @@ const WorkoutCard = ({
         <View style={styles.textBlock}>
           {dateLabel ? <Text style={styles.dateLabel}>{dateLabel}</Text> : null}
           <Text style={styles.title}>{title}</Text>
+          {subtitle ? <Text style={styles.meta}>{subtitle}</Text> : null}
           {durationMinutes ? <Text style={styles.meta}>{durationMinutes} min</Text> : null}
         </View>
 

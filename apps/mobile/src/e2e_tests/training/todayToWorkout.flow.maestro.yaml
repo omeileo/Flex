@@ -1,0 +1,20 @@
+appId: com.flex.app
+---
+# Flow test: Today tab → start workout → pre-start session
+# Run: maestro test apps/mobile/src/e2e_tests/training/todayToWorkout.flow.maestro.yaml
+
+- launchApp
+- runFlow:
+    file: ../auth/loginWithTestCredentials.subflow.maestro.yaml
+- tapOn:
+    text: 'Today'
+- extendedWaitUntil:
+    visible:
+      id: 'today-start-workout'
+    timeout: 30000
+- tapOn:
+    id: 'today-start-workout'
+- assertVisible:
+    id: 'workout-session-prestart'
+- assertVisible:
+    text: 'Begin workout'

@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { completeWorkoutSession } from '../completeWorkoutSession.slice'
 import completeWorkoutSessionReducer from '../completeWorkoutSession.slice'
 
 jest.mock('../completeWorkoutSession.api', () => ({
@@ -15,8 +14,6 @@ jest.mock('../../../../../shared/functions/ErrorHandler/errorHandler.functions',
     isErrorCode: jest.fn()
   }
 }))
-
-const { completeWorkoutSessionApi } = jest.requireMock('../completeWorkoutSession.api')
 
 const buildStore = () =>
   configureStore({

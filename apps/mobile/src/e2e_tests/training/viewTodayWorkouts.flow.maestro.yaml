@@ -1,0 +1,14 @@
+appId: com.flex.app
+---
+# Flow test: Today tab — hero and workout list (authenticated)
+# Run: maestro test apps/mobile/src/e2e_tests/training/viewTodayWorkouts.flow.maestro.yaml
+
+- launchApp
+- runFlow:
+    file: ../auth/loginWithTestCredentials.subflow.maestro.yaml
+- tapOn:
+    text: 'Today'
+- assertVisible:
+    id: 'today-screen'
+- assertVisible:
+    id: 'today-week-hero'

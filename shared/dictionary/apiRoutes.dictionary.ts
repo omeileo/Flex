@@ -11,5 +11,6 @@ export const ApiRoutes = {
     `/training-plans/${planId}/apply-weekly-progression`,
   planChanges: (planId: string) => `/training-plans/${planId}/changes`,
   exercises: '/exercises',
-  workoutSessions: '/workout-sessions'
+  workoutSessions: '/workout-sessions',
+  workoutSessionProgress: '/workout-sessions/progress'
 } as const

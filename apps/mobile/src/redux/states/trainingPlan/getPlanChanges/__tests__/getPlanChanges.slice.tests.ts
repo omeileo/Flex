@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { getPlanChanges } from '../getPlanChanges.slice'
 import getPlanChangesReducer from '../getPlanChanges.slice'
 
 jest.mock('../getPlanChanges.api', () => ({
@@ -15,8 +14,6 @@ jest.mock('../../../../../shared/functions/ErrorHandler/errorHandler.functions',
     isErrorCode: jest.fn()
   }
 }))
-
-const { getPlanChangesApi } = jest.requireMock('../getPlanChanges.api')
 
 const buildStore = () => configureStore({ reducer: { getPlanChanges: getPlanChangesReducer } })
 

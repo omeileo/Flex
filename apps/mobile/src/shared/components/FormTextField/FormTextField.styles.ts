@@ -16,9 +16,9 @@ export const createFormTextFieldStyles = (colors: ThemeColors) =>
     },
     input: {
       backgroundColor: colors.surface,
-      borderWidth: StyleSheet.hairlineWidth,
+      borderWidth: 1,
       borderColor: colors.border,
-      borderRadius: radii.md,
+      borderRadius: radii.input,
       paddingHorizontal: spacing.md,
       paddingVertical: spacing.sm + 2,
       fontSize: typography.bodyLarge,

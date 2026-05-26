@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 import { ThemeColors } from '@shared/context/ThemeProvider/ThemeProvider.types'
-import { fontWeights, getElevation, radii, spacing, typography } from '@shared/styles/StyleConstants'
+import { getElevation, spacing } from '@shared/styles/StyleConstants'
 import { createProfileFlowStyles } from '@shared/styles/profileFlow.styles'
 
 export const createProfileStyles = (colors: ThemeColors) => {

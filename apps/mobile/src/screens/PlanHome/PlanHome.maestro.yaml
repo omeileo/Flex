@@ -1,0 +1,14 @@
+appId: com.flex.app
+---
+# Plan tab empty state and creation entry
+# Run: maestro test apps/mobile/src/screens/PlanHome/PlanHome.maestro.yaml
+
+- launchApp
+- tapOn:
+    text: 'Plan'
+- assertVisible:
+    id: 'plan-home-empty'
+- tapOn:
+    text: 'Create plan'
+- assertVisible:
+    id: 'plan-home-focus'

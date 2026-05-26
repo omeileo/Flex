@@ -42,8 +42,9 @@ const AuthFlowPreviewComponent = (_props: AuthFlowPreviewComponentProps) => {
 
   const renderSignIn = () => (
     <>
-      <AuthBrandHeader tagline={t('designPreview.auth.signInTagline')} />
+      <AuthBrandHeader />
       <Text style={styles.title}>{t('auth.login.title')}</Text>
+      <Text style={styles.subtitle}>{t('designPreview.auth.signInTagline')}</Text>
       <FormTextField
         label={t('auth.login.email')}
         value={email}
@@ -60,6 +61,9 @@ const AuthFlowPreviewComponent = (_props: AuthFlowPreviewComponentProps) => {
         secureTextEntry
         autoComplete="password"
       />
+      <Pressable style={styles.forgotPasswordLink} onPress={() => undefined}>
+        <Text style={styles.forgotPasswordText}>{t('auth.login.forgotPassword')}</Text>
+      </Pressable>
       <PrimaryButton label={t('auth.login.submit')} onPress={() => undefined} />
       <Pressable style={styles.linkRow} onPress={() => setView('signUp')}>
         <Text style={styles.linkText}>
@@ -72,8 +76,9 @@ const AuthFlowPreviewComponent = (_props: AuthFlowPreviewComponentProps) => {
 
   const renderSignUp = () => (
     <>
-      <AuthBrandHeader tagline={t('designPreview.auth.signUpTagline')} />
+      <AuthBrandHeader />
       <Text style={styles.title}>{t('auth.signUp.title')}</Text>
+      <Text style={styles.subtitle}>{t('designPreview.auth.signUpTagline')}</Text>
       <FormTextField
         label={t('auth.signUp.firstName')}
         value={firstName}

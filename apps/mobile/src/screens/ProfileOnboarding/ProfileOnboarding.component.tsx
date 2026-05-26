@@ -1,110 +1,617 @@
-import React from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 
-import { Pressable, ScrollView, Text, TextInput, View } from 'react-native'
+import { ActivityIndicator, Pressable, ScrollView, Text, TextInput, View } from 'react-native'
 
-import { yupResolver } from '@hookform/resolvers/yup'
+import { useThemeColors } from '@shared/hooks/useThemeColors/useThemeColors.hooks'
 import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
-import { Controller, useForm } from 'react-hook-form'
+import { EquipmentPresetType, WorkoutLocation } from '@shared/types/workoutEquipment.types'
 import { useTranslation } from 'react-i18next'
 
+import CoachNote from '@shared/components/CoachNote/CoachNote.component'
+import CustomEquipmentInput from '@shared/components/CustomEquipmentInput/CustomEquipmentInput.component'
+import EquipmentPickerSheet from '@shared/components/EquipmentPickerSheet/EquipmentPickerSheet.component'
+import LocationCard from '@shared/components/LocationCard/LocationCard.component'
+import PrimaryButton from '@shared/components/PrimaryButton/PrimaryButton.component'
+import ProgressHeader from '@shared/components/ProgressHeader/ProgressHeader.component'
+import SelectionCard from '@shared/components/SelectionCard/SelectionCard.component'
+
+import {
+  PLAN_GENERATING_STEP,
+  PROFILE_GYM_STEPS,
+  TOTAL_ONBOARDING_STEPS,
+  ageBands,
+  commonEquipmentIds,
+  dietPreferences,
+  equipmentPickerCategories,
+  injuryAreas,
+  injuryStateOptions,
+  locationPresetOptions,
+  onboardingGoals,
+  predefinedEquipmentCatalog,
+  restrictionMovements
+} from './ProfileOnboarding.dictionary'
 import { createProfileOnboardingStyles } from './ProfileOnboarding.styles'
-import { ProfileOnboardingComponentProps, ProfileOnboardingFormValues } from './ProfileOnboarding.types'
-import { profileOnboardingSchema } from './ProfileOnboarding.validation'
+import {
+  InjuryStateId,
+  ProfileOnboardingComponentProps,
+  ProfileOnboardingDraft,
+  SexAtBirth
+} from './ProfileOnboarding.types'
 
-const defaultValues: ProfileOnboardingFormValues = {
-  goal: '',
-  experienceLevel: 'beginner',
-  daysPerWeek: 3,
-  sessionMinutes: 45,
-  equipment: [],
-  injuries: []
-}
+const FITNESS_LEVELS = ['Beginner', 'Intermediate', 'Advanced']
+const SEX_OPTIONS: { id: SexAtBirth; labelKey: string }[] = [
+  { id: 'female', labelKey: 'profileOnboarding.sexOptions.female' },
+  { id: 'male', labelKey: 'profileOnboarding.sexOptions.male' },
+  { id: 'preferNotToSay', labelKey: 'profileOnboarding.sexOptions.preferNotToSay' }
+]
 
-const ProfileOnboardingComponent = ({ isSubmitting, error, onSubmit }: ProfileOnboardingComponentProps) => {
+const ProfileOnboardingComponent = ({ isSubmitting, error, onComplete }: ProfileOnboardingComponentProps) => {
+  const colors = useThemeColors()
   const styles = useThemedStyles(createProfileOnboardingStyles)
   const { t } = useTranslation()
-  const {
-    control,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<ProfileOnboardingFormValues>({
-    defaultValues,
-    resolver: yupResolver(profileOnboardingSchema)
-  })
+  const [step, setStep] = useState(1)
+  const [selectedGoals, setSelectedGoals] = useState<string[]>([])
+  const [selectedInjuries, setSelectedInjuries] = useState<string[]>([])
+  const [injuryState, setInjuryState] = useState<InjuryStateId | null>(null)
+  const [restrictions, setRestrictions] = useState<string[]>([])
+  const [selectedDiet, setSelectedDiet] = useState<string | null>(null)
+  const [calorieTarget, setCalorieTarget] = useState('')
+  const [selectedAge, setSelectedAge] = useState<string | null>(null)
+  const [fitnessLevel, setFitnessLevel] = useState(1)
+  const [sexAtBirth, setSexAtBirth] = useState<SexAtBirth | null>(null)
+  const [locationName, setLocationName] = useState('')
+  const [locationPreset, setLocationPreset] = useState<EquipmentPresetType | null>(null)
+  const [selectedEquipmentIds, setSelectedEquipmentIds] = useState<string[]>([])
+  const [customEquipmentLabels, setCustomEquipmentLabels] = useState<string[]>([])
+  const [equipmentCategory, setEquipmentCategory] = useState('All')
+  const [savedLocations, setSavedLocations] = useState<WorkoutLocation[]>([])
+  const [defaultLocationId, setDefaultLocationId] = useState<string | null>(null)
+  const [customModalOpen, setCustomModalOpen] = useState(false)
+
+  const toggleSelection = useCallback((value: string, list: string[], setter: (next: string[]) => void) => {
+    if (list.includes(value)) {
+      setter(list.filter((item) => item !== value))
+
+      return
+    }
+
+    setter([...list, value])
+  }, [])
+
+  const toggleGoal = useCallback(
+    (goal: string) => {
+      toggleSelection(goal, selectedGoals, setSelectedGoals)
+    },
+    [selectedGoals, toggleSelection]
+  )
+
+  const toggleInjury = useCallback(
+    (area: string) => {
+      if (area === 'None') {
+        setSelectedInjuries(['None'])
+
+        return
+      }
+
+      const withoutNone = selectedInjuries.filter((item) => item !== 'None')
+      toggleSelection(area, withoutNone, setSelectedInjuries)
+    },
+    [selectedInjuries, toggleSelection]
+  )
+
+  const toggleRestriction = useCallback(
+    (movement: string) => {
+      toggleSelection(movement, restrictions, setRestrictions)
+    },
+    [restrictions, toggleSelection]
+  )
+
+  const toggleEquipment = useCallback(
+    (id: string) => {
+      toggleSelection(id, selectedEquipmentIds, setSelectedEquipmentIds)
+    },
+    [selectedEquipmentIds, toggleSelection]
+  )
+
+  const buildDraft = useCallback((): ProfileOnboardingDraft => {
+    return {
+      goals: selectedGoals,
+      injuries: selectedInjuries,
+      injuryState,
+      restrictions,
+      diet: selectedDiet,
+      calorieTarget,
+      ageBand: selectedAge,
+      fitnessLevel,
+      sexAtBirth,
+      locations: savedLocations,
+      defaultLocationId
+    }
+  }, [
+    calorieTarget,
+    defaultLocationId,
+    fitnessLevel,
+    injuryState,
+    restrictions,
+    savedLocations,
+    selectedAge,
+    selectedDiet,
+    selectedGoals,
+    selectedInjuries,
+    sexAtBirth
+  ])
+
+  const saveCurrentLocation = useCallback(() => {
+    const trimmed = locationName.trim()
+
+    if (!trimmed || !locationPreset) {
+      return null
+    }
+
+    const id = `loc-${Date.now()}`
+    const location: WorkoutLocation = {
+      id,
+      name: trimmed,
+      presetType: locationPreset,
+      isDefault: savedLocations.length === 0,
+      equipment: [
+        ...selectedEquipmentIds.map((predefinedId) => ({
+          predefinedId,
+          categoryTags: [predefinedEquipmentCatalog.find((e) => e.id === predefinedId)?.category ?? 'Accessories']
+        })),
+        ...customEquipmentLabels.map((customLabel) => ({
+          customLabel,
+          categoryTags: ['Accessories']
+        }))
+      ]
+    }
+
+    setSavedLocations((current) => [...current, location])
+
+    if (!defaultLocationId) {
+      setDefaultLocationId(id)
+    }
+
+    return location
+  }, [
+    customEquipmentLabels,
+    defaultLocationId,
+    locationName,
+    locationPreset,
+    savedLocations.length,
+    selectedEquipmentIds
+  ])
+
+  const resetLocationForm = useCallback(() => {
+    setLocationName('')
+    setLocationPreset(null)
+    setSelectedEquipmentIds([])
+    setCustomEquipmentLabels([])
+    setEquipmentCategory('All')
+  }, [])
+
+  const canContinue = useMemo(() => {
+    switch (step) {
+      case 1:
+        return selectedGoals.length > 0
+      case 3:
+        return injuryState !== null
+      case 5:
+        return selectedAge !== null && sexAtBirth !== null
+      case 7:
+        return locationName.trim().length > 0 && locationPreset !== null
+      case 9:
+        return savedLocations.length > 0 && defaultLocationId !== null
+      default:
+        return true
+    }
+  }, [
+    defaultLocationId,
+    injuryState,
+    locationName,
+    locationPreset,
+    savedLocations.length,
+    selectedAge,
+    selectedGoals.length,
+    sexAtBirth,
+    step
+  ])
+
+  const handleContinue = useCallback(() => {
+    if (step < TOTAL_ONBOARDING_STEPS) {
+      setStep((current) => current + 1)
+    }
+  }, [step])
+
+  const handleSkipInjury = useCallback(() => {
+    setSelectedInjuries(['None'])
+    setStep(3)
+  }, [])
+
+  const handleSaveEquipment = useCallback(() => {
+    saveCurrentLocation()
+    setStep(9)
+  }, [saveCurrentLocation])
+
+  const handleAddAnotherLocation = useCallback(() => {
+    saveCurrentLocation()
+    resetLocationForm()
+    setStep(7)
+  }, [resetLocationForm, saveCurrentLocation])
+
+  const renderProgress = (current: number) =>
+    current <= PROFILE_GYM_STEPS ? <ProgressHeader currentStep={current} totalSteps={PROFILE_GYM_STEPS} /> : null
+
+  const renderStepContent = () => {
+    switch (step) {
+      case 1:
+        return (
+          <>
+            {renderProgress(1)}
+            <Text style={styles.headline}>{t('profileOnboarding.goalHeadline')}</Text>
+            <Text style={styles.subcopy}>{t('profileOnboarding.goalSubcopy')}</Text>
+            <View style={styles.chipGrid}>
+              {onboardingGoals.map((goal) => (
+                <SelectionCard
+                  key={goal}
+                  label={goal}
+                  selected={selectedGoals.includes(goal)}
+                  onPress={() => toggleGoal(goal)}
+                  style={styles.chip}
+                />
+              ))}
+            </View>
+          </>
+        )
+
+      case 2:
+        return (
+          <>
+            {renderProgress(2)}
+            <Text style={styles.headline}>{t('profileOnboarding.injuryHeadline')}</Text>
+            <View style={styles.chipGrid}>
+              {injuryAreas.map((area) => (
+                <SelectionCard
+                  key={area}
+                  label={area}
+                  selected={selectedInjuries.includes(area)}
+                  onPress={() => toggleInjury(area)}
+                  style={styles.chip}
+                />
+              ))}
+            </View>
+            <Text style={styles.sectionLabel}>{t('profileOnboarding.flareUpLabel')}</Text>
+            <TextInput
+              style={styles.input}
+              placeholder={t('profileOnboarding.flareUpPlaceholder')}
+              placeholderTextColor={colors.textSecondary}
+            />
+            <Pressable style={styles.skipLink} onPress={handleSkipInjury}>
+              <Text style={styles.skipText}>{t('profileOnboarding.skipInjury')}</Text>
+            </Pressable>
+          </>
+        )
+
+      case 3:
+        return (
+          <>
+            {renderProgress(3)}
+            <Text style={styles.headline}>{t('profileOnboarding.stateHeadline')}</Text>
+            <View style={styles.radioStack}>
+              {injuryStateOptions.map((option) => (
+                <SelectionCard
+                  key={option.id}
+                  label={t(option.labelKey)}
+                  description={t(option.descriptionKey)}
+                  selected={injuryState === option.id}
+                  onPress={() => setInjuryState(option.id)}
+                />
+              ))}
+            </View>
+            {injuryState === 'managing' || injuryState === 'acute' ? (
+              <>
+                <Text style={styles.sectionLabel}>{t('profileOnboarding.restrictionsLabel')}</Text>
+                <View style={styles.chipGrid}>
+                  {restrictionMovements.map((movement) => (
+                    <SelectionCard
+                      key={movement}
+                      label={movement}
+                      selected={restrictions.includes(movement)}
+                      onPress={() => toggleRestriction(movement)}
+                      style={styles.chip}
+                    />
+                  ))}
+                </View>
+              </>
+            ) : null}
+          </>
+        )
+
+      case 4:
+        return (
+          <>
+            {renderProgress(4)}
+            <Text style={styles.headline}>{t('profileOnboarding.dietHeadline')}</Text>
+            <View style={styles.chipGrid}>
+              {dietPreferences.map((diet) => (
+                <SelectionCard
+                  key={diet}
+                  label={diet}
+                  selected={selectedDiet === diet}
+                  onPress={() => setSelectedDiet(diet)}
+                  style={styles.chip}
+                />
+              ))}
+            </View>
+            <Text style={styles.sectionLabel}>{t('profileOnboarding.calorieLabel')}</Text>
+            <TextInput
+              style={styles.input}
+              keyboardType="number-pad"
+              value={calorieTarget}
+              onChangeText={setCalorieTarget}
+              placeholder={t('profileOnboarding.caloriePlaceholder')}
+              placeholderTextColor={colors.textSecondary}
+            />
+          </>
+        )
+
+      case 5:
+        return (
+          <>
+            {renderProgress(5)}
+            <Text style={styles.headline}>{t('profileOnboarding.profileHeadline')}</Text>
+            <Text style={styles.sectionLabel}>{t('profileOnboarding.ageLabel')}</Text>
+            <View style={styles.ageRow}>
+              {ageBands.map((band) => (
+                <SelectionCard
+                  key={band}
+                  label={band}
+                  selected={selectedAge === band}
+                  onPress={() => setSelectedAge(band)}
+                  style={styles.chip}
+                />
+              ))}
+            </View>
+            <Text style={styles.sectionLabel}>{t('profileOnboarding.fitnessLabel')}</Text>
+            <View style={styles.sliderRow}>
+              {FITNESS_LEVELS.map((level, index) => (
+                <Text key={level} style={[styles.sliderLabel, index === fitnessLevel && styles.sliderLabelActive]}>
+                  {level}
+                </Text>
+              ))}
+            </View>
+            <View style={styles.sliderTrack}>
+              {FITNESS_LEVELS.map((level, index) => (
+                <Pressable
+                  key={level}
+                  style={[styles.sliderSegment, index <= fitnessLevel && styles.sliderSegmentActive]}
+                  onPress={() => setFitnessLevel(index)}
+                />
+              ))}
+            </View>
+            <Text style={styles.sectionLabel}>{t('profileOnboarding.sexLabel')}</Text>
+            <View style={styles.sexRow}>
+              {SEX_OPTIONS.map((option) => (
+                <SelectionCard
+                  key={option.id}
+                  label={t(option.labelKey)}
+                  selected={sexAtBirth === option.id}
+                  onPress={() => setSexAtBirth(option.id)}
+                  style={styles.chip}
+                />
+              ))}
+            </View>
+          </>
+        )
+
+      case 6:
+        return (
+          <>
+            {renderProgress(6)}
+            <Text style={styles.headline}>{t('profileOnboarding.locationsIntroHeadline')}</Text>
+            <Text style={styles.subcopy}>{t('profileOnboarding.locationsIntroSubcopy')}</Text>
+            <CoachNote message={t('profileOnboarding.locationsIntroCoach')} />
+          </>
+        )
+
+      case 7:
+        return (
+          <>
+            {renderProgress(7)}
+            <Text style={styles.headline}>{t('profileOnboarding.locationNameHeadline')}</Text>
+            <TextInput
+              style={styles.input}
+              value={locationName}
+              onChangeText={setLocationName}
+              placeholder={t('profileOnboarding.locationNamePlaceholder')}
+              placeholderTextColor={colors.textSecondary}
+            />
+            <Text style={styles.sectionLabel}>{t('profileOnboarding.locationPresetLabel')}</Text>
+            <View style={styles.chipGrid}>
+              {locationPresetOptions.map((preset) => (
+                <SelectionCard
+                  key={preset.id}
+                  label={preset.label}
+                  selected={locationPreset === preset.id}
+                  onPress={() => setLocationPreset(preset.id)}
+                  style={styles.chip}
+                />
+              ))}
+            </View>
+          </>
+        )
+
+      case 8:
+        return (
+          <>
+            {renderProgress(8)}
+            <Text style={styles.headline}>{t('profileOnboarding.equipmentHeadline')}</Text>
+            <EquipmentPickerSheet
+              locationName={locationName.trim() || t('profileOnboarding.locationFallback')}
+              categories={equipmentPickerCategories}
+              activeCategory={equipmentCategory}
+              onCategoryChange={setEquipmentCategory}
+              equipment={predefinedEquipmentCatalog}
+              selectedIds={selectedEquipmentIds}
+              customLabels={customEquipmentLabels}
+              onToggleEquipment={toggleEquipment}
+              onAddCustomPress={() => setCustomModalOpen(true)}
+              onSelectCommon={() => setSelectedEquipmentIds(commonEquipmentIds)}
+              onBodyweightOnly={() => {
+                setSelectedEquipmentIds([])
+                setCustomEquipmentLabels([])
+              }}
+            />
+          </>
+        )
+
+      case 9: {
+        const pendingLocation =
+          locationName.trim() && locationPreset
+            ? {
+                id: 'pending',
+                name: locationName.trim(),
+                presetType: locationPreset,
+                isDefault: false,
+                equipment: []
+              }
+            : null
+
+        const displayLocations =
+          pendingLocation && !savedLocations.find((l) => l.name === pendingLocation.name)
+            ? [...savedLocations, { ...pendingLocation, equipment: [] }]
+            : savedLocations
+
+        return (
+          <>
+            {renderProgress(9)}
+            <Text style={styles.headline}>{t('profileOnboarding.multiLocationHeadline')}</Text>
+            <Text style={styles.subcopy}>{t('profileOnboarding.multiLocationSubcopy')}</Text>
+            {displayLocations.map((loc) => (
+              <LocationCard
+                key={loc.id}
+                name={loc.name}
+                presetType={loc.presetType}
+                equipmentCount={loc.equipment.length || selectedEquipmentIds.length + customEquipmentLabels.length}
+                isDefault={defaultLocationId === loc.id || (loc.isDefault && !defaultLocationId)}
+                onPress={() => setDefaultLocationId(loc.id)}
+              />
+            ))}
+            <Pressable style={styles.skipLink} onPress={handleAddAnotherLocation}>
+              <Text style={styles.skipText}>{t('profileOnboarding.addAnotherLocation')}</Text>
+            </Pressable>
+          </>
+        )
+      }
+
+      case PLAN_GENERATING_STEP:
+        return (
+          <View style={styles.loaderCenter}>
+            <CoachNote message={t('profileOnboarding.generatingCoach')} />
+            <ActivityIndicator size="large" color={colors.accent} style={styles.loaderSpinner} />
+            <Text style={styles.loaderTitle}>{t('profileOnboarding.generatingTitle')}</Text>
+            <Text style={styles.loaderBullet}>{t('profileOnboarding.generatingGoals')}</Text>
+            <Text style={styles.loaderBullet}>{t('profileOnboarding.generatingInjuries')}</Text>
+            <Text style={styles.loaderBullet}>{t('profileOnboarding.generatingEquipment')}</Text>
+            <Text style={styles.loaderBullet}>{t('profileOnboarding.generatingSchedule')}</Text>
+          </View>
+        )
+
+      case 11: {
+        const defaultLocation = savedLocations.find((loc) => loc.id === defaultLocationId)
+
+        return (
+          <>
+            <View style={styles.revealCard}>
+              <Text style={styles.revealTitle}>{t('profileOnboarding.revealTitle')}</Text>
+              <Text style={styles.revealStats}>{t('profileOnboarding.revealStats')}</Text>
+              {defaultLocation ? (
+                <Text style={styles.revealStats}>
+                  {t('profileOnboarding.revealLocation', {
+                    name: defaultLocation.name
+                  })}
+                </Text>
+              ) : null}
+            </View>
+            <CoachNote message={t('profileOnboarding.revealCoach')} />
+          </>
+        )
+      }
+
+      default:
+        return null
+    }
+  }
+
+  const primaryLabel = useMemo(() => {
+    if (step === 5) return t('profileOnboarding.continue')
+    if (step === 6) return t('profileOnboarding.setupFirstLocation')
+    if (step === 8) return t('profileOnboarding.saveEquipment')
+    if (step === 9) return t('profileOnboarding.continueToPlan')
+    if (step === 11) return isSubmitting ? t('profileOnboarding.saving') : t('profileOnboarding.viewPlan')
+    if (step === PLAN_GENERATING_STEP) return t('profileOnboarding.continue')
+
+    return t('profileOnboarding.continue')
+  }, [isSubmitting, step, t])
+
+  const handlePrimaryPress = useCallback(() => {
+    if (step === 11) {
+      onComplete(buildDraft())
+
+      return
+    }
+
+    if (step === PLAN_GENERATING_STEP) {
+      setStep(11)
+
+      return
+    }
+
+    if (step === 8) {
+      handleSaveEquipment()
+
+      return
+    }
+
+    if (step === 9) {
+      if (savedLocations.length === 0) {
+        saveCurrentLocation()
+      }
+
+      setStep(PLAN_GENERATING_STEP)
+
+      return
+    }
+
+    handleContinue()
+  }, [buildDraft, handleContinue, handleSaveEquipment, onComplete, saveCurrentLocation, savedLocations.length, step])
+
+  const showLoaderLayout = step === PLAN_GENERATING_STEP
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
-      <Text style={styles.title}>{t('profileOnboarding.title')}</Text>
-      <Text style={styles.label}>{t('profileOnboarding.goal')}</Text>
-      <Controller
-        control={control}
-        name="goal"
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
-            value={value}
-            onChangeText={onChange}
-            placeholder={t('profileOnboarding.goalPlaceholder')}
-          />
-        )}
-      />
-      {errors.goal ? <Text style={styles.error}>{t(String(errors.goal.message))}</Text> : null}
-
-      <Text style={styles.label}>{t('profileOnboarding.experience')}</Text>
-      <Controller
-        control={control}
-        name="experienceLevel"
-        render={({ field: { onChange, value } }) => (
-          <View style={styles.experienceRow}>
-            {(['beginner', 'intermediate', 'advanced'] as const).map((level) => (
-              <Pressable
-                key={level}
-                style={[styles.input, value === level ? styles.experienceOptionSelected : styles.experienceOption]}
-                onPress={() => onChange(level)}
-              >
-                <Text>{t(`profileOnboarding.experienceLevels.${level}`)}</Text>
-              </Pressable>
-            ))}
-          </View>
-        )}
-      />
-
-      <Text style={styles.label}>{t('profileOnboarding.daysPerWeek')}</Text>
-      <Controller
-        control={control}
-        name="daysPerWeek"
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
-            keyboardType="number-pad"
-            value={String(value)}
-            onChangeText={(text) => onChange(Number(text) || 0)}
-          />
-        )}
-      />
-
-      <Text style={styles.label}>{t('profileOnboarding.sessionMinutes')}</Text>
-      <Controller
-        control={control}
-        name="sessionMinutes"
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
-            keyboardType="number-pad"
-            value={String(value)}
-            onChangeText={(text) => onChange(Number(text) || 0)}
-          />
-        )}
-      />
-
+    <View style={styles.container} testID="profile-onboarding-screen">
       {error ? <Text style={styles.error}>{error}</Text> : null}
+      {showLoaderLayout ? (
+        renderStepContent()
+      ) : (
+        <ScrollView contentContainerStyle={styles.scrollContent}>{renderStepContent()}</ScrollView>
+      )}
 
-      <Pressable style={styles.button} disabled={isSubmitting} onPress={handleSubmit(onSubmit)}>
-        <Text style={styles.buttonText}>
-          {isSubmitting ? t('profileOnboarding.saving') : t('profileOnboarding.submit')}
-        </Text>
-      </Pressable>
-    </ScrollView>
+      <View style={styles.footer}>
+        <PrimaryButton
+          label={primaryLabel}
+          onPress={handlePrimaryPress}
+          loading={isSubmitting && step === 11}
+          disabled={(!canContinue && step !== PLAN_GENERATING_STEP && step !== 11) || (isSubmitting && step === 11)}
+        />
+      </View>
+
+      <CustomEquipmentInput
+        visible={customModalOpen}
+        onAdd={(name) => setCustomEquipmentLabels((current) => [...current, name])}
+        onClose={() => setCustomModalOpen(false)}
+      />
+    </View>
   )
 }
 

@@ -1,0 +1,26 @@
+appId: com.flex.app
+---
+# Flow test: Progress — open tab and verify MVP metrics (authenticated)
+# Run: maestro test apps/mobile/src/e2e_tests/progress/viewProgressMetrics.flow.maestro.yaml
+
+- launchApp
+- runFlow:
+    file: ../auth/loginWithTestCredentials.subflow.maestro.yaml
+- tapOn:
+    text: 'Progress'
+- assertVisible:
+    id: 'progress-screen'
+- assertVisible:
+    id: 'progress-title'
+- assertVisible:
+    id: 'progress-stat-workouts'
+- assertVisible:
+    id: 'progress-stat-volume'
+- assertVisible:
+    id: 'progress-stat-streak'
+- assertVisible:
+    id: 'progress-stat-prs'
+- assertVisible:
+    id: 'progress-weekly-chart'
+- assertVisible:
+    text: 'Coming soon: strength score by muscle group'

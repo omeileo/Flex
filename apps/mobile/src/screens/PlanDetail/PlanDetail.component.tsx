@@ -2,8 +2,12 @@ import React from 'react'
 
 import { Pressable, ScrollView, Text, View } from 'react-native'
 
-import { formatExercisePrescription } from '@shared/functions/TrainingPlan/trainingPlanPresentation.functions'
+import {
+  formatExercisePrescription,
+  inferWorkoutModality
+} from '@shared/functions/TrainingPlan/trainingPlanPresentation.functions'
 import { useThemedStyles } from '@shared/hooks/useThemedStyles/useThemedStyles.hooks'
+import { workoutModalityColors } from '@shared/types/workoutModality.types'
 import { useTranslation } from 'react-i18next'
 
 import CoachNote from '@shared/components/CoachNote/CoachNote.component'
@@ -16,6 +20,7 @@ import { PlanDetailComponentProps } from './PlanDetail.types'
 
 const PlanDetailComponent = ({
   workout,
+  sessionMeta,
   coachNote,
   warmUpItems,
   isLoading,
@@ -39,6 +44,7 @@ const PlanDetailComponent = ({
     <View style={styles.container} testID="plan-detail-screen">
       <View style={styles.heroBand}>
         <Text style={styles.heroTitle}>{workout?.name ?? t('planDetail.title')}</Text>
+        {sessionMeta ? <Text style={styles.heroMeta}>{sessionMeta}</Text> : null}
         <Text style={styles.heroMeta}>
           {t('planDetail.dayMeta', {
             count: workout?.exercises.length ?? 0
@@ -57,15 +63,24 @@ const PlanDetailComponent = ({
         </View>
 
         <Text style={styles.sectionLabel}>{t('planDetail.mainWorkLabel')}</Text>
-        {workout?.exercises.map((exercise) => (
-          <Pressable key={exercise.exerciseId} style={styles.exerciseRow} onPress={() => onExercisePress(exercise)}>
-            <View style={styles.modalityBar} />
-            <View>
-              <Text style={styles.exerciseName}>{exercise.exerciseName}</Text>
-              <Text style={styles.exerciseRx}>{formatExercisePrescription(exercise.sets)}</Text>
-            </View>
-          </Pressable>
-        ))}
+        {workout?.exercises.map((exercise) => {
+          const modality = workout ? inferWorkoutModality(workout) : 'strength'
+
+          return (
+            <Pressable
+              key={exercise.exerciseId}
+              style={styles.exerciseRow}
+              onPress={() => onExercisePress(exercise)}
+              testID={`plan-detail-exercise-${exercise.exerciseId}`}
+            >
+              <View style={[styles.modalityBar, { backgroundColor: workoutModalityColors[modality] }]} />
+              <View>
+                <Text style={styles.exerciseName}>{exercise.exerciseName}</Text>
+                <Text style={styles.exerciseRx}>{formatExercisePrescription(exercise.sets)}</Text>
+              </View>
+            </Pressable>
+          )
+        })}
 
         <View style={styles.coachNoteSpacing}>
           <CoachNote message={coachNote} />
@@ -73,7 +88,7 @@ const PlanDetailComponent = ({
       </ScrollView>
 
       <View style={styles.footer}>
-        <PrimaryButton label={t('planDetail.startWorkout')} onPress={onStartWorkout} />
+        <PrimaryButton label={t('planDetail.startWorkout')} onPress={onStartWorkout} testID="plan-detail-start" />
       </View>
     </View>
   )

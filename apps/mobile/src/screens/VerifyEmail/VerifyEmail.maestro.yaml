@@ -1,0 +1,41 @@
+appId: com.flex.app
+---
+# Single-screen test: Verify email screen (via sign-up navigation)
+# Run: maestro test apps/mobile/src/screens/VerifyEmail/VerifyEmail.maestro.yaml
+# Note: Requires API reachability; reuses a fixed email so repeat runs hit "already exists" and still land on VerifyEmail.
+
+- launchApp
+- tapOn:
+    text: 'Create account'
+- assertVisible:
+    id: 'signup-screen'
+- tapOn:
+    text: 'First name'
+- inputText: E2E
+- tapOn:
+    text: 'Last name'
+- inputText: Verify
+- tapOn:
+    text: 'Email'
+- inputText: e2e.verify.screen@flex.test
+- tapOn:
+    text: 'Password'
+- inputText: TestPass123
+- tapOn:
+    id: 'signup-title'
+- tapOn:
+    id: 'signup-submit'
+- extendedWaitUntil:
+    visible:
+      id: 'verify-email-screen'
+    timeout: 30000
+- assertVisible:
+    id: 'verify-email-screen'
+- assertVisible:
+    id: 'verify-email-title'
+- assertVisible:
+    text: 'Verification code'
+- assertVisible:
+    text: 'Verify email'
+- assertVisible:
+    text: 'Resend code'

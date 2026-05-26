@@ -6,6 +6,7 @@ export type WorkoutCardProps = {
   title: string
   durationMinutes?: number
   dateLabel?: string
+  subtitle?: string
   modality: WorkoutModality
   completed?: boolean
   onPress?: () => void

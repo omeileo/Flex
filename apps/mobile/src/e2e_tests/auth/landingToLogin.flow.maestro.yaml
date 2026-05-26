@@ -1,0 +1,14 @@
+appId: com.flex.app
+---
+# Flow test: Auth — landing to login screen
+# Run: maestro test apps/mobile/src/e2e_tests/auth/landingToLogin.flow.maestro.yaml
+
+- launchApp
+- assertVisible:
+    text: 'Flex'
+- tapOn:
+    text: 'Log in'
+- assertVisible:
+    text: 'Log in'
+- assertVisible:
+    text: 'Email'

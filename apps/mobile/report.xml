@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="Pixel_10_Pro" tests="1" failures="0" time="10.0">
+    <testcase id="captureLoginScreenshot.flow.maestro" name="captureLoginScreenshot.flow.maestro" classname="captureLoginScreenshot.flow.maestro" time="10.0" status="SUCCESS">
+      <properties/>
+    </testcase>
+  </testsuite>
+</testsuites>
