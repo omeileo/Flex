@@ -4,11 +4,34 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { isAccountNotVerifiedError, setAuthenticationStatus } from '@shared/functions/Auth/auth.functions'
 import errorHandler from '@shared/functions/ErrorHandler/errorHandler.functions'
 import { serializeError } from '@shared/functions/Redux/serializeError.functions'
+import { UserRole } from '@shared/functions/UserRole/userRoleManagement.types'
+import { setUserRole } from '@shared/functions/UserRole/userRoleManagment.functions'
 import { ApiErrorResponse } from '@shared/types/api.types'
 
 import { loginApi } from './login.api'
 import loginInitialState from './login.initialState'
 import { LoginRequest } from './login.types'
+
+const mapBackendRoleToFrontend = (backendRole: string): UserRole | null => {
+  const roleMap: Record<string, UserRole> = {
+    admin: UserRole.admin,
+    user: UserRole.user
+  }
+
+  return roleMap[backendRole] ?? null
+}
+
+const persistUserRoles = (backendRoles?: string[]) => {
+  const userRoles = backendRoles?.map(mapBackendRoleToFrontend).filter((role): role is UserRole => role !== null) ?? []
+
+  if (userRoles.includes(UserRole.admin)) {
+    setUserRole(UserRole.admin)
+
+    return
+  }
+
+  setUserRole(userRoles[0] ?? UserRole.user)
+}
 
 export const login = createAsyncThunk('auth/login', async (request: LoginRequest, { rejectWithValue }) => {
   try {
@@ -17,6 +40,7 @@ export const login = createAsyncThunk('auth/login', async (request: LoginRequest
     await setFlexApiToken(response.data.token)
     resetFlexApiClient()
     setAuthenticationStatus(true)
+    persistUserRoles(response.data.roles)
 
     return response.data
   } catch (error) {

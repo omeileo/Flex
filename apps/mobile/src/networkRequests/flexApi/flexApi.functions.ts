@@ -1,6 +1,6 @@
 import { createFlexApiClient } from '@flex/shared/functions/http/flexApiClient/flexApiClient'
 import env from '@network/apiClient/env.config'
-import { setAuthenticationStatus } from '@shared/functions/Auth/auth.functions'
+import { clearSession } from '@shared/functions/Auth/session.functions'
 
 import { FlexApiInstance } from './flexApi.types'
 import { getFlexApiToken } from './flexApiToken.functions'
@@ -13,7 +13,7 @@ export const getFlexApi = (): FlexApiInstance => {
       baseUrl: env.API_BASE_URL,
       getToken: getFlexApiToken,
       onUnauthorized: () => {
-        setAuthenticationStatus(false)
+        clearSession()
       }
     })
   }

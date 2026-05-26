@@ -1,7 +1,7 @@
 import Snackbar from '../../components/Snackbar/Snackbar.functions'
 import { popupModal } from '../../subjects/popupModal'
 import { ApiErrorResponse } from '../../types/api.types'
-import { setAuthenticationStatus } from '../Auth/auth.functions'
+import { clearSession } from '../Auth/session.functions'
 import { sentenceCase } from '../String/string.functions'
 
 /**
@@ -23,7 +23,7 @@ export const handleApiError = (
     error?.status === 401 &&
     (error?.message?.includes('Token is required') || error?.message?.includes('Invalid or expired token'))
   ) {
-    setAuthenticationStatus(false)
+    clearSession()
 
     if (!hideSnackbar) {
       const message = 'Your session has expired. Please login again.'

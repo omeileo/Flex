@@ -33,7 +33,15 @@ const FlexBootstrapContainer = () => {
 
       try {
         await dispatch(getProfile()).unwrap()
-      } catch {
+      } catch (error) {
+        if (!isAuthenticated()) {
+          if (!cancelled) {
+            navigation.reset({ index: 0, routes: [{ name: 'Landing' }] })
+          }
+
+          return
+        }
+
         if (!cancelled) {
           navigation.reset({
             index: 0,

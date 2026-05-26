@@ -1,4 +1,4 @@
-export type PillTabKey = 'today' | 'plan' | 'coach' | 'profile'
+export type PillTabKey = 'today' | 'plan' | 'progress' | 'coach' | 'profile'
 
 export type PillTab = {
   key: PillTabKey

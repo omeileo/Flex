@@ -63,8 +63,19 @@ export function getRequestBody<Body>(req: Request) {
   return req.body as Body
 }
 
-export function getJwtTokenFromRequest(req: Request) {
-  // Extract the encoded cookie from the request
+function getJwtTokenFromAuthorizationHeader(req: Request): string | null {
+  const authorizationHeader = req.headers.authorization
+
+  if (!authorizationHeader?.startsWith('Bearer ')) {
+    return null
+  }
+
+  const token = authorizationHeader.slice('Bearer '.length).trim()
+
+  return token.length > 0 ? token : null
+}
+
+function getJwtTokenFromCookie(req: Request): string | null {
   const encodedCookie = req.cookies['jwt']
 
   if (!encodedCookie) {
@@ -79,6 +90,10 @@ export function getJwtTokenFromRequest(req: Request) {
   } catch (error) {
     return null
   }
+}
+
+export function getJwtTokenFromRequest(req: Request) {
+  return getJwtTokenFromCookie(req) ?? getJwtTokenFromAuthorizationHeader(req)
 }
 
 export function getCurrentUserId(req: Request) {

@@ -7,7 +7,7 @@ import { generatePlan } from '@redux/states/trainingPlan/generatePlan/generatePl
 import { getActivePlan } from '@redux/states/trainingPlan/getActivePlan/getActivePlan.slice'
 import { AppDispatch } from '@redux/store/store.types'
 import { isAuthenticated } from '@shared/functions/Auth/auth.functions'
-import { getUserRole } from '@shared/functions/UserRole/userRoleManagment.functions'
+import { getUserRole, removeUserRole } from '@shared/functions/UserRole/userRoleManagment.functions'
 import { useDispatch } from 'react-redux'
 
 import { AuthGateProps } from '../components/AuthGate.types'
@@ -29,6 +29,7 @@ const AuthGate = ({ route, children }: AuthGateProps) => {
     const validate = async () => {
       if (route.isAuthenticationRequired && !(await isAuthenticated())) {
         if (!cancelled) {
+          removeUserRole()
           navigation.reset({ index: 0, routes: [{ name: 'Landing' }] })
         }
 
@@ -51,7 +52,15 @@ const AuthGate = ({ route, children }: AuthGateProps) => {
 
       try {
         await dispatch(getProfile()).unwrap()
-      } catch {
+      } catch (error) {
+        if (!isAuthenticated()) {
+          if (!cancelled) {
+            navigation.reset({ index: 0, routes: [{ name: 'Landing' }] })
+          }
+
+          return
+        }
+
         if (!cancelled) {
           navigation.reset({
             index: 0,

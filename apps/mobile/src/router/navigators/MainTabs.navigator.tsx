@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { useTranslation } from 'react-i18next'
 
 import Coach from '@screens/Coach/Coach.container'
@@ -9,13 +9,18 @@ import Profile from '@screens/Profile/Profile.container'
 import Progress from '@screens/Progress/Progress.container'
 import Today from '@screens/Today/Today.container'
 
+import MainTabsTabBar from './MainTabsTabBar/MainTabsTabBar.component'
+
 const Tab = createBottomTabNavigator()
 
 const MainTabsNavigator = () => {
   const { t } = useTranslation()
 
   return (
-    <Tab.Navigator screenOptions={{ headerShown: true }}>
+    <Tab.Navigator
+      tabBar={(props: BottomTabBarProps) => <MainTabsTabBar {...props} />}
+      screenOptions={{ headerShown: true }}
+    >
       <Tab.Screen name="Today" component={Today} options={{ title: t('tabs.today') }} />
       <Tab.Screen name="PlanHome" component={PlanHome} options={{ title: t('tabs.plan') }} />
       <Tab.Screen name="Progress" component={Progress} options={{ title: t('tabs.progress') }} />

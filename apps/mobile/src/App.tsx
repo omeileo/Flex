@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { StatusBar, View } from 'react-native'
 
@@ -7,8 +7,11 @@ import { hydrateWellness } from '@redux/states/profile/wellness/wellness.slice'
 import { hydrateWorkoutLocations } from '@redux/states/profile/workoutLocations/workoutLocations.slice'
 import { hydrateTheme } from '@redux/states/settings/theme/theme.slice'
 import store from '@redux/store/store'
-import ROUTES from '@router/router'
+import { createAppRoutes } from '@router/router'
+import routes from '@router/routes.dictionary'
 import ErrorBoundary from '@shared/context/ErrorBoundary/ErrorBoundary.class'
+import { isAuthenticated } from '@shared/functions/Auth/auth.functions'
+import { validateStoredSession } from '@shared/functions/Auth/session.functions'
 import i18n from '@shared/localization/i18n'
 import { I18nextProvider } from 'react-i18next'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
@@ -20,6 +23,7 @@ import ThemeProvider from '@shared/context/ThemeProvider/ThemeProvider.component
 
 const AppBootstrap = () => {
   const dispatch = useDispatch()
+  const [appRoutes, setAppRoutes] = useState<React.ReactElement | null>(null)
 
   useEffect(() => {
     dispatch(hydrateTheme())
@@ -28,10 +32,36 @@ const AppBootstrap = () => {
     dispatch(hydrateCycleProfile())
   }, [dispatch])
 
+  useEffect(() => {
+    let cancelled = false
+
+    const bootstrapSession = async () => {
+      await validateStoredSession()
+
+      if (cancelled) {
+        return
+      }
+
+      const initialRouteName = isAuthenticated() ? routes.flexBootstrap.path : routes.landing.path
+
+      setAppRoutes(createAppRoutes(initialRouteName))
+    }
+
+    bootstrapSession()
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  if (!appRoutes) {
+    return null
+  }
+
   return (
     <ThemeProvider>
       <SafeAreaProvider>
-        <SnackbarProvider>{ROUTES}</SnackbarProvider>
+        <SnackbarProvider>{appRoutes}</SnackbarProvider>
       </SafeAreaProvider>
     </ThemeProvider>
   )

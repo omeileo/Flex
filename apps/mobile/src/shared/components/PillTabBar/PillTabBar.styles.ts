@@ -18,9 +18,15 @@ export const createPillTabBarStyles = (colors: ThemeColors) => {
     },
     tab: {
       flex: 1,
-      paddingVertical: spacing.sm + 2,
+      paddingVertical: spacing.sm,
+      paddingHorizontal: spacing.xs,
       borderRadius: radii.pill,
-      alignItems: 'center'
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    tabContent: {
+      alignItems: 'center',
+      gap: 2
     },
     tabActive: {
       backgroundColor: colors.accent
